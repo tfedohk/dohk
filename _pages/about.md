@@ -92,3 +92,9 @@ permalink: /about/
 - 19.05.25 - 19.05.26 > PYTHON 프로그래밍 기본
 - 19.01.14 - 19.01.18 > 텐서플로우로 익히는 딥러닝 이론과 구현
 - 18.07.23 - 18.07.27 > 머신 러닝 기술의 이해 및 실습
+
+
+This website is powered by **[fastpages](https://github.com/fastai/fastpages)** [^1].
+
+
+[^1]:a blogging platform that natively supports Jupyter notebooks in addition to other formats.
