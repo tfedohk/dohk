@@ -3,7 +3,7 @@
     
         "post0": {
             "title": "NGS 관련 소프트웨어 설치",
-            "content": "이 노트는 NGS 설치 메뉴얼이다. 설치하고자 하는 SW는 다음과 같다. 각 파일을 다운로드 할 수 있는 링크도 함께 달았다. . bwa: 다운로드 또는 latest version | samtools: 다운로드 또는 latest version | picard: 다운로드 또는 latest version | gatk: 다운로드 또는 latest version | trimmomatic: 다운로드 또는 latest version | . &#45796;&#50868;&#47196;&#46300;&#54620; &#54260;&#45908;&#47196; &#51060;&#46041; . 다운로드 한 폴더가 Downloads라고 가정한다면, cd Downloads를 입력하여 이동한다. . BWA . .",
+            "content": "이 노트는 NGS 설치 메뉴얼이다. 설치하고자 하는 SW는 다음과 같다. 각 파일을 다운로드 할 수 있는 링크도 함께 달았다. . bwa: 다운로드 또는 latest version | samtools: 다운로드 또는 latest version | picard: 다운로드 또는 latest version | gatk: 다운로드 또는 latest version | trimmomatic: 다운로드 또는 latest version | . &#49444;&#52824;&#50640; &#50526;&#49436; . 모든 과정은 터미널에서 이루어진다. 모든 설치 파일은 /home/user 폴더에 있다고 가정한다. . BWA . &#49444;&#52824; &#47749;&#47161;&#50612; . sudo tar -xvf bwa-0.7.17.tar.bz2 cd bwa-0.7.17 sudo make /.bwa # 결과 확인 pwd #path 복사 sudo vi ~/.bashrc # 맨 아래로 이동 후, i를 눌러 insert 모드로 변경 한 다음, 아래의 내용 추가 export PATH=(달러표시)PATH:[복사한 path 붙여넣기. 괄호는 제거]:(달러표시)PATH # esc-&gt;:wq-&gt;엔터 source ~/.bashrc bwa # 결과 확인 cd .. rm bwa-0.7.17.tar.bz2 . &#44208;&#44284; &#54868;&#47732; .",
             "url": "https://tfedohk.github.io/dohk/ngs-sw-installation/",
             "relUrl": "/ngs-sw-installation/",
             "date": " • Sep 22, 2020"
