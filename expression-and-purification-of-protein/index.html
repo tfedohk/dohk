@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>단백질의 발현과 정제 | dohk’s AI &amp; bioinformatics</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="단백질의 발현과 정제" />
+<meta name="author" content="Kwon DoHyung" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="contact on gwondohyung@gmail.com" />
+<meta property="og:description" content="contact on gwondohyung@gmail.com" />
+<link rel="canonical" href="https://tfedohk.github.io/dohk/expression-and-purification-of-protein/" />
+<meta property="og:url" content="https://tfedohk.github.io/dohk/expression-and-purification-of-protein/" />
+<meta property="og:site_name" content="dohk’s AI &amp; bioinformatics" />
+<meta property="og:image" content="https://tfedohk.github.io/dohk/images/2020-09-16-Protein-expression-and-purification/01_growth_curve.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-09-16T00:00:00-05:00" />
+<script type="application/ld+json">
+{"url":"https://tfedohk.github.io/dohk/expression-and-purification-of-protein/","@type":"BlogPosting","headline":"단백질의 발현과 정제","dateModified":"2020-09-16T00:00:00-05:00","datePublished":"2020-09-16T00:00:00-05:00","image":"https://tfedohk.github.io/dohk/images/2020-09-16-Protein-expression-and-purification/01_growth_curve.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://tfedohk.github.io/dohk/expression-and-purification-of-protein/"},"author":{"@type":"Person","name":"Kwon DoHyung"},"description":"contact on gwondohyung@gmail.com","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/dohk/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://tfedohk.github.io/dohk/feed.xml" title="dohk's AI &amp; bioinformatics" /><link rel="shortcut icon" type="image/x-icon" href="/dohk/images/favicon.ico"><link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/dohk/">dohk&#39;s AI &amp; bioinformatics</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/dohk/about/">About Me</a><a class="page-link" href="/dohk/search/">Search</a><a class="page-link" href="/dohk/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">단백질의 발현과 정제</h1><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-09-16T00:00:00-05:00" itemprop="datePublished">
+        Sep 16, 2020
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">Kwon DoHyung</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      11 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/dohk/categories/#bio">bio</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          
+          
+          
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h1"><a href="#단백질-발현">단백질 발현 </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#BL21이-쓰이는-이유">BL21이 쓰이는 이유 </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#단백질-정제">단백질 정제 </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#Affinity-Chromatography">Affinity Chromatography </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#이미다졸(Imidazole)">이미다졸(Imidazole) </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#이외의-chromatography">이외의 chromatography </a></li>
+<li class="toc-entry toc-h2"><a href="#Cell-Lysis">Cell Lysis </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#불용성-물질(insoluble-particles)">불용성 물질(insoluble particles) </a></li>
+<li class="toc-entry toc-h3"><a href="#가용성-물질(soluble-particles)">가용성 물질(soluble particles) </a></li>
+<li class="toc-entry toc-h3"><a href="#Cell-Lysis를-하는-세-가지-방법">Cell Lysis를 하는 세 가지 방법 </a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#단백질-정량">단백질 정량 </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#EcoCyc:-target-gene의-sequence를-알아낸다.">EcoCyc: target gene의 sequence를 알아낸다. </a></li>
+<li class="toc-entry toc-h2"><a href="#ExPASy:-단백질에-대한-정보를-얻는다.">ExPASy: 단백질에 대한 정보를 얻는다. </a></li>
+<li class="toc-entry toc-h2"><a href="#단백질의-양-구하기">단백질의 양 구하기 </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#실험-과정-및-결과">실험 과정 및 결과 </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#균주-배양">균주 배양 </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#액체-균주-배양">액체 균주 배양 </a></li>
+<li class="toc-entry toc-h3"><a href="#고체-균주-배양">고체 균주 배양 </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#시약,-버퍼-제조">시약, 버퍼 제조 </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#Equilibrium-Buffer(Suspension-Buffer)">Equilibrium Buffer(Suspension Buffer) </a></li>
+<li class="toc-entry toc-h3"><a href="#Washing-Buffer">Washing Buffer </a></li>
+<li class="toc-entry toc-h3"><a href="#Elution-Buffer">Elution Buffer </a></li>
+<li class="toc-entry toc-h3"><a href="#그-외-시약-제조">그 외 시약 제조 </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#단백질-발현-유도">단백질 발현 유도 </a></li>
+<li class="toc-entry toc-h2"><a href="#시간대-별-단백질-발현-확인">시간대 별 단백질 발현 확인 </a></li>
+<li class="toc-entry toc-h2"><a href="#pre-SDS-PAGE">pre SDS-PAGE </a></li>
+<li class="toc-entry toc-h2"><a href="#Analysis-of-SDS-PAGE:-단백질-발현-확인">Analysis of SDS-PAGE: 단백질 발현 확인 </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#running-gel-제작">running gel 제작 </a></li>
+<li class="toc-entry toc-h3"><a href="#stacking-gel-제작">stacking gel 제작 </a></li>
+<li class="toc-entry toc-h3"><a href="#결과-해석">결과 해석 </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#단백질-정제">단백질 정제 </a></li>
+<li class="toc-entry toc-h2"><a href="#Analysis-of-SDS-PAGE:-단백질-정제-확인">Analysis of SDS-PAGE: 단백질 정제 확인 </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#running-gel-제작">running gel 제작 </a></li>
+<li class="toc-entry toc-h3"><a href="#stacking-gel-제작">stacking gel 제작 </a></li>
+<li class="toc-entry toc-h3"><a href="#결과-해석">결과 해석 </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#FPLC">FPLC </a></li>
+<li class="toc-entry toc-h2"><a href="#seeding">seeding </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#Reference">Reference </a></li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2020-09-16-expression-and-purification-of-protein.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>이전 실험 노트에서는 gene cloning을 수행하여 E.coli/DH5α(이하 DH5a)에 도입되었던 프라스미드 vector를 E.coli/BL21(DE3)(이하 BL21)에 재도입하는 과정을 다루었었다. 이렇게 transformation된 균주를 배양하여, 단백질의 발현, 정제, 마지막으로 정량하는 방법에 대해 알아보자.</p>
+<h1 id="단백질-발현">
+<a class="anchor" href="#%EB%8B%A8%EB%B0%B1%EC%A7%88-%EB%B0%9C%ED%98%84" aria-hidden="true"><span class="octicon octicon-link"></span></a>단백질 발현<a class="anchor-link" href="#%EB%8B%A8%EB%B0%B1%EC%A7%88-%EB%B0%9C%ED%98%84"> </a>
+</h1>
+<h2 id="BL21이-쓰이는-이유">
+<a class="anchor" href="#BL21%EC%9D%B4-%EC%93%B0%EC%9D%B4%EB%8A%94-%EC%9D%B4%EC%9C%A0" aria-hidden="true"><span class="octicon octicon-link"></span></a>BL21이 쓰이는 이유<a class="anchor-link" href="#BL21%EC%9D%B4-%EC%93%B0%EC%9D%B4%EB%8A%94-%EC%9D%B4%EC%9C%A0"> </a>
+</h2>
+<p>DH5a는 단백질 발현을 유도할 수 있는 시스템이 존재하지 않는다. 반면, BL21은 단백질 발현을 유도시킬 수 있는 시스템이 존재한다. 유전자는 mRNA로 전사(transcript)되며, mRNA는 Amino Acid를 만드는데 관여한다. 유전자에서 mRNA로 전사될 때 RNA Polymerase가 결합하는 부위인 promoter가 있는데, BL21은 T7 RNA Polymerase가 붙을 수 있으므로, DNA→RNA로의 전환이 이루어진다. 또한, mRNA→단백질이 되기 위해서는 RBS(Ribosome Binding Site)가 존재해야 하는데, BL21은 RBS가 존재하므로 단백질을 만들어낼 수 있는 시스템을 갖추고 있다고 볼 수 있다. RBS가 존재하면, 가장 먼저 나타나는 ATG 서열에서부터 아미노산을 붙여나가기 시작하여 최종적으로 단백질이 만들어진다. 또한 BL21은 DH5a보다 더 빠른 growth rate을 가진다. 
+<img src="/dohk/images/copied_from_nb/../images/2020-09-16-expression-and-purification-of-protein/01_growth_curve.png" alt=""></p>
+<h1 id="단백질-정제">
+<a class="anchor" href="#%EB%8B%A8%EB%B0%B1%EC%A7%88-%EC%A0%95%EC%A0%9C" aria-hidden="true"><span class="octicon octicon-link"></span></a>단백질 정제<a class="anchor-link" href="#%EB%8B%A8%EB%B0%B1%EC%A7%88-%EC%A0%95%EC%A0%9C"> </a>
+</h1>
+<p>단백질 정제란 복합 혼합물 (complex mixture)로부터 단일 타입의 단백질을 분리하는 일련의 과정들이다. 단백질 정제는 관심 있는 단백질의 기능, 구조 그리고 상호작용을 분석하기 위해서 필수적이다.</p>
+<p>단백질 정제와 단백질 분리는 동일한 표현이다. 우리는 단백질 정제의 방법으로 Affinity chromatography를 사용한다.</p>
+<h2 id="Affinity-Chromatography">
+<a class="anchor" href="#Affinity-Chromatography" aria-hidden="true"><span class="octicon octicon-link"></span></a>Affinity Chromatography<a class="anchor-link" href="#Affinity-Chromatography"> </a>
+</h2>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-09-16-expression-and-purification-of-protein/02_chromt11_img1.jpg" alt="">
+<img src="/dohk/images/copied_from_nb/../images/2020-09-16-expression-and-purification-of-protein/03_Untitled_1.png" alt="">
+<img src="/dohk/images/copied_from_nb/../images/2020-09-16-expression-and-purification-of-protein/04_Untitled2.png" alt="">
+금속(Ni, Mn, Mg, Co, Fe 등)과 결합하는 성질이 있는 His을 이용하여 목표로 하는 단백질을 걸러 낼 수 있다. target gene의 앞 부분에 His을 붙인 vector를 이용하여 단백질을 생성하면 His 부위부터 단백질이 생성된다. 단백질을 분리해 낸 후엔 washing 과정을 거치는데 이 과정에서 Imidazole이 쓰인다. Imidazole은 His과 구조적으로 유사하기 때문에 His과 경쟁하여 His이 금속으로부터 떨어져나가게 유도하여 원하는 단백질만 남아있게 할 수 있다. 금속으로는 니켈이 가장 많이 쓰인다. 이러한 방법을 Affinity Chromatography라고 한다.</p>
+<p>Affinity chromatography는 단백질과 특정 물질(ligand)과의 친화성(affinity)을 이용한 대표적인 흡착 chromatography다. 즉, 특이적인 결합을 한다. 특이적 결합의 예는 항체와 항원, cytokine 및 hormone과 receptor, 효소와 기질 및 inhibitor 등이 있다. 즉,  무엇에 대한 친화성일까? 금속 이온 중 니켈에 대한 친화성이다.</p>
+<p>His(히스티딘) 잔기는 Ni(II)에 매우 강한 친화력을 보인다. 이러한 성질을 이용하기 위해 히스티딘 잔기들(His-Tag)을 가진 단백질이 발현되도록 클로닝 당시에 His 추가되도록 했었다.</p>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-09-16-expression-and-purification-of-protein/05_His-tag-protein.png" alt=""></p>
+<p>이 실험 노트에서 사용된 레진은 Thermo scientific사의 레진이며, 니켈로 인해 푸른색을 띄는 것을 볼 수 있다. 이 니켈 이온을 함유하는 구슬이 His-tag과 결합하여 단백질을 붙잡아 놓으면, 단백질 이외의 다른 물질들이나 다른 단백질을 걸러낼 수 있게 된다.</p>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-09-16-expression-and-purification-of-protein/06_Untitled3.png" alt=""></p>
+<p>단백질만 남게 되면, His을 대체할 수 있는 이미다졸(Imidazole)을 이용하여 다시 단백질을 뽑아낼 수 있다.</p>
+<h3 id="이미다졸(Imidazole)">
+<a class="anchor" href="#%EC%9D%B4%EB%AF%B8%EB%8B%A4%EC%A1%B8(Imidazole)" aria-hidden="true"><span class="octicon octicon-link"></span></a>이미다졸(Imidazole)<a class="anchor-link" href="#%EC%9D%B4%EB%AF%B8%EB%8B%A4%EC%A1%B8(Imidazole)"> </a>
+</h3>
+<p>이미다졸은 물에 용해되어 약 알칼리성을 띄는 흰색 또는 무색의 고체이다. 인접하지 않은 질소 원자를 갖는 방향족 헤테로고리 화합물이다.</p>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-09-16-expression-and-purification-of-protein/07_Untitled4.png" alt=""></p>
+<p>Affinity chromatography는 다른 chromatography에 비해 높은 정제효율과 회수율이 높으며, 한 번에 많은 시료를 처리할 수 있다는 장점이 있다. 따라서, 단백질의 정제에 있어서 우선 affinity chromatography를 사용하는 것을 고려한다.</p>
+<h2 id="이외의-chromatography">
+<a class="anchor" href="#%EC%9D%B4%EC%99%B8%EC%9D%98-chromatography" aria-hidden="true"><span class="octicon octicon-link"></span></a>이외의 chromatography<a class="anchor-link" href="#%EC%9D%B4%EC%99%B8%EC%9D%98-chromatography"> </a>
+</h2>
+<p>단백질은 분자량, 전하(등전점), 소수성, 생리활성(화학적 반응성) 등이 서로 제각각이다.
+<img src="/dohk/images/copied_from_nb/../images/2020-09-16-expression-and-purification-of-protein/08_Untitled5.png" alt="">
+fig. Gel filteration chromatography의 개략도</p>
+<h2 id="Cell-Lysis">
+<a class="anchor" href="#Cell-Lysis" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cell Lysis<a class="anchor-link" href="#Cell-Lysis"> </a>
+</h2>
+<p>특정 미생물은 세포 밖으로 단백질을 배출한다. 이럴 경우에는 단백질이 세포 밖에 있으므로 세포만 제거하면 된다. 그러나 BL21은 세포 내에서 단백질이 생성되므로 세포를 파쇄하여 단백질을 얻어야 한다. 이를 Cell Lysis(또는 Lysis)라 한다. 아래의 위키피디아의 영어 정의가 조금 더 명확하여 인용한다.</p>
+<p>Lysis is the breaking down of the membrane of a cell, often by viral, enzymic, or osmotic(삼투) mechanisms that compromise its integrity(온전한 상태).</p>
+<p>위 표현을 빌리자면 셀의 membrane을 제거하여 온전한 상태를 깨는 것이다. 파쇄 된 세포는 원심분리를 거치게 되는데, 원심분리의 결과는 불용성 물질과 가용성 물질로 분류할 수 있다.</p>
+<h3 id="불용성-물질(insoluble-particles)">
+<a class="anchor" href="#%EB%B6%88%EC%9A%A9%EC%84%B1-%EB%AC%BC%EC%A7%88(insoluble-particles)" aria-hidden="true"><span class="octicon octicon-link"></span></a>불용성 물질(insoluble particles)<a class="anchor-link" href="#%EB%B6%88%EC%9A%A9%EC%84%B1-%EB%AC%BC%EC%A7%88(insoluble-particles)"> </a>
+</h3>
+<p>불용성 물질은 침전물을 말한다.</p>
+<h3 id="가용성-물질(soluble-particles)">
+<a class="anchor" href="#%EA%B0%80%EC%9A%A9%EC%84%B1-%EB%AC%BC%EC%A7%88(soluble-particles)" aria-hidden="true"><span class="octicon octicon-link"></span></a>가용성 물질(soluble particles)<a class="anchor-link" href="#%EA%B0%80%EC%9A%A9%EC%84%B1-%EB%AC%BC%EC%A7%88(soluble-particles)"> </a>
+</h3>
+<p>가용성 물질은 상등액을 말한다. 주로 세포막 내의 세포질들이 이에 해당한다.</p>
+<h3 id="Cell-Lysis를-하는-세-가지-방법">
+<a class="anchor" href="#Cell-Lysis%EB%A5%BC-%ED%95%98%EB%8A%94-%EC%84%B8-%EA%B0%80%EC%A7%80-%EB%B0%A9%EB%B2%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cell Lysis를 하는 세 가지 방법<a class="anchor-link" href="#Cell-Lysis%EB%A5%BC-%ED%95%98%EB%8A%94-%EC%84%B8-%EA%B0%80%EC%A7%80-%EB%B0%A9%EB%B2%95"> </a>
+</h3>
+<ul>
+<li>초음파(ultra sonic)<ul>
+<li>현탁액에 초음파를 주사하는 방식이다.</li>
+</ul>
+</li>
+<li>고압<ul>
+<li>세포보다 작은 구멍을 뚫은 후, 압력을 가하여 세포가 쪼개지지 않고서는 구멍을 통과할 수 없게 만든 방법이다.</li>
+</ul>
+</li>
+<li>효소 및 화학물질<ul>
+<li>화학물질로는 urea(요소), guanidine HCl 등이 쓰이며, 효소로는 리소자임(lysozyme) 등이 쓰인다.<ul>
+<li>리소자임(lysozyme)<ul>
+<li>동물에 의해 생성되는 항균성 효소이다. 몸속으로 침투한 세균의 용해를 일으켜서 세균세포벽의 온전성을 위태롭게 만든다. 리소자임은 눈물, 침, 모유, 점액을 포함한 분비물에 풍부하다. 또, 대식세포와 호중성 과립구(PMN)의 세포질 과립부에도 존재한다. 상당한 양의 리소자임은 달걀의 흰자에서 볼 수 있다.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>세포벽을 파괴하면 세포막이 나온다. 세포막은 지질 이중층으로 이루어져 있다. 따라서 세포막은 세포막 외부의 농도를 높이는 식의 삼투압 차이를 이용하여 손쉽게 깰 수 있다. 이를 "cleared lysate(용해물)"라 한다.</p>
+<p><strong>open column방법과 FPLC 방법</strong></p>
+<h1 id="단백질-정량">
+<a class="anchor" href="#%EB%8B%A8%EB%B0%B1%EC%A7%88-%EC%A0%95%EB%9F%89" aria-hidden="true"><span class="octicon octicon-link"></span></a>단백질 정량<a class="anchor-link" href="#%EB%8B%A8%EB%B0%B1%EC%A7%88-%EC%A0%95%EB%9F%89"> </a>
+</h1>
+<p>단백질 정량은 발현된 단백질의 양을 계산하는 것을 말한다. 발현된 단백질의 양을 계산하기 위해서는 단백질의 농도를 구해야한다. 이를 위해서는 target gene에 의해 생성되는 아미노산 조성을 통해 시스테인(Cysteine)의 개수와 이에 따른 흡광도를 알아야 한다.</p>
+<h2 id="EcoCyc:-target-gene의-sequence를-알아낸다.">
+<a class="anchor" href="#EcoCyc:-target-gene%EC%9D%98-sequence%EB%A5%BC-%EC%95%8C%EC%95%84%EB%82%B8%EB%8B%A4." aria-hidden="true"><span class="octicon octicon-link"></span></a>EcoCyc: target gene의 sequence를 알아낸다.<a class="anchor-link" href="#EcoCyc:-target-gene%EC%9D%98-sequence%EB%A5%BC-%EC%95%8C%EC%95%84%EB%82%B8%EB%8B%A4."> </a>
+</h2>
+<p><a href="https://ecocyc.org/">EcoCyc 사이트</a>에서 target gene의 서열을 알아낼 수 있다.</p>
+<p>target gene은 현재 rihB이다.</p>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-09-16-expression-and-purification-of-protein/09_ecocyc.png" alt=""></p>
+<p>rihB를 입력한 후 Gene Search를 클릭한다.</p>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-09-16-expression-and-purification-of-protein/10_ecocyc-2.png" alt=""></p>
+<p>Get Nucleotide Sequence를 클릭한다.</p>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-09-16-expression-and-purification-of-protein/11_Untitled6.png" alt=""></p>
+<p>atg로 시작하여 taa/tag/tga로 끝나는 부분까지가 target gene이며, 이를 복사한다.</p>
+<p><strong>atg</strong>GAAAAGA GAAAAATTAT TCTGGATTGT GATCCGGGTC ATGATGATGC TATTGCTATA
+ATGATGGCGG CGAAACATCC GGCAATAGAT TTATTAGGCA TCACTATTGT AGCGGGTAAT
+CAGACGCTTG ATAAAACATT AATTAATGGC CTGAATGTTT GCCAGAAACT GGAGATTAAT
+GTTCCGGTTT ATGCGGGGAT GCCGCAGCCC ATTATGCGTC AACAAATCGT TGCCGATAAT
+ATTCACGGTG AAACCGGACT GGATGGCCCG GTATTCGAGC CGCTGACCCG CCAGGCAGAA
+AGCACTCATG CGGTGAAATA TATCATTGAT ACCCTGATGG CAAGCGATGG CGATATCACT
+CTGGTGCCGG TTGGTCCGCT TTCAAATATC GCGGTGGCAA TGCGTATGCA ACCCGCGATC
+CTGCCCAAAA TCCGTGAAAT TGTGCTAATG GGCGGCGCTT ACGGTACAGG CAACTTCACG
+CCATCTGCCG AGTTCAACAT CTTTGCCGAC CCGGAAGCCG CACGCGTAGT GTTCACCTCC
+GGCGTTCCAT TAGTGATGAT GGGCCTCGAT CTCACCAACC AGACCGTTTG CACCCCGGAC
+GTGATTGCTC GGATGGAAAG GGCAGGCGGC CCCGCCGGAG AGCTGTTCAG CGACATCATG
+AACTTCACTC TCAAAACGCA GTTCGAAAAC TACGGCCTTG CTGGCGGCCC GGTGCACGAC
+GCCACCTGCA TCGGTTATCT GATTAACCCT GATGGCATTA AAACCCAGGA GATGTACGTC
+GAAGTGGACG TCAACAGTGG CCCTTGCTAT GGGCGTACCG TCTGCGACGA GCTGGGCGTT
+CTTGGCAAGC CCGCCAATAC CAAAGTCGGC ATCACTATTG ATACAGACTG GTTCTGGGGA
+TTAGTCGAAG AGTGCGTGCG CGGCTACATC AAAACCCAT<strong>t aa</strong></p>
+<h2 id="ExPASy:-단백질에-대한-정보를-얻는다.">
+<a class="anchor" href="#ExPASy:-%EB%8B%A8%EB%B0%B1%EC%A7%88%EC%97%90-%EB%8C%80%ED%95%9C-%EC%A0%95%EB%B3%B4%EB%A5%BC-%EC%96%BB%EB%8A%94%EB%8B%A4." aria-hidden="true"><span class="octicon octicon-link"></span></a>ExPASy: 단백질에 대한 정보를 얻는다.<a class="anchor-link" href="#ExPASy:-%EB%8B%A8%EB%B0%B1%EC%A7%88%EC%97%90-%EB%8C%80%ED%95%9C-%EC%A0%95%EB%B3%B4%EB%A5%BC-%EC%96%BB%EB%8A%94%EB%8B%A4."> </a>
+</h2>
+<p><a href="https://www.expasy.org/">ExPASy 사이트</a>에 접속한 후,
+<img src="/dohk/images/copied_from_nb/../images/2020-09-16-expression-and-purification-of-protein/12_expasy-1.png" alt=""></p>
+<p>proteomics에 들어가서 translate을 클릭한다.</p>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-09-16-expression-and-purification-of-protein/13_expasy-2.png" alt=""></p>
+<p>복사한 서열을 붙여넣는다.</p>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-09-16-expression-and-purification-of-protein/14_pET28_vector.png" alt=""></p>
+<p>pET28 vector를 제한효소로 절단하여 target gene을 끼워넣는 것이기 때문에, pET28 vector의 제한효소 NcoI~NheI까지의 서열을 target gene의 앞에 붙여넣는다.</p>
+<p>NcoI~NheI까지의 서열은 다음과 같다.</p>
+<p>ATGGGCAGCAGCCATCATCATCATCATCACAGCAGCGGCCTGGTGCCGCGCGGCAGCCATATGGCTAGC</p>
+<p>NcoI~NheI까지의 서열을 target gene앞에 붙인 최종 서열은 다음과 같다.</p>
+<p><strong>ATGGGCAGCAGCCATCATCATCATCATCACAGCAGCGGCCTGGTGCCGCGCGGCAGCCATATGGCTAGC</strong>
+atgGAAAAGA GAAAAATTAT TCTGGATTGT GATCCGGGTC ATGATGATGC TATTGCTATA
+ATGATGGCGG CGAAACATCC GGCAATAGAT TTATTAGGCA TCACTATTGT AGCGGGTAAT
+CAGACGCTTG ATAAAACATT AATTAATGGC CTGAATGTTT GCCAGAAACT GGAGATTAAT
+GTTCCGGTTT ATGCGGGGAT GCCGCAGCCC ATTATGCGTC AACAAATCGT TGCCGATAAT
+ATTCACGGTG AAACCGGACT GGATGGCCCG GTATTCGAGC CGCTGACCCG CCAGGCAGAA
+AGCACTCATG CGGTGAAATA TATCATTGAT ACCCTGATGG CAAGCGATGG CGATATCACT
+CTGGTGCCGG TTGGTCCGCT TTCAAATATC GCGGTGGCAA TGCGTATGCA ACCCGCGATC
+CTGCCCAAAA TCCGTGAAAT TGTGCTAATG GGCGGCGCTT ACGGTACAGG CAACTTCACG
+CCATCTGCCG AGTTCAACAT CTTTGCCGAC CCGGAAGCCG CACGCGTAGT GTTCACCTCC
+GGCGTTCCAT TAGTGATGAT GGGCCTCGAT CTCACCAACC AGACCGTTTG CACCCCGGAC
+GTGATTGCTC GGATGGAAAG GGCAGGCGGC CCCGCCGGAG AGCTGTTCAG CGACATCATG
+AACTTCACTC TCAAAACGCA GTTCGAAAAC TACGGCCTTG CTGGCGGCCC GGTGCACGAC
+GCCACCTGCA TCGGTTATCT GATTAACCCT GATGGCATTA AAACCCAGGA GATGTACGTC
+GAAGTGGACG TCAACAGTGG CCCTTGCTAT GGGCGTACCG TCTGCGACGA GCTGGGCGTT
+CTTGGCAAGC CCGCCAATAC CAAAGTCGGC ATCACTATTG ATACAGACTG GTTCTGGGGA
+TTAGTCGAAG AGTGCGTGCG CGGCTACATC AAAACCCATt aa</p>
+<p>이 서열대로 아미노산이 생성되며, 단백질이 생성된다.</p>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-09-16-expression-and-purification-of-protein/15_expasy-3.png" alt=""></p>
+<p>translate을 누른다.</p>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-09-16-expression-and-purification-of-protein/16_expasy-4.png" alt=""></p>
+<p>결과물의 M을 누른다.</p>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-09-16-expression-and-purification-of-protein/17_pxpasy-5.png" alt=""></p>
+<p>Sequence analysis tools에서 ProtParam을 클릭한다. 그럼 별도의 창이 뜬다.</p>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-09-16-expression-and-purification-of-protein/18_expasy-6.png" alt=""></p>
+<h2 id="단백질의-양-구하기">
+<a class="anchor" href="#%EB%8B%A8%EB%B0%B1%EC%A7%88%EC%9D%98-%EC%96%91-%EA%B5%AC%ED%95%98%EA%B8%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>단백질의 양 구하기<a class="anchor-link" href="#%EB%8B%A8%EB%B0%B1%EC%A7%88%EC%9D%98-%EC%96%91-%EA%B5%AC%ED%95%98%EA%B8%B0"> </a>
+</h2>
+<p>단백질 정제 후의 흡광도를 구한 후, 이 값을 0.643으로 나누면 단백질의 농도가 나온다. 농도X부피 = 단백질의 양이므로, 이를 통해 단백질의 양을 계산할 수 있다.</p>
+<h1 id="실험-과정-및-결과">
+<a class="anchor" href="#%EC%8B%A4%ED%97%98-%EA%B3%BC%EC%A0%95-%EB%B0%8F-%EA%B2%B0%EA%B3%BC" aria-hidden="true"><span class="octicon octicon-link"></span></a>실험 과정 및 결과<a class="anchor-link" href="#%EC%8B%A4%ED%97%98-%EA%B3%BC%EC%A0%95-%EB%B0%8F-%EA%B2%B0%EA%B3%BC"> </a>
+</h1>
+<h2 id="균주-배양">
+<a class="anchor" href="#%EA%B7%A0%EC%A3%BC-%EB%B0%B0%EC%96%91" aria-hidden="true"><span class="octicon octicon-link"></span></a>균주 배양<a class="anchor-link" href="#%EA%B7%A0%EC%A3%BC-%EB%B0%B0%EC%96%91"> </a>
+</h2>
+<h3 id="액체-균주-배양">
+<a class="anchor" href="#%EC%95%A1%EC%B2%B4-%EA%B7%A0%EC%A3%BC-%EB%B0%B0%EC%96%91" aria-hidden="true"><span class="octicon octicon-link"></span></a>액체 균주 배양<a class="anchor-link" href="#%EC%95%A1%EC%B2%B4-%EA%B7%A0%EC%A3%BC-%EB%B0%B0%EC%96%91"> </a>
+</h3>
+<ul>
+<li>LB-Broth 100mL + Kanamycin 100μl → LB+Kan<ul>
+<li>항생제 접종은 전체 부피의 0.1%. 단위만 낮추면 된다.</li>
+</ul>
+</li>
+<li>LB+Kan 8mL → cap tube</li>
+<li>BL21 glycerol stock 100μl → LB+Kan cap tube 8mL<ul>
+<li>균주 접종은 전체 부피의 1%., 따라서 80μl를 접종하는 것이 정석. 더 많은 용량을 넣은 이유는 glycerol과 BL21이 1:1 비율로 섞여 있다는 점을 고려하였기 때문</li>
+</ul>
+&lt;/li&gt;
+</li>
+<li>incubator → 37°C → overnight</li>
+<li>overnight → LB+Kan 8mL 중 5mL → LB+Kan 100mL → shaking incubator → 37°C, 2hr → 단백질 발현 유도 단계와 pre SDS-PAGE 단계로 이동</li>
+&lt;/ul&gt;
+<h3 id="고체-균주-배양">
+<a class="anchor" href="#%EA%B3%A0%EC%B2%B4-%EA%B7%A0%EC%A3%BC-%EB%B0%B0%EC%96%91" aria-hidden="true"><span class="octicon octicon-link"></span></a>고체 균주 배양<a class="anchor-link" href="#%EA%B3%A0%EC%B2%B4-%EA%B7%A0%EC%A3%BC-%EB%B0%B0%EC%96%91"> </a>
+</h3>
+<p>고체 배지에서 배양된 균주: 단백질 정제와 RT-PCR 에서 사용할 예정</p>
+<ul>
+<li>NaCl 5g/1L, Yeast Extract 5g/1L, Trypton 10g/1L, Agar 6g/1L</li>
+<li>clean bench → pour → 식히기 → incubator → overnight</li>
+<li>BL21 glycerol stock,  DH5a glycerol stock → streaking</li>
+</ul>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-09-16-expression-and-purification-of-protein/19_Untitled7.png" alt="">
+<img src="/dohk/images/copied_from_nb/../images/2020-09-16-expression-and-purification-of-protein/20_Untitled8.png" alt=""></p>
+<p>rihB+DH5a/pET28 균주에 대한 streaking을 다소 서툴게 한 것 같다. 액체 균주 상태일 때 pipetting을 충분히 수행한 후 inoculation loop에 충분히 적신 후에 streaking을 해야겠다.</p>
+<h2 id="시약,-버퍼-제조">
+<a class="anchor" href="#%EC%8B%9C%EC%95%BD,-%EB%B2%84%ED%8D%BC-%EC%A0%9C%EC%A1%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>시약, 버퍼 제조<a class="anchor-link" href="#%EC%8B%9C%EC%95%BD,-%EB%B2%84%ED%8D%BC-%EC%A0%9C%EC%A1%B0"> </a>
+</h2>
+<h3 id="Equilibrium-Buffer(Suspension-Buffer)">
+<a class="anchor" href="#Equilibrium-Buffer(Suspension-Buffer)" aria-hidden="true"><span class="octicon octicon-link"></span></a>Equilibrium Buffer(Suspension Buffer)<a class="anchor-link" href="#Equilibrium-Buffer(Suspension-Buffer)"> </a>
+</h3>
+<ul>
+<li>5M NaCl 50mL + D.W. 440mL</li>
+<li>20mM Tris-HCl(pH 8.0) 10mL</li>
+</ul>
+<h3 id="Washing-Buffer">
+<a class="anchor" href="#Washing-Buffer" aria-hidden="true"><span class="octicon octicon-link"></span></a>Washing Buffer<a class="anchor-link" href="#Washing-Buffer"> </a>
+</h3>
+<ul>
+<li>5M NaCl 25mL + D.@. 215mL</li>
+<li>20mM Imidazole 5mL</li>
+<li>20mM Tris-HCl(pH 8.0) 5mL</li>
+</ul>
+<h3 id="Elution-Buffer">
+<a class="anchor" href="#Elution-Buffer" aria-hidden="true"><span class="octicon octicon-link"></span></a>Elution Buffer<a class="anchor-link" href="#Elution-Buffer"> </a>
+</h3>
+<ul>
+<li>5M NaCl 25mL + D.W. 170mL</li>
+<li>20mM Imidazole 50mL</li>
+<li>20mM Tris-HCl(pH 8.0) 5mL</li>
+</ul>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-09-16-expression-and-purification-of-protein/21_Untitled9.png" alt=""></p>
+<h3 id="그-외-시약-제조">
+<a class="anchor" href="#%EA%B7%B8-%EC%99%B8-%EC%8B%9C%EC%95%BD-%EC%A0%9C%EC%A1%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>그 외 시약 제조<a class="anchor-link" href="#%EA%B7%B8-%EC%99%B8-%EC%8B%9C%EC%95%BD-%EC%A0%9C%EC%A1%B0"> </a>
+</h3>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-09-16-expression-and-purification-of-protein/22_Untitled10.png" alt=""></p>
+<p>BPB: Bromophenol blue</p>
+<h2 id="단백질-발현-유도">
+<a class="anchor" href="#%EB%8B%A8%EB%B0%B1%EC%A7%88-%EB%B0%9C%ED%98%84-%EC%9C%A0%EB%8F%84" aria-hidden="true"><span class="octicon octicon-link"></span></a>단백질 발현 유도<a class="anchor-link" href="#%EB%8B%A8%EB%B0%B1%EC%A7%88-%EB%B0%9C%ED%98%84-%EC%9C%A0%EB%8F%84"> </a>
+</h2>
+<ul>
+<li>2hr 배양된 액체 균주 100mL + IPTG 1mM/mL → 1mL → EP tube: zero time&lt;단백질 발현 유도 시작&gt;<ul>
+<li>IPTG: 1M/1mL. 접종해야 할 농도는 1mM/1μl, culture된 LB+Kan은 100mL. → IPTG 100μl 접종</li>
+<li>IPTG를 넣은 후 3시간~5시간이 지나면 saturation된다.</li>
+</ul>
+</li>
+<li>shaking incubator → 37°C, every 1hr&lt;시간대 별 단백질 발현 확인 단계로 이동&gt;</li>
+</ul>
+<h2 id="시간대-별-단백질-발현-확인">
+<a class="anchor" href="#%EC%8B%9C%EA%B0%84%EB%8C%80-%EB%B3%84-%EB%8B%A8%EB%B0%B1%EC%A7%88-%EB%B0%9C%ED%98%84-%ED%99%95%EC%9D%B8" aria-hidden="true"><span class="octicon octicon-link"></span></a>시간대 별 단백질 발현 확인<a class="anchor-link" href="#%EC%8B%9C%EA%B0%84%EB%8C%80-%EB%B3%84-%EB%8B%A8%EB%B0%B1%EC%A7%88-%EB%B0%9C%ED%98%84-%ED%99%95%EC%9D%B8"> </a>
+</h2>
+<ul>
+<li>매 시간, 1mL 샘플링 → 4°C<ul>
+<li>필요한 샘플: zero time, 1hr, 2hr, 3hr, 4hr, 5hr</li>
+</ul>
+&lt;/li&gt;
+</li>
+<li>spectrophotometer X: 샘플의 OD값(흡광도)이 이상적이라 가정함</li>
+<li>sample 6개 → centrifuge → 12000rpm, 5min → 상등액 discard: LB-Kan 배지 제거가 목적</li>
+<li>D.W. 100μl → 각 sample 6개 → vortexing</li>
+<li>각 sample 6개 + 2X SDS-PAGE buffer 100μl → pipetting</li>
+<li>Heat-block → 95°C, 10min</li>
+<li>centrifuge → 12000rpm, 1min</li>
+&lt;/ul&gt;
+<h2 id="pre-SDS-PAGE">
+<a class="anchor" href="#pre-SDS-PAGE" aria-hidden="true"><span class="octicon octicon-link"></span></a>pre SDS-PAGE<a class="anchor-link" href="#pre-SDS-PAGE"> </a>
+</h2>
+<ul>
+<li>2hr 배양된 액체 균주 100mL 중 시간대 별 단백질 발현에 사용된 후의 남은 액체 균주 → 50mL conical tube → centrifuge → 3500rpm, 20min → 상등액 discard → loop: cell down</li>
+<li>pellet → -4°C: <strong>Harvest</strong>&lt;/li&gt;
+</li>
+<li>suspension buffer(equilibrium buffer) 25mL → pellet → pipetting<ul>
+<li>pellet : buffer = 1 : 20으로 맞추어야 하지만, 해당 실험에서는 25mL의 buffer를 넣는다.</li>
+</ul>
+</li>
+<li>초음파(ultrasonic) 파쇄, 10min</li>
+&lt;/ul&gt;
+<p><img src="/dohk/images/copied_from_nb/../images/2020-09-16-expression-and-purification-of-protein/23_Untitled11.png" alt=""></p>
+<ul>
+<li>centrifuge → 20000rpm, 30min</li>
+</ul>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-09-16-expression-and-purification-of-protein/24_Untitled12.png" alt=""></p>
+<ul>
+<li>상등액(clear lysate) 회수 → 4°C&lt;/li&gt;
+&lt;/ul&gt;
+<h2 id="Analysis-of-SDS-PAGE:-단백질-발현-확인">
+<a class="anchor" href="#Analysis-of-SDS-PAGE:-%EB%8B%A8%EB%B0%B1%EC%A7%88-%EB%B0%9C%ED%98%84-%ED%99%95%EC%9D%B8" aria-hidden="true"><span class="octicon octicon-link"></span></a>Analysis of SDS-PAGE: 단백질 발현 확인<a class="anchor-link" href="#Analysis-of-SDS-PAGE:-%EB%8B%A8%EB%B0%B1%EC%A7%88-%EB%B0%9C%ED%98%84-%ED%99%95%EC%9D%B8"> </a>
+</h2>
+<h3 id="running-gel-제작">
+<a class="anchor" href="#running-gel-%EC%A0%9C%EC%9E%91" aria-hidden="true"><span class="octicon octicon-link"></span></a>running gel 제작<a class="anchor-link" href="#running-gel-%EC%A0%9C%EC%9E%91"> </a>
+</h3>
+<ul>
+<li>0.75M Tris(pH 8.8) 3.75mL</li>
+<li>30% Acryl-bis 3mL</li>
+<li>10% SDS 75μl</li>
+<li>D.W. 0.65mL</li>
+<li>25% APS 25μl</li>
+<li>TEMED 6μl → 굳으므로 슬릿에 분주하기 직전에 넣을 것</li>
+</ul>
+<h3 id="stacking-gel-제작">
+<a class="anchor" href="#stacking-gel-%EC%A0%9C%EC%9E%91" aria-hidden="true"><span class="octicon octicon-link"></span></a>stacking gel 제작<a class="anchor-link" href="#stacking-gel-%EC%A0%9C%EC%9E%91"> </a>
+</h3>
+<ul>
+<li>0.25M Tris(pH 6.8) 1.45mL</li>
+<li>30% Acryl-bis 0.375mL</li>
+<li>10% SDS 37.5μl</li>
+<li>D.W. 1.45mL</li>
+<li>25% APS 15μl</li>
+<li>TEMED 5μl → 굳으므로 슬릿에 분주하기 직전에 넣을 것</li>
+</ul>
+<p><strong>[→티슈에 물을 묻힌 후 랩으로 감싸 보관하여 gel의 건조 방지]</strong></p>
+<ul>
+<li>Sample 6개 → centrifuge → 13000rpm, 5min → 상등액 discard</li>
+<li>EP tube(pellet) + 멸균수 100μl → pipetting</li>
+<li>2X SDS PAGE sample buffer 100μl → EP tube → pipetting</li>
+<li>Loading Buffer 들어간 남은 시료 → -4°C&lt;/li&gt;
+</li>
+<li>Heat-block → 95°C, 10min</li>
+<li>centrifuge → 12000rpm, 1min [→ -20°C]&lt;/li&gt;
+</li>
+<li>다음의 조건으로 loading<ul>
+<li>size marker는 뚜껑에 pre-stained, tube면에 PM001 0.5mL EZ(TM) Prestained Protein Ladder Marker라고 쓰여진 마커를 사용</li>
+</ul>
+</li>
+&lt;/ul&gt;
+<p><img src="/dohk/images/copied_from_nb/../images/2020-09-16-expression-and-purification-of-protein/25_Untitled13.png" alt=""></p>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-09-16-expression-and-purification-of-protein/30_Untitled.png" alt=""></p>
+<ul>
+<li>SDS-PAGE gel running 조건: 100V, 약 1 시간</li>
+</ul>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-09-16-expression-and-purification-of-protein/26_Untitled14.png" alt=""></p>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-09-16-expression-and-purification-of-protein/27_Untitled15.png" alt=""></p>
+<ul>
+<li>gel → destaining solution → 5min waiting → discard → staining solution 1hr waiting → destaining 10min → destaining 10min → ...:염색약 빼는 과정</li>
+</ul>
+<h3 id="결과-해석">
+<a class="anchor" href="#%EA%B2%B0%EA%B3%BC-%ED%95%B4%EC%84%9D" aria-hidden="true"><span class="octicon octicon-link"></span></a>결과 해석<a class="anchor-link" href="#%EA%B2%B0%EA%B3%BC-%ED%95%B4%EC%84%9D"> </a>
+</h3>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-09-16-expression-and-purification-of-protein/28_BL21_rihb_SDS-PAGE_result_.png" alt=""></p>
+<p>Fig. Analysis of SDS-PAGE. size marker: protein size marker; zero time: Un-induced with IPTG; 1hr, 2hr, 3hr, 4hr, and 5hr: induced with IPTG.</p>
+<p>gene cloning된 BL21(rihB+pET28)이 IPTG에 의해 발현한 단백질의 분자량은 33,748Da이다. 또한 미생물은 본인이 살아가는데에 필요한 단백질을 스스로 생산한다. 이 단백질의 분자량이 2,470.69Da이다. 두 분자량의 합 36,218.69Da이 SDS 아크릴아마이드 겔에서 올바르게 보여지고 있다.</p>
+<h2 id="단백질-정제">
+<a class="anchor" href="#%EB%8B%A8%EB%B0%B1%EC%A7%88-%EC%A0%95%EC%A0%9C" aria-hidden="true"><span class="octicon octicon-link"></span></a>단백질 정제<a class="anchor-link" href="#%EB%8B%A8%EB%B0%B1%EC%A7%88-%EC%A0%95%EC%A0%9C"> </a>
+</h2>
+<p>정제에서 washing은 매우 중요한 과정이다. 처음엔 이미다졸(Imidazole)이 없는 버퍼인 Equilibrium buffer (또는 Suspension Buffer)로 washing을 수행한다. 그 다음엔 Imidazole을 서서히 높이면서 단백질이 안 나올 때 까지 washing을 수행한다. 정재 후에는 SDS-PAGE 다시 수행하여 해당 사이즈 마커 부근에서 단백질 뜨는지 다시 확인하는 과정을 거친다. (다른 단백질들은 뜨면 안 된다.)</p>
+<ul>
+<li>배양액 50μl → Ep tube 1: 정제 전</li>
+<li>Equilibrium(Suspension) Buffer 충분한 양 → open column → discard&lt;/li&gt;
+</li>
+<li>배양액 10μl → open column → 50ml conical tube 1</li>
+<li>Suspension buffer 5ml → open column → conical tube 1 → 50μl → EP tube 2: 정제 후</li>
+<li>Washing buffer 10ml → open column → 50ml conical tube 2</li>
+<li>Washing buffer 5ml → open column → 50ml conical tube 2 → 50μl → EP tube 3: washing</li>
+<li>Elution buffer 3ml → open column → 50ml conical tube 3 → 50μl → EP tube 4: Elution 1</li>
+<li>Elution buffer 3ml → open column → 50ml conical tube 4 → 50μl → EP tube 5: Elution 2</li>
+<li>Elution buffer 3ml → open column → 50ml conical tube 5 → 50μl → EP tube 6: Elution 3</li>
+<li>Elution buffer 3ml → open column → 50ml conical tube 6 → 50μl → EP tube 7: Elution 4</li>
+<li>Elution 6ml → open column → discard</li>
+<li>Suspension buffer 30ml → open column → discard</li>
+<li>Suspension buffer 6ml → open column&lt;/li&gt;
+&lt;/ul&gt;
+<h2 id="Analysis-of-SDS-PAGE:-단백질-정제-확인">
+<a class="anchor" href="#Analysis-of-SDS-PAGE:-%EB%8B%A8%EB%B0%B1%EC%A7%88-%EC%A0%95%EC%A0%9C-%ED%99%95%EC%9D%B8" aria-hidden="true"><span class="octicon octicon-link"></span></a>Analysis of SDS-PAGE: 단백질 정제 확인<a class="anchor-link" href="#Analysis-of-SDS-PAGE:-%EB%8B%A8%EB%B0%B1%EC%A7%88-%EC%A0%95%EC%A0%9C-%ED%99%95%EC%9D%B8"> </a>
+</h2>
+<h3 id="running-gel-제작">
+<a class="anchor" href="#running-gel-%EC%A0%9C%EC%9E%91" aria-hidden="true"><span class="octicon octicon-link"></span></a>running gel 제작<a class="anchor-link" href="#running-gel-%EC%A0%9C%EC%9E%91"> </a>
+</h3>
+<ul>
+<li>0.75M Tris(pH 8.8) 3.75mL</li>
+<li>30% Acryl-bis 3mL</li>
+<li>10% SDS 75μl</li>
+<li>D.W. 0.65mL</li>
+<li>25% APS 25μl</li>
+<li>TEMED 6μl → 굳으므로 슬릿에 분주하기 직전에 넣을 것</li>
+</ul>
+<h3 id="stacking-gel-제작">
+<a class="anchor" href="#stacking-gel-%EC%A0%9C%EC%9E%91" aria-hidden="true"><span class="octicon octicon-link"></span></a>stacking gel 제작<a class="anchor-link" href="#stacking-gel-%EC%A0%9C%EC%9E%91"> </a>
+</h3>
+<ul>
+<li>0.25M Tris(pH 6.8) 1.45mL</li>
+<li>30% Acryl-bis 0.375mL</li>
+<li>10% SDS 37.5μl</li>
+<li>D.W. 1.45mL</li>
+<li>25% APS 15μl</li>
+<li>TEMED 5μl → 굳으므로 슬릿에 분주하기 직전에 넣을 것</li>
+</ul>
+<p><strong>[→티슈에 물을 묻힌 후 랩으로 감싸 보관하여 gel의 건조 방지]</strong></p>
+<ul>
+<li>Sample 6개 → centrifuge → 13000rpm, 5min → 상등액 discard</li>
+<li>EP tube(pellet) + 멸균수 100μl → pipetting</li>
+<li>2X SDS PAGE sample buffer 100μl → EP tube → pipetting</li>
+<li>Loading Buffer 들어간 남은 시료 → -4°C&lt;/li&gt;
+</li>
+<li>Heat-block → 95°C, 10min</li>
+<li>centrifuge → 12000rpm, 1min [→ -20°C]&lt;/li&gt;
+</li>
+<li>다음의 조건으로 loading</li>
+&lt;/ul&gt;
+<p><img src="/dohk/images/copied_from_nb/../images/2020-09-16-expression-and-purification-of-protein/31_Untitled.png" alt=""></p>
+<ul>
+<li>SDS-PAGE gel running 조건: 100V, 약 1 시간</li>
+<li>gel → destaining solution → 5min waiting → discard → staining solution 1hr waiting → destaining 10min → destaining 10min → ...:염색약 빼는 과정</li>
+</ul>
+<h3 id="결과-해석">
+<a class="anchor" href="#%EA%B2%B0%EA%B3%BC-%ED%95%B4%EC%84%9D" aria-hidden="true"><span class="octicon octicon-link"></span></a>결과 해석<a class="anchor-link" href="#%EA%B2%B0%EA%B3%BC-%ED%95%B4%EC%84%9D"> </a>
+</h3>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-09-16-expression-and-purification-of-protein/29_BL21_rihb_SDS-PAGE_AP_result_.png" alt=""></p>
+<p>Fig. Analysis of SDS-PAGE. size marker: protein size marker; BP: Before Purification; AP: After Purification; W: after washing solution; Elu1, Elu2, Elu3, Elu4: after Elution buffer.</p>
+<p>정제하지 않은 상태에서 보였던 여러 발현 단백질들이 정제하는 과정을 거친 후엔 보이지 않으며, 35kDa 부근에서 원하는 단백질이 남아있는 것을 확인할 수 있다. 이는 rihB+pET28에 의해 발현된 단백질에 His-tag이 붙어 있었던 덕분으로, 레진에 의해 다른 불순물들이 빠져나갈 때 빠져나가지 않고 이미다졸에 의해 분리되어 빠져 나왔기 때문이다. 분자량은 36218.59Da이므로, 단백질이 올바르게 정제되었음을 알 수 있다.</p>
+<p>겔이 오른쪽 위로 휘어진 이유로 사진 상에 보여지는 밴드들이 오른쪽 위로 점점 올라가는 것처럼 보이지만, 모두 같은 선상에 있는 밴드들이다.</p>
+<h2 id="FPLC">
+<a class="anchor" href="#FPLC" aria-hidden="true"><span class="octicon octicon-link"></span></a>FPLC<a class="anchor-link" href="#FPLC"> </a>
+</h2>
+<h2 id="seeding">
+<a class="anchor" href="#seeding" aria-hidden="true"><span class="octicon octicon-link"></span></a>seeding<a class="anchor-link" href="#seeding"> </a>
+</h2>
+<ul>
+<li>BL21(gene cloning) colony → LB+kan 10ml → shaking Incubator → overnight(about 16hr)</li>
+</ul>
+<h1 id="Reference">
+<a class="anchor" href="#Reference" aria-hidden="true"><span class="octicon octicon-link"></span></a>Reference<a class="anchor-link" href="#Reference"> </a>
+</h1>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Lysis">https://en.wikipedia.org/wiki/Lysis</a></li>
+<li><a href="https://ko.wikipedia.org/wiki/%EB%A6%AC%EC%86%8C%EC%9E%90%EC%9E%84">https://ko.wikipedia.org/wiki/리소자임</a></li>
+<li><a href="https://www.bio-rad.com/ko-kr/applications-technologies/introduction-affinity-chromatography?ID=MWHAVG4VY">https://www.bio-rad.com/ko-kr/applications-technologies/introduction-affinity-chromatography?ID=MWHAVG4VY</a></li>
+<li><a href="https://www.thermofisher.com/kr/ko/home/life-science/protein-biology/protein-biology-learning-center/protein-biology-resource-library/pierce-protein-methods/overview-affinity-purification.html">https://www.thermofisher.com/kr/ko/home/life-science/protein-biology/protein-biology-learning-center/protein-biology-resource-library/pierce-protein-methods/overview-affinity-purification.html</a></li>
+<li><a href="https://www.nanoprobes.com/products/Ni-NTA-Nanogold-His-tag-labeling-and-detection.html">https://www.nanoprobes.com/products/Ni-NTA-Nanogold-His-tag-labeling-and-detection.html</a></li>
+</ul>
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+ 
+
+보관&gt;</ul>
+</li>보관&gt;</ul>
+</ul>
+</li>
+</ul>보관&gt;세척&gt;</ul>보관&gt;보관&gt;</ul>보관&gt;</ul>보관&gt;보관&gt;접종&gt;</div>
+</div></div>
+</div>
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="tfedohk/dohk"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/dohk/expression-and-purification-of-protein/" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/dohk/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/dohk/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/dohk/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>contact on gwondohyung@gmail.com</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/tfedohk" title="tfedohk"><svg class="svg-icon grey"><use xlink:href="/dohk/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/fastdotai" title="fastdotai"><svg class="svg-icon grey"><use xlink:href="/dohk/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
