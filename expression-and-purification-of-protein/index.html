@@ -89,9 +89,6 @@ window.onload = wrap_img;
       <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
       
         <a class="category-tags-link" href="/dohk/categories/#bio">bio</a>
-        &nbsp;
-      
-        <a class="category-tags-link" href="/dohk/categories/#experiment note">experiment note</a>
         
       
       </p>
@@ -185,7 +182,8 @@ window.onload = wrap_img;
 
 <div class="container" id="notebook-container">
         
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>이전 실험 노트에서는 gene cloning을 수행하여 E.coli/DH5α(이하 DH5a)에 도입되었던 프라스미드 vector를 E.coli/BL21(DE3)(이하 BL21)에 재도입하는 과정을 다루었었다. 이렇게 transformation된 균주를 배양하여, 단백질의 발현, 정제, 마지막으로 정량하는 방법에 대해 알아보자.</p>
 <h1 id="단백질-발현">
@@ -353,14 +351,13 @@ TTAGTCGAAG AGTGCGTGCG CGGCTACATC AAAACCCATt aa</p>
 </ul>
 </li>
 <li>LB+Kan 8mL → cap tube</li>
-<li>BL21 glycerol stock 100μl → LB+Kan cap tube 8mL<ul>
+<li>BL21 glycerol stock 100μl → LB+Kan cap tube 8mL: 접종<ul>
 <li>균주 접종은 전체 부피의 1%., 따라서 80μl를 접종하는 것이 정석. 더 많은 용량을 넣은 이유는 glycerol과 BL21이 1:1 비율로 섞여 있다는 점을 고려하였기 때문</li>
 </ul>
-&lt;/li&gt;
 </li>
 <li>incubator → 37°C → overnight</li>
 <li>overnight → LB+Kan 8mL 중 5mL → LB+Kan 100mL → shaking incubator → 37°C, 2hr → 단백질 발현 유도 단계와 pre SDS-PAGE 단계로 이동</li>
-&lt;/ul&gt;
+</ul>
 <h3 id="고체-균주-배양">
 <a class="anchor" href="#%EA%B3%A0%EC%B2%B4-%EA%B7%A0%EC%A3%BC-%EB%B0%B0%EC%96%91" aria-hidden="true"><span class="octicon octicon-link"></span></a>고체 균주 배양<a class="anchor-link" href="#%EA%B3%A0%EC%B2%B4-%EA%B7%A0%EC%A3%BC-%EB%B0%B0%EC%96%91"> </a>
 </h3>
@@ -409,21 +406,20 @@ TTAGTCGAAG AGTGCGTGCG CGGCTACATC AAAACCCATt aa</p>
 <a class="anchor" href="#%EB%8B%A8%EB%B0%B1%EC%A7%88-%EB%B0%9C%ED%98%84-%EC%9C%A0%EB%8F%84" aria-hidden="true"><span class="octicon octicon-link"></span></a>단백질 발현 유도<a class="anchor-link" href="#%EB%8B%A8%EB%B0%B1%EC%A7%88-%EB%B0%9C%ED%98%84-%EC%9C%A0%EB%8F%84"> </a>
 </h2>
 <ul>
-<li>2hr 배양된 액체 균주 100mL + IPTG 1mM/mL → 1mL → EP tube: zero time&lt;단백질 발현 유도 시작&gt;<ul>
+<li>2hr 배양된 액체 균주 100mL + IPTG 1mM/mL → 1mL → EP tube: zero time: 단백질 발현 유도 시작<ul>
 <li>IPTG: 1M/1mL. 접종해야 할 농도는 1mM/1μl, culture된 LB+Kan은 100mL. → IPTG 100μl 접종</li>
 <li>IPTG를 넣은 후 3시간~5시간이 지나면 saturation된다.</li>
 </ul>
 </li>
-<li>shaking incubator → 37°C, every 1hr&lt;시간대 별 단백질 발현 확인 단계로 이동&gt;</li>
+<li>shaking incubator → 37°C, every 1hr: 시간대 별 단백질 발현 확인 단계로 이동</li>
 </ul>
 <h2 id="시간대-별-단백질-발현-확인">
 <a class="anchor" href="#%EC%8B%9C%EA%B0%84%EB%8C%80-%EB%B3%84-%EB%8B%A8%EB%B0%B1%EC%A7%88-%EB%B0%9C%ED%98%84-%ED%99%95%EC%9D%B8" aria-hidden="true"><span class="octicon octicon-link"></span></a>시간대 별 단백질 발현 확인<a class="anchor-link" href="#%EC%8B%9C%EA%B0%84%EB%8C%80-%EB%B3%84-%EB%8B%A8%EB%B0%B1%EC%A7%88-%EB%B0%9C%ED%98%84-%ED%99%95%EC%9D%B8"> </a>
 </h2>
 <ul>
-<li>매 시간, 1mL 샘플링 → 4°C<ul>
+<li>매 시간, 1mL 샘플링 → 4°C: 보관<ul>
 <li>필요한 샘플: zero time, 1hr, 2hr, 3hr, 4hr, 5hr</li>
 </ul>
-&lt;/li&gt;
 </li>
 <li>spectrophotometer X: 샘플의 OD값(흡광도)이 이상적이라 가정함</li>
 <li>sample 6개 → centrifuge → 12000rpm, 5min → 상등액 discard: LB-Kan 배지 제거가 목적</li>
@@ -431,28 +427,28 @@ TTAGTCGAAG AGTGCGTGCG CGGCTACATC AAAACCCATt aa</p>
 <li>각 sample 6개 + 2X SDS-PAGE buffer 100μl → pipetting</li>
 <li>Heat-block → 95°C, 10min</li>
 <li>centrifuge → 12000rpm, 1min</li>
-&lt;/ul&gt;
+</ul>
 <h2 id="pre-SDS-PAGE">
 <a class="anchor" href="#pre-SDS-PAGE" aria-hidden="true"><span class="octicon octicon-link"></span></a>pre SDS-PAGE<a class="anchor-link" href="#pre-SDS-PAGE"> </a>
 </h2>
 <ul>
 <li>2hr 배양된 액체 균주 100mL 중 시간대 별 단백질 발현에 사용된 후의 남은 액체 균주 → 50mL conical tube → centrifuge → 3500rpm, 20min → 상등액 discard → loop: cell down</li>
-<li>pellet → -4°C: <strong>Harvest</strong>&lt;/li&gt;
+<li>pellet → -4°C: 보관: <strong>Harvest</strong>
 </li>
 <li>suspension buffer(equilibrium buffer) 25mL → pellet → pipetting<ul>
 <li>pellet : buffer = 1 : 20으로 맞추어야 하지만, 해당 실험에서는 25mL의 buffer를 넣는다.</li>
 </ul>
 </li>
 <li>초음파(ultrasonic) 파쇄, 10min</li>
-&lt;/ul&gt;
+</ul>
 <p><img src="/dohk/images/copied_from_nb/../images/2020-09-16-expression-and-purification-of-protein/23_Untitled11.png" alt=""></p>
 <ul>
 <li>centrifuge → 20000rpm, 30min</li>
 </ul>
 <p><img src="/dohk/images/copied_from_nb/../images/2020-09-16-expression-and-purification-of-protein/24_Untitled12.png" alt=""></p>
 <ul>
-<li>상등액(clear lysate) 회수 → 4°C&lt;/li&gt;
-&lt;/ul&gt;
+<li>상등액(clear lysate) 회수 → 4°C: 보관</li>
+</ul>
 <h2 id="Analysis-of-SDS-PAGE:-단백질-발현-확인">
 <a class="anchor" href="#Analysis-of-SDS-PAGE:-%EB%8B%A8%EB%B0%B1%EC%A7%88-%EB%B0%9C%ED%98%84-%ED%99%95%EC%9D%B8" aria-hidden="true"><span class="octicon octicon-link"></span></a>Analysis of SDS-PAGE: 단백질 발현 확인<a class="anchor-link" href="#Analysis-of-SDS-PAGE:-%EB%8B%A8%EB%B0%B1%EC%A7%88-%EB%B0%9C%ED%98%84-%ED%99%95%EC%9D%B8"> </a>
 </h2>
@@ -483,16 +479,14 @@ TTAGTCGAAG AGTGCGTGCG CGGCTACATC AAAACCCATt aa</p>
 <li>Sample 6개 → centrifuge → 13000rpm, 5min → 상등액 discard</li>
 <li>EP tube(pellet) + 멸균수 100μl → pipetting</li>
 <li>2X SDS PAGE sample buffer 100μl → EP tube → pipetting</li>
-<li>Loading Buffer 들어간 남은 시료 → -4°C&lt;/li&gt;
-</li>
+<li>Loading Buffer 들어간 남은 시료 → -4°C: 보관</li>
 <li>Heat-block → 95°C, 10min</li>
-<li>centrifuge → 12000rpm, 1min [→ -20°C]&lt;/li&gt;
-</li>
+<li>centrifuge → 12000rpm, 1min [→ -20°C: 보관]</li>
 <li>다음의 조건으로 loading<ul>
 <li>size marker는 뚜껑에 pre-stained, tube면에 PM001 0.5mL EZ(TM) Prestained Protein Ladder Marker라고 쓰여진 마커를 사용</li>
 </ul>
 </li>
-&lt;/ul&gt;
+</ul>
 <p><img src="/dohk/images/copied_from_nb/../images/2020-09-16-expression-and-purification-of-protein/25_Untitled13.png" alt=""></p>
 <p><img src="/dohk/images/copied_from_nb/../images/2020-09-16-expression-and-purification-of-protein/30_Untitled.png" alt=""></p>
 <ul>
@@ -515,8 +509,7 @@ TTAGTCGAAG AGTGCGTGCG CGGCTACATC AAAACCCATt aa</p>
 <p>정제에서 washing은 매우 중요한 과정이다. 처음엔 이미다졸(Imidazole)이 없는 버퍼인 Equilibrium buffer (또는 Suspension Buffer)로 washing을 수행한다. 그 다음엔 Imidazole을 서서히 높이면서 단백질이 안 나올 때 까지 washing을 수행한다. 정재 후에는 SDS-PAGE 다시 수행하여 해당 사이즈 마커 부근에서 단백질 뜨는지 다시 확인하는 과정을 거친다. (다른 단백질들은 뜨면 안 된다.)</p>
 <ul>
 <li>배양액 50μl → Ep tube 1: 정제 전</li>
-<li>Equilibrium(Suspension) Buffer 충분한 양 → open column → discard&lt;/li&gt;
-</li>
+<li>Equilibrium(Suspension) Buffer 충분한 양 → open column → discard: 세척</li>
 <li>배양액 10μl → open column → 50ml conical tube 1</li>
 <li>Suspension buffer 5ml → open column → conical tube 1 → 50μl → EP tube 2: 정제 후</li>
 <li>Washing buffer 10ml → open column → 50ml conical tube 2</li>
@@ -527,8 +520,8 @@ TTAGTCGAAG AGTGCGTGCG CGGCTACATC AAAACCCATt aa</p>
 <li>Elution buffer 3ml → open column → 50ml conical tube 6 → 50μl → EP tube 7: Elution 4</li>
 <li>Elution 6ml → open column → discard</li>
 <li>Suspension buffer 30ml → open column → discard</li>
-<li>Suspension buffer 6ml → open column&lt;/li&gt;
-&lt;/ul&gt;
+<li>Suspension buffer 6ml → open column: 보관</li>
+</ul>
 <h2 id="Analysis-of-SDS-PAGE:-단백질-정제-확인">
 <a class="anchor" href="#Analysis-of-SDS-PAGE:-%EB%8B%A8%EB%B0%B1%EC%A7%88-%EC%A0%95%EC%A0%9C-%ED%99%95%EC%9D%B8" aria-hidden="true"><span class="octicon octicon-link"></span></a>Analysis of SDS-PAGE: 단백질 정제 확인<a class="anchor-link" href="#Analysis-of-SDS-PAGE:-%EB%8B%A8%EB%B0%B1%EC%A7%88-%EC%A0%95%EC%A0%9C-%ED%99%95%EC%9D%B8"> </a>
 </h2>
@@ -559,13 +552,11 @@ TTAGTCGAAG AGTGCGTGCG CGGCTACATC AAAACCCATt aa</p>
 <li>Sample 6개 → centrifuge → 13000rpm, 5min → 상등액 discard</li>
 <li>EP tube(pellet) + 멸균수 100μl → pipetting</li>
 <li>2X SDS PAGE sample buffer 100μl → EP tube → pipetting</li>
-<li>Loading Buffer 들어간 남은 시료 → -4°C&lt;/li&gt;
-</li>
+<li>Loading Buffer 들어간 남은 시료 → -4°C: 보관</li>
 <li>Heat-block → 95°C, 10min</li>
-<li>centrifuge → 12000rpm, 1min [→ -20°C]&lt;/li&gt;
-</li>
+<li>centrifuge → 12000rpm, 1min [→ -20°C: 보관]</li>
 <li>다음의 조건으로 loading</li>
-&lt;/ul&gt;
+</ul>
 <p><img src="/dohk/images/copied_from_nb/../images/2020-09-16-expression-and-purification-of-protein/31_Untitled.png" alt=""></p>
 <ul>
 <li>SDS-PAGE gel running 조건: 100V, 약 1 시간</li>
@@ -598,19 +589,11 @@ TTAGTCGAAG AGTGCGTGCG CGGCTACATC AAAACCCATt aa</p>
 <li><a href="https://www.nanoprobes.com/products/Ni-NTA-Nanogold-His-tag-labeling-and-detection.html">https://www.nanoprobes.com/products/Ni-NTA-Nanogold-His-tag-labeling-and-detection.html</a></li>
 </ul>
 
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
- 
-
-보관&gt;</ul>
-</li>보관&gt;</ul>
-</ul>
-</li>
-</ul>보관&gt;세척&gt;</ul>보관&gt;보관&gt;</ul>보관&gt;</ul>보관&gt;보관&gt;접종&gt;</div>
-</div></div>
 </div>
+</div>
+</div>
+</div>
+
 
 
   </div><!-- from https://github.com/utterance/utterances -->
