@@ -81,7 +81,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      2 min read
+      3 min read
     
 </span></p>
 
@@ -408,7 +408,7 @@ sudo apt install fastqc
 <h2 id="python을-찾을-수-없다는-에러가-뜰-때">
 <a class="anchor" href="#python%EC%9D%84-%EC%B0%BE%EC%9D%84-%EC%88%98-%EC%97%86%EB%8B%A4%EB%8A%94-%EC%97%90%EB%9F%AC%EA%B0%80-%EB%9C%B0-%EB%95%8C" aria-hidden="true"><span class="octicon octicon-link"></span></a>python을 찾을 수 없다는 에러가 뜰 때<a class="anchor-link" href="#python%EC%9D%84-%EC%B0%BE%EC%9D%84-%EC%88%98-%EC%97%86%EB%8B%A4%EB%8A%94-%EC%97%90%EB%9F%AC%EA%B0%80-%EB%9C%B0-%EB%95%8C"> </a>
 </h2>
-<p>우분투에서 작업 시, python은 기본적으로 설치된다. 터미널에서 <code>python</code> 명령어를 쳤을 때 python이 실행되지 않는다면, 다음과 같이 해결한다. 먼저, <code>cd /usr/bin</code>을 실행한 후, <code>p</code>까지 입력한 후, TAB키를 계속 누르면 python 관련된 파일 목록이 뜬다. 이곳에 python이 없다면, python3.x 등 다른 python이 있을 것이다. 이를 python만 쳐도 실행되도록 다음과 같이 명령창에 입력한다.</p>
+<p>우분투에서 작업 시, python은 기본적으로 설치된다. 터미널에서 <code>python</code> 명령어를 쳤을 때 python이 실행되지 않는다면, 다음과 같이 해결한다. 먼저, <code>cd /usr/bin</code>을 실행한 후, <code>p</code>까지 입력한 후, TAB키를 계속 누르면 python 관련된 파일 목록이 뜬다. 이곳에 python이 없다면, python3.x 등 다른 python이 있을 것이다. 이를 <code>python</code>만 쳐도 실행되도록 다음과 같이 명령창에 입력한다. 여기서는 python3.8버전이 있다고 가정한다.</p>
 <div class="highlight"><pre><span></span>ln -s /usr/bin/python3.8 /usr/bin/python
 </pre></div>
 <p>다시 <code>python</code>을 입력하여 제대로 실행되는지 확인한다.</p>
