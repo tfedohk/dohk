@@ -81,7 +81,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      2 min read
+      3 min read
     
 </span></p>
 
@@ -186,6 +186,11 @@ window.onload = wrap_img;
 <h1 id="흡광계수">
 <a class="anchor" href="#%ED%9D%A1%EA%B4%91%EA%B3%84%EC%88%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>흡광계수<a class="anchor-link" href="#%ED%9D%A1%EA%B4%91%EA%B3%84%EC%88%98"> </a>
 </h1>
+<p>흡광도 A는 다음과 같이 정의된다.</p>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-09-22-serial-dilution-and-plot-working-curve/abs_eq.png" alt=""></p>
+<p>우리는 흡광도를 측정했다. b는 cell의 길이이고, c는 농도일 때, 흡광계수 ε을 알아낼 수 있다. 흡광계수는 같은 물질이면 같은 값을 갖는 것이 정상이다. 흡광계수 ε을 구하려면,</p>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-09-22-serial-dilution-and-plot-working-curve/epsilon.png" alt=""></p>
+<p>위 수식을 이용한다. 이 노트에서 b는 1, c는 10으로 고정한다.</p>
 <h1 id="실험-과정">
 <a class="anchor" href="#%EC%8B%A4%ED%97%98-%EA%B3%BC%EC%A0%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>실험 과정<a class="anchor-link" href="#%EC%8B%A4%ED%97%98-%EA%B3%BC%EC%A0%95"> </a>
 </h1>
@@ -247,6 +252,138 @@ window.onload = wrap_img;
 </div>
 </div>
 </div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">r2_score</span>
+<span class="kn">import</span> <span class="nn">math</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+    </details>
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">plot_working_curve</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> 
+                      <span class="n">DATA</span><span class="p">,</span> 
+                      <span class="n">member</span><span class="p">,</span> 
+                      <span class="n">legend</span><span class="p">,</span>  
+                      <span class="n">x_label</span><span class="p">,</span> 
+                      <span class="n">y_label</span><span class="p">,</span>
+                      <span class="n">x_posision</span><span class="p">,</span>
+                      <span class="n">y_position_1</span><span class="p">,</span>
+                      <span class="n">y_position_2</span><span class="p">):</span>
+    <span class="n">DATA_np</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">DATA</span><span class="p">)</span>
+    <span class="n">slope</span><span class="p">,</span> <span class="n">y_intercept</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">DATA_np</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># m*x + b, m과 b를 return</span>
+    <span class="n">poly1d_fn</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">poly1d</span><span class="p">([</span><span class="n">slope</span><span class="p">,</span> <span class="n">y_intercept</span><span class="p">])</span> 
+    <span class="n">f1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">17</span><span class="p">))</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Serial Dilution-"</span><span class="o">+</span><span class="n">member</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">'font'</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">'xtick'</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">'ytick'</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+    
+    <span class="n">y1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">slope</span><span class="p">)</span><span class="o">*</span><span class="n">time</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">y_intercept</span><span class="p">)</span>
+    <span class="n">R_squared_value</span> <span class="o">=</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y1</span><span class="p">,</span> <span class="n">DATA</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">DATA</span><span class="p">,</span>  <span class="n">color</span><span class="o">=</span><span class="s1">'black'</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">'o'</span><span class="p">,</span>\
+         <span class="n">linestyle</span><span class="o">=</span><span class="s1">' '</span><span class="p">,</span>  <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span>  <span class="n">alpha</span><span class="o">=.</span><span class="mi">5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"1st"</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">DATA_np</span><span class="p">,</span> <span class="s1">'ko'</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">poly1d_fn</span><span class="p">(</span><span class="n">time</span><span class="p">),</span> <span class="s1">'-k'</span><span class="p">)</span>
+    
+<span class="c1">##### SAMPLE #####</span>
+    <span class="c1"># sample A(1.0, 5.0, 10.0, 20.0)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">x_posision</span><span class="p">,</span> <span class="n">y_position_1</span><span class="p">,</span> <span class="s2">"R squred value: </span><span class="si">{:1.4f}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">R_squared_value</span><span class="p">),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">13</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">x_posision</span><span class="p">,</span> <span class="n">y_position_2</span><span class="p">,</span> <span class="s2">"y=</span><span class="si">{:1.4f}</span><span class="s2">x+(</span><span class="si">{:1.4f}</span><span class="s2">)"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">slope</span><span class="p">,</span> <span class="n">y_intercept</span><span class="p">),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">13</span><span class="p">)</span>
+    
+    <span class="c1"># sample B(0.2, 0.4, 0.8)</span>
+<span class="c1">#     plt.text(0.7, 0.08, "R squred value: {:1.4f}".format(R_squared_value), fontsize=13)</span>
+<span class="c1">#     plt.text(0.7, 0.07, "y={:1.4f}x+({:1.4f})".format(slope, y_intercept), fontsize=13)</span>
+<span class="c1">##################</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">lw</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">ls</span> <span class="o">=</span> <span class="s1">'--'</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="s1">'.85'</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="n">x_label</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">y_label</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="s1">'medium'</span><span class="p">)</span>
+    
+<span class="c1">#     txt="Figure 2. caption {}.".format(member)</span>
+<span class="c1">#     plt.text(5, 0.15, txt, ha='center', size=17)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="n">x_label</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">y_label</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">lw</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">ls</span> <span class="o">=</span> <span class="s1">'--'</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="s1">'.85'</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">slope</span><span class="p">,</span> <span class="n">y_intercept</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+    </details>
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">plot_graph</span><span class="p">(</span><span class="n">member</span><span class="p">,</span> 
+               <span class="n">x_axis_scale</span><span class="p">,</span> 
+               <span class="n">DATA_set</span><span class="p">,</span> 
+               <span class="n">dilution_times</span><span class="p">,</span>
+               <span class="n">x_posision</span><span class="p">,</span>
+               <span class="n">y_position_1</span><span class="p">,</span>
+               <span class="n">y_position_2</span><span class="p">):</span>
+    
+    <span class="n">slope</span><span class="p">,</span> <span class="n">y_intercept</span> \
+    <span class="o">=</span> <span class="n">plot_working_curve</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="n">x_axis_scale</span><span class="p">,</span> 
+                         <span class="n">DATA</span><span class="o">=</span><span class="n">DATA_set</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> 
+                         <span class="n">member</span><span class="o">=</span><span class="n">member</span><span class="p">,</span> 
+                         <span class="n">legend</span><span class="o">=</span><span class="s2">"BSA(buffer: D.W.)"</span><span class="p">,</span> 
+                         <span class="n">x_label</span><span class="o">=</span><span class="s2">"sample(mg/L)"</span><span class="p">,</span>     <span class="c1"># sample A(1.0, 5.0, 10.0, 20.0)</span>
+<span class="c1">#                        x_label="sample(μg/L)",     # sample B(0.2, 0.4, 0.8)</span>
+                         <span class="n">y_label</span><span class="o">=</span><span class="s2">"O.D. (515nm)"</span><span class="p">,</span>
+                         <span class="n">x_posision</span> <span class="o">=</span> <span class="n">x_posision</span><span class="p">,</span> 
+                         <span class="n">y_position_1</span> <span class="o">=</span> <span class="n">y_position_1</span><span class="p">,</span>
+                         <span class="n">y_position_2</span> <span class="o">=</span> <span class="n">y_position_2</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+    </details>
+</div>
+    
+
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
