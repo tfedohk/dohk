@@ -81,7 +81,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      3 min read
+      5 min read
     
 </span></p>
 
@@ -117,6 +117,16 @@ window.onload = wrap_img;
 </ul>
 </li>
 <li class="toc-entry toc-h1"><a href="#흡광계수">흡광계수 </a></li>
+<li class="toc-entry toc-h1"><a href="#기기-사용법">기기 사용법 </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#분광광도계(spectrophotometer)">분광광도계(spectrophotometer) </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#흡광도-분석">흡광도 분석 </a></li>
+<li class="toc-entry toc-h3"><a href="#파장-분석">파장 분석 </a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toc-entry toc-h1"><a href="#실험-과정">실험 과정 </a>
 <ul>
 <li class="toc-entry toc-h2"><a href="#결과">결과 </a>
@@ -191,6 +201,44 @@ window.onload = wrap_img;
 <p>우리는 흡광도를 측정했다. b는 cell의 길이이고, c는 농도일 때, 흡광계수 ε을 알아낼 수 있다. 흡광계수는 같은 물질이면 같은 값을 갖는 것이 정상이다. 흡광계수 ε을 구하려면,</p>
 <p><img src="/dohk/images/copied_from_nb/../images/2020-09-22-serial-dilution-and-plot-working-curve/epsilon.png" alt=""></p>
 <p>위 수식을 이용한다. 이 노트에서 b는 1, c는 10으로 고정한다.</p>
+<h1 id="기기-사용법">
+<a class="anchor" href="#%EA%B8%B0%EA%B8%B0-%EC%82%AC%EC%9A%A9%EB%B2%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>기기 사용법<a class="anchor-link" href="#%EA%B8%B0%EA%B8%B0-%EC%82%AC%EC%9A%A9%EB%B2%95"> </a>
+</h1>
+<h2 id="분광광도계(spectrophotometer)">
+<a class="anchor" href="#%EB%B6%84%EA%B4%91%EA%B4%91%EB%8F%84%EA%B3%84(spectrophotometer)" aria-hidden="true"><span class="octicon octicon-link"></span></a>분광광도계(spectrophotometer)<a class="anchor-link" href="#%EB%B6%84%EA%B4%91%EA%B4%91%EB%8F%84%EA%B3%84(spectrophotometer)"> </a>
+</h2>
+<ul>
+<li>기기: humancorp사의 X-ma 3000PC SPECTROPHOTOMETER</li>
+</ul>
+<p>전원ON → warming up 20min → warm up 종료 후 → ESC 버튼 → 준비 완료 소리 울림</p>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-09-22-serial-dilution-and-plot-working-curve/spec_1.png" alt=""></p>
+<ul>
+<li>값을 안정적으로 읽어들이기 위해선 램프의 안정화가 필요하다. 램프 안정화에 20분 정도 걸리므로 분광광도계를 사용하기 전에 미리 켜놓는 것이 좋다.</li>
+<li>해당 기기는 오른쪽 위의 D2, W가 표시되어 있다. 둘 다 램프의 상태를 의미한다. D2는 자외선(UV)을 발생시키는 램프, W는 가시광선을 발생시키는 램프다. 내부에는 램프, 모노크로메이터(파장선택부), 미러, 디텍터, 시료를 놓는 곳 등으로 이루어져 있다. 우리가 파장을 설정하면, 램프에서 발생된 빛이 설정된 파장에 맞춰 시료를 통과하도록 미러가 조정된다.</li>
+</ul>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-09-22-serial-dilution-and-plot-working-curve/spec_2.png" alt="">
+여러 모드가 있다.</p>
+<ul>
+<li>basic mode: 원하는 파장을 설정하여, 일정한 파장에서 흡광도를 분석하는 것</li>
+<li>quantitative mode: 정량분석시 사용. 미지농도를 산출해준다.</li>
+<li>wavelength scan: 시료가 어느 파장에서 가장 잘 감지되는지를 찾을 때 사용한다. USB 꽂은 후, 기기에 USB가 인식되면 해당 기능을 통해 데스크탑에서 UV-vis Analyst 프로그램을 통해 가장 높은 파장(λmax)을 보이는 지점을 알 수 있다. 그 지점에 해당하는 파장을 이용하여 흡광도를 측정해야 한다.</li>
+</ul>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-09-22-serial-dilution-and-plot-working-curve/spec_3.png" alt=""></p>
+<h3 id="흡광도-분석">
+<a class="anchor" href="#%ED%9D%A1%EA%B4%91%EB%8F%84-%EB%B6%84%EC%84%9D" aria-hidden="true"><span class="octicon octicon-link"></span></a>흡광도 분석<a class="anchor-link" href="#%ED%9D%A1%EA%B4%91%EB%8F%84-%EB%B6%84%EC%84%9D"> </a>
+</h3>
+<ul>
+<li>basic mode → Enter 버튼 → 기기가 자동으로 Blanking부터 시작함. 만약 Blank를 넣지 않은 상태라면, Blank → 기기 내부에 삽입 → 0Abs 버튼: +-0.000 Abs가 뜨면 완료.</li>
+<li>만약 다른 파장으로 변경한다면, blanking을 다시 해야 한다. gotoλ 버튼 → 설정 하려는 파장의 숫자 입력 → Enter 버튼 → 설정 완료 후, 0Abs 버튼</li>
+</ul>
+<h3 id="파장-분석">
+<a class="anchor" href="#%ED%8C%8C%EC%9E%A5-%EB%B6%84%EC%84%9D" aria-hidden="true"><span class="octicon octicon-link"></span></a>파장 분석<a class="anchor-link" href="#%ED%8C%8C%EC%9E%A5-%EB%B6%84%EC%84%9D"> </a>
+</h3>
+<ul>
+<li>wavelength mode → Enter 버튼 → 장파, 단파 설정을 위해 setup 위치의 버튼 → 원하는 파장, scan step,  scan speed 입력: 1000, 190, 1(default), MEDIUM → 파장을 파악하려는 시료 투입 → Start → 측정 완료 후 USB 저장을 위해, save 버튼 → 파일 이름 입력 → UV-vis Analyst 프로그램 → File → Open → 파일 확장자 .wav로 변경 → 파일 선택 → View → Peaks → Settings → Display Range Setup → x축 range 설정</li>
+<li>WL: wave length. WL이 900으로 설정된 후, 190까지 읽어나가면서 그래프를 그린다.</li>
+<li>셀의 종류에 따라서 민감하게 반응하는 파장이 다르다. 셀마다 재질이 다르기 때문이다.</li>
+</ul>
 <h1 id="실험-과정">
 <a class="anchor" href="#%EC%8B%A4%ED%97%98-%EA%B3%BC%EC%A0%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>실험 과정<a class="anchor-link" href="#%EC%8B%A4%ED%97%98-%EA%B3%BC%EC%A0%95"> </a>
 </h1>
