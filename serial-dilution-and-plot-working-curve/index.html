@@ -81,7 +81,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      1 min read
+      2 min read
     
 </span></p>
 
@@ -116,9 +116,29 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h2"><a href="#십억분율(parts-per-billion:-ppb):-μg/L,-μg/kg">십억분율(parts per billion: ppb): μg/L, μg/kg </a></li>
 </ul>
 </li>
+<li class="toc-entry toc-h1"><a href="#흡광계수">흡광계수 </a></li>
 <li class="toc-entry toc-h1"><a href="#실험-과정">실험 과정 </a>
 <ul>
-<li class="toc-entry toc-h2"><a href="#검량선-작성-코드">검량선 작성 코드 </a></li>
+<li class="toc-entry toc-h2"><a href="#결과">결과 </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#흡광도-측정-결과">흡광도 측정 결과 </a></li>
+<li class="toc-entry toc-h3"><a href="#흡광계수-산출-결과">흡광계수 산출 결과 </a></li>
+<li class="toc-entry toc-h3"><a href="#검량선">검량선 </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#검량선-작성-코드(python)">검량선 작성 코드(python) </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#검량선-작성-결과">검량선 작성 결과 </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#결과">결과 </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#흡광도-측정-결과">흡광도 측정 결과 </a></li>
+<li class="toc-entry toc-h3"><a href="#흡광계수-산출-결과">흡광계수 산출 결과 </a></li>
+<li class="toc-entry toc-h3"><a href="#검량선-작성-결과">검량선 작성 결과 </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#실험-사진">실험 사진 </a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h1"><a href="#Reference">Reference </a></li>
@@ -163,6 +183,9 @@ window.onload = wrap_img;
 <h2 id="십억분율(parts-per-billion:-ppb):-μg/L,-μg/kg">
 <a class="anchor" href="#%EC%8B%AD%EC%96%B5%EB%B6%84%EC%9C%A8(parts-per-billion:-ppb):-%CE%BCg/L,-%CE%BCg/kg" aria-hidden="true"><span class="octicon octicon-link"></span></a>십억분율(parts per billion: <strong>ppb</strong>): μg/L, μg/kg<a class="anchor-link" href="#%EC%8B%AD%EC%96%B5%EB%B6%84%EC%9C%A8(parts-per-billion:-ppb):-%CE%BCg/L,-%CE%BCg/kg"> </a>
 </h2>
+<h1 id="흡광계수">
+<a class="anchor" href="#%ED%9D%A1%EA%B4%91%EA%B3%84%EC%88%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>흡광계수<a class="anchor-link" href="#%ED%9D%A1%EA%B4%91%EA%B3%84%EC%88%98"> </a>
+</h1>
 <h1 id="실험-과정">
 <a class="anchor" href="#%EC%8B%A4%ED%97%98-%EA%B3%BC%EC%A0%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>실험 과정<a class="anchor-link" href="#%EC%8B%A4%ED%97%98-%EA%B3%BC%EC%A0%95"> </a>
 </h1>
@@ -176,26 +199,60 @@ window.onload = wrap_img;
 </ul>
 </li>
 <li>중간농도 용액 → 100mL 부피플라스크에 희석 용액 만들기<ul>
-<li>1.0ppm, 5.0ppm, 10.0ppm, 20.0ppm</li>
+<li>1.0ppm, 5.0ppm, 10.0ppm, 20.0ppm<ul>
+<li>20mL kMnO4 + D.W. 80mL</li>
+<li>10mL kMnO4 + D.W. 90mL</li>
+<li>5mL kMnO4  + D.W. 95mL</li>
+<li>1mL kMnO4  + D.W. 99mL</li>
+</ul>
+</li>
 <li>희석 용액은 내림차순으로 제조해야 함</li>
 </ul>
 </li>
 </ul>
 <p><img src="/dohk/images/copied_from_nb/../images/2020-09-22-serial-dilution-and-plot-working-curve/sampleA.png" alt=""></p>
 <ul>
-<li>20mg/L 용액 → 셀 → spectrophotometer: 파장대 파악<ul>
+<li>20mg/L 용액 → 셀 → spectrophotometer &amp; USB → UV-Vis Analyst 프로그램: 파장대 파악<ul>
 <li>515nm로 나왔음</li>
 </ul>
 </li>
 <li>spectrophotomoter로 흡광도 측정 및 검량선 작성<ul>
+<li>D.W. → spectrophotometer: blanking</li>
 <li>농도의 오름차순으로 흡광도를 측정하였음</li>
+<li>셀 세척 시, 1) 털지 말기 2) 정방향으로 들지 말기 → 책상 위에 휴지를 놓고 탁탁 치기: 휴지로 셀 겉면을 문지르면 분진으로 인해 흡광도에 영향을 줄 수 있다.</li>
 </ul>
 </li>
 </ul>
-<p><img src="/dohk/images/copied_from_nb/../images/2020-09-22-serial-dilution-and-plot-working-curve/absA.png" alt=""></p>
-<h2 id="검량선-작성-코드">
-<a class="anchor" href="#%EA%B2%80%EB%9F%89%EC%84%A0-%EC%9E%91%EC%84%B1-%EC%BD%94%EB%93%9C" aria-hidden="true"><span class="octicon octicon-link"></span></a>검량선 작성 코드<a class="anchor-link" href="#%EA%B2%80%EB%9F%89%EC%84%A0-%EC%9E%91%EC%84%B1-%EC%BD%94%EB%93%9C"> </a>
+<h2 id="결과">
+<a class="anchor" href="#%EA%B2%B0%EA%B3%BC" aria-hidden="true"><span class="octicon octicon-link"></span></a>결과<a class="anchor-link" href="#%EA%B2%B0%EA%B3%BC"> </a>
 </h2>
+<h3 id="흡광도-측정-결과">
+<a class="anchor" href="#%ED%9D%A1%EA%B4%91%EB%8F%84-%EC%B8%A1%EC%A0%95-%EA%B2%B0%EA%B3%BC" aria-hidden="true"><span class="octicon octicon-link"></span></a>흡광도 측정 결과<a class="anchor-link" href="#%ED%9D%A1%EA%B4%91%EB%8F%84-%EC%B8%A1%EC%A0%95-%EA%B2%B0%EA%B3%BC"> </a>
+</h3>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-09-22-serial-dilution-and-plot-working-curve/absA.png" alt=""></p>
+<h3 id="흡광계수-산출-결과">
+<a class="anchor" href="#%ED%9D%A1%EA%B4%91%EA%B3%84%EC%88%98-%EC%82%B0%EC%B6%9C-%EA%B2%B0%EA%B3%BC" aria-hidden="true"><span class="octicon octicon-link"></span></a>흡광계수 산출 결과<a class="anchor-link" href="#%ED%9D%A1%EA%B4%91%EA%B3%84%EC%88%98-%EC%82%B0%EC%B6%9C-%EA%B2%B0%EA%B3%BC"> </a>
+</h3>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-09-22-serial-dilution-and-plot-working-curve/epsilon_1.png" alt=""></p>
+<h3 id="검량선">
+<a class="anchor" href="#%EA%B2%80%EB%9F%89%EC%84%A0" aria-hidden="true"><span class="octicon octicon-link"></span></a>검량선<a class="anchor-link" href="#%EA%B2%80%EB%9F%89%EC%84%A0"> </a>
+</h3>
+<h4 id="검량선-작성-코드(python)">
+<a class="anchor" href="#%EA%B2%80%EB%9F%89%EC%84%A0-%EC%9E%91%EC%84%B1-%EC%BD%94%EB%93%9C(python)" aria-hidden="true"><span class="octicon octicon-link"></span></a>검량선 작성 코드(python)<a class="anchor-link" href="#%EA%B2%80%EB%9F%89%EC%84%A0-%EC%9E%91%EC%84%B1-%EC%BD%94%EB%93%9C(python)"> </a>
+</h4>
+<ul>
+<li>엑셀로 작성 시, 삽입 → 차트 → 분산형을 선택한다.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="검량선-작성-결과">
+<a class="anchor" href="#%EA%B2%80%EB%9F%89%EC%84%A0-%EC%9E%91%EC%84%B1-%EA%B2%B0%EA%B3%BC" aria-hidden="true"><span class="octicon octicon-link"></span></a>검량선 작성 결과<a class="anchor-link" href="#%EA%B2%80%EB%9F%89%EC%84%A0-%EC%9E%91%EC%84%B1-%EA%B2%B0%EA%B3%BC"> </a>
+</h3>
 </div>
 </div>
 </div>
@@ -254,7 +311,14 @@ window.onload = wrap_img;
 <p>R^2값이 0.9996으로 나왔다. R^2값은 0.99이상이 나오면 이상적이라고 할 수 있으므로 20.0  → 10.0 → 5.0 → 1.0 으로 적절히 희석되었다고 할 수 있다.</p>
 <ul>
 <li>10ppm 용액 → 50mL 부피플라스크에 희석 용액 만들기<ul>
-<li>0.2ppm, 0.4ppm, 0.8ppm</li>
+<li>0.2ppm, 0.4ppm, 0.8ppm<ul>
+<li>1mL kMnO4 + D.W. 9mL</li>
+<li>2mL kMnO4 + D.W. 8mL</li>
+<li>4mL kMnO4 + D.W. 6mL</li>
+</ul>
+</li>
+<li>농도의 오름차순으로 흡광도를 측정하였음</li>
+<li>D.W. → spectrophotometer: blanking</li>
 <li>농도의 오름차순으로 흡광도를 측정하였음</li>
 </ul>
 </li>
@@ -263,8 +327,20 @@ window.onload = wrap_img;
 <ul>
 <li>spectrophotomoter로 흡광도 측정 및 검량선 작성</li>
 </ul>
+<h2 id="결과">
+<a class="anchor" href="#%EA%B2%B0%EA%B3%BC" aria-hidden="true"><span class="octicon octicon-link"></span></a>결과<a class="anchor-link" href="#%EA%B2%B0%EA%B3%BC"> </a>
+</h2>
+<h3 id="흡광도-측정-결과">
+<a class="anchor" href="#%ED%9D%A1%EA%B4%91%EB%8F%84-%EC%B8%A1%EC%A0%95-%EA%B2%B0%EA%B3%BC" aria-hidden="true"><span class="octicon octicon-link"></span></a>흡광도 측정 결과<a class="anchor-link" href="#%ED%9D%A1%EA%B4%91%EB%8F%84-%EC%B8%A1%EC%A0%95-%EA%B2%B0%EA%B3%BC"> </a>
+</h3>
 <p><img src="/dohk/images/copied_from_nb/../images/2020-09-22-serial-dilution-and-plot-working-curve/absB.png" alt=""></p>
-
+<h3 id="흡광계수-산출-결과">
+<a class="anchor" href="#%ED%9D%A1%EA%B4%91%EA%B3%84%EC%88%98-%EC%82%B0%EC%B6%9C-%EA%B2%B0%EA%B3%BC" aria-hidden="true"><span class="octicon octicon-link"></span></a>흡광계수 산출 결과<a class="anchor-link" href="#%ED%9D%A1%EA%B4%91%EA%B3%84%EC%88%98-%EC%82%B0%EC%B6%9C-%EA%B2%B0%EA%B3%BC"> </a>
+</h3>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-09-22-serial-dilution-and-plot-working-curve/epsilon_2.png" alt=""></p>
+<h3 id="검량선-작성-결과">
+<a class="anchor" href="#%EA%B2%80%EB%9F%89%EC%84%A0-%EC%9E%91%EC%84%B1-%EA%B2%B0%EA%B3%BC" aria-hidden="true"><span class="octicon octicon-link"></span></a>검량선 작성 결과<a class="anchor-link" href="#%EA%B2%80%EB%9F%89%EC%84%A0-%EC%9E%91%EC%84%B1-%EA%B2%B0%EA%B3%BC"> </a>
+</h3>
 </div>
 </div>
 </div>
@@ -321,6 +397,10 @@ window.onload = wrap_img;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>R^2값이 0.9999로 나왔다. 0.2 → 0.4 → 0.8로 적절히 희석되었다고 할 수 있다.</p>
+<h2 id="실험-사진">
+<a class="anchor" href="#%EC%8B%A4%ED%97%98-%EC%82%AC%EC%A7%84" aria-hidden="true"><span class="octicon octicon-link"></span></a>실험 사진<a class="anchor-link" href="#%EC%8B%A4%ED%97%98-%EC%82%AC%EC%A7%84"> </a>
+</h2>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-09-22-serial-dilution-and-plot-working-curve/dilution.png" alt=""></p>
 <h1 id="Reference">
 <a class="anchor" href="#Reference" aria-hidden="true"><span class="octicon octicon-link"></span></a>Reference<a class="anchor-link" href="#Reference"> </a>
 </h1>
