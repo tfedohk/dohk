@@ -81,7 +81,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      11 min read
+      12 min read
     
 </span></p>
 
@@ -123,6 +123,7 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h2"><a href="#이외의-chromatography">이외의 chromatography </a></li>
 <li class="toc-entry toc-h2"><a href="#Cell-Lysis">Cell Lysis </a>
 <ul>
+<li class="toc-entry toc-h3"><a href="#대장균에서-단백질의-분포">대장균에서 단백질의 분포 </a></li>
 <li class="toc-entry toc-h3"><a href="#불용성-물질(insoluble-particles)">불용성 물질(insoluble particles) </a></li>
 <li class="toc-entry toc-h3"><a href="#가용성-물질(soluble-particles)">가용성 물질(soluble particles) </a></li>
 <li class="toc-entry toc-h3"><a href="#Cell-Lysis를-하는-세-가지-방법">Cell Lysis를 하는 세 가지 방법 </a></li>
@@ -230,10 +231,15 @@ fig. Gel filteration chromatography의 개략도</p>
 <p>특정 미생물은 세포 밖으로 단백질을 배출한다. 이럴 경우에는 단백질이 세포 밖에 있으므로 세포만 제거하면 된다. 그러나 BL21은 세포 내에서 단백질이 생성되므로 세포를 파쇄하여 단백질을 얻어야 한다. 이를 Cell Lysis(또는 Lysis)라 한다. 아래의 위키피디아의 영어 정의가 조금 더 명확하여 인용한다.</p>
 <p>Lysis is the breaking down of the membrane of a cell, often by viral, enzymic, or osmotic(삼투) mechanisms that compromise its integrity(온전한 상태).</p>
 <p>위 표현을 빌리자면 셀의 membrane을 제거하여 온전한 상태를 깨는 것이다. 파쇄 된 세포는 원심분리를 거치게 되는데, 원심분리의 결과는 불용성 물질과 가용성 물질로 분류할 수 있다.</p>
+<h3 id="대장균에서-단백질의-분포">
+<a class="anchor" href="#%EB%8C%80%EC%9E%A5%EA%B7%A0%EC%97%90%EC%84%9C-%EB%8B%A8%EB%B0%B1%EC%A7%88%EC%9D%98-%EB%B6%84%ED%8F%AC" aria-hidden="true"><span class="octicon octicon-link"></span></a>대장균에서 단백질의 분포<a class="anchor-link" href="#%EB%8C%80%EC%9E%A5%EA%B7%A0%EC%97%90%EC%84%9C-%EB%8B%A8%EB%B0%B1%EC%A7%88%EC%9D%98-%EB%B6%84%ED%8F%AC"> </a>
+</h3>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-09-16-expression-and-purification-of-protein/E-coli-protein.png" alt="">
+target gene+vector가 삽입된 대장균(DH5α/BL21)은 자신이 살아남기 위해 필요한 단백질 이외의 단백질들(곧 우리가 원하는 단백질들)을 세포 밖으로 배출한다. 그러나 자신에게 필요한 단백질들은 세포 내부에 둔다. 위 그림에서는 Cytoplasm으로 표시되어 있다. 세포 외부로 배출하는 단백질은 수용성 단백질, 세포 내부의 단백질은 불용성 단백질이다. 때로는 outer membrance와 inner membrance 사이에 단백질이 존재하기도 한다. 이 영역을 Periplasm이라 부른다.</p>
 <h3 id="불용성-물질(insoluble-particles)">
 <a class="anchor" href="#%EB%B6%88%EC%9A%A9%EC%84%B1-%EB%AC%BC%EC%A7%88(insoluble-particles)" aria-hidden="true"><span class="octicon octicon-link"></span></a>불용성 물질(insoluble particles)<a class="anchor-link" href="#%EB%B6%88%EC%9A%A9%EC%84%B1-%EB%AC%BC%EC%A7%88(insoluble-particles)"> </a>
 </h3>
-<p>불용성 물질은 침전물을 말한다.</p>
+<p>불용성 물질은 침전물을 말한다. 불용성 단백질은 물이 아닌 염, urea(8M) 또는 gaunidine HCl(6M)에 녹는다.</p>
 <h3 id="가용성-물질(soluble-particles)">
 <a class="anchor" href="#%EA%B0%80%EC%9A%A9%EC%84%B1-%EB%AC%BC%EC%A7%88(soluble-particles)" aria-hidden="true"><span class="octicon octicon-link"></span></a>가용성 물질(soluble particles)<a class="anchor-link" href="#%EA%B0%80%EC%9A%A9%EC%84%B1-%EB%AC%BC%EC%A7%88(soluble-particles)"> </a>
 </h3>
@@ -243,11 +249,21 @@ fig. Gel filteration chromatography의 개략도</p>
 </h3>
 <ul>
 <li>초음파(ultrasonic)<ul>
-<li>현탁액에 초음파를 주사하는 방식이다.</li>
+<li>현탁액에 초음파를 주사하는 방식이다. </li>
 </ul>
 </li>
 <li>고압<ul>
-<li>세포보다 작은 구멍을 뚫은 후, 압력을 가하여 세포가 쪼개지지 않고서는 구멍을 통과할 수 없게 만든 방법이다.</li>
+<li>세포보다 작은 구멍을 뚫은 후, 압력을 가하여 세포가 쪼개지지 않고서는 구멍을 통과할 수 없게 만든 방법이다. 기기는 French Press와 Microfludizer가 있다.<ul>
+<li>French Press<ul>
+<li>한 번에 깰 수 있는 셀의 양이 적다.</li>
+</ul>
+</li>
+<li>Microfludizer<ul>
+<li>현탁액이 몇 백 mL는 있어야 효과적이다.</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 <li>효소 및 화학물질<ul>
@@ -439,15 +455,23 @@ TTAGTCGAAG AGTGCGTGCG CGGCTACATC AAAACCCATt aa</p>
 <li>pellet : buffer = 1 : 20으로 맞추어야 하지만, 해당 실험에서는 25mL의 buffer를 넣는다.</li>
 </ul>
 </li>
-<li>초음파(ultrasonic) 파쇄, 10min</li>
+<li>초음파(ultrasonic) 파쇄, 10min
+<img src="/dohk/images/copied_from_nb/../images/2020-09-16-expression-and-purification-of-protein/sonicator.png" alt="">
+</li>
 </ul>
+<p>보통 probe가 용액 표면으로부터 0.5~1cm정도 잠기게 해야한다. 또한, 시간이 지남에 따라 probe의 위치를 재조정 할 필요가 있을 수 있으므로 초음파 파쇄기 앞에서는 대기해야 한다.</p>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-09-16-expression-and-purification-of-protein/ultrasonic_display.png" alt=""></p>
+<p>초음파 파쇄기의 계기판에 위 사진의 빨간색처럼 실시간으로 probe의 위치 정보가 나온다. 위 사진과 같은 수준이면 probe를 조금 더 용액에 잠기게 해야 한다. 이럴 경우, 초음파가 발생되지 않는 30초 동안에 위치를 조정한다.</p>
 <p><img src="/dohk/images/copied_from_nb/../images/2020-09-16-expression-and-purification-of-protein/23_Untitled11.png" alt=""></p>
 <ul>
 <li>centrifuge → 20000rpm, 30min</li>
 </ul>
 <p><img src="/dohk/images/copied_from_nb/../images/2020-09-16-expression-and-purification-of-protein/24_Untitled12.png" alt=""></p>
 <ul>
-<li>상등액(clear lysate) 회수 → 4°C: 보관</li>
+<li>상등액(clear lysate 또는 License) 회수 → 4°C: 보관<ul>
+<li>추후 FPLC에서 사용될 예정</li>
+</ul>
+</li>
 </ul>
 <h2 id="Analysis-of-SDS-PAGE:-단백질-발현-확인">
 <a class="anchor" href="#Analysis-of-SDS-PAGE:-%EB%8B%A8%EB%B0%B1%EC%A7%88-%EB%B0%9C%ED%98%84-%ED%99%95%EC%9D%B8" aria-hidden="true"><span class="octicon octicon-link"></span></a>Analysis of SDS-PAGE: 단백질 발현 확인<a class="anchor-link" href="#Analysis-of-SDS-PAGE:-%EB%8B%A8%EB%B0%B1%EC%A7%88-%EB%B0%9C%ED%98%84-%ED%99%95%EC%9D%B8"> </a>
