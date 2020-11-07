@@ -4,21 +4,21 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>R basic 2-데이터프레임(DataFrame) | dohk’s AI &amp; bioinformatics</title>
+<title>R basic 2-자료형 | dohk’s AI &amp; bioinformatics</title>
 <meta name="generator" content="Jekyll v4.1.1" />
-<meta property="og:title" content="R basic 2-데이터프레임(DataFrame)" />
+<meta property="og:title" content="R basic 2-자료형" />
 <meta name="author" content="Kwon DoHyung" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="contact on gwondohyung@gmail.com" />
 <meta property="og:description" content="contact on gwondohyung@gmail.com" />
-<link rel="canonical" href="https://tfedohk.github.io/dohk/r-basic-1-2-dataframe/" />
-<meta property="og:url" content="https://tfedohk.github.io/dohk/r-basic-1-2-dataframe/" />
+<link rel="canonical" href="https://tfedohk.github.io/dohk/r-basic-1-2-datastructure/" />
+<meta property="og:url" content="https://tfedohk.github.io/dohk/r-basic-1-2-datastructure/" />
 <meta property="og:site_name" content="dohk’s AI &amp; bioinformatics" />
 <meta property="og:image" content="https://tfedohk.github.io/dohk/images/2020-11-06-r-1/Untitled60.png" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-11-06T00:00:00-06:00" />
 <script type="application/ld+json">
-{"url":"https://tfedohk.github.io/dohk/r-basic-1-2-dataframe/","@type":"BlogPosting","headline":"R basic 2-데이터프레임(DataFrame)","dateModified":"2020-11-06T00:00:00-06:00","datePublished":"2020-11-06T00:00:00-06:00","image":"https://tfedohk.github.io/dohk/images/2020-11-06-r-1/Untitled60.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://tfedohk.github.io/dohk/r-basic-1-2-dataframe/"},"author":{"@type":"Person","name":"Kwon DoHyung"},"description":"contact on gwondohyung@gmail.com","@context":"https://schema.org"}</script>
+{"url":"https://tfedohk.github.io/dohk/r-basic-1-2-datastructure/","@type":"BlogPosting","headline":"R basic 2-자료형","dateModified":"2020-11-06T00:00:00-06:00","datePublished":"2020-11-06T00:00:00-06:00","image":"https://tfedohk.github.io/dohk/images/2020-11-06-r-1/Untitled60.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://tfedohk.github.io/dohk/r-basic-1-2-datastructure/"},"author":{"@type":"Person","name":"Kwon DoHyung"},"description":"contact on gwondohyung@gmail.com","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/dohk/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://tfedohk.github.io/dohk/feed.xml" title="dohk's AI &amp; bioinformatics" /><link rel="shortcut icon" type="image/x-icon" href="/dohk/images/favicon.ico"><link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
 <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
@@ -73,7 +73,7 @@ window.onload = wrap_img;
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">R basic 2-데이터프레임(DataFrame)</h1><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-11-06T00:00:00-06:00" itemprop="datePublished">
+    <h1 class="post-title p-name" itemprop="name headline">R basic 2-자료형</h1><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-11-06T00:00:00-06:00" itemprop="datePublished">
         Nov 6, 2020
       </time>• 
           <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -81,7 +81,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      5 min read
+      11 min read
     
 </span></p>
 
@@ -108,6 +108,61 @@ window.onload = wrap_img;
 
   <div class="post-content e-content" itemprop="articleBody">
     <ul class="section-nav">
+<li class="toc-entry toc-h1"><a href="#자료형">자료형 </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#기본-자료형">기본 자료형 </a></li>
+<li class="toc-entry toc-h2"><a href="#그-외-자료형">그 외 자료형 </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#자료형:-벡터(vector)">자료형: 벡터(vector) </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#vector-생성">vector 생성 </a></li>
+<li class="toc-entry toc-h2"><a href="#vector를-변수에-저장">vector를 변수에 저장 </a></li>
+<li class="toc-entry toc-h2"><a href="#여러-자료형이-섞이면-무조건-character로-인식한다.">여러 자료형이 섞이면 무조건 character로 인식한다. </a></li>
+<li class="toc-entry toc-h2"><a href="#벡터-간-연결">벡터 간 연결 </a></li>
+<li class="toc-entry toc-h2"><a href="#벡터-값-호출">벡터 값 호출 </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#조건부-값-호출">조건부 값 호출 </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#인덱싱-연산">인덱싱 연산 </a></li>
+<li class="toc-entry toc-h2"><a href="#벡터-연산">벡터 연산 </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#벡터-내-연산">벡터 내 연산 </a></li>
+<li class="toc-entry toc-h3"><a href="#벡터-간-연산">벡터 간 연산 </a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#자료형:-리스트(list)">자료형: 리스트(list) </a></li>
+<li class="toc-entry toc-h1"><a href="#자료형:-팩터(Factor)">자료형: 팩터(Factor) </a></li>
+<li class="toc-entry toc-h1"><a href="#자료형">자료형 </a></li>
+<li class="toc-entry toc-h1"><a href="#자료형:-행렬(matrix)">자료형: 행렬(matrix) </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#행렬-생성">행렬 생성 </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#matrix()로-행렬-생성">matrix()로 행렬 생성 </a></li>
+<li class="toc-entry toc-h3"><a href="#벡터로-행렬-생성:-cbind(),-rbind()">벡터로 행렬 생성: cbind(), rbind() </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#행렬의-column과-row의-이름-확인-및-변경">행렬의 column과 row의 이름 확인 및 변경 </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#column의-이름과-row의-이름-확인">column의 이름과 row의 이름 확인 </a></li>
+<li class="toc-entry toc-h3"><a href="#column의-이름과-row의-이름-변경">column의 이름과 row의 이름 변경 </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#행렬에서-값의-추출">행렬에서 값의 추출 </a></li>
+<li class="toc-entry toc-h2"><a href="#행렬-연산">행렬 연산 </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#행렬-내-연산">행렬 내 연산 </a></li>
+<li class="toc-entry toc-h3"><a href="#행렬끼리-연산">행렬끼리 연산 </a></li>
+<li class="toc-entry toc-h3"><a href="#cbind(),-rbind()">cbind(), rbind() </a></li>
+<li class="toc-entry toc-h3"><a href="#rownames(),-colnames()">rownames(), colnames() </a></li>
+<li class="toc-entry toc-h3"><a href="#matrix에서-colnames와-rownames-지정하기">matrix에서 colnames와 rownames 지정하기 </a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toc-entry toc-h1"><a href="#자료형:-데이터프레임(DataFrame)">자료형: 데이터프레임(DataFrame) </a>
 <ul>
 <li class="toc-entry toc-h2"><a href="#데이터프레임의-생성">데이터프레임의 생성 </a>
@@ -171,7 +226,7 @@ window.onload = wrap_img;
 #################################################
 ### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
 #################################################
-# file to edit: _notebooks/2020-11-06-R-basic-1-2-dataframe.ipynb
+# file to edit: _notebooks/2020-11-06-R-basic-1-2-datastructure.ipynb
 -->
 
 <div class="container" id="notebook-container">
@@ -179,6 +234,439 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="자료형">
+<a class="anchor" href="#%EC%9E%90%EB%A3%8C%ED%98%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>자료형<a class="anchor-link" href="#%EC%9E%90%EB%A3%8C%ED%98%95"> </a>
+</h1>
+<h2 id="기본-자료형">
+<a class="anchor" href="#%EA%B8%B0%EB%B3%B8-%EC%9E%90%EB%A3%8C%ED%98%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>기본 자료형<a class="anchor-link" href="#%EA%B8%B0%EB%B3%B8-%EC%9E%90%EB%A3%8C%ED%98%95"> </a>
+</h2>
+<p>R의 자료형은 크게 세 가지로 구분 가능하다; 숫자(Numeric), 문자(Character), 논리형(Logical). Numeric 자료형에는 정수와 실수가 모두 포함되며, Character 자료형을 쓸 땐 큰 따옴표나 작은 따옴표를 반드시 표기해야 한다. 논리형은 <code>TRUE</code> 또는 <code>T</code>, <code>FALSE</code> 또는 <code>F</code>로만 표기할 수 있다.</p>
+<div class="highlight"><pre><span></span><span class="c1"># R에서 주석은 #으로 표기</span>
+<span class="m">1</span>
+<span class="m">100</span>
+<span class="m">1000</span>
+<span class="s">"abc"</span>
+<span class="s">'abc'</span>
+<span class="n">abc</span> <span class="c1"># -&gt; 정의되지 않은 변수일 경우엔 오류 발생</span>
+<span class="kc">TRUE</span>
+<span class="kc">FALSE</span>
+<span class="bp">T</span>
+<span class="bp">F</span>
+
+<span class="m">1</span><span class="p">,</span> <span class="m">100</span><span class="p">,</span> <span class="m">1000</span> <span class="c1"># -&gt; 오류. 동일한 타입의 자료형은 한 줄에 하나씩만 가능</span>
+</pre></div>
+<h2 id="그-외-자료형">
+<a class="anchor" href="#%EA%B7%B8-%EC%99%B8-%EC%9E%90%EB%A3%8C%ED%98%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>그 외 자료형<a class="anchor-link" href="#%EA%B7%B8-%EC%99%B8-%EC%9E%90%EB%A3%8C%ED%98%95"> </a>
+</h2>
+<ul>
+<li>Vector, Matrix, Data Frame, List, Factor</li>
+</ul>
+<h1 id="자료형:-벡터(vector)">
+<a class="anchor" href="#%EC%9E%90%EB%A3%8C%ED%98%95:-%EB%B2%A1%ED%84%B0(vector)" aria-hidden="true"><span class="octicon octicon-link"></span></a>자료형: 벡터(vector)<a class="anchor-link" href="#%EC%9E%90%EB%A3%8C%ED%98%95:-%EB%B2%A1%ED%84%B0(vector)"> </a>
+</h1>
+<p>vector 자료형을 생성하는 방법:  <code>c()</code>함수 이용. c: combine의 약어</p>
+<p>vector의 생성은 <code>()</code>, 호출은 <code>[]</code></p>
+<h2 id="vector-생성">
+<a class="anchor" href="#vector-%EC%83%9D%EC%84%B1" aria-hidden="true"><span class="octicon octicon-link"></span></a>vector 생성<a class="anchor-link" href="#vector-%EC%83%9D%EC%84%B1"> </a>
+</h2>
+<div class="highlight"><pre><span></span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">)</span>
+</pre></div>
+<p>1 2 3</p>
+<div class="highlight"><pre><span></span><span class="nf">c</span><span class="p">(</span><span class="s">"one"</span><span class="p">,</span> <span class="s">"two"</span><span class="p">,</span> <span class="s">"three"</span><span class="p">)</span>
+</pre></div>
+<p>"one"   "two"   "three"</p>
+<div class="highlight"><pre><span></span><span class="nf">c</span><span class="p">(</span><span class="kc">TRUE</span><span class="p">,</span> <span class="kc">FALSE</span><span class="p">,</span> <span class="kc">TRUE</span><span class="p">)</span>
+</pre></div>
+<p>TRUE FALSE  TRUE</p>
+<h2 id="vector를-변수에-저장">
+<a class="anchor" href="#vector%EB%A5%BC-%EB%B3%80%EC%88%98%EC%97%90-%EC%A0%80%EC%9E%A5" aria-hidden="true"><span class="octicon octicon-link"></span></a>vector를 변수에 저장<a class="anchor-link" href="#vector%EB%A5%BC-%EB%B3%80%EC%88%98%EC%97%90-%EC%A0%80%EC%9E%A5"> </a>
+</h2>
+<div class="highlight"><pre><span></span><span class="n">var1</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">)</span> 
+<span class="n">var2</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">"one"</span><span class="p">,</span> <span class="s">"two"</span><span class="p">,</span> <span class="s">"three"</span><span class="p">)</span>
+<span class="n">var3</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="kc">TRUE</span><span class="p">,</span> <span class="kc">FALSE</span><span class="p">,</span> <span class="kc">TRUE</span><span class="p">)</span>
+</pre></div>
+<div class="highlight"><pre><span></span><span class="n">var1</span>
+</pre></div>
+<p>1 2 3</p>
+<div class="highlight"><pre><span></span><span class="n">var2</span>
+</pre></div>
+<p>"one"   "two"   "three"</p>
+<div class="highlight"><pre><span></span><span class="n">var3</span>
+</pre></div>
+<p>TRUE FALSE  TRUE</p>
+<h2 id="여러-자료형이-섞이면-무조건-character로-인식한다.">
+<a class="anchor" href="#%EC%97%AC%EB%9F%AC-%EC%9E%90%EB%A3%8C%ED%98%95%EC%9D%B4-%EC%84%9E%EC%9D%B4%EB%A9%B4-%EB%AC%B4%EC%A1%B0%EA%B1%B4-character%EB%A1%9C-%EC%9D%B8%EC%8B%9D%ED%95%9C%EB%8B%A4." aria-hidden="true"><span class="octicon octicon-link"></span></a>여러 자료형이 섞이면 무조건 character로 인식한다.<a class="anchor-link" href="#%EC%97%AC%EB%9F%AC-%EC%9E%90%EB%A3%8C%ED%98%95%EC%9D%B4-%EC%84%9E%EC%9D%B4%EB%A9%B4-%EB%AC%B4%EC%A1%B0%EA%B1%B4-character%EB%A1%9C-%EC%9D%B8%EC%8B%9D%ED%95%9C%EB%8B%A4."> </a>
+</h2>
+<div class="highlight"><pre><span></span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="s">"one"</span><span class="p">,</span> <span class="kc">TRUE</span><span class="p">)</span>
+</pre></div>
+<p>"1"    "one"  "TRUE"</p>
+<h2 id="벡터-간-연결">
+<a class="anchor" href="#%EB%B2%A1%ED%84%B0-%EA%B0%84-%EC%97%B0%EA%B2%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>벡터 간 연결<a class="anchor-link" href="#%EB%B2%A1%ED%84%B0-%EA%B0%84-%EC%97%B0%EA%B2%B0"> </a>
+</h2>
+<div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">)</span>
+<span class="n">x</span>
+</pre></div>
+<p>1 2 3</p>
+<div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">4</span><span class="p">,</span><span class="m">5</span><span class="p">,</span><span class="m">6</span><span class="p">,</span><span class="m">7</span><span class="p">)</span>
+<span class="n">y</span>
+</pre></div>
+<p>4 5 6 7</p>
+<div class="highlight"><pre><span></span><span class="n">z</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">z</span>
+<span class="m">1</span> <span class="m">2</span> <span class="m">3</span> <span class="m">4</span> <span class="m">5</span> <span class="m">6</span> <span class="m">7</span>
+</pre></div>
+<h2 id="벡터-값-호출">
+<a class="anchor" href="#%EB%B2%A1%ED%84%B0-%EA%B0%92-%ED%98%B8%EC%B6%9C" aria-hidden="true"><span class="octicon octicon-link"></span></a>벡터 값 호출<a class="anchor-link" href="#%EB%B2%A1%ED%84%B0-%EA%B0%92-%ED%98%B8%EC%B6%9C"> </a>
+</h2>
+<p><code>[]</code>을 사용한다. 벡터의 요소는 <code>**1**</code>부터 시작함. <strong><code>0</code></strong>번 인덱스는 자료형을 나타낸다.</p>
+<div class="highlight"><pre><span></span><span class="n">var</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">"a"</span><span class="p">,</span> <span class="s">"b"</span><span class="p">,</span> <span class="s">"c"</span><span class="p">)</span>
+<span class="n">var</span><span class="p">[</span><span class="m">0</span><span class="p">]</span>
+</pre></div>
+<p>character(0)</p>
+<div class="highlight"><pre><span></span><span class="n">var</span><span class="p">[</span><span class="m">1</span><span class="p">]</span>
+</pre></div>
+<p>"a"</p>
+<div class="highlight"><pre><span></span><span class="n">var</span><span class="p">[</span><span class="m">2</span><span class="p">]</span>
+</pre></div>
+<p>"b"</p>
+<div class="highlight"><pre><span></span><span class="n">var</span><span class="p">[</span><span class="m">3</span><span class="p">]</span>
+</pre></div>
+<p>"c"</p>
+<h3 id="조건부-값-호출">
+<a class="anchor" href="#%EC%A1%B0%EA%B1%B4%EB%B6%80-%EA%B0%92-%ED%98%B8%EC%B6%9C" aria-hidden="true"><span class="octicon octicon-link"></span></a>조건부 값 호출<a class="anchor-link" href="#%EC%A1%B0%EA%B1%B4%EB%B6%80-%EA%B0%92-%ED%98%B8%EC%B6%9C"> </a>
+</h3>
+<div class="highlight"><pre><span></span><span class="n">var</span> <span class="o">&lt;-</span> <span class="m">1</span><span class="o">:</span><span class="m">10</span>
+<span class="n">var</span>
+</pre></div>
+<p>1  2  3  4  5  6  7  8  9 10</p>
+<div class="highlight"><pre><span></span><span class="n">var</span> <span class="o">&gt;</span> <span class="m">5</span>
+</pre></div>
+<p>FALSE FALSE FALSE FALSE FALSE TRUE TRUE TRUE TRUE TRUE</p>
+<div class="highlight"><pre><span></span><span class="n">var</span><span class="p">[</span><span class="n">var</span> <span class="o">&gt;</span> <span class="m">5</span><span class="p">]</span>
+</pre></div>
+<p>6  7  8  9 10</p>
+<div class="highlight"><pre><span></span><span class="n">var</span><span class="p">[</span><span class="n">var</span><span class="o">&lt;</span><span class="m">3</span><span class="o">|</span><span class="n">var</span><span class="o">&gt;</span><span class="m">7</span><span class="p">]</span>
+</pre></div>
+<p>1  2  8  9 10</p>
+<div class="highlight"><pre><span></span><span class="n">var</span><span class="p">[</span><span class="n">var</span><span class="o">&gt;</span><span class="m">3</span><span class="o">&amp;</span><span class="n">var</span><span class="o">&lt;</span><span class="m">7</span><span class="p">]</span>
+</pre></div>
+<p>4 5 6</p>
+<p><code>&gt;</code> 연산자 자체는 Logical 자료형의 형태로 결과를 출력한다. <code>[]</code>와 함께 <code>&gt;</code> 연산자를 함께 사용하면, 값 자체에 대한 조건에 맞는 결과를 출력한다.</p>
+<h2 id="인덱싱-연산">
+<a class="anchor" href="#%EC%9D%B8%EB%8D%B1%EC%8B%B1-%EC%97%B0%EC%82%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>인덱싱 연산<a class="anchor-link" href="#%EC%9D%B8%EB%8D%B1%EC%8B%B1-%EC%97%B0%EC%82%B0"> </a>
+</h2>
+<p>파이썬과는 다르게 인덱싱 연산에서 차이가 있다. 파이썬은 from(included), to(excluded)인 반면, R은 from과 to 모두 included다. 또한 <code>-</code>기호에도 차이가 있는데, 파이썬에서는 뒤에서부터 호출하게 하는 연산자라면, R에서는 제외시키는 연산자다.</p>
+<div class="highlight"><pre><span></span><span class="n">var</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">"a"</span><span class="p">,</span> <span class="s">"b"</span><span class="p">,</span> <span class="s">"c"</span><span class="p">)</span>
+<span class="n">var</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">]</span>
+</pre></div>
+<p>"a" "b"</p>
+<div class="highlight"><pre><span></span><span class="n">var</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">]</span>
+</pre></div>
+<p>"a" "b" "c"</p>
+<div class="highlight"><pre><span></span><span class="n">var</span><span class="p">[</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">3</span><span class="p">)]</span>
+</pre></div>
+<p>"a" "c"</p>
+<div class="highlight"><pre><span></span><span class="n">var</span><span class="p">[</span><span class="m">-1</span><span class="p">]</span>
+</pre></div>
+<p>"b" "c"</p>
+<div class="highlight"><pre><span></span><span class="n">var</span><span class="p">[</span><span class="o">-</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">3</span><span class="p">)]</span>
+</pre></div>
+<p>"b"</p>
+<h2 id="벡터-연산">
+<a class="anchor" href="#%EB%B2%A1%ED%84%B0-%EC%97%B0%EC%82%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>벡터 연산<a class="anchor-link" href="#%EB%B2%A1%ED%84%B0-%EC%97%B0%EC%82%B0"> </a>
+</h2>
+<p>숫자형 벡터끼리는 벡터 내 각 요소 별로 연산이 가능하다.</p>
+<h3 id="벡터-내-연산">
+<a class="anchor" href="#%EB%B2%A1%ED%84%B0-%EB%82%B4-%EC%97%B0%EC%82%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>벡터 내 연산<a class="anchor-link" href="#%EB%B2%A1%ED%84%B0-%EB%82%B4-%EC%97%B0%EC%82%B0"> </a>
+</h3>
+<div class="highlight"><pre><span></span><span class="n">var</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">7</span><span class="p">,</span> <span class="m">9</span><span class="p">)</span>
+<span class="n">var</span>
+</pre></div>
+<p>1 3 5 7 9</p>
+<div class="highlight"><pre><span></span><span class="n">var</span> <span class="o">+</span> <span class="m">2</span>
+</pre></div>
+<p>3  5  7  9 11</p>
+<div class="highlight"><pre><span></span><span class="n">var</span> <span class="o">-</span> <span class="m">2</span>
+</pre></div>
+<p>-1  1  3  5  7</p>
+<div class="highlight"><pre><span></span><span class="n">var</span> <span class="o">*</span> <span class="m">2</span>
+</pre></div>
+<p>2  6 10 14 18</p>
+<div class="highlight"><pre><span></span><span class="n">var</span> <span class="o">/</span> <span class="m">2</span>
+</pre></div>
+<p>0.5 1.5 2.5 3.5 4.5</p>
+<div class="highlight"><pre><span></span><span class="p">(</span><span class="n">var</span> <span class="o">+</span> <span class="m">2</span><span class="p">)</span><span class="o">*</span><span class="m">4</span>
+</pre></div>
+<p>12 20 28 36 44</p>
+<h3 id="벡터-간-연산">
+<a class="anchor" href="#%EB%B2%A1%ED%84%B0-%EA%B0%84-%EC%97%B0%EC%82%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>벡터 간 연산<a class="anchor-link" href="#%EB%B2%A1%ED%84%B0-%EA%B0%84-%EC%97%B0%EC%82%B0"> </a>
+</h3>
+<div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">5</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">6</span><span class="p">)</span>
+<span class="n">x</span>
+</pre></div>
+<p>1 3 5</p>
+<div class="highlight"><pre><span></span><span class="n">y</span>
+</pre></div>
+<p>2 4 6</p>
+<div class="highlight"><pre><span></span><span class="n">x</span><span class="o">+</span><span class="n">y</span>
+</pre></div>
+<p>3  7 11</p>
+<div class="highlight"><pre><span></span><span class="n">x</span><span class="o">-</span><span class="n">y</span>
+</pre></div>
+<p>-1 -1 -1</p>
+<div class="highlight"><pre><span></span><span class="n">x</span><span class="o">*</span><span class="n">y</span>
+</pre></div>
+<p>2 12 30</p>
+<div class="highlight"><pre><span></span><span class="n">x</span><span class="o">/</span><span class="n">y</span>
+</pre></div>
+<p>0.5000000 0.7500000 0.8333333</p>
+<p>벡터의 길이가 다를 경우 연산은 불가능하다.</p>
+<div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">5</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">6</span><span class="p">,</span> <span class="m">8</span><span class="p">,</span> <span class="m">10</span><span class="p">)</span>
+
+<span class="n">x</span><span class="o">+</span><span class="n">y</span>
+<span class="m">3</span>  <span class="m">7</span> <span class="m">11</span>  <span class="m">9</span> <span class="m">13</span>
+경고메시지<span class="p">(</span>들<span class="p">)</span><span class="o">:</span> 
+<span class="n">In</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">:</span> 두 객체의 길이가 서로 배수관계에 있지 않습니다
+</pre></div>
+<h1 id="자료형:-리스트(list)">
+<a class="anchor" href="#%EC%9E%90%EB%A3%8C%ED%98%95:-%EB%A6%AC%EC%8A%A4%ED%8A%B8(list)" aria-hidden="true"><span class="octicon octicon-link"></span></a>자료형: 리스트(list)<a class="anchor-link" href="#%EC%9E%90%EB%A3%8C%ED%98%95:-%EB%A6%AC%EC%8A%A4%ED%8A%B8(list)"> </a>
+</h1>
+<p>서로 다른 길이의 벡터 또는 서로 다른 데이터 구조들을 모아놓은 집합이다. 행렬은 같은 데이터 타입만 허용했었으나, 리스트는 데이터프레임과 동일하게 여러 자료형을 허용한다. R 자료형 중에서 가장 유연한 자료형이라고 할 수 있다.</p>
+<p>리스트 자료형을 만들 땐 함수 <code>list()</code>를 이용한다.</p>
+<div class="highlight"><pre><span></span><span class="c1"># 서로 다른 타입의 자료형의 벡터들을 만든다.</span>
+<span class="n">a</span><span class="o">&lt;-</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">)</span>
+<span class="n">b</span><span class="o">&lt;-</span><span class="nf">c</span><span class="p">(</span><span class="s">"a"</span><span class="p">,</span><span class="s">"b"</span><span class="p">,</span><span class="s">"c"</span><span class="p">,</span><span class="s">"d"</span><span class="p">,</span><span class="s">"e"</span><span class="p">)</span>
+<span class="n">c</span><span class="o">&lt;-</span><span class="nf">c</span><span class="p">(</span><span class="kc">TRUE</span><span class="p">,</span><span class="kc">FALSE</span><span class="p">)</span>
+
+<span class="c1"># list() 함수를 이용하여 각 벡터를 리스트화하여 변수에 저장한다. </span>
+<span class="c1"># 만들 때 벡터가 담고 있는 데이터에 대한 정보를 직접 기술해 줄 수도 있다.</span>
+<span class="n">list1</span> <span class="o">&lt;-</span> <span class="nf">list</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+<span class="n">list1</span>
+<span class="n">list2</span> <span class="o">&lt;-</span> <span class="nf">list</span><span class="p">(</span><span class="n">id</span><span class="o">=</span><span class="n">a</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">b</span><span class="p">,</span> <span class="n">positive</span><span class="o">=</span><span class="n">c</span><span class="p">)</span>
+<span class="n">list2</span>
+
+<span class="c1"># 리스트에서 값의 추출은 다음과 같이 한다. </span>
+<span class="c1"># 호출 시, 인덱스 번호로 호출할 수도 있고, 리스트를 만들 때 기술했던 정보를 이용해 호출할 수도 있다.</span>
+<span class="n">list2</span><span class="p">[[</span><span class="m">1</span><span class="p">]]</span>
+<span class="n">list2</span><span class="p">[[</span><span class="m">3</span><span class="p">]]</span>
+<span class="n">list2</span><span class="p">[[</span><span class="s">"name"</span><span class="p">]]</span>
+<span class="nf">list2</span><span class="p">(</span>달러표시<span class="p">)</span><span class="n">name</span>
+
+<span class="nf">class</span><span class="p">(</span><span class="n">list1</span><span class="p">[</span><span class="m">1</span><span class="p">])</span>
+<span class="nf">class</span><span class="p">(</span><span class="n">list2</span><span class="p">[</span><span class="m">1</span><span class="p">])</span>
+</pre></div>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-06-r-1/Untitled85.png" alt=""></p>
+<p>인덱싱 연산도 가능하다.</p>
+<div class="highlight"><pre><span></span><span class="n">list1</span><span class="p">[</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">3</span><span class="p">)]</span> <span class="c1"># 리스트의 첫 번째와 세 번째를 출력한다.</span>
+</pre></div>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-06-r-1/Untitled86.png" alt=""></p>
+<p><code>[[1]]</code>과 <code>[[2]]</code> 에 속지 말 것. 리스트의 번호가 아니다.</p>
+<div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="nf">seq</span><span class="p">(</span><span class="m">5</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">"one"</span><span class="p">,</span> <span class="s">"two"</span><span class="p">)</span>
+<span class="n">z</span> <span class="o">=</span> <span class="nf">matrix</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">,</span> <span class="n">nrow</span><span class="o">=</span><span class="m">2</span><span class="p">,</span> <span class="n">ncol</span><span class="o">=</span><span class="m">5</span><span class="p">)</span>
+
+<span class="n">list.all</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+<span class="n">list.all</span>
+
+<span class="n">list.all</span><span class="p">[[</span><span class="m">1</span><span class="p">]]</span>
+<span class="n">list.all</span><span class="p">[[</span><span class="m">1</span><span class="p">]][</span><span class="m">1</span><span class="p">]</span>
+
+<span class="n">list.all</span><span class="p">[[</span><span class="m">2</span><span class="p">]]</span>
+<span class="n">list.all</span><span class="p">[[</span><span class="m">3</span><span class="p">]][[</span><span class="m">1</span><span class="p">,</span><span class="m">3</span><span class="p">]]</span>
+
+<span class="nf">names</span><span class="p">(</span><span class="n">list.all</span><span class="p">)</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">"A"</span><span class="p">,</span> <span class="s">"B"</span><span class="p">,</span> <span class="s">"C"</span><span class="p">)</span> 
+<span class="c1"># 리스트는 굉장히 유연하고 다양한 타입의 데이터를 닮을 수 있기 때문에 이렇게 이름을 지정해주는 게 좋다.</span>
+<span class="nf">list.all</span><span class="p">(</span>달러표시<span class="p">)</span><span class="n">A</span>
+</pre></div>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-06-r-1/Untitled87.png" alt=""></p>
+<h1 id="자료형:-팩터(Factor)">
+<a class="anchor" href="#%EC%9E%90%EB%A3%8C%ED%98%95:-%ED%8C%A9%ED%84%B0(Factor)" aria-hidden="true"><span class="octicon octicon-link"></span></a>자료형: 팩터(Factor)<a class="anchor-link" href="#%EC%9E%90%EB%A3%8C%ED%98%95:-%ED%8C%A9%ED%84%B0(Factor)"> </a>
+</h1>
+<p>팩터는 벡터와 유사하다. 다만 level 값을 가지며, 범주형 데이터에 주로 사용된다.</p>
+<ul>
+<li>범주형 데이터: Male/Female, up/down/left/right, A/B/C/D</li>
+</ul>
+<p>level 값에 벗어나는 데이터가 입력되면 NA 값으로 처리된다.</p>
+<p>값의 추출은 벡터와 동일하게 <code>[]</code>를 쓴다.</p>
+<p>먼저, 벡터를 만들어 보자.</p>
+<div class="highlight"><pre><span></span><span class="n">tool</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">"C"</span><span class="p">,</span> <span class="s">"Python"</span><span class="p">,</span> <span class="s">"Java"</span><span class="p">)</span>
+<span class="n">tool</span>
+</pre></div>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-06-r-1/Untitled88.png" alt=""></p>
+<p>이 벡터를 팩터로 변환하기 위해서는 <code>factor()</code> 함수를 이용한다.</p>
+<div class="highlight"><pre><span></span><span class="n">factor_var</span> <span class="o">&lt;-</span> <span class="nf">factor</span><span class="p">(</span><span class="n">tool</span><span class="p">)</span>
+<span class="n">factor_var</span>
+<span class="nf">class</span><span class="p">(</span><span class="n">factor_var</span><span class="p">)</span>
+</pre></div>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-06-r-1/Untitled89.png" alt=""></p>
+<p>level의 순서를 직접 다음과 같이 직접 지정해 줄 수 있다.</p>
+<div class="highlight"><pre><span></span><span class="n">factor_var</span> <span class="o">&lt;-</span> <span class="nf">factor</span><span class="p">(</span><span class="n">tool</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="p">(</span><span class="s">"R"</span><span class="p">,</span> <span class="s">"Python"</span><span class="p">,</span> <span class="s">"JAVA"</span><span class="p">))</span>
+<span class="n">factor_var</span>
+</pre></div>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-06-r-1/Untitled90.png" alt=""></p>
+<p>자료형을 순서대로 숫자로 변환하고 싶다면, <code>as.numeric()</code> 함수를 사용한다.</p>
+<div class="highlight"><pre><span></span><span class="n">tool</span> <span class="o">&lt;-</span> <span class="nf">as.numeric</span><span class="p">(</span><span class="n">factor_var</span><span class="p">)</span>
+<span class="n">tool</span>
+</pre></div>
+<h1 id="자료형">
+<a class="anchor" href="#%EC%9E%90%EB%A3%8C%ED%98%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>자료형<a class="anchor-link" href="#%EC%9E%90%EB%A3%8C%ED%98%95"> </a>
+</h1>
+<h1 id="자료형:-행렬(matrix)">
+<a class="anchor" href="#%EC%9E%90%EB%A3%8C%ED%98%95:-%ED%96%89%EB%A0%AC(matrix)" aria-hidden="true"><span class="octicon octicon-link"></span></a>자료형: 행렬(matrix)<a class="anchor-link" href="#%EC%9E%90%EB%A3%8C%ED%98%95:-%ED%96%89%EB%A0%AC(matrix)"> </a>
+</h1>
+<p>행렬은 동일한 자료형의 집합이며, 2차원의 데이터 구조를 말한다.</p>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-06-r-1/Untitled35.png" alt=""></p>
+<h2 id="행렬-생성">
+<a class="anchor" href="#%ED%96%89%EB%A0%AC-%EC%83%9D%EC%84%B1" aria-hidden="true"><span class="octicon octicon-link"></span></a>행렬 생성<a class="anchor-link" href="#%ED%96%89%EB%A0%AC-%EC%83%9D%EC%84%B1"> </a>
+</h2>
+<h3 id="matrix()로-행렬-생성">
+<a class="anchor" href="#matrix()%EB%A1%9C-%ED%96%89%EB%A0%AC-%EC%83%9D%EC%84%B1" aria-hidden="true"><span class="octicon octicon-link"></span></a>matrix()로 행렬 생성<a class="anchor-link" href="#matrix()%EB%A1%9C-%ED%96%89%EB%A0%AC-%EC%83%9D%EC%84%B1"> </a>
+</h3>
+<div class="highlight"><pre><span></span><span class="nf">matrix</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">9</span><span class="p">,</span> <span class="n">nrow</span><span class="o">=</span><span class="m">3</span><span class="p">,</span> <span class="n">ncol</span><span class="o">=</span><span class="m">3</span><span class="p">)</span>
+<span class="c1"># 행과 열의 개수를 지정해주어야 한다.</span>
+</pre></div>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-06-r-1/Untitled36.png" alt=""></p>
+<p>열부터 값이 채워지는 것을 확인할 수 있다. 즉, <code>byrow</code> 파라미터의 default값은 <code>FALSE</code>다. 따라서 이를 <code>TRUE</code>로 설정하면 행부터 값이 채워지는 것을 확인할 수 있다.</p>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-06-r-1/Untitled37.png" alt=""></p>
+<h3 id="벡터로-행렬-생성:-cbind(),-rbind()">
+<a class="anchor" href="#%EB%B2%A1%ED%84%B0%EB%A1%9C-%ED%96%89%EB%A0%AC-%EC%83%9D%EC%84%B1:-cbind(),-rbind()" aria-hidden="true"><span class="octicon octicon-link"></span></a>벡터로 행렬 생성: cbind(), rbind()<a class="anchor-link" href="#%EB%B2%A1%ED%84%B0%EB%A1%9C-%ED%96%89%EB%A0%AC-%EC%83%9D%EC%84%B1:-cbind(),-rbind()"> </a>
+</h3>
+<p>cbind는 column bind의 약자이며, rbind는 row bind의 약자이다.</p>
+<div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">4</span><span class="p">,</span><span class="m">5</span><span class="p">,</span><span class="m">6</span><span class="p">)</span>
+<span class="n">z</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">7</span><span class="p">,</span><span class="m">8</span><span class="p">,</span><span class="m">9</span><span class="p">)</span>
+</pre></div>
+<div class="highlight"><pre><span></span><span class="n">mat1</span> <span class="o">&lt;-</span> <span class="nf">cbind</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">)</span>
+<span class="n">mat1</span>
+</pre></div>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-06-r-1/Untitled38.png" alt=""></p>
+<div class="highlight"><pre><span></span><span class="n">mat2</span> <span class="o">&lt;-</span> <span class="nf">rbind</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">)</span>
+<span class="n">mat2</span>
+</pre></div>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-06-r-1/Untitled39.png" alt=""></p>
+<div class="highlight"><pre><span></span><span class="nf">cbind</span><span class="p">(</span><span class="n">mat1</span><span class="p">,</span> <span class="nf">c</span><span class="p">(</span><span class="m">10</span><span class="p">,</span> <span class="m">11</span><span class="p">,</span> <span class="m">12</span><span class="p">))</span>
+</pre></div>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-06-r-1/Untitled40.png" alt=""></p>
+<div class="highlight"><pre><span></span><span class="nf">rbind</span><span class="p">(</span><span class="n">mat2</span><span class="p">,</span> <span class="nf">c</span><span class="p">(</span><span class="m">10</span><span class="p">,</span> <span class="m">11</span><span class="p">,</span> <span class="m">12</span><span class="p">))</span>
+</pre></div>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-06-r-1/Untitled41.png" alt=""></p>
+<div class="highlight"><pre><span></span><span class="nf">rbind</span><span class="p">(</span><span class="n">mat1</span><span class="p">,</span> <span class="n">mat2</span><span class="p">)</span>
+</pre></div>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-06-r-1/Untitled42.png" alt=""></p>
+<h2 id="행렬의-column과-row의-이름-확인-및-변경">
+<a class="anchor" href="#%ED%96%89%EB%A0%AC%EC%9D%98-column%EA%B3%BC-row%EC%9D%98-%EC%9D%B4%EB%A6%84-%ED%99%95%EC%9D%B8-%EB%B0%8F-%EB%B3%80%EA%B2%BD" aria-hidden="true"><span class="octicon octicon-link"></span></a>행렬의 column과 row의 이름 확인 및 변경<a class="anchor-link" href="#%ED%96%89%EB%A0%AC%EC%9D%98-column%EA%B3%BC-row%EC%9D%98-%EC%9D%B4%EB%A6%84-%ED%99%95%EC%9D%B8-%EB%B0%8F-%EB%B3%80%EA%B2%BD"> </a>
+</h2>
+<h3 id="column의-이름과-row의-이름-확인">
+<a class="anchor" href="#column%EC%9D%98-%EC%9D%B4%EB%A6%84%EA%B3%BC-row%EC%9D%98-%EC%9D%B4%EB%A6%84-%ED%99%95%EC%9D%B8" aria-hidden="true"><span class="octicon octicon-link"></span></a>column의 이름과 row의 이름 확인<a class="anchor-link" href="#column%EC%9D%98-%EC%9D%B4%EB%A6%84%EA%B3%BC-row%EC%9D%98-%EC%9D%B4%EB%A6%84-%ED%99%95%EC%9D%B8"> </a>
+</h3>
+<p>column은 보통 R에는 '변수'로 보는 경향이 있다.</p>
+<div class="highlight"><pre><span></span><span class="nf">colnames</span><span class="p">(</span><span class="n">mat1</span><span class="p">)</span>
+<span class="nf">rownames</span><span class="p">(</span><span class="n">mat1</span><span class="p">)</span>
+</pre></div>
+<h3 id="column의-이름과-row의-이름-변경">
+<a class="anchor" href="#column%EC%9D%98-%EC%9D%B4%EB%A6%84%EA%B3%BC-row%EC%9D%98-%EC%9D%B4%EB%A6%84-%EB%B3%80%EA%B2%BD" aria-hidden="true"><span class="octicon octicon-link"></span></a>column의 이름과 row의 이름 변경<a class="anchor-link" href="#column%EC%9D%98-%EC%9D%B4%EB%A6%84%EA%B3%BC-row%EC%9D%98-%EC%9D%B4%EB%A6%84-%EB%B3%80%EA%B2%BD"> </a>
+</h3>
+<div class="highlight"><pre><span></span><span class="nf">colnames</span><span class="p">(</span><span class="n">mat1</span><span class="p">)</span><span class="o">&lt;-</span><span class="nf">c</span><span class="p">(</span><span class="s">"col1"</span><span class="p">,</span> <span class="s">"col2"</span><span class="p">,</span> <span class="s">"col3"</span><span class="p">)</span>
+<span class="nf">rownames</span><span class="p">(</span><span class="n">mat1</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">"row1"</span><span class="p">,</span> <span class="s">"row2"</span><span class="p">,</span> <span class="s">"row3"</span><span class="p">)</span>
+<span class="n">mat1</span>
+<span class="nf">colnames</span><span class="p">(</span><span class="n">mat1</span><span class="p">)</span>
+<span class="nf">rownames</span><span class="p">(</span><span class="n">mat1</span><span class="p">)</span>
+</pre></div>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-06-r-1/Untitled43.png" alt=""></p>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-06-r-1/Untitled44.png" alt=""></p>
+<h2 id="행렬에서-값의-추출">
+<a class="anchor" href="#%ED%96%89%EB%A0%AC%EC%97%90%EC%84%9C-%EA%B0%92%EC%9D%98-%EC%B6%94%EC%B6%9C" aria-hidden="true"><span class="octicon octicon-link"></span></a>행렬에서 값의 추출<a class="anchor-link" href="#%ED%96%89%EB%A0%AC%EC%97%90%EC%84%9C-%EA%B0%92%EC%9D%98-%EC%B6%94%EC%B6%9C"> </a>
+</h2>
+<p>벡터에서와 마찬가지로 <code>[]</code>를 사용하되, <code>,</code>를 사용하여 행과 열을 구분한다.</p>
+<div class="highlight"><pre><span></span><span class="n">mat1</span>
+
+<span class="n">mat1</span><span class="p">[</span><span class="m">1</span><span class="p">,</span><span class="m">3</span><span class="p">]</span>
+<span class="n">mat1</span><span class="p">[</span><span class="m">2</span><span class="p">,</span><span class="m">2</span><span class="p">]</span>
+<span class="n">mat1</span><span class="p">[</span><span class="m">1</span><span class="p">,]</span>
+<span class="n">mat1</span><span class="p">[,</span><span class="m">2</span><span class="p">]</span>
+</pre></div>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-06-r-1/Untitled45.png" alt=""></p>
+<p>행렬값 호출은 인덱스 또는 행이나 열의 이름을 직접 기술하여 호출 가능하다.</p>
+<div class="highlight"><pre><span></span><span class="n">mat1</span><span class="p">[</span><span class="m">1</span><span class="p">,</span><span class="m">3</span><span class="p">]</span>
+<span class="n">mat1</span><span class="p">[</span><span class="s">"row1"</span><span class="p">,</span> <span class="s">"col3"</span><span class="p">]</span>
+</pre></div>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-06-r-1/Untitled46.png" alt=""></p>
+<div class="highlight"><pre><span></span><span class="n">mat1</span><span class="p">[</span><span class="s">"row3"</span><span class="p">,</span><span class="nf">c</span><span class="p">(</span><span class="s">"col1"</span><span class="p">,</span><span class="s">"col3"</span><span class="p">)]</span>
+</pre></div>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-06-r-1/Untitled47.png" alt=""></p>
+<h2 id="행렬-연산">
+<a class="anchor" href="#%ED%96%89%EB%A0%AC-%EC%97%B0%EC%82%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>행렬 연산<a class="anchor-link" href="#%ED%96%89%EB%A0%AC-%EC%97%B0%EC%82%B0"> </a>
+</h2>
+<h3 id="행렬-내-연산">
+<a class="anchor" href="#%ED%96%89%EB%A0%AC-%EB%82%B4-%EC%97%B0%EC%82%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>행렬 내 연산<a class="anchor-link" href="#%ED%96%89%EB%A0%AC-%EB%82%B4-%EC%97%B0%EC%82%B0"> </a>
+</h3>
+<div class="highlight"><pre><span></span><span class="n">mat1</span>
+<span class="n">mat1</span><span class="m">+2</span>
+<span class="n">mat1</span><span class="m">-2</span>
+<span class="n">mat1</span><span class="o">*</span><span class="m">2</span>
+<span class="n">mat1</span><span class="o">/</span><span class="m">2</span>
+</pre></div>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-06-r-1/Untitled48.png" alt=""></p>
+<h3 id="행렬끼리-연산">
+<a class="anchor" href="#%ED%96%89%EB%A0%AC%EB%81%BC%EB%A6%AC-%EC%97%B0%EC%82%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>행렬끼리 연산<a class="anchor-link" href="#%ED%96%89%EB%A0%AC%EB%81%BC%EB%A6%AC-%EC%97%B0%EC%82%B0"> </a>
+</h3>
+<div class="highlight"><pre><span></span><span class="n">mat2</span> <span class="o">&lt;-</span> <span class="nf">cbind</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">10</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">9</span><span class="p">),</span> <span class="nf">c</span><span class="p">(</span><span class="m">3</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">1</span><span class="p">),</span> <span class="nf">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="m">5</span><span class="p">,</span><span class="m">7</span><span class="p">))</span>
+<span class="n">mat2</span>
+<span class="n">mat1</span>
+
+<span class="n">mat1</span> <span class="o">+</span> <span class="n">mat2</span>
+<span class="n">mat1</span> <span class="o">-</span> <span class="n">mat2</span>
+<span class="n">mat1</span> <span class="o">/</span> <span class="n">mat2</span>
+<span class="n">mat1</span> <span class="o">*</span> <span class="n">mat2</span>
+</pre></div>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-06-r-1/Untitled49.png" alt=""></p>
+<h3 id="cbind(),-rbind()">
+<a class="anchor" href="#cbind(),-rbind()" aria-hidden="true"><span class="octicon octicon-link"></span></a>cbind(), rbind()<a class="anchor-link" href="#cbind(),-rbind()"> </a>
+</h3>
+<div class="highlight"><pre><span></span><span class="n">vec1</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">)</span>
+<span class="n">vec2</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">6</span><span class="o">:</span><span class="m">10</span><span class="p">)</span>
+<span class="n">vec3</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">11</span><span class="o">:</span><span class="m">15</span><span class="p">)</span>
+
+<span class="n">vec1</span>
+<span class="n">vec2</span>
+<span class="n">vec3</span>
+
+<span class="n">mat1</span> <span class="o">=</span> <span class="nf">cbind</span><span class="p">(</span><span class="n">vec1</span><span class="p">,</span> <span class="n">vec2</span><span class="p">,</span> <span class="n">vec3</span><span class="p">)</span>
+<span class="n">mat1</span>
+<span class="nf">dim</span><span class="p">(</span><span class="n">mat1</span><span class="p">)</span>
+<span class="nf">class</span><span class="p">(</span><span class="n">mat1</span><span class="p">)</span>
+
+<span class="n">mat2</span> <span class="o">=</span> <span class="nf">rbind</span><span class="p">(</span><span class="n">vec1</span><span class="p">,</span> <span class="n">vec2</span><span class="p">,</span> <span class="n">vec3</span><span class="p">)</span>
+<span class="n">mat2</span>
+</pre></div>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-06-r-1/Untitled50.png" alt=""></p>
+<h3 id="rownames(),-colnames()">
+<a class="anchor" href="#rownames(),-colnames()" aria-hidden="true"><span class="octicon octicon-link"></span></a>rownames(), colnames()<a class="anchor-link" href="#rownames(),-colnames()"> </a>
+</h3>
+<div class="highlight"><pre><span></span><span class="nf">rownames</span><span class="p">(</span><span class="n">mat1</span><span class="p">)</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">"A"</span><span class="p">,</span> <span class="s">"B"</span><span class="p">,</span> <span class="s">"C"</span><span class="p">,</span> <span class="s">"D"</span><span class="p">,</span> <span class="s">"E"</span><span class="p">)</span>
+<span class="nf">colnames</span><span class="p">(</span><span class="n">mat1</span><span class="p">)</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">"col01"</span><span class="p">,</span> <span class="s">"col02"</span><span class="p">,</span> <span class="s">"col03"</span><span class="p">)</span>
+<span class="n">mat1</span>
+
+<span class="nf">colnames</span><span class="p">(</span><span class="n">mat2</span><span class="p">)</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">"A"</span><span class="p">,</span> <span class="s">"B"</span><span class="p">,</span> <span class="s">"C"</span><span class="p">,</span> <span class="s">"D"</span><span class="p">,</span> <span class="s">"E"</span><span class="p">)</span>
+<span class="n">mat2</span>
+</pre></div>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-06-r-1/Untitled51.png" alt=""></p>
+<h3 id="matrix에서-colnames와-rownames-지정하기">
+<a class="anchor" href="#matrix%EC%97%90%EC%84%9C-colnames%EC%99%80-rownames-%EC%A7%80%EC%A0%95%ED%95%98%EA%B8%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>matrix에서 colnames와 rownames 지정하기<a class="anchor-link" href="#matrix%EC%97%90%EC%84%9C-colnames%EC%99%80-rownames-%EC%A7%80%EC%A0%95%ED%95%98%EA%B8%B0"> </a>
+</h3>
+<div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="nf">matrix</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">25</span><span class="p">,</span> <span class="n">nrow</span><span class="o">=</span><span class="m">5</span><span class="p">,</span> <span class="n">ncol</span><span class="o">=</span><span class="m">5</span><span class="p">)</span>
+<span class="n">x</span>
+
+<span class="nf">colnames</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">=</span><span class="nf">rep</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">"sample"</span><span class="p">,</span> <span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">"_"</span><span class="p">))</span>
+<span class="nf">rownames</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">=</span><span class="nf">rep</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">"gene"</span><span class="p">,</span> <span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">"_"</span><span class="p">))</span>
+<span class="n">x</span>
+
+<span class="n">x</span><span class="p">[,</span><span class="m">4</span><span class="p">]</span> <span class="c1"># 4열만 출력</span>
+<span class="n">x</span><span class="p">[</span><span class="m">2</span><span class="p">,]</span> <span class="c1"># 2행만 출력</span>
+<span class="n">x</span><span class="p">[</span><span class="m">2</span><span class="o">:</span><span class="m">3</span><span class="p">,</span> <span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">]</span>
+</pre></div>
 <h1 id="자료형:-데이터프레임(DataFrame)">
 <a class="anchor" href="#%EC%9E%90%EB%A3%8C%ED%98%95:-%EB%8D%B0%EC%9D%B4%ED%84%B0%ED%94%84%EB%A0%88%EC%9E%84(DataFrame)" aria-hidden="true"><span class="octicon octicon-link"></span></a>자료형: 데이터프레임(DataFrame)<a class="anchor-link" href="#%EC%9E%90%EB%A3%8C%ED%98%95:-%EB%8D%B0%EC%9D%B4%ED%84%B0%ED%94%84%EB%A0%88%EC%9E%84(DataFrame)"> </a>
 </h1>
@@ -526,7 +1014,7 @@ window.onload = wrap_img;
         theme="github-light"
         crossorigin="anonymous"
         async>
-</script><a class="u-url" href="/dohk/r-basic-1-2-dataframe/" hidden></a>
+</script><a class="u-url" href="/dohk/r-basic-1-2-datastructure/" hidden></a>
 </article>
       </div>
     </main><footer class="site-footer h-card">
