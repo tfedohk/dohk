@@ -115,6 +115,7 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h3"><a href="#data.frame()-함수-이용">data.frame() 함수 이용 </a></li>
 </ul>
 </li>
+<li class="toc-entry toc-h2"><a href="#문제">문제 </a></li>
 </ul>
 </li>
 </ul><!--
@@ -151,6 +152,25 @@ window.onload = wrap_img;
 <div class="highlight"><pre><span></span><span class="n">df</span>
 </pre></div>
 <p><img src="/dohk/images/copied_from_nb/../images/2020-11-06-r-1/Untitled52.png" alt=""></p>
+<h2 id="문제">
+<a class="anchor" href="#%EB%AC%B8%EC%A0%9C" aria-hidden="true"><span class="octicon octicon-link"></span></a>문제<a class="anchor-link" href="#%EB%AC%B8%EC%A0%9C"> </a>
+</h2>
+<p>다음의 데이터프레임 df로부터 컬럼 col1, col2, col3의 값이 3개의 컬럼에서 모두 5 이상인 행을 추출하시오.</p>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-06-r-1/Untitled53.png" alt=""></p>
+<div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">"A"</span><span class="p">,</span> <span class="s">"B"</span><span class="p">,</span> <span class="s">"C"</span><span class="p">,</span> <span class="s">"D"</span><span class="p">)</span>
+<span class="n">col1</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">10</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">10</span><span class="p">,</span> <span class="m">5</span><span class="p">)</span>
+<span class="n">col2</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">9</span><span class="p">,</span> <span class="m">9</span><span class="p">)</span>
+<span class="n">col3</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="m">8</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">8</span><span class="p">)</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="nf">data.frame</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">col1</span><span class="p">,</span> <span class="n">col2</span><span class="p">,</span> <span class="n">col3</span><span class="p">)</span>
+<span class="n">df</span>
+
+<span class="n">rowname</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">"row1"</span><span class="p">,</span> <span class="s">"row2"</span><span class="p">,</span> <span class="s">"row3"</span><span class="p">,</span> <span class="s">"row4"</span><span class="p">)</span>
+<span class="nf">rownames</span><span class="p">(</span><span class="n">df</span><span class="p">)</span> <span class="o">=</span> <span class="n">rowname</span>
+<span class="n">df</span>
+
+<span class="n">df</span><span class="p">[</span><span class="n">col1</span><span class="o">&gt;=</span><span class="m">5</span> <span class="o">&amp;</span> <span class="n">col2</span><span class="o">&gt;=</span><span class="m">5</span> <span class="o">&amp;</span> <span class="n">col3</span><span class="o">&gt;=</span><span class="m">5</span><span class="p">,]</span>
+</pre></div>
 
 </div>
 </div>
