@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>R basic 2-리스트(list) | dohk’s AI &amp; bioinformatics</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="R basic 2-리스트(list)" />
+<meta name="author" content="Kwon DoHyung" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="contact on gwondohyung@gmail.com" />
+<meta property="og:description" content="contact on gwondohyung@gmail.com" />
+<link rel="canonical" href="https://tfedohk.github.io/dohk/r-basic-1-2-list/" />
+<meta property="og:url" content="https://tfedohk.github.io/dohk/r-basic-1-2-list/" />
+<meta property="og:site_name" content="dohk’s AI &amp; bioinformatics" />
+<meta property="og:image" content="https://tfedohk.github.io/dohk/images/2020-11-06-r-1/Untitled85.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-11-06T00:00:00-06:00" />
+<script type="application/ld+json">
+{"url":"https://tfedohk.github.io/dohk/r-basic-1-2-list/","@type":"BlogPosting","headline":"R basic 2-리스트(list)","dateModified":"2020-11-06T00:00:00-06:00","datePublished":"2020-11-06T00:00:00-06:00","image":"https://tfedohk.github.io/dohk/images/2020-11-06-r-1/Untitled85.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://tfedohk.github.io/dohk/r-basic-1-2-list/"},"author":{"@type":"Person","name":"Kwon DoHyung"},"description":"contact on gwondohyung@gmail.com","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/dohk/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://tfedohk.github.io/dohk/feed.xml" title="dohk's AI &amp; bioinformatics" /><link rel="shortcut icon" type="image/x-icon" href="/dohk/images/favicon.ico"><link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/dohk/">dohk&#39;s AI &amp; bioinformatics</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/dohk/about/">About Me</a><a class="page-link" href="/dohk/search/">Search</a><a class="page-link" href="/dohk/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">R basic 2-리스트(list)</h1><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-11-06T00:00:00-06:00" itemprop="datePublished">
+        Nov 6, 2020
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">Kwon DoHyung</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      1 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/dohk/categories/#CSE">CSE</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/dohk/categories/#R">R</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          
+          
+          
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h1"><a href="#자료형:-리스트(list)">자료형: 리스트(list) </a></li>
+<li class="toc-entry toc-h1"><a href="#자료형:-팩터(Factor)">자료형: 팩터(Factor) </a></li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2020-11-06-R-basic-1-2-list.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="자료형:-리스트(list)">
+<a class="anchor" href="#%EC%9E%90%EB%A3%8C%ED%98%95:-%EB%A6%AC%EC%8A%A4%ED%8A%B8(list)" aria-hidden="true"><span class="octicon octicon-link"></span></a>자료형: 리스트(list)<a class="anchor-link" href="#%EC%9E%90%EB%A3%8C%ED%98%95:-%EB%A6%AC%EC%8A%A4%ED%8A%B8(list)"> </a>
+</h1>
+<p>서로 다른 길이의 벡터 또는 서로 다른 데이터 구조들을 모아놓은 집합이다. 행렬은 같은 데이터 타입만 허용했었으나, 리스트는 데이터프레임과 동일하게 여러 자료형을 허용한다. R 자료형 중에서 가장 유연한 자료형이라고 할 수 있다.</p>
+<p>리스트 자료형을 만들 땐 함수 <code>list()</code>를 이용한다.</p>
+<div class="highlight"><pre><span></span><span class="c1"># 서로 다른 타입의 자료형의 벡터들을 만든다.</span>
+<span class="n">a</span><span class="o">&lt;-</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">)</span>
+<span class="n">b</span><span class="o">&lt;-</span><span class="nf">c</span><span class="p">(</span><span class="s">"a"</span><span class="p">,</span><span class="s">"b"</span><span class="p">,</span><span class="s">"c"</span><span class="p">,</span><span class="s">"d"</span><span class="p">,</span><span class="s">"e"</span><span class="p">)</span>
+<span class="n">c</span><span class="o">&lt;-</span><span class="nf">c</span><span class="p">(</span><span class="kc">TRUE</span><span class="p">,</span><span class="kc">FALSE</span><span class="p">)</span>
+
+<span class="c1"># list() 함수를 이용하여 각 벡터를 리스트화하여 변수에 저장한다. </span>
+<span class="c1"># 만들 때 벡터가 담고 있는 데이터에 대한 정보를 직접 기술해 줄 수도 있다.</span>
+<span class="n">list1</span> <span class="o">&lt;-</span> <span class="nf">list</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+<span class="n">list1</span>
+<span class="n">list2</span> <span class="o">&lt;-</span> <span class="nf">list</span><span class="p">(</span><span class="n">id</span><span class="o">=</span><span class="n">a</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">b</span><span class="p">,</span> <span class="n">positive</span><span class="o">=</span><span class="n">c</span><span class="p">)</span>
+<span class="n">list2</span>
+
+<span class="c1"># 리스트에서 값의 추출은 다음과 같이 한다. </span>
+<span class="c1"># 호출 시, 인덱스 번호로 호출할 수도 있고, 리스트를 만들 때 기술했던 정보를 이용해 호출할 수도 있다.</span>
+<span class="n">list2</span><span class="p">[[</span><span class="m">1</span><span class="p">]]</span>
+<span class="n">list2</span><span class="p">[[</span><span class="m">3</span><span class="p">]]</span>
+<span class="n">list2</span><span class="p">[[</span><span class="s">"name"</span><span class="p">]]</span>
+<span class="nf">list2</span><span class="p">(</span>달러표시<span class="p">)</span><span class="n">name</span>
+
+<span class="nf">class</span><span class="p">(</span><span class="n">list1</span><span class="p">[</span><span class="m">1</span><span class="p">])</span>
+<span class="nf">class</span><span class="p">(</span><span class="n">list2</span><span class="p">[</span><span class="m">1</span><span class="p">])</span>
+</pre></div>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-06-r-1/Untitled85.png" alt=""></p>
+<p>인덱싱 연산도 가능하다.</p>
+<div class="highlight"><pre><span></span><span class="n">list1</span><span class="p">[</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">3</span><span class="p">)]</span> <span class="c1"># 리스트의 첫 번째와 세 번째를 출력한다.</span>
+</pre></div>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-06-r-1/Untitled86.png" alt=""></p>
+<p>[[1]]과 [[2]] 에 속지 말 것. 리스트의 번호가 아니다.</p>
+<div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="nf">seq</span><span class="p">(</span><span class="m">5</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">"one"</span><span class="p">,</span> <span class="s">"two"</span><span class="p">)</span>
+<span class="n">z</span> <span class="o">=</span> <span class="nf">matrix</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">,</span> <span class="n">nrow</span><span class="o">=</span><span class="m">2</span><span class="p">,</span> <span class="n">ncol</span><span class="o">=</span><span class="m">5</span><span class="p">)</span>
+
+<span class="n">list.all</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+<span class="n">list.all</span>
+
+<span class="n">list.all</span><span class="p">[[</span><span class="m">1</span><span class="p">]]</span>
+<span class="n">list.all</span><span class="p">[[</span><span class="m">1</span><span class="p">]][</span><span class="m">1</span><span class="p">]</span>
+
+<span class="n">list.all</span><span class="p">[[</span><span class="m">2</span><span class="p">]]</span>
+<span class="n">list.all</span><span class="p">[[</span><span class="m">3</span><span class="p">]][[</span><span class="m">1</span><span class="p">,</span><span class="m">3</span><span class="p">]]</span>
+
+<span class="nf">names</span><span class="p">(</span><span class="n">list.all</span><span class="p">)</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">"A"</span><span class="p">,</span> <span class="s">"B"</span><span class="p">,</span> <span class="s">"C"</span><span class="p">)</span> 
+<span class="c1"># 리스트는 굉장히 유연하고 다양한 타입의 데이터를 닮을 수 있기 때문에 이렇게 이름을 지정해주는 게 좋다.</span>
+<span class="nf">list.all</span><span class="p">(</span>달러표시<span class="p">)</span><span class="n">A</span>
+</pre></div>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-06-r-1/Untitled87.png" alt=""></p>
+<h1 id="자료형:-팩터(Factor)">
+<a class="anchor" href="#%EC%9E%90%EB%A3%8C%ED%98%95:-%ED%8C%A9%ED%84%B0(Factor)" aria-hidden="true"><span class="octicon octicon-link"></span></a>자료형: 팩터(Factor)<a class="anchor-link" href="#%EC%9E%90%EB%A3%8C%ED%98%95:-%ED%8C%A9%ED%84%B0(Factor)"> </a>
+</h1>
+<p>팩터는 벡터와 유사하다. 다만 level 값을 가지며, 범주형 데이터에 주로 사용된다.</p>
+<ul>
+<li>범주형 데이터: Male/Female, up/down/left/right, A/B/C/D</li>
+</ul>
+<p>level 값에 벗어나는 데이터가 입력되면 NA 값으로 처리된다.</p>
+<p>값의 추출은 벡터와 동일하게 <code>[]</code>를 쓴다.</p>
+<p>먼저, 벡터를 만들어 보자.</p>
+<div class="highlight"><pre><span></span><span class="n">tool</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">"C"</span><span class="p">,</span> <span class="s">"Python"</span><span class="p">,</span> <span class="s">"Java"</span><span class="p">)</span>
+<span class="n">tool</span>
+</pre></div>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-06-r-1/Untitled88.png" alt=""></p>
+<p>이 벡터를 팩터로 변환하기 위해서는 <code>factor()</code> 함수를 이용한다.</p>
+<div class="highlight"><pre><span></span><span class="n">factor_var</span> <span class="o">&lt;-</span> <span class="nf">factor</span><span class="p">(</span><span class="n">tool</span><span class="p">)</span>
+<span class="n">factor_var</span>
+<span class="nf">class</span><span class="p">(</span><span class="n">factor_var</span><span class="p">)</span>
+</pre></div>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-06-r-1/Untitled89.png" alt=""></p>
+<p>level의 순서를 직접 다음과 같이 직접 지정해 줄 수 있다.</p>
+<div class="highlight"><pre><span></span><span class="n">factor_var</span> <span class="o">&lt;-</span> <span class="nf">factor</span><span class="p">(</span><span class="n">tool</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="p">(</span><span class="s">"R"</span><span class="p">,</span> <span class="s">"Python"</span><span class="p">,</span> <span class="s">"JAVA"</span><span class="p">))</span>
+<span class="n">factor_var</span>
+</pre></div>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-06-r-1/Untitled90.png" alt=""></p>
+<p>자료형을 순서대로 숫자로 변환하고 싶다면, <code>as.numeric()</code> 함수를 사용한다.</p>
+<div class="highlight"><pre><span></span><span class="n">tool</span> <span class="o">&lt;-</span> <span class="nf">as.numeric</span><span class="p">(</span><span class="n">factor_var</span><span class="p">)</span>
+<span class="n">tool</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="tfedohk/dohk"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/dohk/r-basic-1-2-list/" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/dohk/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/dohk/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/dohk/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>contact on gwondohyung@gmail.com</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/tfedohk" title="tfedohk"><svg class="svg-icon grey"><use xlink:href="/dohk/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/fastdotai" title="fastdotai"><svg class="svg-icon grey"><use xlink:href="/dohk/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
