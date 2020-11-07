@@ -81,7 +81,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      1 min read
+      3 min read
     
 </span></p>
 
@@ -143,6 +143,18 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h2"><a href="#데이터-객체-탐색">데이터 객체 탐색 </a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#dim(),-ndim(),-nrow(),-ncol(),-length():-데이터프레임의-차원-및-구조-파악하기">dim(), ndim(), nrow(), ncol(), length(): 데이터프레임의 차원 및 구조 파악하기 </a></li>
+<li class="toc-entry toc-h3"><a href="#head()와-tail()">head()와 tail() </a></li>
+<li class="toc-entry toc-h3"><a href="#행렬-또는-데이터프레임의-구조-파악하기">행렬 또는 데이터프레임의 구조 파악하기 </a></li>
+<li class="toc-entry toc-h3"><a href="#class(obj)-:-데이터-객체-구성요소의-속성-확인">class(obj) : 데이터 객체 구성요소의 속성 확인 </a></li>
+<li class="toc-entry toc-h3"><a href="#sapply(obj,-func):-object에-function을-적용">sapply(obj, func): object에 function을 적용 </a></li>
+<li class="toc-entry toc-h3"><a href="#names():-데이터-객체-구성요소-이름">names(): 데이터 객체 구성요소 이름 </a></li>
+<li class="toc-entry toc-h3"><a href="#summary(),-stat.desc(),-describe():-연속형-변수의-요약-통계">summary(), stat.desc(), describe(): 연속형 변수의 요약 통계 </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#summary()">summary() </a></li>
+<li class="toc-entry toc-h4"><a href="#stat.desc()">stat.desc() </a></li>
+<li class="toc-entry toc-h4"><a href="#describe()">describe() </a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -304,6 +316,94 @@ window.onload = wrap_img;
 <div class="highlight"><pre><span></span><span class="nf">length</span><span class="p">(</span><span class="nf">exam.df</span><span class="p">(</span>달러표시<span class="p">)</span><span class="n">gene</span><span class="p">)</span>
 </pre></div>
 <p>[1] 50</p>
+<h3 id="head()와-tail()">
+<a class="anchor" href="#head()%EC%99%80-tail()" aria-hidden="true"><span class="octicon octicon-link"></span></a>head()와 tail()<a class="anchor-link" href="#head()%EC%99%80-tail()"> </a>
+</h3>
+<p>head()함수 (또는 tail() 함수)는 1차원 또는 2차원의 행렬 또는 데이터프레임의 첫 6줄 (또는 끝 6줄;디폴트값)을 출력하는 함수다. 관측치가 수백만, 수천만 건인 경우는 상위 혹은 하위 몇 개만 미리보기를 할 수 있게 해준다.</p>
+<div class="highlight"><pre><span></span><span class="nf">head</span><span class="p">(</span><span class="n">exam.df</span><span class="p">)</span>
+</pre></div>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-06-r-1/Untitled61.png" alt=""></p>
+<div class="highlight"><pre><span></span><span class="n">exam.df</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">6</span><span class="p">,]</span> <span class="c1"># 동일한 코드</span>
+</pre></div>
+<p>출력하기를 원하는 행의 개수를 파라미터로 지정할 수 있다.</p>
+<div class="highlight"><pre><span></span><span class="nf">head</span><span class="p">(</span><span class="n">exam.df</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="m">10</span><span class="p">)</span>
+</pre></div>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-06-r-1/Untitled62.png" alt=""></p>
+<div class="highlight"><pre><span></span><span class="nf">tail</span><span class="p">(</span><span class="n">exam.df</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="m">10</span><span class="p">)</span>
+</pre></div>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-06-r-1/Untitled63.png" alt=""></p>
+<h3 id="행렬-또는-데이터프레임의-구조-파악하기">
+<a class="anchor" href="#%ED%96%89%EB%A0%AC-%EB%98%90%EB%8A%94-%EB%8D%B0%EC%9D%B4%ED%84%B0%ED%94%84%EB%A0%88%EC%9E%84%EC%9D%98-%EA%B5%AC%EC%A1%B0-%ED%8C%8C%EC%95%85%ED%95%98%EA%B8%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>행렬 또는 데이터프레임의 구조 파악하기<a class="anchor-link" href="#%ED%96%89%EB%A0%AC-%EB%98%90%EB%8A%94-%EB%8D%B0%EC%9D%B4%ED%84%B0%ED%94%84%EB%A0%88%EC%9E%84%EC%9D%98-%EA%B5%AC%EC%A1%B0-%ED%8C%8C%EC%95%85%ED%95%98%EA%B8%B0"> </a>
+</h3>
+<p>R 데이터 객체를 신규로 생성했거나, 외부에서 불러왔거나, 아니면 R 패키지에 내장되어 있는 데이터 셋을 활용한다고 했을 때 데이터 객체의 현황, 특성에 대해서 파악하는 것이 필요하다.</p>
+<p>str(객체) : 데이터 구조, 변수 개수, 변수 명, 관찰치 개수, 관찰치의 미리보기 등</p>
+<div class="highlight"><pre><span></span><span class="nf">str</span><span class="p">(</span><span class="n">exam.df</span><span class="p">)</span>
+</pre></div>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-06-r-1/Untitled64.png" alt=""></p>
+<h3 id="class(obj)-:-데이터-객체-구성요소의-속성-확인">
+<a class="anchor" href="#class(obj)-:-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EA%B0%9D%EC%B2%B4-%EA%B5%AC%EC%84%B1%EC%9A%94%EC%86%8C%EC%9D%98-%EC%86%8D%EC%84%B1-%ED%99%95%EC%9D%B8" aria-hidden="true"><span class="octicon octicon-link"></span></a>class(obj) : 데이터 객체 구성요소의 속성 확인<a class="anchor-link" href="#class(obj)-:-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EA%B0%9D%EC%B2%B4-%EA%B5%AC%EC%84%B1%EC%9A%94%EC%86%8C%EC%9D%98-%EC%86%8D%EC%84%B1-%ED%99%95%EC%9D%B8"> </a>
+</h3>
+<div class="highlight"><pre><span></span><span class="nf">class</span><span class="p">(</span><span class="n">exam.df</span><span class="p">)</span>
+</pre></div>
+<p>[1] "data.frame"</p>
+<h3 id="sapply(obj,-func):-object에-function을-적용">
+<a class="anchor" href="#sapply(obj,-func):-object%EC%97%90-function%EC%9D%84-%EC%A0%81%EC%9A%A9" aria-hidden="true"><span class="octicon octicon-link"></span></a>sapply(obj, func): object에 function을 적용<a class="anchor-link" href="#sapply(obj,-func):-object%EC%97%90-function%EC%9D%84-%EC%A0%81%EC%9A%A9"> </a>
+</h3>
+<div class="highlight"><pre><span></span><span class="nf">sapply</span><span class="p">(</span><span class="n">exam.df</span><span class="p">,</span> <span class="n">class</span><span class="p">)</span>
+</pre></div>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-06-r-1/Untitled65.png" alt=""></p>
+<h3 id="names():-데이터-객체-구성요소-이름">
+<a class="anchor" href="#names():-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EA%B0%9D%EC%B2%B4-%EA%B5%AC%EC%84%B1%EC%9A%94%EC%86%8C-%EC%9D%B4%EB%A6%84" aria-hidden="true"><span class="octicon octicon-link"></span></a>names(): 데이터 객체 구성요소 이름<a class="anchor-link" href="#names():-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EA%B0%9D%EC%B2%B4-%EA%B5%AC%EC%84%B1%EC%9A%94%EC%86%8C-%EC%9D%B4%EB%A6%84"> </a>
+</h3>
+<p>데이터 객체의 변수명을 알고 싶고, indexing해서 사용하고 싶으면 names() 함수를 사용한다.</p>
+<div class="highlight"><pre><span></span><span class="nf">names</span><span class="p">(</span><span class="n">exam.df</span><span class="p">)</span>
+</pre></div>
+<p>[1] "gene" "sample1" "sample2" "sample3" "sample4" "sample5"</p>
+<h3 id="summary(),-stat.desc(),-describe():-연속형-변수의-요약-통계">
+<a class="anchor" href="#summary(),-stat.desc(),-describe():-%EC%97%B0%EC%86%8D%ED%98%95-%EB%B3%80%EC%88%98%EC%9D%98-%EC%9A%94%EC%95%BD-%ED%86%B5%EA%B3%84" aria-hidden="true"><span class="octicon octicon-link"></span></a>summary(), stat.desc(), describe(): 연속형 변수의 요약 통계<a class="anchor-link" href="#summary(),-stat.desc(),-describe():-%EC%97%B0%EC%86%8D%ED%98%95-%EB%B3%80%EC%88%98%EC%9D%98-%EC%9A%94%EC%95%BD-%ED%86%B5%EA%B3%84"> </a>
+</h3>
+<h4 id="summary()">
+<a class="anchor" href="#summary()" aria-hidden="true"><span class="octicon octicon-link"></span></a>summary()<a class="anchor-link" href="#summary()"> </a>
+</h4>
+<p>base package의 summary() 함수는 중심화 경향과 퍼짐정도에 대해서 quick 하게 볼 수 있는 통계량들을 제공한다.</p>
+<div class="highlight"><pre><span></span><span class="nf">summary</span><span class="p">(</span><span class="n">exam.df</span><span class="p">)</span>
+</pre></div>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-06-r-1/Untitled66.png" alt=""></p>
+<p>stat.desc() 함수나 describe() 함수는 별도의 패키지를 설치해야 쓸 수 있다.</p>
+<h4 id="stat.desc()">
+<a class="anchor" href="#stat.desc()" aria-hidden="true"><span class="octicon octicon-link"></span></a>stat.desc()<a class="anchor-link" href="#stat.desc()"> </a>
+</h4>
+<p>패키지 설치는 다음과 같이 진행한다.</p>
+<div class="highlight"><pre><span></span><span class="nf">install.packages</span><span class="p">(</span><span class="s">"pastecs"</span><span class="p">)</span>
+</pre></div>
+<p>설치한 패키지를 불러오는 방법은 다음과 같다.</p>
+<div class="highlight"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">pastecs</span><span class="p">)</span>
+</pre></div>
+<div class="highlight"><pre><span></span><span class="nf">stat.desc</span><span class="p">(</span><span class="n">exam.df</span><span class="p">)</span>
+</pre></div>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-06-r-1/Untitled67.png" alt=""></p>
+<p>stat.desc() 함수의 옵션 별로 제공하는 통계량은 아래와 같다.</p>
+<ul>
+<li>basic = TRUE : 관측치 개수, null 개수, NA 개수, 최소값, 최대값, 범위, 합</li>
+<li>desc = TRUE : 중앙값, 평균, 분산, 표준편차, 변이계수</li>
+<li>norm = TRUE : 왜도, 첨도, 정규성 검정통계량, 정규성 검정 P-value</li>
+<li>p = 0.90 : 신뢰계수 90% (유의수준 10%) 값 =&gt; 90% 신뢰구간은 평균 +- CI.mean.0.9 값</li>
+</ul>
+<p>stat.desc() 함수에서 IQR, quantile은 제공되지 않는다.</p>
+<h4 id="describe()">
+<a class="anchor" href="#describe()" aria-hidden="true"><span class="octicon octicon-link"></span></a>describe()<a class="anchor-link" href="#describe()"> </a>
+</h4>
+<p>describe() 함수에 대해서도 다음과 같이 작업할 수 있다.</p>
+<div class="highlight"><pre><span></span><span class="nf">install.packages</span><span class="p">(</span><span class="s">"psych"</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">psych</span><span class="p">)</span>
+<span class="nf">describe</span><span class="p">(</span><span class="n">exam.df</span><span class="p">)</span>
+</pre></div>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-06-r-1/Untitled68.png" alt=""></p>
+<p>describe() 함수는 summary() 보다는 많고 stat.desc() 보다는 적은 기술통계량(관측값 개수(n), 평균(mean), 표준편차(sd), 중앙값(median), 절삭평균(10% 절삭평균), 중위값절대편차(from 중위값) (MAD, median absolute deviation), 최소값(min), 최대값(max), 범위(range), 왜도(skew), 첨도(kurtosis), 표준오차(SE, standard error))을 보여준다.</p>
+<ul>
+<li>중위값 절대 편차 (MAD, median absolute deviation) = median(|X - median(X)|) * 1.4826
+1.4826은 scaling factor (또는 normalizing constant) 이며, 정규적인 자료에서 scaling factor를 곱해주면 표준편차와 비슷해진다.</li>
+</ul>
 
 </div>
 </div>
