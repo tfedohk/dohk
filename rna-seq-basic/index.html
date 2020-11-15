@@ -81,7 +81,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      20 min read
+      24 min read
     
 </span></p>
 
@@ -213,6 +213,46 @@ window.onload = wrap_img;
 <ul>
 <li class="toc-entry toc-h2"><a href="#3-1.-RNA-seq-분석-시-사용되는-프로그램(tool)">3-1. RNA-seq 분석 시 사용되는 프로그램(tool) </a></li>
 <li class="toc-entry toc-h2"><a href="#3-2.-How-to-analyze-RNA-seq-data?">3-2. How to analyze RNA-seq data? </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#4.-Quantification-of-Gene-Expression-from-RNA-seq">4. Quantification of Gene Expression from RNA-seq </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#4-1.-FPKM,-RPKM">4-1. FPKM, RPKM </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#4-1-1.-계산식">4-1-1. 계산식 </a></li>
+<li class="toc-entry toc-h3"><a href="#4-1-2.-실제-계산:-세로-→-가로">4-1-2. 실제 계산: 세로 → 가로 </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#4-1-2-1.-Normalization-for-read-depth">4-1-2-1. Normalization for read depth </a></li>
+<li class="toc-entry toc-h4"><a href="#4-1-2-2.-Normalization-for-gene-length">4-1-2-2. Normalization for gene length </a></li>
+<li class="toc-entry toc-h4"><a href="#4-1-2-3.-계산-결과">4-1-2-3. 계산 결과 </a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#4-2.-TPM">4-2. TPM </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#4-2-1.-계산식">4-2-1. 계산식 </a></li>
+<li class="toc-entry toc-h3"><a href="#4-2-2.-실제-계산:-가로-→-세로">4-2-2. 실제 계산: 가로 → 세로 </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#4-2-2-1.-Normalization-for-gene-length">4-2-2-1. Normalization for gene length </a></li>
+<li class="toc-entry toc-h4"><a href="#4-2-2-2.-Normalization-for-read-depth">4-2-2-2. Normalization for read depth </a></li>
+<li class="toc-entry toc-h4"><a href="#4-2-2-3.-계산-결과">4-2-2-3. 계산 결과 </a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#4-3.-RPKM과-TPM의-결과-비교">4-3. RPKM과 TPM의 결과 비교 </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#4-3-1.-comparison-among-TPMs">4-3-1. comparison among TPMs </a></li>
+<li class="toc-entry toc-h3"><a href="#4-3-2.-comparison-among-RPKMs">4-3-2. comparison among RPKMs </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#4-3.-bias에-주의">4-3. bias에 주의 </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#5.-실습">5. 실습 </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#5-1.-환경-설정-및-데이터-다운로드">5-1. 환경 설정 및 데이터 다운로드 </a></li>
 </ul>
 </li>
 </ul><!--
@@ -588,6 +628,120 @@ window.onload = wrap_img;
 <p><img src="/dohk/images/copied_from_nb/../images/2020-11-16-rna-seq/Untitled23.png" alt=""></p>
 <p>업계 내 업체마다 쓰이는 툴들이 조금씩 다를 수 있다. 만약 어떤 툴을 써야 할 지 감을 못 잡겠다면, TCGA, ENCODE, PCAWG같은 컨퍼런스나 학회 등에서 제시한 가이드라인을 따른다. TCGA에서는 다음과 같은 파이프라인을 제안하고 있다.</p>
 <p><img src="/dohk/images/copied_from_nb/../images/2020-11-16-rna-seq/Untitled24.png" alt=""></p>
+<h1 id="4.-Quantification-of-Gene-Expression-from-RNA-seq">
+<a class="anchor" href="#4.-Quantification-of-Gene-Expression-from-RNA-seq" aria-hidden="true"><span class="octicon octicon-link"></span></a>4. Quantification of Gene Expression from RNA-seq<a class="anchor-link" href="#4.-Quantification-of-Gene-Expression-from-RNA-seq"> </a>
+</h1>
+<ul>
+<li>생물정보학에서 굉장히 흔하게 접할 수 있는 용어 중 하나로 RPKM, FPKM, TPM이 있다. RNA sequencing은 유전자의 발현량을 측정하기 위해 쓰이는데, 이 섹션에서는 이론적인 측면에서 보았을 때 RNA sequencing을 통해 어떻게 유전자 발현량을 계산할 수 있는지를 보고자 한다.</li>
+<li>RPKM, FPKM, TPM은 RNA-seq의 발현 분석에서 normalized gene expression을 의미하는 것으로서, 초창기에는 RPKM이 많이 쓰였으나 FPKM을 거쳐 현재에는 TPM을 주로 사용하고 있다. FPKM 또한 많이 사용 중이다.</li>
+</ul>
+<h2 id="4-1.-FPKM,-RPKM">
+<a class="anchor" href="#4-1.-FPKM,-RPKM" aria-hidden="true"><span class="octicon octicon-link"></span></a>4-1. FPKM, RPKM<a class="anchor-link" href="#4-1.-FPKM,-RPKM"> </a>
+</h2>
+<ul>
+<li>FPKM은 <strong>F</strong>ragments <strong>P</strong>er <strong>K</strong>ilobase per <strong>M</strong>illions mapped reads의 약자다.</li>
+<li>RPKM은 <strong>R</strong>eads <strong>P</strong>er <strong>K</strong>ilobase per <strong>M</strong>illions mapped reads의 약자다. RPKM은 single-end RNA-seq용으로 제작되었다. 전체 유전자의 길이를 Kilobase(=1000 base pair)로 정규화했을 때 전체 reads 중에서 해당 gene에 mapping된 reads들을 말한다. 그런데 이 수는 너무 적기 때문에 10^6을 곱해준다.</li>
+<li>따라서, FPKM, RPKM은 gene 단위의 expression이다.</li>
+</ul>
+<p>유전자 1Kb당 fragment의 개수를 의미한다고 보면 된다.</p>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-16-rna-seq/Untitled25.png" alt=""></p>
+<p>유전자의 길이가 길 수록 더 많은 read가 쌓이는 것은 자명하다. 즉 유전자 길이에 따라 mapping될 수 있는 read의 개수에 차이가 있다. 따라서 mapping된 read의 개수를 유전자의 길이(주로 Kb 단위임)로 나눠준다.</p>
+<h3 id="4-1-1.-계산식">
+<a class="anchor" href="#4-1-1.-%EA%B3%84%EC%82%B0%EC%8B%9D" aria-hidden="true"><span class="octicon octicon-link"></span></a>4-1-1. 계산식<a class="anchor-link" href="#4-1-1.-%EA%B3%84%EC%82%B0%EC%8B%9D"> </a>
+</h3>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-16-rna-seq/Untitled26.png" alt=""></p>
+<h3 id="4-1-2.-실제-계산:-세로-→-가로">
+<a class="anchor" href="#4-1-2.-%EC%8B%A4%EC%A0%9C-%EA%B3%84%EC%82%B0:-%EC%84%B8%EB%A1%9C-%E2%86%92-%EA%B0%80%EB%A1%9C" aria-hidden="true"><span class="octicon octicon-link"></span></a>4-1-2. 실제 계산: 세로 → 가로<a class="anchor-link" href="#4-1-2.-%EC%8B%A4%EC%A0%9C-%EA%B3%84%EC%82%B0:-%EC%84%B8%EB%A1%9C-%E2%86%92-%EA%B0%80%EB%A1%9C"> </a>
+</h3>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-16-rna-seq/Untitled27.png" alt=""></p>
+<p>Rep3를 보면 gene에 상관없이 다른 replicate들보다 많은 reads를 가진 것을 알 수 있다. 이는 sequencing depth가 다른 replicate들보다 높다는 걸 의미한다. 또한 gene B는 gene A에 2배에 해당하는 ‘길이’를 가지고 있다. 이것은 replicate에 상관없이 2배 많은 reads를 가지고 있다는 것을 설명하는 것일 수도 있다. 이 각각을 normalize(정규화) 하는데, FPKM 또는 RPKM에서는 세로로 먼저 정규화 한 다음, 가로로 정규화한다.</p>
+<h4 id="4-1-2-1.-Normalization-for-read-depth">
+<a class="anchor" href="#4-1-2-1.-Normalization-for-read-depth" aria-hidden="true"><span class="octicon octicon-link"></span></a>4-1-2-1. Normalization for read depth<a class="anchor-link" href="#4-1-2-1.-Normalization-for-read-depth"> </a>
+</h4>
+<p>첫 번째 단계는 read depth로 정규화하는 것이다.</p>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-16-rna-seq/Untitled28.png" alt=""></p>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-16-rna-seq/Untitled29.png" alt=""></p>
+<p>계산상의 편의를 위해 M(1,000,000)가 아닌 K(1,000)로 나누었다. 계산된 3.5, 4.5, 10.6은 각 replicate들에 대한 “per million” scaling factors가 된다. 이제 각 gene의 read counts을 이 값들로 나누어야 한다. 그러면 reads per million을 계산할 수 있는데 이를 RPM(FPM)이라고 한다.</p>
+<h4 id="4-1-2-2.-Normalization-for-gene-length">
+<a class="anchor" href="#4-1-2-2.-Normalization-for-gene-length" aria-hidden="true"><span class="octicon octicon-link"></span></a>4-1-2-2. Normalization for gene length<a class="anchor-link" href="#4-1-2-2.-Normalization-for-gene-length"> </a>
+</h4>
+<p>두 번째 단계는 gene length로 정규화하는 것이다.</p>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-16-rna-seq/Untitled30.png" alt=""></p>
+<h4 id="4-1-2-3.-계산-결과">
+<a class="anchor" href="#4-1-2-3.-%EA%B3%84%EC%82%B0-%EA%B2%B0%EA%B3%BC" aria-hidden="true"><span class="octicon octicon-link"></span></a>4-1-2-3. 계산 결과<a class="anchor-link" href="#4-1-2-3.-%EA%B3%84%EC%82%B0-%EA%B2%B0%EA%B3%BC"> </a>
+</h4>
+<p>그 결과, RPKM(FPKM) 데이터를 획득하게 된다.</p>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-16-rna-seq/Untitled31.png" alt=""></p>
+<h2 id="4-2.-TPM">
+<a class="anchor" href="#4-2.-TPM" aria-hidden="true"><span class="octicon octicon-link"></span></a>4-2. TPM<a class="anchor-link" href="#4-2.-TPM"> </a>
+</h2>
+<p>TPM은 Transcripts Per Million의 약자로 FPKM, RPKM과 유사한 개념이지만 transcript length의 분포까지 포함한 개념이다. 최근 많이 쓰이는 추세다.</p>
+<h3 id="4-2-1.-계산식">
+<a class="anchor" href="#4-2-1.-%EA%B3%84%EC%82%B0%EC%8B%9D" aria-hidden="true"><span class="octicon octicon-link"></span></a>4-2-1. 계산식<a class="anchor-link" href="#4-2-1.-%EA%B3%84%EC%82%B0%EC%8B%9D"> </a>
+</h3>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-16-rna-seq/Untitled32.png" alt=""></p>
+<h3 id="4-2-2.-실제-계산:-가로-→-세로">
+<a class="anchor" href="#4-2-2.-%EC%8B%A4%EC%A0%9C-%EA%B3%84%EC%82%B0:-%EA%B0%80%EB%A1%9C-%E2%86%92-%EC%84%B8%EB%A1%9C" aria-hidden="true"><span class="octicon octicon-link"></span></a>4-2-2. 실제 계산: 가로 → 세로<a class="anchor-link" href="#4-2-2.-%EC%8B%A4%EC%A0%9C-%EA%B3%84%EC%82%B0:-%EA%B0%80%EB%A1%9C-%E2%86%92-%EC%84%B8%EB%A1%9C"> </a>
+</h3>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-16-rna-seq/Untitled27.png" alt=""></p>
+<p>4-1 섹션에서와 동일한 데이터를 가져왔다. TPM에서는 세로로 먼저 정규화 한 다음, 가로로 정규화한다. 마찬가지로 각 gene의 read counts을 이 값들로 나눈다. 그러면 reads per million을 계산할 수 있고 이를 이라고 한다.</p>
+<h4 id="4-2-2-1.-Normalization-for-gene-length">
+<a class="anchor" href="#4-2-2-1.-Normalization-for-gene-length" aria-hidden="true"><span class="octicon octicon-link"></span></a>4-2-2-1. Normalization for gene length<a class="anchor-link" href="#4-2-2-1.-Normalization-for-gene-length"> </a>
+</h4>
+<p>첫 번째 단계는 gene length로 정규화하는 것이다.</p>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-16-rna-seq/Untitled33.png" alt=""></p>
+<h4 id="4-2-2-2.-Normalization-for-read-depth">
+<a class="anchor" href="#4-2-2-2.-Normalization-for-read-depth" aria-hidden="true"><span class="octicon octicon-link"></span></a>4-2-2-2. Normalization for read depth<a class="anchor-link" href="#4-2-2-2.-Normalization-for-read-depth"> </a>
+</h4>
+<p>두 번째 단계는 read depth로 정규화하는 것이다.</p>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-16-rna-seq/Untitled34.png" alt=""></p>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-16-rna-seq/Untitled35.png" alt=""></p>
+<p>역시 계산상의 편의를 위해 M(1,000,000)가 아닌 K(1,000)로 나누었다. 계산된 1.5, 2.025, 4.51은 각 replicate들에 대한 “per million” scaling factors가 된다.</p>
+<h4 id="4-2-2-3.-계산-결과">
+<a class="anchor" href="#4-2-2-3.-%EA%B3%84%EC%82%B0-%EA%B2%B0%EA%B3%BC" aria-hidden="true"><span class="octicon octicon-link"></span></a>4-2-2-3. 계산 결과<a class="anchor-link" href="#4-2-2-3.-%EA%B3%84%EC%82%B0-%EA%B2%B0%EA%B3%BC"> </a>
+</h4>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-16-rna-seq/Untitled36.png" alt=""></p>
+<h2 id="4-3.-RPKM과-TPM의-결과-비교">
+<a class="anchor" href="#4-3.-RPKM%EA%B3%BC-TPM%EC%9D%98-%EA%B2%B0%EA%B3%BC-%EB%B9%84%EA%B5%90" aria-hidden="true"><span class="octicon octicon-link"></span></a>4-3. RPKM과 TPM의 결과 비교<a class="anchor-link" href="#4-3.-RPKM%EA%B3%BC-TPM%EC%9D%98-%EA%B2%B0%EA%B3%BC-%EB%B9%84%EA%B5%90"> </a>
+</h2>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-16-rna-seq/Untitled37.png" alt=""></p>
+<p>RPKM과 TPM의 결과와 그 의미는 서로 다르다. 동일한 데이터이므로 둘 다 gene length와 sequencing depth의 편향(bias)이 일치하지만, 각 column에 대한 정규화된 총 reads는 매우 다르다. RPKM은 각 sample마다 다른 값을 얻었다면, TPM은 같은 값을 얻었다.</p>
+<h3 id="4-3-1.-comparison-among-TPMs">
+<a class="anchor" href="#4-3-1.-comparison-among-TPMs" aria-hidden="true"><span class="octicon octicon-link"></span></a>4-3-1. comparison among TPMs<a class="anchor-link" href="#4-3-1.-comparison-among-TPMs"> </a>
+</h3>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-16-rna-seq/Untitled38.png" alt=""></p>
+<p>TPM은 모든 replicate에 대하여 총 count 수가 동일하도록 보정되었기 때문에 각 gene에 어떤 비율로 reads가 있는지 알 수 있다. 예를 들어, Rep1의 gene A는 33%라는 정보를 알 수 있고, 이를 통해 Rep2의 gene A와 비교하였을 때 Rep1의 gene A가 Rep2의 gene A 보다 약간 크다는 것을 알 수 있다.</p>
+<h3 id="4-3-2.-comparison-among-RPKMs">
+<a class="anchor" href="#4-3-2.-comparison-among-RPKMs" aria-hidden="true"><span class="octicon octicon-link"></span></a>4-3-2. comparison among RPKMs<a class="anchor-link" href="#4-3-2.-comparison-among-RPKMs"> </a>
+</h3>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-16-rna-seq/Untitled39.png" alt=""></p>
+<p>RPKM은 각각의 replicate가 다른 total reads를 가지기 때문에 각각의 replicate의 gene을 비교하기 어렵다. 이 말은 각각의 gene의 reads 수를 비교하기 어렵다는 말이 된다. 그렇기 때문에 여러 sample들 내에서 mapping되는 reads의 비율을 보다 명확하게 말해주는 TPM이 자주 사용되는 추세다.</p>
+<h2 id="4-3.-bias에-주의">
+<a class="anchor" href="#4-3.-bias%EC%97%90-%EC%A3%BC%EC%9D%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>4-3. bias에 주의<a class="anchor-link" href="#4-3.-bias%EC%97%90-%EC%A3%BC%EC%9D%98"> </a>
+</h2>
+<p>RNA sequencing을 통해 유전자 발현량을 계산하는 것은 read가 얼마만큼 counting되었는가, 쌓인 read가 몇 개인지 그 개수를 측정하여 유전자의 발현량을 계산하는 것이다. 그러나 단순히 유전자 발현량을 계산하여 나온 값에서 만족하는 것이 아니라, 늘 bias에 의해 나온 것은 아닌지를 의심해야 한다. 실제로 심각한 bias가 있는지 없는지를 확인해야 한다. 어쨌든 유전자 발현량을 계산하기 위해선 read가 유전자에 잘 mapping되어야 한다.</p>
+<h1 id="5.-실습">
+<a class="anchor" href="#5.-%EC%8B%A4%EC%8A%B5" aria-hidden="true"><span class="octicon octicon-link"></span></a>5. 실습<a class="anchor-link" href="#5.-%EC%8B%A4%EC%8A%B5"> </a>
+</h1>
+<p>본 실습에서 다루는 pipeline은 다음과 같다.</p>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-16-rna-seq/Untitled40.png" alt=""></p>
+<h2 id="5-1.-환경-설정-및-데이터-다운로드">
+<a class="anchor" href="#5-1.-%ED%99%98%EA%B2%BD-%EC%84%A4%EC%A0%95-%EB%B0%8F-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C" aria-hidden="true"><span class="octicon octicon-link"></span></a>5-1. 환경 설정 및 데이터 다운로드<a class="anchor-link" href="#5-1.-%ED%99%98%EA%B2%BD-%EC%84%A4%EC%A0%95-%EB%B0%8F-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C"> </a>
+</h2>
+<div class="highlight"><pre><span></span><span class="nb">cd</span> kgenome/
+mkdir toy_data
+mkdir ref
+<span class="nb">cd</span> toy_data/
+</pre></div>
+<p>데이터를 다운로드 받기 위한 폴더를 만든다. 데이터를 다운로드 받기 위해 다음의 url로 접근한다. 이 노트에서는 ERCC ExFold RNA Spike-In Control Mixes를 다운로드 한다. Spike in RNA는 RNA의 종류와 양을 알려져 있다. 따라서 이를 시퀀싱하여 원래 나와야 할 정답이 나오는지를 확인할 수 있다.</p>
+<p><a href="https://github.com/griffithlab/rnaseq_tutorial/wiki/RNAseq-Data">https://github.com/griffithlab/rnaseq_tutorial/wiki/RNAseq-Data</a></p>
+<div class="highlight"><pre><span></span>wget http://genomedata.org/rnaseq-tutorial/HBR_UHR_ERCC_ds_5pc.tar
+</pre></div>
+<p>실제 RNA 데이터는 수십 MB~수 GB까지 간다. 해당 데이터는 112MB 정도 된다. 해당 파일은 압축 파일이므로 압축을 풀어준다.</p>
+<div class="highlight"><pre><span></span>ls -lh
+tar -xvf HBR_UHR_ERCC_ds_5pc.tar
+</pre></div>
+<p>fastqc 파일들이 나온다. 이제, human genome과 human gtf file을 다운로드 하기 위해 다음의 작업을 진행한다. 다운로드 받을 수 있는 곳은 많다. 앙상블이나 UCSC genome browser, NCBI 등이 있다. 이 노트에서는 gencode 홈페이지(<a href="https://www.gencodegenes.org/">https://www.gencodegenes.org/</a>)에서 다운받고자 한다. 홈페이지 접속 후, human 클릭한다. 들어가보면 다양한 파일들이 있다. 여러 가지 옵션이 있다.  gene annotation 파일은 유전자가 genome의 어느 곳에 위치해 있는지, 어떤 종류의 유전자인지에 대한 정보다. 이 노트에서는 Basic gene annotation의 GTT 형식의 파일을 다운로드 받고 압축을 푼다. 풀 때 pipe 옵션( <code>|</code> )을 주어 내부의 정보들을 볼 수 있지만 여기서는 그냥 진행한다. 더불어, Fasta 파일을 함께 받는다. 여기서는 을 받는다.</p>
 
 </div>
 </div>
