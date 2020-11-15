@@ -81,7 +81,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      28 min read
+      29 min read
     
 </span></p>
 
@@ -264,6 +264,11 @@ window.onload = wrap_img;
 </li>
 <li class="toc-entry toc-h2"><a href="#5-3.-QC">5-3. QC </a></li>
 <li class="toc-entry toc-h2"><a href="#5-4.-Trimming">5-4. Trimming </a></li>
+<li class="toc-entry toc-h2"><a href="#5-5.-Indexing-the-genome">5-5. Indexing the genome </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#5-5-1.-STAR의-인덱스-파일-만들기">5-5-1. STAR의 인덱스 파일 만들기 </a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul><!--
@@ -892,6 +897,44 @@ java -jar <span class="o">(</span>달러표시<span class="o">)</span>Trimmomati
 <p>결과를 보면, 실제 read의 개수는 227,392개, 그 중 R1 R2 양 쪽 다 살아남은 것이 전체의 96.29%, forward만 살아남은 read는 2.53%, reverse만 살아남은 read는 0.79%라는 정보 등을 알 수 있다. 또한 다음과 같이 이름 지은 파일들이 등장한 것을 <code>ls</code> 명령어를 통해 확인할 수 있다.</p>
 <p><img src="/dohk/images/copied_from_nb/../images/2020-11-16-rna-seq/Untitled45.png" alt=""></p>
 <p>결국 우리가 사용하게 될 파일은 trimming된 파일을 사용하는 것이다. 다시 말해, trimming된 파일을 가지고 mapping을 하고 여러가지 분석을 진행한다.</p>
+<h2 id="5-5.-Indexing-the-genome">
+<a class="anchor" href="#5-5.-Indexing-the-genome" aria-hidden="true"><span class="octicon octicon-link"></span></a>5-5. Indexing the genome<a class="anchor-link" href="#5-5.-Indexing-the-genome"> </a>
+</h2>
+<p>STAR와 RSEM에 대한 index 파일이 필요하다.</p>
+<p>ref 폴더로 이동하면 다음과 같이 gencode의 GTF파일(또는 GFF파일)과 genome reference 파일이 fasta파일로 존재한다.</p>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-16-rna-seq/Untitled46.png" alt=""></p>
+<h3 id="5-5-1.-STAR의-인덱스-파일-만들기">
+<a class="anchor" href="#5-5-1.-STAR%EC%9D%98-%EC%9D%B8%EB%8D%B1%EC%8A%A4-%ED%8C%8C%EC%9D%BC-%EB%A7%8C%EB%93%A4%EA%B8%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>5-5-1. STAR의 인덱스 파일 만들기<a class="anchor-link" href="#5-5-1.-STAR%EC%9D%98-%EC%9D%B8%EB%8D%B1%EC%8A%A4-%ED%8C%8C%EC%9D%BC-%EB%A7%8C%EB%93%A4%EA%B8%B0"> </a>
+</h3>
+<p>alignment(mapping) tool은 모두 index를 필요로 한다. STAR도 그러고 RSEM도 그러하다. short read를 최대한 빨리 찾기 위해 index를 필요로 하는 것이다. STAR의 특징은 read의 길이에 따라서 별도로 reference genome을 만들도록 요구한다. BWA의 경우 시퀀싱 길이가 어느 정도냐에 상관없이 한 종류의 reference 파일을 만드는데, STAR는 길이에 따라 다른 index 파일을 요구한다. 여기서는 다음의 쉘 스크립트를 이용한다. 쉘 스크립트의 이름은 정하기 나름인데, 여기서는 <code>IndexSTAR.sh</code>로 정한다.</p>
+<div class="highlight"><pre><span></span>mkdir sh
+<span class="nb">cd</span> sh
+</pre></div>
+<div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
+
+<span class="nv">GENOME</span><span class="o">=(</span>달러표시<span class="o">)</span><span class="m">1</span>
+<span class="nv">GTF</span><span class="o">=(</span>달러표시<span class="o">)</span><span class="m">2</span>
+<span class="nv">READLen</span><span class="o">=(</span>달러표시<span class="o">)</span><span class="m">3</span>
+<span class="nv">STAR_DIR</span><span class="o">=(</span>달러표시<span class="o">)</span><span class="m">4</span>
+
+<span class="c1">#Reference genome index with GTF using STAR</span>
+STAR --runMode genomeGenerate --genomeDir <span class="o">(</span>달러표시<span class="o">)</span>STAR_DIR --genomeFastaFiles <span class="o">(</span>달러표시<span class="o">)</span>GENOME --sjdbGTFfile <span class="o">(</span>달러표시<span class="o">)</span>GTF --sjdbOverhang <span class="o">(</span>달러표시<span class="o">)</span>READLen --runThreadN <span class="m">8</span>
+<span class="c1">### --sjdbOverhand = read Length - 1</span>
+</pre></div>
+<p>STAR 내에는 reference를 만드는 옵션이 있다.</p>
+<ul>
+<li>
+<code>--runMode</code>: <code>genomeGenerate</code> 등을 요구한다.</li>
+<li>
+<code>--genomeDir</code>: STAR를 시작하려는 곳 위치를 지정하는 옵션. 내용물들이 저장된다.</li>
+<li>
+<code>--genomeFastaFiles</code>: fasta 파일의 path를 요구하는 옵션</li>
+<li>
+<code>--sjdbGTFfile</code>: GTF 파일의 path를 요구하는 옵션</li>
+<li>
+<code>--sjdbOverhang</code>: read length의 길이를 요구하는 옵션</li>
+</ul>
+<p>해당 쉘 스크립트를 실행(<code>./IndexSTAR.sh [fasta file path] [GTF file path] [] [read length]</code>)하면 다음과 같은 결과가 나온다. 이 노트에서는 다음과 같이 실행하여 STAR의 인덱스 파일을 만든다.</p>
 
 </div>
 </div>
