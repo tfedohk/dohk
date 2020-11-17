@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>R bioconductor 실습 | dohk’s AI &amp; bioinformatics</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="R bioconductor 실습" />
+<meta name="author" content="Kwon DoHyung" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="contact on gwondohyung@gmail.com" />
+<meta property="og:description" content="contact on gwondohyung@gmail.com" />
+<link rel="canonical" href="https://tfedohk.github.io/dohk/r-bioconductor/" />
+<meta property="og:url" content="https://tfedohk.github.io/dohk/r-bioconductor/" />
+<meta property="og:site_name" content="dohk’s AI &amp; bioinformatics" />
+<meta property="og:image" content="https://tfedohk.github.io/dohk/images/2020-11-17-bioconductor/Untitled27.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-11-17T00:00:00-06:00" />
+<script type="application/ld+json">
+{"url":"https://tfedohk.github.io/dohk/r-bioconductor/","@type":"BlogPosting","headline":"R bioconductor 실습","dateModified":"2020-11-17T00:00:00-06:00","datePublished":"2020-11-17T00:00:00-06:00","image":"https://tfedohk.github.io/dohk/images/2020-11-17-bioconductor/Untitled27.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://tfedohk.github.io/dohk/r-bioconductor/"},"author":{"@type":"Person","name":"Kwon DoHyung"},"description":"contact on gwondohyung@gmail.com","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/dohk/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://tfedohk.github.io/dohk/feed.xml" title="dohk's AI &amp; bioinformatics" /><link rel="shortcut icon" type="image/x-icon" href="/dohk/images/favicon.ico"><link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/dohk/">dohk&#39;s AI &amp; bioinformatics</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/dohk/about/">About Me</a><a class="page-link" href="/dohk/search/">Search</a><a class="page-link" href="/dohk/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">R bioconductor 실습</h1><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-11-17T00:00:00-06:00" itemprop="datePublished">
+        Nov 17, 2020
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">Kwon DoHyung</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      20 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/dohk/categories/#R">R</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/dohk/categories/#ngs">ngs</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/dohk/categories/#sequencing">sequencing</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/dohk/categories/#experiment">experiment</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          
+          
+          
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h1"><a href="#1.-bioconductor">1. bioconductor </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#1-1.-bioconductor-패키지-설치">1-1. bioconductor 패키지 설치 </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#2.-ExpressionSet">2. ExpressionSet </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#2-1.-ExpressionSet-데이터-구조">2-1. ExpressionSet 데이터 구조 </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#2-1-1.-assayData">2-1-1. assayData </a></li>
+<li class="toc-entry toc-h3"><a href="#2-1-2.-phenoData">2-1-2. phenoData </a></li>
+<li class="toc-entry toc-h3"><a href="#2-1-3.-featureData">2-1-3. featureData </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#2-2.-ExpressionSet()">2-2. ExpressionSet() </a></li>
+<li class="toc-entry toc-h2"><a href="#2-3.-ExpressionSet-정보-추출-함수들">2-3. ExpressionSet 정보 추출 함수들 </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#2-3-1.-exprs(),-fData(),-pData()">2-3-1. exprs(), fData(), pData() </a></li>
+<li class="toc-entry toc-h3"><a href="#2-3-2.-sampleNames(),-featureNames()">2-3-2. sampleNames(), featureNames() </a></li>
+<li class="toc-entry toc-h3"><a href="#2-3-3.-varLabels(),-fvarLabels()">2-3-3. varLabels(), fvarLabels() </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#2-4.-R-실습:-ExpressionSet-구조-파악">2-4. R 실습: ExpressionSet 구조 파악 </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#2-4-1.-assayData-추출:-exprs()">2-4-1. assayData 추출: exprs() </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#2-4-1-1.-sampleNames(),-featureNames()">2-4-1-1. sampleNames(), featureNames() </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#2-4-2.-phenoData-추출:-pData(ALL)">2-4-2. phenoData 추출: pData(ALL) </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#2-4-2-1.-varMetadata()">2-4-2-1. varMetadata() </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#2-4-3.-featureData-추출:-fData()">2-4-3. featureData 추출: fData() </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#2-4-3-1.-annotation()">2-4-3-1. annotation() </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#2-4-4.-기타-정보-추출">2-4-4. 기타 정보 추출 </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#2-4-4-1.-experimentData()">2-4-4-1. experimentData() </a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#2-5.-R-실습:-RNA-Sequencing-data(유전자-발현량-계산된-값)를-통해-ExpressionSet-만들기">2-5. R 실습: RNA Sequencing data(유전자 발현량 계산된 값)를 통해 ExpressionSet 만들기 </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#2-5-1.-실습-준비">2-5-1. 실습 준비 </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#2-5-1-1.-프로젝트-생성">2-5-1-1. 프로젝트 생성 </a></li>
+<li class="toc-entry toc-h4"><a href="#2-5-1-2.-로드맵">2-5-1-2. 로드맵 </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#2-5-2.-데이터-준비하기">2-5-2. 데이터 준비하기 </a></li>
+<li class="toc-entry toc-h3"><a href="#2-5-3.-assayData-만들기">2-5-3. assayData 만들기 </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#2-5-4-1.-Empty-matrix-만들기">2-5-4-1. Empty matrix 만들기 </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#2-5-4.-phenoData-만들기">2-5-4. phenoData 만들기 </a></li>
+<li class="toc-entry toc-h3"><a href="#2-5-5.-featureData-만들기">2-5-5. featureData 만들기 </a></li>
+<li class="toc-entry toc-h3"><a href="#2-5-6.-ExpressionSet-만들기">2-5-6. ExpressionSet 만들기 </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#2-5-6-1.-각-데이터의-order-체크">2-5-6-1. 각 데이터의 order 체크 </a></li>
+<li class="toc-entry toc-h4"><a href="#2-5-6-2.-phenoData,-featureData를-AnnotatedDataFrame으로-만들기">2-5-6-2. phenoData, featureData를 AnnotatedDataFrame으로 만들기 </a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#2-6.-ExpressionSet-활용하기">2-6. ExpressionSet 활용하기 </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#2-6-1.-유전자-별에-따라-그룹-별-발현된-유전자-개수-세기">2-6-1. 유전자 별에 따라 그룹 별 발현된 유전자 개수 세기 </a></li>
+<li class="toc-entry toc-h3"><a href="#2-6-2.-단백질로-번역되는-유전자-찾기">2-6-2. 단백질로 번역되는 유전자 찾기 </a></li>
+<li class="toc-entry toc-h3"><a href="#2-6-3.-Visualization">2-6-3. Visualization </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#2-6-3-1.-histogram과-boxplot">2-6-3-1. histogram과 boxplot </a></li>
+<li class="toc-entry toc-h4"><a href="#2-6-3-2.-heatmap">2-6-3-2. heatmap </a>
+<ul>
+<li class="toc-entry toc-h5"><a href="#2-6-3-2-1.-두-그룹-간의-변화-계산하기">2-6-3-2-1. 두 그룹 간의 변화 계산하기 </a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#2-6-4.-DEG (Differential-Expression-Gene). 차별-유전자-발현">2-6-4. DEG (Differential Expression Gene). 차별 유전자 발현 </a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#3.-GenomicRanges(GRanges)">3. GenomicRanges(GRanges) </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#3-1.-GRanges-만들기">3-1. GRanges 만들기 </a></li>
+<li class="toc-entry toc-h2"><a href="#3-2.-findOverlaps()-함수">3-2. findOverlaps() 함수 </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#3-2-1.-featuerData를-GRanges-데이터로-만들기">3-2-1. featuerData를 GRanges 데이터로 만들기 </a></li>
+<li class="toc-entry toc-h3"><a href="#3-2-3.-chromosome-상의-특정-위치-찾기">3-2-3. chromosome 상의 특정 위치 찾기 </a></li>
+<li class="toc-entry toc-h3"><a href="#3-2-4.-findOverlaps()">3-2-4. findOverlaps() </a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#References">References </a></li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2020-11-17-R-bioconductor.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="1.-bioconductor">
+<a class="anchor" href="#1.-bioconductor" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. bioconductor<a class="anchor-link" href="#1.-bioconductor"> </a>
+</h1>
+<p>bioconductor는 Bioinformatics 영역의 유전자 데이터 분석에 필요한, 유전체 데이터의 분석 및 이해를 돕기 위한 R 패키지다. 위키피디아에 따르면 다음과 같이 정의된다.</p>
+<p>Bioconductor is a free, open source and open development software project for the analysis and comprehension of genomic data generated by wet lab experiments in molecular biology.(분자 생물학 실험에 의해 나온 genomic data에 대한 분석용 소프트웨어. 무료이며 오픈소스이다.)</p>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled.png" alt=""></p>
+<p>가장 많은 비율로 Transcriptome에 대한 RNA sequencing이 활발하게 이루어지고 있고, Single cell RNA Sequencing이 그 다음을 차지하고 있다.</p>
+<h2 id="1-1.-bioconductor-패키지-설치">
+<a class="anchor" href="#1-1.-bioconductor-%ED%8C%A8%ED%82%A4%EC%A7%80-%EC%84%A4%EC%B9%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>1-1. bioconductor 패키지 설치<a class="anchor-link" href="#1-1.-bioconductor-%ED%8C%A8%ED%82%A4%EC%A7%80-%EC%84%A4%EC%B9%98"> </a>
+</h2>
+<p>패키지의 설치는 bioconductor 사이트(<a href="http://bioconductor.org/">http://bioconductor.org</a>)에 접근 후, Install Bioconductor를 클릭하여 진행한다. R studio의 console창에서 다음을 입력한다.</p>
+<div class="highlight"><pre><span></span><span class="nf">if </span><span class="p">(</span><span class="o">!</span><span class="nf">requireNamespace</span><span class="p">(</span><span class="s">"BiocManager"</span><span class="p">,</span> <span class="n">quietly</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">))</span>
+  <span class="nf">install.packages</span><span class="p">(</span><span class="s">"BiocManager"</span><span class="p">)</span>
+<span class="n">BiocManager</span><span class="o">::</span><span class="nf">install</span><span class="p">()</span>
+</pre></div>
+<div class="highlight"><pre><span></span><span class="n">BiocManager</span><span class="o">::</span><span class="nf">install</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">"GenomicFeatures"</span><span class="p">,</span> <span class="s">"AnnotationDbi"</span><span class="p">))</span>
+</pre></div>
+<h1 id="2.-ExpressionSet">
+<a class="anchor" href="#2.-ExpressionSet" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. ExpressionSet<a class="anchor-link" href="#2.-ExpressionSet"> </a>
+</h1>
+<p>bioconductor에는 유전체 데이터 분석에 용이하게 구조화된 몇 가지 데이터 형태들이 있다.</p>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled1.png" alt=""></p>
+<p>ExpressionSet은 유전자 발현값(FPKM, TPM)등을 matrix형태로 관리할 수 있도록 표준화된 데이터 형태이다. ExpressionSet은 micro array에서부터 표준화되어 사용 되어 왔고, 여러 분석 패키지에서도 ExpressionSet의 형태나 확장된 형태로 인자를 활용하는 경우가 많다.</p>
+<p>ExpressionSet은 bioconductor 아래에 biobase라는 패키지를 설치하면 사용 가능하다. r biobase라고 검색하여 나오는 biobase 패키지에 대한 설명에 대한 사이트로 접근할 수 있다.</p>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled2.png" alt=""></p>
+<p>패키지에 대한 설명과 정보, 논문 등이 나와 있다.</p>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled3.png" alt=""></p>
+<p>설치 방법도 나와 있다.</p>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled4.png" alt=""></p>
+<p>개발자들이 작성한 문서다. 패키지 처음 사용 시, 사용법을 알기 위해 해당 페이지 등으로부터 도움을 받을 수 있다. biobase는 네 가지의 사용 설명서가 있다. 첫 번째 PDF에 ExpressionSet에 대한 설명이 있음을 알 수 있다.</p>
+<h2 id="2-1.-ExpressionSet-데이터-구조">
+<a class="anchor" href="#2-1.-ExpressionSet-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EA%B5%AC%EC%A1%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>2-1. ExpressionSet 데이터 구조<a class="anchor-link" href="#2-1.-ExpressionSet-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EA%B5%AC%EC%A1%B0"> </a>
+</h2>
+<p>ExpressionSet은 줄여서 eSet이라고도 부른다. 한마디로 high-throughput espression level assay를 포함하고 묘사할 수 있는 데이터 형태라고 할 수 있다. eSet에는 기본적으로 다음의 세 가지 정보를 갖고 있다.</p>
+<h3 id="2-1-1.-assayData">
+<a class="anchor" href="#2-1-1.-assayData" aria-hidden="true"><span class="octicon octicon-link"></span></a>2-1-1. assayData<a class="anchor-link" href="#2-1-1.-assayData"> </a>
+</h3>
+<p>assayData는 각 샘플에서의 유전자의 실제 발현값을 가지고 있다.</p>
+<ul>
+<li>데이터 타입: Matrix</li>
+<li>행: 유전자(feature)</li>
+<li>열: 샘플</li>
+<li>각 값: 유전자 발현 값</li>
+</ul>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled5.png" alt=""></p>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled6.png" alt=""></p>
+<h3 id="2-1-2.-phenoData">
+<a class="anchor" href="#2-1-2.-phenoData" aria-hidden="true"><span class="octicon octicon-link"></span></a>2-1-2. phenoData<a class="anchor-link" href="#2-1-2.-phenoData"> </a>
+</h3>
+<p>assay 데이터의 열에 해당하며, 각 Samples이 가지고 있는 값이다.</p>
+<ul>
+<li>데이터 타입: AnnotatedDataFrame<ul>
+<li>AnnotatedDataFrame은 기존의 R data.frame의 확장된 형태다.</li>
+</ul>
+</li>
+<li>암 환자를 대상으로 한 데이터라면, age, tumor stage 등의 임상자료들이 phenoData에 들어간다.</li>
+<li>만약 실험 데이터일 경우, 실험 condition, treatment 정보, 실험적인 조건 정보들이 포함된다.</li>
+</ul>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled7.png" alt=""></p>
+<h3 id="2-1-3.-featureData">
+<a class="anchor" href="#2-1-3.-featureData" aria-hidden="true"><span class="octicon octicon-link"></span></a>2-1-3. featureData<a class="anchor-link" href="#2-1-3.-featureData"> </a>
+</h3>
+<p>assay 데이터의 Feature에 해당하는 정보가 들어간다.</p>
+<ul>
+<li>데이터 타입: AnnotatedDataFrame</li>
+<li>feature가 유전자라면 chromosome, start, end, 유전자의 위치 정보, strand, 유전자 이름 등 분석에 필요한 정보들이 들어간다.</li>
+</ul>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled8.png" alt=""></p>
+<p>이 세 가지 데이터(assayData, featureData, phenoData)가 하나의 ExpressionSet을 이룬다. 주의할 점은, Gene과 Sample의 order를 잘 맞춰줘야 한다는 점이다. 제대로 된 expressionSet을 구성하기 위해서는 assayData에서의 Gene의 order와 featureData의 gene의 order가 일치해야 하고, assayData에서의 Sample의 order와 phenoData의 Sample의 order가 일치해야 한다.</p>
+<h2 id="2-2.-ExpressionSet()">
+<a class="anchor" href="#2-2.-ExpressionSet()" aria-hidden="true"><span class="octicon octicon-link"></span></a>2-2. ExpressionSet()<a class="anchor-link" href="#2-2.-ExpressionSet()"> </a>
+</h2>
+<div class="highlight"><pre><span></span><span class="nf">ExpressionSet</span><span class="p">(</span><span class="n">assayData</span> <span class="o">=</span> <span class="n">assay</span><span class="p">,</span>
+                            <span class="n">phenoData</span> <span class="o">=</span> <span class="nf">AnnotatedDataFrame</span><span class="p">(</span><span class="n">phenoData</span><span class="p">),</span>
+                            <span class="n">featureData</span> <span class="o">=</span> <span class="nf">AnnotatedDataFrame</span><span class="p">(</span><span class="n">featureData</span><span class="p">))</span>
+</pre></div>
+<p><code>ExpressionSet()</code> 함수를 이용하여 ExpressionSet을 만들 수 있다. <code>assay</code>는 matrix타입, <code>phenoData</code>와 <code>featureData</code>는 data.frame타입이어야 한다는 점에 유의한다. 주의할 점은, 앞에서 언급했듯이 assay의 행 이름과 feature data의 행 이름의 순서가 일치해야 한다는 점, assay의 열 이름과 pheno data의 행 이름의 순서가 일치해야 한다는 점이다.</p>
+<h2 id="2-3.-ExpressionSet-정보-추출-함수들">
+<a class="anchor" href="#2-3.-ExpressionSet-%EC%A0%95%EB%B3%B4-%EC%B6%94%EC%B6%9C-%ED%95%A8%EC%88%98%EB%93%A4" aria-hidden="true"><span class="octicon octicon-link"></span></a>2-3. ExpressionSet 정보 추출 함수들<a class="anchor-link" href="#2-3.-ExpressionSet-%EC%A0%95%EB%B3%B4-%EC%B6%94%EC%B6%9C-%ED%95%A8%EC%88%98%EB%93%A4"> </a>
+</h2>
+<h3 id="2-3-1.-exprs(),-fData(),-pData()">
+<a class="anchor" href="#2-3-1.-exprs(),-fData(),-pData()" aria-hidden="true"><span class="octicon octicon-link"></span></a>2-3-1. exprs(), fData(), pData()<a class="anchor-link" href="#2-3-1.-exprs(),-fData(),-pData()"> </a>
+</h3>
+<p><code>exprs()</code>는 assay data를 추출하고, <code>fData()</code>는 feature data를 추출, <code>pData()</code>는 pheno data를 추출하는 함수다.</p>
+<h3 id="2-3-2.-sampleNames(),-featureNames()">
+<a class="anchor" href="#2-3-2.-sampleNames(),-featureNames()" aria-hidden="true"><span class="octicon octicon-link"></span></a>2-3-2. sampleNames(), featureNames()<a class="anchor-link" href="#2-3-2.-sampleNames(),-featureNames()"> </a>
+</h3>
+<p>ExpressionSet에서 sample의 이름과 feature의 이름을 추출하는 함수들이다.</p>
+<h3 id="2-3-3.-varLabels(),-fvarLabels()">
+<a class="anchor" href="#2-3-3.-varLabels(),-fvarLabels()" aria-hidden="true"><span class="octicon octicon-link"></span></a>2-3-3. varLabels(), fvarLabels()<a class="anchor-link" href="#2-3-3.-varLabels(),-fvarLabels()"> </a>
+</h3>
+<p>data frame 형태의 feature data나 pheno data의 열의 이름을 확인할 때 사용하는 함수들이다.</p>
+<h2 id="2-4.-R-실습:-ExpressionSet-구조-파악">
+<a class="anchor" href="#2-4.-R-%EC%8B%A4%EC%8A%B5:-ExpressionSet-%EA%B5%AC%EC%A1%B0-%ED%8C%8C%EC%95%85" aria-hidden="true"><span class="octicon octicon-link"></span></a>2-4. R 실습: ExpressionSet 구조 파악<a class="anchor-link" href="#2-4.-R-%EC%8B%A4%EC%8A%B5:-ExpressionSet-%EA%B5%AC%EC%A1%B0-%ED%8C%8C%EC%95%85"> </a>
+</h2>
+<p>이 노트에서는 유전체 데이터 분석에서 교과적으로 많이 사용되는 데이터인 ALL(Acute Lymphocytic Leukemia) 데이터를 이용하여 실습한다. 이 데이터는 128명의 백혈병 환자를 대상으로 B cell과 T cell에 대한 micro array 데이터다.</p>
+<ul>
+<li>BiocManager를 이용하여 ExpressionSet을 사용하기 위해 Biobase 패키지와 ALL 데이터 패키지를 설치한다.</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="n">BiocManager</span><span class="o">::</span><span class="nf">install</span><span class="p">(</span><span class="s">'Biobase'</span><span class="p">)</span>
+<span class="n">BiocManager</span><span class="o">::</span><span class="nf">install</span><span class="p">(</span><span class="s">'ALL'</span><span class="p">)</span>
+</pre></div>
+<ul>
+<li>Biobase와 ALL 패키지를 불러온다.</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">Biobase</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">ALL</span><span class="p">)</span>
+</pre></div>
+<ul>
+<li>
+<code>data()</code> 함수로 ALL 데이터를 로드한다.</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="nf">data</span><span class="p">(</span><span class="n">ALL</span><span class="p">)</span>
+</pre></div>
+<ul>
+<li>class를 확인한다. Biobase 패키지 내의 ExpressionSet임을 확인할 수 있다.</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="nf">class</span><span class="p">(</span><span class="n">ALL</span><span class="p">)</span>
+</pre></div>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled9.png" alt=""></p>
+<p><code>class()</code> 함수의 결과에 의해, ExpressionSet임을 알 수 있다.</p>
+<ul>
+<li>ALL 데이터를 탐색하기 위해 변수 이름만 실행한다. 변수 이름만 실행하면, 데이터 내의 자료들이 출력되는 것이 아닌 데이터의 구성에 대한 대략적인 개요 정보들이 나온다.</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="n">ALL</span>
+</pre></div>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled10.png" alt=""></p>
+<ul>
+<li>세 가지 데이터 구조인 assayData, phenoData, featureData가 보인다.</li>
+<li>assayData 내에는 12,625개의 feature와 128개의 sample이 있는 것을 확인할 수 있다. (Q. feature가 none인데, assayData에 12,625개가 있다는 것은 무슨 소리일까? 실제 feature data에는 아무 data도 없다는 소리다. assayData의 행에 해당하는 각 probe에 대한 데이터를 직접 구해서 feature data를 구성해야 하는 상황이라고 이해하면 된다.)</li>
+<li>세 가지 데이터 구조 외에 protocolData, experimentData, Annotation 등을 부가적으로 넣어줄 수 있다.</li>
+<li>phenoData<ul>
+<li>sampleNames는 sample data의 이름으로서 01005, 01010, LAL4와 같은 식으로 저장되어 있고, assayData에 나온 128개의 샘플이라는 것과 동일하게 128개의 샘플이 있음을 알 수 있다.</li>
+<li>varLabels: phenoData내에 들어있는 열의 이름이다.</li>
+</ul>
+</li>
+<li>현재 ALL 데이터에는 none으로서 featureData가 들어와 있지는 않다.</li>
+<li>experimentData의 pubMedIds: 해당 데이터가 citation된 정보</li>
+<li>annotation: 현재 데이터에는 유전자 정보 대신 annotation 정보가 들어가 있다. 해당 데이터는 micro array데이터이기 때문에 해당 데이터를 만들 때 사용한 플랫폼 정보가 hgu95av2라는 의미다. 해당 플랫폼에서 만들어진 데이터라는 의미다. 해당 플랫폼에 맞는 probe 정보들을 다운로드 받아서 feature 데이터로 추가해주면 분석에 활용할 수 있다.</li>
+</ul>
+<h3 id="2-4-1.-assayData-추출:-exprs()">
+<a class="anchor" href="#2-4-1.-assayData-%EC%B6%94%EC%B6%9C:-exprs()" aria-hidden="true"><span class="octicon octicon-link"></span></a>2-4-1. assayData 추출: exprs()<a class="anchor-link" href="#2-4-1.-assayData-%EC%B6%94%EC%B6%9C:-exprs()"> </a>
+</h3>
+<div class="highlight"><pre><span></span><span class="n">assay</span> <span class="o">&lt;-</span> <span class="nf">exprs</span><span class="p">(</span><span class="n">ALL</span><span class="p">)</span>
+<span class="n">assay</span> <span class="c1"># 또는 head(assay)</span>
+</pre></div>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled11.png" alt=""></p>
+<p>각 열은 micro array에 해당하는 플랫폼의 probe id들로 구성되어 있다.</p>
+<ul>
+<li>차원 확인하기</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="nf">dim</span><span class="p">(</span><span class="n">assay</span><span class="p">)</span>
+</pre></div>
+<p>[1] 12625 128</p>
+<h4 id="2-4-1-1.-sampleNames(),-featureNames()">
+<a class="anchor" href="#2-4-1-1.-sampleNames(),-featureNames()" aria-hidden="true"><span class="octicon octicon-link"></span></a>2-4-1-1. sampleNames(), featureNames()<a class="anchor-link" href="#2-4-1-1.-sampleNames(),-featureNames()"> </a>
+</h4>
+<p>eSet에 들어있는 샘플의 이름들과 eSet에 들어있는 feature의 이름들을 출력한다. 특히, 해당 feature들은 해당하는 플랫폼의 probe id들이고, 현재는 관련 데이터가 없어서 직접 구하여 추가해야 한다.</p>
+<div class="highlight"><pre><span></span><span class="nf">sampleNames</span><span class="p">(</span><span class="n">ALL</span><span class="p">)</span>
+</pre></div>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled12.png" alt=""></p>
+<div class="highlight"><pre><span></span><span class="nf">featureNames</span><span class="p">(</span><span class="n">ALL</span><span class="p">)</span>
+</pre></div>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled13.png" alt=""></p>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled14.png" alt=""></p>
+<p>즉, assayData 자체에는 12,625개의 행 데이터로 probe id에 대한 정보를 담고 있지만, feature data에는 실제 probe별로 유전자 정보나 위치 정보 등을 담고 있는 정보가 없다고 이해하면 된다.</p>
+<h3 id="2-4-2.-phenoData-추출:-pData(ALL)">
+<a class="anchor" href="#2-4-2.-phenoData-%EC%B6%94%EC%B6%9C:-pData(ALL)" aria-hidden="true"><span class="octicon octicon-link"></span></a>2-4-2. phenoData 추출: pData(ALL)<a class="anchor-link" href="#2-4-2.-phenoData-%EC%B6%94%EC%B6%9C:-pData(ALL)"> </a>
+</h3>
+<div class="highlight"><pre><span></span><span class="n">phenoData</span> <span class="o">&lt;-</span> <span class="nf">pData</span><span class="p">(</span><span class="n">ALL</span><span class="p">)</span>
+<span class="n">phenoData</span>
+</pre></div>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled15.png" alt=""></p>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled16.png" alt=""></p>
+<p>행에 sample의 raw name으로 지정된 이름이 보인다. 또한, assay data의 column의 순서와 pheno data의 행의 순서가 동일함을 알 수 있다. 열 영역에는 21개의 열의 이름이 보인다. 즉, 환자의 임상 정보들이 phenoData에 등록되어 있는 것을 확인할 수 있다.</p>
+<h4 id="2-4-2-1.-varMetadata()">
+<a class="anchor" href="#2-4-2-1.-varMetadata()" aria-hidden="true"><span class="octicon octicon-link"></span></a>2-4-2-1. varMetadata()<a class="anchor-link" href="#2-4-2-1.-varMetadata()"> </a>
+</h4>
+<p>pheno data의 각 column에 대한 설명을 볼 수 있다.</p>
+<div class="highlight"><pre><span></span><span class="nf">varMetadata</span><span class="p">(</span><span class="n">ALL</span><span class="p">)</span>
+</pre></div>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled17.png" alt=""></p>
+<h3 id="2-4-3.-featureData-추출:-fData()">
+<a class="anchor" href="#2-4-3.-featureData-%EC%B6%94%EC%B6%9C:-fData()" aria-hidden="true"><span class="octicon octicon-link"></span></a>2-4-3. featureData 추출: fData()<a class="anchor-link" href="#2-4-3.-featureData-%EC%B6%94%EC%B6%9C:-fData()"> </a>
+</h3>
+<div class="highlight"><pre><span></span><span class="n">featureData</span> <span class="o">&lt;-</span> <span class="nf">fData</span><span class="p">(</span><span class="n">ALL</span><span class="p">)</span>
+<span class="n">featureData</span>
+</pre></div>
+<p>data frame with 0 columns and 12625 rows</p>
+<p>아까 살펴 보았듯이, ALL 데이터의 featureData는 none이다. 따라서 ALL 데이터는 현재 array data과 pheno data로만 이루어져 있는 ExpressionSet 데이터라고 볼 수 있다.</p>
+<h4 id="2-4-3-1.-annotation()">
+<a class="anchor" href="#2-4-3-1.-annotation()" aria-hidden="true"><span class="octicon octicon-link"></span></a>2-4-3-1. annotation()<a class="anchor-link" href="#2-4-3-1.-annotation()"> </a>
+</h4>
+<div class="highlight"><pre><span></span><span class="nf">annotation</span><span class="p">(</span><span class="n">ALL</span><span class="p">)</span>
+</pre></div>
+<p>[1] "hgu95av2"</p>
+<p>플랫폼 이름이 나온다. 해당 플랫폼 이름을 구글에 검색하여, public database를 통해 probe 정보를 feature로 추가하여, probe별 유전자 정보나 위치 정보 등을 확인할 수 있다.</p>
+<h3 id="2-4-4.-기타-정보-추출">
+<a class="anchor" href="#2-4-4.-%EA%B8%B0%ED%83%80-%EC%A0%95%EB%B3%B4-%EC%B6%94%EC%B6%9C" aria-hidden="true"><span class="octicon octicon-link"></span></a>2-4-4. 기타 정보 추출<a class="anchor-link" href="#2-4-4.-%EA%B8%B0%ED%83%80-%EC%A0%95%EB%B3%B4-%EC%B6%94%EC%B6%9C"> </a>
+</h3>
+<h4 id="2-4-4-1.-experimentData()">
+<a class="anchor" href="#2-4-4-1.-experimentData()" aria-hidden="true"><span class="octicon octicon-link"></span></a>2-4-4-1. experimentData()<a class="anchor-link" href="#2-4-4-1.-experimentData()"> </a>
+</h4>
+<div class="highlight"><pre><span></span><span class="nf">experimentData</span><span class="p">(</span><span class="n">ALL</span><span class="p">)</span>
+</pre></div>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled18.png" alt=""></p>
+<p>해당 데이터를 만든 실험자의 이름과 센터, contact 정보 등이 들어있다.</p>
+<h2 id="2-5.-R-실습:-RNA-Sequencing-data(유전자-발현량-계산된-값)를-통해-ExpressionSet-만들기">
+<a class="anchor" href="#2-5.-R-%EC%8B%A4%EC%8A%B5:-RNA-Sequencing-data(%EC%9C%A0%EC%A0%84%EC%9E%90-%EB%B0%9C%ED%98%84%EB%9F%89-%EA%B3%84%EC%82%B0%EB%90%9C-%EA%B0%92)%EB%A5%BC-%ED%86%B5%ED%95%B4-ExpressionSet-%EB%A7%8C%EB%93%A4%EA%B8%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>2-5. R 실습: RNA Sequencing data(유전자 발현량 계산된 값)를 통해 ExpressionSet 만들기<a class="anchor-link" href="#2-5.-R-%EC%8B%A4%EC%8A%B5:-RNA-Sequencing-data(%EC%9C%A0%EC%A0%84%EC%9E%90-%EB%B0%9C%ED%98%84%EB%9F%89-%EA%B3%84%EC%82%B0%EB%90%9C-%EA%B0%92)%EB%A5%BC-%ED%86%B5%ED%95%B4-ExpressionSet-%EB%A7%8C%EB%93%A4%EA%B8%B0"> </a>
+</h2>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled19.png" alt=""></p>
+<ul>
+<li>실습에 사용할 데이터는 논문 "<em>EPHB6 mutation induces cell adhesion-mediated paclitaxel resistance via EPHA2 and CDH11 expression</em>,"(<a href="https://www.nature.com/articles/s12276-019-0261-z">https://www.nature.com/articles/s12276-019-0261-z</a>)에 나온 데이터다.<ul>
+<li>총 4 개의 RNA-seq 샘플로 이루어져 있다.</li>
+<li>간암에 관련 된 Huh7 cell line 중 EPHB6 유전자의 Mutatant Type(MUT)과 Wild Type(WT)에 대해 두 번씩 과발현(replicate)시킨 데이터다. 따라서 두 그룹 간에 어떤 유전자 관련 프로파일에 변화가 있는지 비교해보고자 한다.</li>
+<li>전처리 과정을 거친 데이터다.</li>
+</ul>
+</li>
+<li>이 노트의 실습은 <code>/Users/dohk/Dropbox/workspace/__bioinformatics/RNA-seq-ExpressionSet</code> 디렉토리에서 진행되며, R Studio 상에서 진행된다. 순서는 다음과 같이 진행된다.<ul>
+<li>각 샘플에 대해 전처리를 수행한 후, cufflinks를 이용하여 유전자 발현량을 계산한다(RSEM과 같은 일을 하는 tool임). 각 샘플의 유전자 발현량을 cufflinks를 이용하여 계산한 결과(gene.fpkm_tracking)를 R로 불러온다.<ul>
+<li>
+<code>/Users/dohk/Dropbox/workspace/__bioinformatics/RNA-seq-ExpressionSet/result/cufflinks</code> 디렉토리에 cufflinks를 다음 하위 폴더들이 있다.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled20.png" alt=""></p>
+<p>각 폴더들에 대한 트리구조를 그려보면 다음과 같다. 실제 디렉토리에는 빨간색 박스 친 파일만 존재한다. cufflinks를 돌리면 저 파일들이 모두 생성된다.</p>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled21.png" alt=""></p>
+<p>파일 내부의 내용은 다음과 같다.</p>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled22.png" alt=""></p>
+<ul>
+<li>그 후, 각 샘플의 cufflinks 데이터로부터 FPKM column을 추출해 assay data를 생성한다.</li>
+<li>gene annotation data(gencode.v22.df.rda)를 불러와 featureData를 생성한다.</li>
+<li>phenotypic group 정보를 이용해 phenoData를 생성한다.</li>
+<li>Assay, featureData, phenoData로부터 ExpressionSet을 생성한다.</li>
+<li>이를 통해 데이터의 분포를 간단히 확인해 볼 수 있다.</li>
+</ul>
+<h3 id="2-5-1.-실습-준비">
+<a class="anchor" href="#2-5-1.-%EC%8B%A4%EC%8A%B5-%EC%A4%80%EB%B9%84" aria-hidden="true"><span class="octicon octicon-link"></span></a>2-5-1. 실습 준비<a class="anchor-link" href="#2-5-1.-%EC%8B%A4%EC%8A%B5-%EC%A4%80%EB%B9%84"> </a>
+</h3>
+<h4 id="2-5-1-1.-프로젝트-생성">
+<a class="anchor" href="#2-5-1-1.-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%83%9D%EC%84%B1" aria-hidden="true"><span class="octicon octicon-link"></span></a>2-5-1-1. 프로젝트 생성<a class="anchor-link" href="#2-5-1-1.-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%83%9D%EC%84%B1"> </a>
+</h4>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled23.png" alt=""></p>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled24.png" alt=""></p>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled25.png" alt=""></p>
+<p>프로젝트 생성 후, 파일의 이름을 지정한다.</p>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled26.png" alt=""></p>
+<h4 id="2-5-1-2.-로드맵">
+<a class="anchor" href="#2-5-1-2.-%EB%A1%9C%EB%93%9C%EB%A7%B5" aria-hidden="true"><span class="octicon octicon-link"></span></a>2-5-1-2. 로드맵<a class="anchor-link" href="#2-5-1-2.-%EB%A1%9C%EB%93%9C%EB%A7%B5"> </a>
+</h4>
+<p>지금부터 할 실습의 큰 그림은 다음과 같다. 각 파일로부터 assayData, phenoData, featureData를 생성하여 최종적으로 ExpressionSet으로 만드는 것이 목표다. 각 데이터이 타입에 주의해야 한다.</p>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled27.png" alt=""></p>
+<h3 id="2-5-2.-데이터-준비하기">
+<a class="anchor" href="#2-5-2.-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%A4%80%EB%B9%84%ED%95%98%EA%B8%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>2-5-2. 데이터 준비하기<a class="anchor-link" href="#2-5-2.-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%A4%80%EB%B9%84%ED%95%98%EA%B8%B0"> </a>
+</h3>
+<p>필요한 라이브러리인 Biobase를 불러와 준비한다.</p>
+<div class="highlight"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="s">"Biobase"</span><span class="p">)</span>
+</pre></div>
+<p>cufflinks를 통해 나온 결과를 변수에 저장한다. <code>" "</code> 내에서 tab 키를 누르면 경로 상 이동이 가능하다. 방법 2에서는 디렉토리 네임을 지정해 준 다음, 해당 디렉토리 내의 서브 디렉토리들을 recursive하게 방문하면서 pattern에 맞는 파일들을 찾아 <code>cuff.fns</code>라는 변수에 저장한 후, 해당 변수를 이용하여 delim() 함수를 일괄 적용하는 lapply() 함수를 이용하는 좀 더 자동화된 코드다.</p>
+<div class="highlight"><pre><span></span><span class="c1"># 방법 1</span>
+<span class="n">cuff.mut1</span> <span class="o">&lt;-</span> <span class="nf">read.delim</span><span class="p">(</span><span class="s">"result/cufflinks/EPHB6_MUT1/genes.fpkm_tracking"</span><span class="p">)</span>
+<span class="n">cuff.mut2</span> <span class="o">&lt;-</span> <span class="nf">read.delim</span><span class="p">(</span><span class="s">"result/cufflinks/EPHB6_MUT2/genes.fpkm_tracking"</span><span class="p">)</span>
+<span class="n">cuff.wt1</span> <span class="o">&lt;-</span> <span class="nf">read.delim</span><span class="p">(</span><span class="s">"result/cufflinks/EPHB6_WT1/genes.fpkm_tracking"</span><span class="p">)</span>
+<span class="n">cuff.wt2</span> <span class="o">&lt;-</span> <span class="nf">read.delim</span><span class="p">(</span><span class="s">"result/cufflinks/EPHB6_WT2/genes.fpkm_tracking"</span><span class="p">)</span>
+
+<span class="c1"># 방법 2</span>
+<span class="n">cuff.dir</span> <span class="o">&lt;-</span> <span class="s">"result/cufflinks/"</span>
+<span class="n">cuff.fns</span> <span class="o">&lt;-</span> <span class="nf">dir</span><span class="p">(</span><span class="n">cuff.dir</span><span class="p">,</span> <span class="n">pattern</span> <span class="o">=</span> <span class="s">"genes.fpkm_tracking"</span><span class="p">,</span> <span class="n">recursive</span> <span class="o">=</span> <span class="bp">T</span><span class="p">,</span> <span class="n">full.names</span> <span class="o">=</span> <span class="bp">T</span><span class="p">)</span>
+<span class="n">cuff.outs</span> <span class="o">&lt;-</span> <span class="nf">lapply</span><span class="p">(</span><span class="n">cuff.fns</span><span class="p">,</span> <span class="n">read.delim</span><span class="p">)</span> <span class="c1"># results are stored to 'list' type </span>
+<span class="nf">names</span><span class="p">(</span><span class="n">cuff.outs</span><span class="p">)</span><span class="o">=</span><span class="nf">basename</span><span class="p">(</span><span class="nf">dirname</span><span class="p">(</span><span class="n">cuff.fns</span><span class="p">))</span>
+</pre></div>
+<p>저장한 변수의 클래스를 확인해보면 숫자와 문자가 섞여 있기 때문에 data.frame임을 확인할 수 있다.</p>
+<div class="highlight"><pre><span></span><span class="c1"># 방법 1</span>
+<span class="nf">class</span><span class="p">(</span><span class="n">cuff.mut1</span><span class="p">)</span>
+<span class="nf">class</span><span class="p">(</span><span class="n">cuff.mut2</span><span class="p">)</span>
+<span class="nf">class</span><span class="p">(</span><span class="n">cuff.wt1</span><span class="p">)</span>
+<span class="nf">class</span><span class="p">(</span><span class="n">cuff.wt2</span><span class="p">)</span>
+
+<span class="c1"># 방법 2</span>
+<span class="nf">sapply</span><span class="p">(</span><span class="n">cuff.outs</span><span class="p">,</span> <span class="n">class</span><span class="p">)</span>
+</pre></div>
+<ul>
+<li>방법 1의 결과: [1] "data.frame"</li>
+<li>방법 2의 결과:</li>
+</ul>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled28.png" alt=""></p>
+<p>실제 데이터를 살펴보기 위해 <code>head</code>를 이용하여 출력한다.</p>
+<div class="highlight"><pre><span></span><span class="c1"># 방법 1</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">cuff.mut1</span><span class="p">)</span>
+
+<span class="c1"># 방법 2</span>
+<span class="nf">lapply</span><span class="p">(</span><span class="n">cuff.outs</span><span class="p">,</span> <span class="n">head</span><span class="p">)</span>
+</pre></div>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled29.png" alt=""></p>
+<p>총 13개의 column이 보인다. R studio의 오른쪽 위, Environment를 보면 데이터들이 모두 60,556개의 row와 13개의 column으로 이루어진 것을 알 수 있다. tracking_id와 gene_id가 같다. 특히, gene_id는 gencode에서 사용하는 ensemble id이기 때문에, gene_id만으로는 어떤 유전자인지 식별할 수 없다. 따라서 gene_short_name으로 제공된다. loucs에는 각 gene의 chromosome상의 어디에 존재하는지에 대한 정보다. FPKM값은 우리가 다루어야 할 값이다. 편차가 적을수록 좋은 QC값을 갖는다고 할 수 있다.</p>
+<div class="highlight"><pre><span></span><span class="c1"># 방법 1</span>
+<span class="nf">nrow</span><span class="p">(</span><span class="n">cuff.mut1</span><span class="p">)</span>
+<span class="nf">nrow</span><span class="p">(</span><span class="n">cuff.mut2</span><span class="p">)</span>
+<span class="nf">nrow</span><span class="p">(</span><span class="n">cuff.wt1</span><span class="p">)</span>
+<span class="nf">nrow</span><span class="p">(</span><span class="n">cuff.wt2</span><span class="p">)</span>
+
+<span class="c1"># 방법 2</span>
+<span class="nf">sapply</span><span class="p">(</span><span class="n">cuff.outs</span><span class="p">,</span> <span class="n">nrow</span><span class="p">)</span>
+</pre></div>
+<ul>
+<li>방법 1의 결과:<ul>
+<li>[1] 60556</li>
+<li>[1] 60556</li>
+<li>[1] 60556</li>
+<li>[1] 60556</li>
+</ul>
+</li>
+<li>방법 2의 결과:</li>
+</ul>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled30.png" alt=""></p>
+<p>행의 개수가 60,556개인 것을 알 수 있다. 이제, geneID의 order가 같은지를 체크한다. tracking_id가 같은지를 살핀다.</p>
+<div class="highlight"><pre><span></span><span class="nf">cuff.mut1</span><span class="p">(</span>달러표시<span class="p">)</span><span class="n">tracking_id</span><span class="o">==</span><span class="nf">cuff.mut2</span><span class="p">(</span>달러표시<span class="p">)</span><span class="n">tracking_id</span>
+</pre></div>
+<p>order가 같다면 전부 TRUE가 나와야 하는데, FALSE가 섞여 있다. 따라서 두 파일의 tracking_id가 다르다는 결론을 내릴 수 있다. 먼저, 서로 다른 것들의 개수를 세어 보고 난 후, 기준으로 삼을 unique한 유전자 id를 만든다.</p>
+<div class="highlight"><pre><span></span><span class="nf">sum</span><span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="nf">cuff.outs</span><span class="p">(</span>달러표시<span class="p">)</span><span class="nf">EPHB6_MUT1</span><span class="p">(</span>달러표시<span class="p">)</span><span class="n">tracking_id</span> <span class="o">==</span> <span class="nf">cuff.outs</span><span class="p">(</span>달러표시<span class="p">)</span><span class="nf">EPHB6_MUT2</span><span class="p">(</span>달러표시<span class="p">)</span><span class="n">tracking_id</span><span class="p">))</span>
+
+<span class="c1"># 방법 1</span>
+<span class="n">cuff.ids</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="nf">cuff.mut1</span><span class="p">(</span>달러표시<span class="p">)</span><span class="n">tracking_id</span><span class="p">,</span> <span class="nf">cuff.mut2</span><span class="p">(</span>달러표시<span class="p">)</span><span class="n">tracking_id</span><span class="p">,</span> <span class="nf">cuff.wt1</span><span class="p">(</span>달러표시<span class="p">)</span><span class="n">tracking_id</span><span class="p">,</span> <span class="nf">cuff.wt2</span><span class="p">(</span>달러표시<span class="p">)</span><span class="n">tracking_id</span><span class="p">)</span>
+<span class="nf">length</span><span class="p">(</span><span class="n">cuff.ids</span><span class="p">)</span>
+<span class="nf">length</span><span class="p">(</span><span class="n">key_ids</span><span class="p">)</span>
+
+<span class="n">key_ids</span> <span class="o">&lt;-</span> <span class="nf">unique</span><span class="p">(</span><span class="n">cuff.ids</span><span class="p">)</span>
+
+<span class="c1"># 방법 2</span>
+<span class="n">cuff.ids</span> <span class="o">&lt;-</span> <span class="nf">unlist</span><span class="p">(</span><span class="nf">lapply</span><span class="p">(</span><span class="n">cuff.outs</span><span class="p">,</span> <span class="nf">function</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="nf">as.character</span><span class="p">(</span><span class="nf">a</span><span class="p">(</span>달러표시<span class="p">)</span><span class="n">tracking_id</span><span class="p">)))</span> <span class="c1"># get ID of each element</span>
+
+<span class="nf">length</span><span class="p">(</span><span class="n">cuff.ids</span><span class="p">)</span> <span class="c1"># 242224</span>
+
+<span class="n">kid</span> <span class="o">&lt;-</span> <span class="nf">unique</span><span class="p">(</span><span class="n">cuff.ids</span><span class="p">)</span> <span class="c1"># key ids, unique()</span>
+<span class="nf">length</span><span class="p">(</span><span class="n">kid</span><span class="p">)</span> <span class="c1"># 60468</span>
+</pre></div>
+<ul>
+<li>방법 1의 결과:<ul>
+<li>[1] 242224</li>
+<li>[1] 60468</li>
+</ul>
+</li>
+<li>방법 2의 결과(서로 다른 것들의 개수를 알려준다.):<ul>
+<li>[1] 49092</li>
+</ul>
+</li>
+</ul>
+<p>두 id의 길이가 다른 것을 확인할 수 있다.</p>
+<h3 id="2-5-3.-assayData-만들기">
+<a class="anchor" href="#2-5-3.-assayData-%EB%A7%8C%EB%93%A4%EA%B8%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>2-5-3. assayData 만들기<a class="anchor-link" href="#2-5-3.-assayData-%EB%A7%8C%EB%93%A4%EA%B8%B0"> </a>
+</h3>
+<p>네 개의 파일을 R 상에서 읽은 후, ExpressionSet을 만들기 위해 가장 먼저 할 일은 assay data를 만드는 것이다. 네 개의 파일 각각에 있는 FPKM값을 추출하여 행과 열을 맞춰 matrix 타입의 assay data를 만드는 것이 목표다. 이 때, order를 맞추는 게 어려운 작업이 될 수 있다.</p>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled31.png" alt=""></p>
+<p>간단하게 도식화 한 그림이다.</p>
+<ol>
+<li>네 파일의 gene id를 unique한 key id로 만든 후 이를 행(row)으로, 샘플을 열(column)로 하여 아무 값도 들어있지 않은(NA) 빈 matrix를 만든다. </li>
+<li>각 파일로부터 FPKM column에 해당하는 값을 뽑아, matrix에 순차적으로 넣는다. <ul>
+<li>이렇게 하는 이유는, 아무리 동일한 tool을 이용하여 결과를 냈다 하더라도 파일마다 order에 차이가 있을 수 있기 때문이다.</li>
+</ul>
+</li>
+</ol>
+<h4 id="2-5-4-1.-Empty-matrix-만들기">
+<a class="anchor" href="#2-5-4-1.-Empty-matrix-%EB%A7%8C%EB%93%A4%EA%B8%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>2-5-4-1. Empty matrix 만들기<a class="anchor-link" href="#2-5-4-1.-Empty-matrix-%EB%A7%8C%EB%93%A4%EA%B8%B0"> </a>
+</h4>
+<p>matrix를 만드는 함수를 이용해 NA matrix를 만든다.</p>
+<div class="highlight"><pre><span></span><span class="n">assay.data</span> <span class="o">&lt;-</span> <span class="nf">matrix</span><span class="p">(</span><span class="kc">NA</span><span class="p">,</span> <span class="n">nrow</span> <span class="o">=</span> <span class="nf">length</span><span class="p">(</span><span class="n">key_ids</span><span class="p">),</span> <span class="n">ncol</span><span class="o">=</span><span class="m">4</span><span class="p">)</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">assay.data</span><span class="p">)</span>
+</pre></div>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled32.png" alt=""></p>
+<p>행과 열의 이름을 지정해주기 위해 다음과 같이 한다.</p>
+<div class="highlight"><pre><span></span><span class="nf">rownames</span><span class="p">(</span><span class="n">assay.data</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="n">key_ids</span>
+<span class="nf">colnames</span><span class="p">(</span><span class="n">assay.data</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">"EPHB6_MUT1"</span><span class="p">,</span> <span class="s">"EPHB6_MUT2"</span><span class="p">,</span> <span class="s">"EPHB6_WT1"</span><span class="p">,</span> <span class="s">"EPHB6_WT2"</span><span class="p">)</span>
+<span class="c1"># 또는 colnames(assay) &lt;- names(cuff.outs)</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">assay.data</span><span class="p">)</span>
+</pre></div>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled33.png" alt=""></p>
+<p>비어있는 각 NA값을 채우기 위해 FPKM값을 이용해 값을 채운다. <code>match</code>를 이용하며, <code>match(기준이 되는 벡터, 찾고자 하는 벡터)</code>와 같이 사용한다.</p>
+<div class="highlight"><pre><span></span><span class="nf">match</span><span class="p">(</span><span class="n">key_ids</span><span class="p">,</span> <span class="nf">cuff.mut1</span><span class="p">(</span>달러표시<span class="p">)</span><span class="n">tracking_id</span><span class="p">)</span>
+<span class="nf">match</span><span class="p">(</span><span class="n">key_ids</span><span class="p">,</span> <span class="nf">cuff.mut2</span><span class="p">(</span>달러표시<span class="p">)</span><span class="n">tracking_id</span><span class="p">)</span>
+<span class="nf">match</span><span class="p">(</span><span class="n">key_ids</span><span class="p">,</span> <span class="nf">cuff.wt1</span><span class="p">(</span>달러표시<span class="p">)</span><span class="n">tracking_id</span><span class="p">)</span>
+<span class="nf">match</span><span class="p">(</span><span class="n">key_ids</span><span class="p">,</span> <span class="nf">cuff.wt2</span><span class="p">(</span>달러표시<span class="p">)</span><span class="n">tracking_id</span><span class="p">)</span>
+</pre></div>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled34.png" alt=""></p>
+<p>cuff.mut1의 모든 tracking_id에서 matching되는 tracking id들을 찾은 것으로 보인다. 이제, 해당 tracking_id의 FPKM값을 가져와 NA값 대신에 채워주기 위해 다음가 같이 한다. assay 데이터는 네 개의 파일이 하나로 구성된 데이터이므로, 첫 번째 열에 MUT1 데이터, 두 번째 열에 MUT2 데이터, 세 번째 열에 WT1 데이터, 네 번째 열에 WT2 데이터가 들어가도록 구성한다.</p>
+<div class="highlight"><pre><span></span><span class="n">assay.data</span><span class="p">[,</span><span class="m">1</span><span class="p">]</span> <span class="o">&lt;-</span> <span class="nf">cuff.mut1</span><span class="p">(</span>달러표시<span class="p">)</span><span class="n">FPKM</span><span class="p">[</span><span class="nf">match</span><span class="p">(</span><span class="n">key_ids</span><span class="p">,</span> <span class="nf">cuff.mut1</span><span class="p">(</span>달러표시<span class="p">)</span><span class="n">tracking_id</span><span class="p">)]</span>
+<span class="n">assay.data</span><span class="p">[,</span><span class="m">2</span><span class="p">]</span> <span class="o">&lt;-</span> <span class="nf">cuff.mut2</span><span class="p">(</span>달러표시<span class="p">)</span><span class="n">FPKM</span><span class="p">[</span><span class="nf">match</span><span class="p">(</span><span class="n">key_ids</span><span class="p">,</span> <span class="nf">cuff.mut2</span><span class="p">(</span>달러표시<span class="p">)</span><span class="n">tracking_id</span><span class="p">)]</span>
+<span class="n">assay.data</span><span class="p">[,</span><span class="m">3</span><span class="p">]</span> <span class="o">&lt;-</span> <span class="nf">cuff.wt1</span><span class="p">(</span>달러표시<span class="p">)</span><span class="n">FPKM</span><span class="p">[</span><span class="nf">match</span><span class="p">(</span><span class="n">key_ids</span><span class="p">,</span> <span class="nf">cuff.wt1</span><span class="p">(</span>달러표시<span class="p">)</span><span class="n">tracking_id</span><span class="p">)]</span>
+<span class="n">assay.data</span><span class="p">[,</span><span class="m">4</span><span class="p">]</span> <span class="o">&lt;-</span> <span class="nf">cuff.wt2</span><span class="p">(</span>달러표시<span class="p">)</span><span class="n">FPKM</span><span class="p">[</span><span class="nf">match</span><span class="p">(</span><span class="n">key_ids</span><span class="p">,</span> <span class="nf">cuff.wt2</span><span class="p">(</span>달러표시<span class="p">)</span><span class="n">tracking_id</span><span class="p">)]</span>
+</pre></div>
+<p>값이 제대로 들어가 있는지 확인한다.</p>
+<div class="highlight"><pre><span></span><span class="nf">head</span><span class="p">(</span><span class="n">assay.data</span><span class="p">)</span>
+</pre></div>
+<p>또는 다음과 같이 한 번에 수행할 수도 있다.</p>
+<div class="highlight"><pre><span></span><span class="c1"># 방법 2</span>
+<span class="nf">for</span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="nf">ncol</span><span class="p">(</span><span class="n">assay</span><span class="p">))</span> <span class="p">{</span>
+  <span class="n">assay</span><span class="p">[</span><span class="nf">as.character</span><span class="p">(</span><span class="n">cuff.outs</span><span class="p">[[</span><span class="n">i</span><span class="p">]](</span>달러표시<span class="p">)</span><span class="n">tracking_id</span><span class="p">),</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;-</span> <span class="n">cuff.outs</span><span class="p">[[</span><span class="n">i</span><span class="p">]](</span>달러표시<span class="p">)</span><span class="n">FPKM</span>
+<span class="p">}</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">assay</span><span class="p">)</span>
+</pre></div>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled35.png" alt=""></p>
+<h3 id="2-5-4.-phenoData-만들기">
+<a class="anchor" href="#2-5-4.-phenoData-%EB%A7%8C%EB%93%A4%EA%B8%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>2-5-4. phenoData 만들기<a class="anchor-link" href="#2-5-4.-phenoData-%EB%A7%8C%EB%93%A4%EA%B8%B0"> </a>
+</h3>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled36.png" alt=""></p>
+<p>각 샘플에는 sample ID가 존재한다. sample ID에는 각 샘플에 대한 정보가 들어가는데, 여기에서는 MUT(Mutant Type)인지, WT(Wild Type)인지에 대한 정보를 이용하여 data.frame 타입의 데이터를 만든다. 이 실습에서는 phenoData를 sample id와 group 정보로 만든다.</p>
+<div class="highlight"><pre><span></span><span class="n">sample.id</span> <span class="o">&lt;-</span> <span class="nf">colnames</span><span class="p">(</span><span class="n">assay.data</span><span class="p">)</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">sample.id</span><span class="p">)</span>
+
+<span class="n">group</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">"MUT"</span><span class="p">,</span> <span class="s">"MUT"</span><span class="p">,</span> <span class="s">"WT"</span><span class="p">,</span> <span class="s">"WT"</span><span class="p">)</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">group</span><span class="p">)</span>
+
+<span class="n">pheno.data</span> <span class="o">&lt;-</span> <span class="nf">data.frame</span><span class="p">(</span><span class="n">sample.id</span><span class="p">,</span> <span class="n">group</span><span class="p">)</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">pheno.data</span><span class="p">)</span>
+</pre></div>
+<ul>
+<li>[1] "EPHB6_MUT1" "EPHB6_MUT2" "EPHB6_WT1" "EPHB6_WT2"</li>
+<li>[1] "MUT" "MUT" "WT" "WT"</li>
+</ul>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled37.png" alt=""></p>
+<p>행(row)의 이름이 1,2,3,4 등으로 지정이 따로 안되어 있는 상태이므로, 이를 지정해준다. phenoData의 행의 이름은 assayData의 열의 이름이 된다.</p>
+<div class="highlight"><pre><span></span><span class="nf">rownames</span><span class="p">(</span><span class="n">pheno.data</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="n">sample.id</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">pheno.data</span><span class="p">)</span>
+</pre></div>
+<p>지금까지의 phenoData 만드는 과정을 한 번에 수행할 수 있는 코드는 다음과 같다.</p>
+<div class="highlight"><pre><span></span><span class="c1">#방법 2</span>
+<span class="n">phenoData</span> <span class="o">&lt;-</span> <span class="nf">data.frame</span><span class="p">(</span><span class="n">sample.id</span><span class="o">=</span><span class="nf">colnames</span><span class="p">(</span><span class="n">assay</span><span class="p">),</span> <span class="n">group</span><span class="o">=</span><span class="nf">gsub</span><span class="p">(</span><span class="s">"EPHB6_|[0-9](달러표시)"</span><span class="p">,</span> <span class="s">""</span><span class="p">,</span> <span class="nf">colnames</span><span class="p">(</span><span class="n">assay</span><span class="p">)))</span>
+<span class="nf">rownames</span><span class="p">(</span><span class="n">phenoData</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">phenoData</span><span class="p">(</span>달러표시<span class="p">)</span><span class="n">sample.id</span>
+<span class="n">phenoData</span>
+</pre></div>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled38.png" alt=""></p>
+<h3 id="2-5-5.-featureData-만들기">
+<a class="anchor" href="#2-5-5.-featureData-%EB%A7%8C%EB%93%A4%EA%B8%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>2-5-5. featureData 만들기<a class="anchor-link" href="#2-5-5.-featureData-%EB%A7%8C%EB%93%A4%EA%B8%B0"> </a>
+</h3>
+<p>feature data는 reference로 사용한 유전자 annotation GTF 파일로부터 생성한다. GTF 파일엔 유전자 뿐만 아니라 유전자 내 exon, 유전자 isoform 등의 정보가 들어 있기 때문에 용량이 크지만, 여기서는 gene 정보만 들어있는 파일을 쓴다; <code>genecoe.v22.df.rda</code>. 이 파일은 cufflinks를 돌려 alignment를 수행할 때 사용한 GTF파일 중 gene 정보만 갖고 있는 행(row) 부분만 파싱 된 데이터다. 이 데이터를 불러오고 내용을 살펴보자.</p>
+<div class="highlight"><pre><span></span><span class="nf">data</span><span class="p">(</span><span class="s">"gencode.v22.df"</span><span class="p">)</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">gencode.v22.df</span><span class="p">)</span>
+</pre></div>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled39.png" alt=""></p>
+<ul>
+<li>
+<code>seqnames</code>: chromosome 정보</li>
+<li>
+<code>start</code>, <code>end</code>: start position과 end postition 정보</li>
+<li>
+<code>width</code>: 길이 정보</li>
+<li>
+<code>strand</code>: strand 정보로서, RNA이므로 방향을 나타냄</li>
+<li>
+<code>gene_id</code>: assayData를 만들 때 <code>key_ids</code>로 사용했던 정보. 이 정보를 이용해 order를 matching할 예정이다.</li>
+<li>
+<code>gene_type</code>: 유전자의 유형에 대한 정보</li>
+</ul>
+<p>위 정보들이 ExpressionSet의 feature가 된다. 이제 featureData를 만든다.</p>
+<div class="highlight"><pre><span></span><span class="n">matched.idx</span> <span class="o">&lt;-</span> <span class="nf">match</span><span class="p">(</span><span class="n">key_ids</span><span class="p">,</span> <span class="nf">gencode.v22.df</span><span class="p">(</span>달러표시<span class="p">)</span><span class="n">gene_id</span><span class="p">)</span>
+<span class="n">feature.data</span> <span class="o">&lt;-</span> <span class="n">gencode.v22.df</span><span class="p">[</span><span class="n">matched.idx</span><span class="p">,]</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">feature.data</span><span class="p">)</span>
+</pre></div>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled40.png" alt=""></p>
+<div class="highlight"><pre><span></span><span class="n">key_ids</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">]</span>
+</pre></div>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled41.png" alt=""></p>
+<p>key_ids의 1~5번째와 feature.data의 1~5번째의 order가 일치함을 확인할 수 있다. rownames를 이용하여 행의 이름을 정해준다. featureData의 행의 이름은 assayData의 행의 이름이 된다.</p>
+<div class="highlight"><pre><span></span><span class="nf">rownames</span><span class="p">(</span><span class="n">feature.data</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="n">key_ids</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">feature.data</span><span class="p">)</span>
+</pre></div>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled42.png" alt=""></p>
+<h3 id="2-5-6.-ExpressionSet-만들기">
+<a class="anchor" href="#2-5-6.-ExpressionSet-%EB%A7%8C%EB%93%A4%EA%B8%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>2-5-6. ExpressionSet 만들기<a class="anchor-link" href="#2-5-6.-ExpressionSet-%EB%A7%8C%EB%93%A4%EA%B8%B0"> </a>
+</h3>
+<p>2-5-2 ~ 2-5-6 에서 만든 데이터를 이용하여 ExpressionSet을 만든다. 세 개의 데이터를 모두 만들었으므로 이를 통해 ExpressionSet을 만들 수 있다.</p>
+<h4 id="2-5-6-1.-각-데이터의-order-체크">
+<a class="anchor" href="#2-5-6-1.-%EA%B0%81-%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%9D%98-order-%EC%B2%B4%ED%81%AC" aria-hidden="true"><span class="octicon octicon-link"></span></a>2-5-6-1. 각 데이터의 order 체크<a class="anchor-link" href="#2-5-6-1.-%EA%B0%81-%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%9D%98-order-%EC%B2%B4%ED%81%AC"> </a>
+</h4>
+<p>assayData의 열의 이름은 phenoData의 행의 이름과 그 순서가 같아야 하며, 현재는 sample의 이름이다. 또한, assayData의 행의 이름은 featureData의 행의 이름과  그 순서가 같아야 한다. 따라서 element-wise 연산을 통해 각 원소마다 일치하는지를 확인한다. 모든 데이터에 대해 다루기 때문에, 조건문을 써서 다른 게 있는지 없는지 정도만 판단한다. 또는, 조건문 없이 TRUE는 0, FALSE는 1이라는 원리를 이용할 수도 있다.</p>
+<div class="highlight"><pre><span></span><span class="nf">if</span><span class="p">(</span><span class="nf">colnames</span><span class="p">(</span><span class="n">assay.data</span><span class="p">)</span> <span class="o">!=</span> <span class="nf">rownames</span><span class="p">(</span><span class="n">pheno.data</span><span class="p">))</span> <span class="p">{</span>
+  <span class="nf">print</span><span class="p">(</span><span class="s">'FALSE exist'</span><span class="p">)</span>
+<span class="p">}</span> <span class="n">else</span> <span class="nf">print</span><span class="p">(</span><span class="s">'ALL TRUE'</span><span class="p">)</span>
+
+<span class="nf">if</span><span class="p">(</span><span class="nf">rownames</span><span class="p">(</span><span class="n">assay.data</span><span class="p">)</span> <span class="o">!=</span> <span class="nf">rownames</span><span class="p">(</span><span class="n">feature.data</span><span class="p">))</span> <span class="p">{</span>
+  <span class="nf">print</span><span class="p">(</span><span class="s">'FALSE exist'</span><span class="p">)</span>
+<span class="p">}</span> <span class="n">else</span> <span class="nf">print</span><span class="p">(</span><span class="s">'ALL TRUE'</span><span class="p">)</span>
+
+<span class="nf">sum</span><span class="p">(</span><span class="nf">colnames</span><span class="p">(</span><span class="n">assay.data</span><span class="p">)</span> <span class="o">!=</span> <span class="nf">rownames</span><span class="p">(</span><span class="n">pheno.data</span><span class="p">))</span>
+<span class="nf">sum</span><span class="p">(</span><span class="nf">rownames</span><span class="p">(</span><span class="n">assay.data</span><span class="p">)</span> <span class="o">!=</span> <span class="nf">rownames</span><span class="p">(</span><span class="n">feature.data</span><span class="p">))</span>
+</pre></div>
+<ul>
+<li>[1] "ALL TRUE"</li>
+<li>[1] "ALL TRUE"</li>
+<li>[1] 0</li>
+<li>[1] 0</li>
+</ul>
+<h4 id="2-5-6-2.-phenoData,-featureData를-AnnotatedDataFrame으로-만들기">
+<a class="anchor" href="#2-5-6-2.-phenoData,-featureData%EB%A5%BC-AnnotatedDataFrame%EC%9C%BC%EB%A1%9C-%EB%A7%8C%EB%93%A4%EA%B8%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>2-5-6-2. phenoData, featureData를 AnnotatedDataFrame으로 만들기<a class="anchor-link" href="#2-5-6-2.-phenoData,-featureData%EB%A5%BC-AnnotatedDataFrame%EC%9C%BC%EB%A1%9C-%EB%A7%8C%EB%93%A4%EA%B8%B0"> </a>
+</h4>
+<p>phenoData, featureData를 AnnotatedDataFrame화 하지 않고 그대로 ExpressionSet으로 만들면 다음과 같은 오류가 나온다.</p>
+<div class="highlight"><pre><span></span><span class="nf">ExpressionSet</span><span class="p">(</span><span class="n">assayData</span> <span class="o">=</span> <span class="n">assay.data</span><span class="p">,</span>
+              <span class="n">phenoData</span> <span class="o">=</span> <span class="n">pheno.data</span><span class="p">,</span>
+              <span class="n">featureData</span> <span class="o">=</span> <span class="n">feature.data</span><span class="p">)</span>
+</pre></div>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled43.png" alt=""></p>
+<p>따라서 다음과 같이 AnnotatedDataFrame() 함수를 이용하여 데이터 타입을 바꿔준 후, ExpressionSet으로 만든다.</p>
+<div class="highlight"><pre><span></span><span class="n">pheno.data</span> <span class="o">&lt;-</span> <span class="nf">AnnotatedDataFrame</span><span class="p">(</span><span class="n">pheno.data</span><span class="p">)</span>
+<span class="n">feature.data</span> <span class="o">&lt;-</span> <span class="nf">AnnotatedDataFrame</span><span class="p">(</span><span class="n">feature.data</span><span class="p">)</span>
+
+<span class="n">eSet</span> <span class="o">&lt;-</span> <span class="nf">ExpressionSet</span><span class="p">(</span><span class="n">assayData</span> <span class="o">=</span> <span class="n">assay.data</span><span class="p">,</span>
+                      <span class="n">phenoData</span> <span class="o">=</span> <span class="n">pheno.data</span><span class="p">,</span>
+                      <span class="n">featureData</span> <span class="o">=</span> <span class="n">feature.data</span><span class="p">)</span> 
+<span class="n">eSet</span>
+</pre></div>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled44.png" alt=""></p>
+<p>해당 ExpressionSet을 저장한다.</p>
+<div class="highlight"><pre><span></span><span class="nf">save</span><span class="p">(</span><span class="n">eSet</span><span class="p">,</span> <span class="n">file</span> <span class="o">=</span> <span class="s">'data/eSet.rda'</span><span class="p">)</span>
+</pre></div>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled45.png" alt=""></p>
+<p>이렇게 여러 FPKM값 관련 파일들을 하나의 matrix 형태로 정리된 ExpressionSet 데이터를 만들었다. 이 데이터를 이용하여 그룹 내의 샘플 간 평균값의 차이만을 이용하여 유전자를 선별하고 heatmap으로 visualization할 수도 있다.</p>
+<h2 id="2-6.-ExpressionSet-활용하기">
+<a class="anchor" href="#2-6.-ExpressionSet-%ED%99%9C%EC%9A%A9%ED%95%98%EA%B8%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>2-6. ExpressionSet 활용하기<a class="anchor-link" href="#2-6.-ExpressionSet-%ED%99%9C%EC%9A%A9%ED%95%98%EA%B8%B0"> </a>
+</h2>
+<h3 id="2-6-1.-유전자-별에-따라-그룹-별-발현된-유전자-개수-세기">
+<a class="anchor" href="#2-6-1.-%EC%9C%A0%EC%A0%84%EC%9E%90-%EB%B3%84%EC%97%90-%EB%94%B0%EB%9D%BC-%EA%B7%B8%EB%A3%B9-%EB%B3%84-%EB%B0%9C%ED%98%84%EB%90%9C-%EC%9C%A0%EC%A0%84%EC%9E%90-%EA%B0%9C%EC%88%98-%EC%84%B8%EA%B8%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>2-6-1. 유전자 별에 따라 그룹 별 발현된 유전자 개수 세기<a class="anchor-link" href="#2-6-1.-%EC%9C%A0%EC%A0%84%EC%9E%90-%EB%B3%84%EC%97%90-%EB%94%B0%EB%9D%BC-%EA%B7%B8%EB%A3%B9-%EB%B3%84-%EB%B0%9C%ED%98%84%EB%90%9C-%EC%9C%A0%EC%A0%84%EC%9E%90-%EA%B0%9C%EC%88%98-%EC%84%B8%EA%B8%B0"> </a>
+</h3>
+<p>발현된 유전자의 개수를 세기 위해서는 FPKM값이 있는지 없는지만 조사하면 된다. 네 개의 그룹에서 모두 발현되었는지 확인할 수도 있다.</p>
+<div class="highlight"><pre><span></span><span class="nf">head</span><span class="p">(</span><span class="nf">exprs</span><span class="p">(</span><span class="n">eSet</span><span class="p">))</span> <span class="c1"># exprs는 ExpressionSet을 추출하는 함수다.</span>
+<span class="n">zero.count</span> <span class="o">&lt;-</span> <span class="nf">rowSums</span><span class="p">(</span><span class="nf">exprs</span><span class="p">(</span><span class="n">eSet</span><span class="p">)</span><span class="o">==</span><span class="m">0</span><span class="p">)</span> <span class="c1"># TRUE=1, FALSE=0</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">zero.count</span><span class="p">)</span>
+
+<span class="n">filter.index_1</span> <span class="o">&lt;-</span>  <span class="n">zero.count</span> <span class="o">&lt;</span> <span class="m">4</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">filter.index_1</span><span class="p">)</span>
+</pre></div>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled46.png" alt=""></p>
+<h3 id="2-6-2.-단백질로-번역되는-유전자-찾기">
+<a class="anchor" href="#2-6-2.-%EB%8B%A8%EB%B0%B1%EC%A7%88%EB%A1%9C-%EB%B2%88%EC%97%AD%EB%90%98%EB%8A%94-%EC%9C%A0%EC%A0%84%EC%9E%90-%EC%B0%BE%EA%B8%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>2-6-2. 단백질로 번역되는 유전자 찾기<a class="anchor-link" href="#2-6-2.-%EB%8B%A8%EB%B0%B1%EC%A7%88%EB%A1%9C-%EB%B2%88%EC%97%AD%EB%90%98%EB%8A%94-%EC%9C%A0%EC%A0%84%EC%9E%90-%EC%B0%BE%EA%B8%B0"> </a>
+</h3>
+<p>2-6-1에서 모든 그룹에서 발현된 유전자와 featureData의 gene_type이 "protein_coding"에 해당할 경우를 추출하여 이를 새로운 ExpressionSet으로 만든다. 이는 단백질로 번역되는 케이스를 찾아내기 위한 과정이다.</p>
+<div class="highlight"><pre><span></span><span class="nf">head</span><span class="p">(</span><span class="nf">fData</span><span class="p">(</span><span class="n">eSet</span><span class="p">))</span> <span class="c1"># fData는 featureData를 추출하는 함수다.</span>
+
+<span class="n">filter.index_2</span> <span class="o">&lt;-</span> <span class="nf">fData</span><span class="p">(</span><span class="n">eSet</span><span class="p">)(</span>달러표시<span class="p">)</span><span class="n">gene_type</span><span class="o">==</span><span class="s">"protein_coding"</span>
+
+<span class="n">filter.index</span> <span class="o">&lt;-</span> <span class="n">filter.index_1</span> <span class="o">&amp;</span> <span class="n">filter.index_2</span>
+
+<span class="n">filtered.eset</span> <span class="o">&lt;-</span> <span class="n">eSet</span><span class="p">[</span><span class="n">filter.index</span><span class="p">,]</span> <span class="c1"># 새로운 ExpressionSet으로 만든다.</span>
+<span class="n">filtered.eset</span>
+</pre></div>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled47.png" alt=""></p>
+<h3 id="2-6-3.-Visualization">
+<a class="anchor" href="#2-6-3.-Visualization" aria-hidden="true"><span class="octicon octicon-link"></span></a>2-6-3. Visualization<a class="anchor-link" href="#2-6-3.-Visualization"> </a>
+</h3>
+<p>ExpressionSet 타입인 filtered.eset으로부터 히스토그램을 그려 분포를 살피고, boxplot을 그려 그룹 별 발현된 유전자의 대략적인 분포를 살핀다.</p>
+<div class="highlight"><pre><span></span><span class="nf">hist</span><span class="p">(</span><span class="nf">exprs</span><span class="p">(</span><span class="n">filtered.eset</span><span class="p">))</span>
+<span class="nf">boxplot</span><span class="p">(</span><span class="nf">exprs</span><span class="p">(</span><span class="n">filtered.eset</span><span class="p">))</span>
+</pre></div>
+<h4 id="2-6-3-1.-histogram과-boxplot">
+<a class="anchor" href="#2-6-3-1.-histogram%EA%B3%BC-boxplot" aria-hidden="true"><span class="octicon octicon-link"></span></a>2-6-3-1. histogram과 boxplot<a class="anchor-link" href="#2-6-3-1.-histogram%EA%B3%BC-boxplot"> </a>
+</h4>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled48.png" alt=""></p>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled49.png" alt=""></p>
+<p>결과로 나온 그래프를 보면, 값이 너무 한 쪽에 몰려있다. 이렇게 값이 너무 크거나 작을 경우에는 값을 로그로 보정하여 시각화하면 분포를 살피는 데 도움이 된다.</p>
+<div class="highlight"><pre><span></span><span class="n">log2.eset</span> <span class="o">&lt;-</span> <span class="n">filtered.eset</span>
+<span class="nf">exprs</span><span class="p">(</span><span class="n">log2.eset</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">log2</span><span class="p">(</span><span class="nf">exprs</span><span class="p">(</span><span class="n">filtered.eset</span><span class="p">)</span><span class="m">+1</span><span class="p">)</span>
+
+<span class="nf">hist</span><span class="p">(</span><span class="nf">exprs</span><span class="p">(</span><span class="n">log2.eset</span><span class="p">))</span>
+<span class="nf">boxplot</span><span class="p">(</span><span class="nf">exprs</span><span class="p">(</span><span class="n">log2.eset</span><span class="p">))</span>
+</pre></div>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled50.png" alt=""></p>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled51.png" alt=""></p>
+<ul>
+<li>각 값을 <code>apply()</code> 함수를 이용하여 중간값(median)으로 보정해준다.</li>
+<li>apply 계열 함수는 주어진 함수 연산을 특정 단위로 쉽게 수행할 수 있도록 지원하는 함수 군이다. 어떤 함수냐에 따라 1) 연산 대상 데이터의 종류, 2) 결과 출력 형태, 3) 연산 단위 등이 달라진다. apply 계열의 함수는 사용하기가 조금 까다롭지만, 익혀두면 for, while 등의 반복문 보다 빠른 속도와 짧은 코드로 반복 연산을 처리할 수 있다.</li>
+<li>이 중, <code>apply()</code> 함수는 apply 계열 함수 중 가장 기본이 되는 함수로, 행(Row) 또는 열(Column) 단위의 연산을 쉽게 할 수 있도록 지원하는 함수다. <code>apply()</code> 함수의 Input Data는 배열, 매트릭스 등 모두 같은 변수형을 가진 값으로 이루어진 데이터 타입만 가능하다. 모두 같은 변수형을 가진 데이터프레임도 가능하다. <code>apply()</code> 함수의 실행 결과는 매트릭스나 벡터로 출력된다. 파라미터에 대한 설명은 다음과 같다.</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="nf">apply</span><span class="p">(</span><span class="n">Input_Data</span><span class="p">,</span> 행 또는 열을 결정하는 숫자<span class="p">(</span>행<span class="o">:</span> <span class="m">1</span><span class="p">,</span> 열<span class="o">:</span> <span class="m">2</span><span class="p">,</span> 연산 또는 함수<span class="p">)</span>
+</pre></div>
+<div class="highlight"><pre><span></span><span class="c1"># Array median centering</span>
+<span class="n">expr</span> <span class="o">&lt;-</span> <span class="nf">exprs</span><span class="p">(</span><span class="n">log2.eset</span><span class="p">)</span>
+<span class="nf">apply</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="n">median</span><span class="p">)</span> 
+
+<span class="n">expr</span> <span class="o">&lt;-</span> <span class="nf">apply</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="nf">function</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="n">a</span><span class="o">-</span><span class="nf">median</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">na.rm</span><span class="o">=</span><span class="bp">T</span><span class="p">))</span> <span class="c1"># apply()</span>
+<span class="nf">apply</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="n">median</span><span class="p">)</span> 
+
+<span class="n">acen.eset</span> <span class="o">&lt;-</span> <span class="n">log2.eset</span>
+<span class="nf">exprs</span><span class="p">(</span><span class="n">acen.eset</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="n">expr</span>
+
+<span class="nf">hist</span><span class="p">(</span><span class="nf">exprs</span><span class="p">(</span><span class="n">acen.eset</span><span class="p">))</span>
+<span class="nf">boxplot</span><span class="p">(</span><span class="nf">exprs</span><span class="p">(</span><span class="n">acen.eset</span><span class="p">))</span>
+</pre></div>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled52.png" alt=""></p>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled53.png" alt=""></p>
+<p>음의 값이 나오지 않도록 mad 연산을 적용한다.</p>
+<div class="highlight"><pre><span></span><span class="c1"># select variably expressed genes</span>
+<span class="n">data</span> <span class="o">&lt;-</span> <span class="nf">exprs</span><span class="p">(</span><span class="n">acen.eset</span><span class="p">)</span>
+<span class="n">mad</span> <span class="o">&lt;-</span> <span class="nf">apply</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="n">mad</span><span class="p">)</span> <span class="c1"># MAD of each gene</span>
+<span class="nf">quantile</span><span class="p">(</span><span class="n">mad</span><span class="p">)</span>
+
+<span class="nf">dim</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">mad</span><span class="o">&gt;</span><span class="m">0.1</span><span class="p">,])</span>
+</pre></div>
+<p>[1] 5730 4</p>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled54.png" alt=""></p>
+<h4 id="2-6-3-2.-heatmap">
+<a class="anchor" href="#2-6-3-2.-heatmap" aria-hidden="true"><span class="octicon octicon-link"></span></a>2-6-3-2. heatmap<a class="anchor-link" href="#2-6-3-2.-heatmap"> </a>
+</h4>
+<div class="highlight"><pre><span></span><span class="c1"># heatmap</span>
+<span class="c1"># install.packages("gplots")</span>
+<span class="c1"># install.packages("lowess")</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">gplots</span><span class="p">)</span>
+<span class="n">breaks</span><span class="o">=</span><span class="nf">seq</span><span class="p">(</span><span class="m">-2</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">0.1</span><span class="p">)</span>
+<span class="n">col</span><span class="o">=</span><span class="nf">colorRampPalette</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">"navy"</span><span class="p">,</span><span class="s">"white"</span><span class="p">,</span> <span class="s">"red"</span><span class="p">))(</span><span class="nf">length</span><span class="p">(</span><span class="n">breaks</span><span class="p">)</span><span class="m">-1</span><span class="p">)</span>
+
+<span class="n">centered.data</span> <span class="o">&lt;-</span> <span class="n">data</span><span class="o">-</span><span class="nf">rowMeans</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="nf">heatmap.2</span><span class="p">(</span><span class="n">centered.data</span><span class="p">[</span><span class="n">mad</span><span class="o">&gt;</span><span class="m">0.1</span><span class="p">,],</span> <span class="n">trace</span><span class="o">=</span><span class="s">"none"</span><span class="p">,</span> <span class="n">breaks</span><span class="o">=</span><span class="n">breaks</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="n">col</span><span class="p">,</span> <span class="n">Colv</span><span class="o">=</span> <span class="bp">T</span><span class="p">,</span> <span class="n">Rowv</span><span class="o">=</span> <span class="bp">T</span><span class="p">,</span> <span class="n">labRow</span><span class="o">=</span><span class="s">""</span><span class="p">)</span>
+</pre></div>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled55.png" alt=""></p>
+<h5 id="2-6-3-2-1.-두-그룹-간의-변화-계산하기">
+<a class="anchor" href="#2-6-3-2-1.-%EB%91%90-%EA%B7%B8%EB%A3%B9-%EA%B0%84%EC%9D%98-%EB%B3%80%ED%99%94-%EA%B3%84%EC%82%B0%ED%95%98%EA%B8%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>2-6-3-2-1. 두 그룹 간의 변화 계산하기<a class="anchor-link" href="#2-6-3-2-1.-%EB%91%90-%EA%B7%B8%EB%A3%B9-%EA%B0%84%EC%9D%98-%EB%B3%80%ED%99%94-%EA%B3%84%EC%82%B0%ED%95%98%EA%B8%B0"> </a>
+</h5>
+<div class="highlight"><pre><span></span><span class="c1"># Calculate Fold changes between two groups</span>
+<span class="nf">acen.eset</span><span class="p">(</span>달러표시<span class="p">)</span><span class="n">group</span>
+
+<span class="n">mut.expr</span> <span class="o">&lt;-</span> <span class="nf">exprs</span><span class="p">(</span><span class="n">acen.eset</span><span class="p">)[,</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">]</span> <span class="c1"># equal to exprs(acen.eset)[,acen.eset(달러표시)group=='MUT']</span>
+<span class="n">wt.expr</span> <span class="o">&lt;-</span> <span class="nf">exprs</span><span class="p">(</span><span class="n">acen.eset</span><span class="p">)[,</span><span class="m">3</span><span class="o">:</span><span class="m">4</span><span class="p">]</span> <span class="c1"># equal to exprs(acen.eset)[,acen.eset(달러표시)group=='WT']</span>
+
+<span class="c1"># fold change: means of Case (MUT) group - means of Control (WT) group</span>
+<span class="n">mut.mean</span> <span class="o">&lt;-</span> <span class="nf">rowMeans</span><span class="p">(</span><span class="n">mut.expr</span><span class="p">)</span>
+<span class="n">wt.mean</span> <span class="o">&lt;-</span> <span class="nf">rowMeans</span><span class="p">(</span><span class="n">wt.expr</span><span class="p">)</span>
+
+<span class="n">fc</span> <span class="o">&lt;-</span> <span class="n">mut.mean</span> <span class="o">-</span> <span class="n">wt.mean</span>
+
+<span class="c1"># add fc to featureData of eset</span>
+<span class="nf">fData</span><span class="p">(</span><span class="n">acen.eset</span><span class="p">)(</span>달러표시<span class="p">)</span><span class="n">fc</span> <span class="o">&lt;-</span> <span class="n">fc</span>
+<span class="nf">head</span><span class="p">(</span><span class="nf">fData</span><span class="p">(</span><span class="n">acen.eset</span><span class="p">))</span>
+
+<span class="nf">hist</span><span class="p">(</span><span class="nf">fData</span><span class="p">(</span><span class="n">acen.eset</span><span class="p">)(</span>달러표시<span class="p">)</span><span class="n">fc</span><span class="p">)</span>
+</pre></div>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled56.png" alt=""></p>
+<h3 id="2-6-4.-DEG (Differential-Expression-Gene). 차별-유전자-발현">
+<a class="anchor" href="#2-6-4.-DEG%C2%A0(Differential-Expression-Gene).%C2%A0%EC%B0%A8%EB%B3%84-%EC%9C%A0%EC%A0%84%EC%9E%90-%EB%B0%9C%ED%98%84" aria-hidden="true"><span class="octicon octicon-link"></span></a>2-6-4. DEG (Differential Expression Gene). 차별 유전자 발현<a class="anchor-link" href="#2-6-4.-DEG%C2%A0(Differential-Expression-Gene).%C2%A0%EC%B0%A8%EB%B3%84-%EC%9C%A0%EC%A0%84%EC%9E%90-%EB%B0%9C%ED%98%84"> </a>
+</h3>
+<p>특별히 expression이 많이 일어나거나 적게 일어나는 gene들을 DEG라고 한다. 이 분석은 동일한 유전자의 평균 발현량이 서로 다른 조건에서 유의하게 다른지를 분석하는 방법론이다. R에는 대표적으로 limma 패키지가 있다.</p>
+<div class="highlight"><pre><span></span><span class="c1">## DEGs by fold change cutoff</span>
+<span class="c1"># eset order by fc</span>
+<span class="n">ordered.eset</span> <span class="o">&lt;-</span> <span class="n">acen.eset</span><span class="p">[</span><span class="nf">order</span><span class="p">(</span><span class="nf">fData</span><span class="p">(</span><span class="n">acen.eset</span><span class="p">)(</span>달러표시<span class="p">)</span><span class="n">fc</span><span class="p">,</span> <span class="n">decreasing</span> <span class="o">=</span> <span class="bp">T</span><span class="p">),]</span>
+
+<span class="c1"># DEG condition (fold change &gt; 0.5</span>
+<span class="n">deg.up.index</span> <span class="o">&lt;-</span> <span class="nf">fData</span><span class="p">(</span><span class="n">ordered.eset</span><span class="p">)(</span>달러표시<span class="p">)</span><span class="n">fc</span> <span class="o">&gt;</span> <span class="m">0.5</span>
+<span class="n">deg.dn.index</span> <span class="o">&lt;-</span> <span class="nf">fData</span><span class="p">(</span><span class="n">ordered.eset</span><span class="p">)(</span>달러표시<span class="p">)</span><span class="n">fc</span> <span class="o">&lt;</span> <span class="m">-0.5</span>
+
+<span class="nf">head</span><span class="p">(</span><span class="nf">fData</span><span class="p">(</span><span class="n">ordered.eset</span><span class="p">)[</span><span class="n">deg.up.index</span><span class="p">,])</span>
+</pre></div>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled57.png" alt=""></p>
+<div class="highlight"><pre><span></span><span class="n">degID.up</span> <span class="o">&lt;-</span> <span class="nf">featureNames</span><span class="p">(</span><span class="n">ordered.eset</span><span class="p">)[</span><span class="n">deg.up.index</span><span class="p">]</span>
+<span class="n">degID.dn</span> <span class="o">&lt;-</span> <span class="nf">featureNames</span><span class="p">(</span><span class="n">ordered.eset</span><span class="p">)[</span><span class="n">deg.dn.index</span><span class="p">]</span>
+
+<span class="n">DEG.UP</span><span class="o">=</span><span class="nf">fData</span><span class="p">(</span><span class="n">ordered.eset</span><span class="p">)[</span><span class="n">degID.up</span><span class="p">,</span><span class="s">"gene_name"</span><span class="p">]</span>
+<span class="n">DEG.DOWN</span><span class="o">=</span><span class="nf">fData</span><span class="p">(</span><span class="n">ordered.eset</span><span class="p">)[</span><span class="n">degID.dn</span><span class="p">,</span><span class="s">"gene_name"</span><span class="p">]</span>
+
+<span class="nf">cat</span><span class="p">(</span><span class="n">DEG.UP</span><span class="p">,</span> <span class="n">file</span> <span class="o">=</span> <span class="s">"result/EPHB6_MUTvsWT_DEG_UP.txt"</span><span class="p">)</span>
+<span class="nf">cat</span><span class="p">(</span><span class="n">DEG.DOWN</span><span class="p">,</span> <span class="n">file</span> <span class="o">=</span> <span class="s">"result/EPHB6_MUTvsWT_DEG_DOWN.txt"</span><span class="p">)</span>
+
+<span class="n">data</span> <span class="o">&lt;-</span> <span class="nf">exprs</span><span class="p">(</span><span class="n">ordered.eset</span><span class="p">[</span><span class="nf">c</span><span class="p">(</span><span class="n">degID.up</span><span class="p">,</span> <span class="n">degID.dn</span><span class="p">),])</span>
+<span class="nf">dim</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="n">centered.data</span> <span class="o">&lt;-</span> <span class="n">data</span> <span class="o">-</span> <span class="nf">rowMeans</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="nf">hist</span><span class="p">(</span><span class="n">centered.data</span><span class="p">)</span>
+<span class="nf">heatmap.2</span><span class="p">(</span><span class="n">centered.data</span><span class="p">,</span> <span class="n">trace</span><span class="o">=</span><span class="s">"none"</span><span class="p">,</span> <span class="n">breaks</span><span class="o">=</span><span class="n">breaks</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="n">col</span><span class="p">,</span> <span class="n">Colv</span><span class="o">=</span> <span class="bp">F</span><span class="p">,</span> <span class="n">Rowv</span><span class="o">=</span> <span class="bp">F</span><span class="p">,</span> <span class="n">labRow</span><span class="o">=</span><span class="s">""</span><span class="p">,</span> <span class="n">cexCol</span> <span class="o">=</span> <span class="m">0.7</span><span class="p">)</span>
+</pre></div>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled58.png" alt=""></p>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled59.png" alt=""></p>
+<h1 id="3.-GenomicRanges(GRanges)">
+<a class="anchor" href="#3.-GenomicRanges(GRanges)" aria-hidden="true"><span class="octicon octicon-link"></span></a>3. GenomicRanges(GRanges)<a class="anchor-link" href="#3.-GenomicRanges(GRanges)"> </a>
+</h1>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled60.png" alt=""></p>
+<p>GenomicRange 패키지는 유전자의 위치, 영역 정보를 다루고자 할 때 주로 사용되는 유전체 영역에 관련된 표현, 분석을 위한 패키지다. 데이터 타입은 GRange라는 데이터 타입이다. data.frame과 비슷하다고 볼 수 있다. 특정 유전자 또는 유전자에 해당 하는 위치 정보, P value 등을 담고 있다. BiocManager를 이용한 다음 명령어를 통해 설치 및 사용할 수 있다.</p>
+<div class="highlight"><pre><span></span><span class="n">BiocManager</span><span class="o">::</span><span class="nf">install</span><span class="p">(</span><span class="s">"GenomicRanges"</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">GenomicRanges</span><span class="p">)</span>
+</pre></div>
+<h2 id="3-1.-GRanges-만들기">
+<a class="anchor" href="#3-1.-GRanges-%EB%A7%8C%EB%93%A4%EA%B8%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>3-1. GRanges 만들기<a class="anchor-link" href="#3-1.-GRanges-%EB%A7%8C%EB%93%A4%EA%B8%B0"> </a>
+</h2>
+<p>가장 기본이 되는 데이터인 GRanges를 만드는 방법부터 살펴보자. 주로 유전체 상의 영역을 표현하기 위한 데이터다. <code>GRanges()</code> 함수로 만들 수 있다.</p>
+<div class="highlight"><pre><span></span><span class="n">gr</span> <span class="o">&lt;-</span> <span class="nf">GRanges</span><span class="p">(</span><span class="n">seqnames</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">"chromosome1"</span><span class="p">,</span> <span class="s">"chromosome2"</span><span class="p">,</span> <span class="s">"chromosome3"</span><span class="p">),</span>
+                            <span class="n">ranges</span> <span class="o">=</span> <span class="nf">IRanges</span><span class="p">(</span><span class="n">start</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">),</span> <span class="n">end</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">10</span><span class="p">,</span> <span class="m">20</span><span class="p">,</span> <span class="m">30</span><span class="p">)),</span>
+                            <span class="n">strand</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">"-"</span><span class="p">,</span> <span class="s">"+"</span><span class="p">,</span> <span class="s">"+"</span><span class="p">))</span>
+</pre></div>
+<p><code>GRanges()</code> 함수의 첫 번째 인자인 <code>seqnames</code>파라미터 에는 chromosome에 대한 정보가 들어간다. range 파라미터에는 범위를 지정해주는 <code>IRanges()</code> 함수를 이용하여 지정해준다. 위 예시에 따르면 이 유전자는 chromosome 1 번의 1번~10번 영역에 위치해 있고, chromosome 2 번에는 1~20번 영역에, chromosome 3 번에는 1~30번 영역에 위치해 있음을 알 수 있다. RNA에 대한 정보이므로, stand가 역방향인지 정방향이지에 대한 정보를 <code>strand</code> 파라미터에 기술한다.</p>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled61.png" alt=""></p>
+<p><code>seqnames</code>, <code>ranges</code>, <code>strand</code>. 이 세 파라미터가 가장 기본적인 GRanges 데이터의 구조를 이룬다. 이 외에 추가적으로 더 많은 데이터를 추가할 수 있다.</p>
+<div class="highlight"><pre><span></span><span class="c1"># 방법 1</span>
+<span class="n">gr</span> <span class="o">&lt;-</span> <span class="nf">GRanges</span><span class="p">(</span><span class="n">seqnames</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">"chr1"</span><span class="p">,</span> <span class="s">"chr2"</span><span class="p">,</span> <span class="s">"chr3"</span><span class="p">),</span> 
+              <span class="n">ranges</span> <span class="o">=</span> <span class="nf">IRanges</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">),</span> <span class="n">end</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">10</span><span class="p">,</span> <span class="m">20</span><span class="p">,</span> <span class="m">30</span><span class="p">)),</span> 
+              <span class="n">strand</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">"-"</span><span class="p">,</span> <span class="s">"+"</span><span class="p">,</span> <span class="s">"+"</span><span class="p">),</span>
+              <span class="n">score</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">),</span>
+              <span class="n">name</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">"a"</span><span class="p">,</span> <span class="s">"b"</span><span class="p">,</span> <span class="s">"c"</span><span class="p">))</span>
+
+<span class="n">gr</span>
+
+<span class="c1"># 방법 2</span>
+<span class="n">gr</span> <span class="o">&lt;-</span> <span class="nf">GRanges</span><span class="p">(</span><span class="n">seqnames</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">"chr1"</span><span class="p">,</span> <span class="s">"chr2"</span><span class="p">,</span> <span class="s">"chr3"</span><span class="p">),</span> 
+                    <span class="n">ranges</span> <span class="o">=</span> <span class="nf">IRanges</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">),</span> 
+                                                             <span class="n">end</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">10</span><span class="p">,</span> <span class="m">20</span><span class="p">,</span> <span class="m">30</span><span class="p">)),</span> 
+                            <span class="n">strand</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">"-"</span><span class="p">,</span> <span class="s">"+"</span><span class="p">,</span> <span class="s">"+"</span><span class="p">))</span>
+<span class="nf">gr</span><span class="p">(</span>달러표시<span class="p">)</span><span class="n">score</span> <span class="o">=</span> <span class="m">1</span><span class="o">:</span><span class="m">3</span>
+<span class="nf">gr</span><span class="p">(</span>달러표시<span class="p">)</span><span class="n">name</span> <span class="o">=</span> <span class="kc">letters</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">]</span>
+<span class="n">gr</span>
+</pre></div>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled62.png" alt=""></p>
+<ul>
+<li>방법 1처럼 구성할 수도 있지만, 마치 data.frame타입의 데이터에 새로운 데이터를 추가할 때처럼 달러표시를 이용하여 새로운 컬럼을 만들고 내용을 추가할 수 있다. 또한, data.frame 타입의 데이터처럼 숫자든 문자열이든 상관없이 하나의 데이터로 구성할 수 있는 모습을 볼 수 있다.</li>
+</ul>
+<p>입력한 데이터를 추출할 수 있는 방법은 다음과 같이 <code>seqnames()</code>, <code>start()</code>, <code>end()</code>, <code>strand()</code>와 같이 <code>GRanges()</code> 함수를 만들 때 사용했던 파라미터를 이용하여 호출할 수 있다. <code>as.character()</code> 함수를 이용하면 character 형태로 변환이 가능하다.</p>
+<div class="highlight"><pre><span></span><span class="nf">seqnames</span><span class="p">(</span><span class="n">gr</span><span class="p">)</span>
+</pre></div>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled63.png" alt=""></p>
+<div class="highlight"><pre><span></span><span class="nf">start</span><span class="p">(</span><span class="n">gr</span><span class="p">)</span>
+</pre></div>
+<p>[1] 1 1 1</p>
+<div class="highlight"><pre><span></span><span class="nf">end</span><span class="p">(</span><span class="n">gr</span><span class="p">)</span>
+</pre></div>
+<p>[1] 10 20 30</p>
+<div class="highlight"><pre><span></span><span class="nf">strand</span><span class="p">(</span><span class="n">gr</span><span class="p">)</span>
+</pre></div>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled64.png" alt=""></p>
+<p>위 결과는 역방향(-) 1개, 정방향(+) 2개임을 의미한다.</p>
+<div class="highlight"><pre><span></span><span class="nf">as.character</span><span class="p">(</span><span class="nf">seqnames</span><span class="p">(</span><span class="n">gr</span><span class="p">))</span>
+</pre></div>
+<p>[1] "chr1" "chr2" "chr3"</p>
+<div class="highlight"><pre><span></span><span class="nf">as.character</span><span class="p">(</span><span class="nf">strand</span><span class="p">(</span><span class="n">gr</span><span class="p">))</span>
+</pre></div>
+<p>[1] "-" "+" "+"</p>
+<div class="highlight"><pre><span></span><span class="nf">length</span><span class="p">(</span><span class="n">gr</span><span class="p">)</span> <span class="c1"># 3</span>
+</pre></div>
+<p><code>length()</code> 함수는 GRanges 데이터가 몇 개의 영역 정보를 가지고 있는지 알려준다. 각 영역이 가지고 있는 넓이 정보는 <code>width()</code> 함수를 통해 파악할 수 있다.</p>
+<div class="highlight"><pre><span></span><span class="nf">width</span><span class="p">(</span><span class="n">gr</span><span class="p">)</span>
+</pre></div>
+<p>[1] 10 20 30</p>
+<div class="highlight"><pre><span></span><span class="nf">mcols</span><span class="p">(</span><span class="n">gr</span><span class="p">)</span>
+</pre></div>
+<p><code>mcols()</code> 함수는 GRanges 데이터에 추가로 붙여준 데이터를 data.frame의 형태로 보여준다.</p>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled65.png" alt=""></p>
+<p>GRanges 데이터에 추가로 붙여준 데이터는 달러기호를 통해서도 호출이 가능하다. 단, 반드시 필요한 3개의 파라미터(<code>seqnames</code>, <code>IRanges</code>, <code>start</code>, <code>end</code>, <code>strand</code>)는 호출이 불가능하다.</p>
+<div class="highlight"><pre><span></span><span class="nf">gr</span><span class="p">(</span>달러표시<span class="p">)</span><span class="n">score</span>
+<span class="nf">gr</span><span class="p">(</span>달러표시<span class="p">)</span><span class="n">name</span>
+</pre></div>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled66.png" alt=""></p>
+<h2 id="3-2.-findOverlaps()-함수">
+<a class="anchor" href="#3-2.-findOverlaps()-%ED%95%A8%EC%88%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>3-2. findOverlaps() 함수<a class="anchor-link" href="#3-2.-findOverlaps()-%ED%95%A8%EC%88%98"> </a>
+</h2>
+<p>이 함수는 어떤 두 영역에 대해서 어느 영역이 오버랩되고, 오버랩되는 각각의 쌍은 어떻게 되는지를 알려 준다. 특정 영역 내에 어떤 유전자가 속해 있는지를 파악하고자 할 때 사용된다. 이 노트의 실습에서는 아까 만든 ExpressionSet인 <code>eSet.rda</code>를 이용하여 featureData의 gene 영역 정보로 GRanges 데이터를 만들고, 새로운 영역(<code>chr17:7582285-7773654</code>, <code>chr13:47501983-49283632</code>) 을 추가하여 해당 영역에 어떤 유전자가 있는지 찾아내기 위해 <code>findOverlaps()</code> 함수를 이용하여 유전자 리스트를 만들고자 한다.</p>
+<div class="highlight"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">GenomicRanges</span><span class="p">)</span>
+
+<span class="nf">data</span><span class="p">(</span><span class="s">"eSet"</span><span class="p">)</span>
+<span class="n">eSet</span>
+</pre></div>
+<p>먼저, RGanges 데이터를 만들기 위해 GenomicRanges 패키지를 library() 함수를 이용해 불러온다. 그 다음, 아까 저장한 eSet.rda 파일을 불러오고 출력해본다. 네 개의 샘플에 해당하는 ExpressionSet을 확인할 수 있다.</p>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled67.png" alt=""></p>
+<h3 id="3-2-1.-featuerData를-GRanges-데이터로-만들기">
+<a class="anchor" href="#3-2-1.-featuerData%EB%A5%BC-GRanges-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A1%9C-%EB%A7%8C%EB%93%A4%EA%B8%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>3-2-1. featuerData를 GRanges 데이터로 만들기<a class="anchor-link" href="#3-2-1.-featuerData%EB%A5%BC-GRanges-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A1%9C-%EB%A7%8C%EB%93%A4%EA%B8%B0"> </a>
+</h3>
+<p>featureData를 살펴보면 다음과 같다.</p>
+<div class="highlight"><pre><span></span><span class="nf">head</span><span class="p">(</span><span class="nf">fData</span><span class="p">(</span><span class="n">eset</span><span class="p">))</span>
+</pre></div>
+<p>각 샘플이 행의 이름으로, 샘플별 feature가 열의 이름으로 들어가 있다. 해당 데이터를 보면, <code>seqnames</code>, <code>start</code>, <code>end</code> 등의 위치 정보가 보이고 <code>width</code>와 <code>strand</code>도 보인다.</p>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled68.png" alt=""></p>
+<div class="highlight"><pre><span></span><span class="n">fdata.ft</span> <span class="o">&lt;-</span> <span class="nf">GRanges</span><span class="p">(</span><span class="n">seqnames</span> <span class="o">=</span> <span class="nf">fData</span><span class="p">(</span><span class="n">eSet</span><span class="p">)(</span>달러표시<span class="p">)</span><span class="n">seqnames</span><span class="p">,</span>
+                                        <span class="n">ranges</span> <span class="o">=</span> <span class="nf">IRanges</span><span class="p">(</span><span class="n">start</span> <span class="o">=</span> <span class="nf">fData</span><span class="p">(</span><span class="n">eSet</span><span class="p">)(</span>달러표시<span class="p">)</span><span class="n">start</span><span class="p">,</span>
+                                                 <span class="n">end</span> <span class="o">=</span> <span class="nf">fData</span><span class="p">(</span><span class="n">eSet</span><span class="p">)(</span>달러표시<span class="p">)</span><span class="n">end</span><span class="p">),</span>
+                                        <span class="n">strand</span> <span class="o">=</span> <span class="nf">fData</span><span class="p">(</span><span class="n">eSet</span><span class="p">)(</span>달러표시<span class="p">)</span><span class="n">strand</span><span class="p">)</span>
+<span class="n">fdata.gr</span>
+</pre></div>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled69.png" alt=""></p>
+<div class="highlight"><pre><span></span><span class="n">fdata.gr</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">]</span>
+</pre></div>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled70.png" alt=""></p>
+<p>이렇게 만들어진 GRanges 데이터는 이제부턴 data.frame처럼 편하게 새로운 데이터를 추가 또는 추출할 수 있다. 이 실습 섹션의 목적은 특정 위치에 해당하는 유전자가 무엇인지 알아내는 것이므로, gene_name도 GRanges 데이터에 추가해준다.</p>
+<div class="highlight"><pre><span></span><span class="nf">fdata.gr</span><span class="p">(</span>달러표시<span class="p">)</span><span class="n">gene_name</span> <span class="o">&lt;-</span> <span class="nf">fData</span><span class="p">(</span><span class="n">eSet</span><span class="p">)(</span>달러표시<span class="p">)</span><span class="n">gene_name</span>
+<span class="n">fdata.gr</span>
+</pre></div>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled71.png" alt=""></p>
+<h3 id="3-2-3.-chromosome-상의-특정-위치-찾기">
+<a class="anchor" href="#3-2-3.-chromosome-%EC%83%81%EC%9D%98-%ED%8A%B9%EC%A0%95-%EC%9C%84%EC%B9%98-%EC%B0%BE%EA%B8%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>3-2-3. chromosome 상의 특정 위치 찾기<a class="anchor-link" href="#3-2-3.-chromosome-%EC%83%81%EC%9D%98-%ED%8A%B9%EC%A0%95-%EC%9C%84%EC%B9%98-%EC%B0%BE%EA%B8%B0"> </a>
+</h3>
+<div class="highlight"><pre><span></span><span class="c1">#chr17:7582285-7773654</span>
+<span class="c1">#chr13:47501983-49283632</span>
+</pre></div>
+<p>위 두 chromosome에 대한 GRanges를 만든다. 만들 때 <code>start</code>와 <code>end</code>에 주의한다. <code>strand</code>는 넣지 않아도 된다.</p>
+<div class="highlight"><pre><span></span><span class="n">gr</span> <span class="o">&lt;-</span> <span class="nf">GRanges</span><span class="p">(</span><span class="n">seqnames</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">"chr17"</span><span class="p">,</span> <span class="s">"chr13"</span><span class="p">),</span>
+              <span class="n">ranges</span> <span class="o">=</span> <span class="nf">IRanges</span><span class="p">(</span><span class="n">start</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">47501983</span><span class="p">,</span> <span class="m">7582285</span><span class="p">),</span>
+                               <span class="n">end</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">49283632</span><span class="p">,</span> <span class="m">49283632</span><span class="p">)))</span>
+<span class="n">gr</span>
+</pre></div>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled72.png" alt=""></p>
+<p>목적은 두 영역에 해당하는 유전자가 무엇인가 하는 것이다. 이 때 사용할 수 있는 함수가 <code>findOverlaps()</code> 함수다.</p>
+<h3 id="3-2-4.-findOverlaps()">
+<a class="anchor" href="#3-2-4.-findOverlaps()" aria-hidden="true"><span class="octicon octicon-link"></span></a>3-2-4. findOverlaps()<a class="anchor-link" href="#3-2-4.-findOverlaps()"> </a>
+</h3>
+<p>두 영역이 있을 때 영역끼리 겹치는 쌍을 찾을 때 쓰는 함수다. <code>query</code> 파라미터는 찾고자 하는 유전자의 영역이다. <code>subject</code> 파라미터에는 어디에서 찾을 지를 알려준다. 즉 find의 대상이 되는 GRanges 데이터가 된다.</p>
+<div class="highlight"><pre><span></span><span class="n">overlaps</span> <span class="o">&lt;-</span> <span class="nf">findOverlaps</span><span class="p">(</span><span class="n">query</span> <span class="o">=</span> <span class="n">gr</span><span class="p">,</span> <span class="n">subject</span> <span class="o">=</span> <span class="n">fdata.gr</span><span class="p">)</span>
+<span class="n">overlaps</span>
+</pre></div>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled73.png" alt=""></p>
+<p>첫 번째 컬럼인 queryHits는 <code>gr</code> 변수에 넣어준 두 chromosome인 <code>chr17</code>과 <code>chr13</code>에 대한 인덱스 값으로 각각 <code>1</code>과 <code>2</code>가 된다. 두 번째 컬럼인 subjectHits는 <code>fdata.gr</code> 변수의 인덱스 값이다. 첫 번째 행을 보면 chr17의 영역이 subject의 24,576 부분과 overlap이 된다는 의미다. 두 번째 행을 보면 chr17의 영역이 subject의 22,967 번째 영역과 겹친다는 의미다. findOverlaps() 함수에 의해 생성된 overlaps 변수의 값은 다음과 같이 추출할 수 있다.</p>
+<div class="highlight"><pre><span></span><span class="nf">queryHits</span><span class="p">(</span><span class="n">overlaps</span><span class="p">)</span>
+</pre></div>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled74.png" alt=""></p>
+<div class="highlight"><pre><span></span><span class="nf">subjectHits</span><span class="p">(</span><span class="n">overlaps</span><span class="p">)</span>
+</pre></div>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled75.png" alt=""></p>
+<div class="highlight"><pre><span></span><span class="nf">length</span><span class="p">(</span><span class="nf">queryHits</span><span class="p">(</span><span class="n">overlaps</span><span class="p">))</span> <span class="o">==</span> <span class="nf">length</span><span class="p">(</span><span class="nf">subjectHits</span><span class="p">(</span><span class="n">overlaps</span><span class="p">))</span>
+</pre></div>
+<ul>
+<li>[1] TRUE</li>
+</ul>
+<p>둘의 길이는 같다. 이제 해당하는 유전자가 무엇인지 알아보자. 인덱스를 통해 해당 유전자를 찾는 것이다.</p>
+<div class="highlight"><pre><span></span><span class="n">corresponding_gene_name</span> <span class="o">&lt;-</span> <span class="nf">fdata.gr</span><span class="p">(</span>달러표시<span class="p">)</span><span class="n">gene_name</span><span class="p">[</span><span class="nf">subjectHits</span><span class="p">(</span><span class="n">overlaps</span><span class="p">)]</span>
+<span class="nf">length</span><span class="p">(</span><span class="n">corresponding_gene_name</span><span class="p">)</span>
+<span class="n">corresponding_gene_name</span>
+</pre></div>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled76.png" alt=""></p>
+<p>chr17(인덱스 1번)과 chr13(인덱스 2번) 모두에 해당하는 gene name이 나온다. 이 중 chr17(인덱스 1번)에만 해당하는 유전자 이름을 뽑아본다.</p>
+<div class="highlight"><pre><span></span><span class="n">idx.queryHits</span> <span class="o">&lt;-</span> <span class="nf">queryHits</span><span class="p">(</span><span class="n">overlaps</span><span class="p">)</span><span class="o">==</span><span class="m">1</span>
+<span class="n">idx.queryHits</span>
+</pre></div>
+<p>1번 인덱스에 해당하는 것들에 TRUE로 표시를 해주고,</p>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled77.png" alt=""></p>
+<div class="highlight"><pre><span></span><span class="nf">class</span><span class="p">(</span><span class="n">corresponding_gene_name</span><span class="p">)</span> <span class="c1"># "character"</span>
+<span class="n">corresponding_gene_name</span><span class="p">[</span><span class="n">idx.queryHits</span><span class="p">]</span>
+</pre></div>
+<p>해당하는 유전자들의 이름을 뽑는다. character 타입의 데이터는 인덱싱 연산, 즉 숫자로 데이터를 뽑을 수 있으며, TRUE, FALSE를 모든 인자에 주는 식으로 데이터를 뽑을 수도 있다.코드를 줄이면 다음과 같다.</p>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled78.png" alt=""></p>
+<div class="highlight"><pre><span></span><span class="n">corresponding_gene_name</span> <span class="o">&lt;-</span> <span class="nf">fdata.gr</span><span class="p">(</span>달러표시<span class="p">)</span><span class="n">gene_name</span><span class="p">[</span><span class="nf">subjectHits</span><span class="p">(</span><span class="n">overlaps</span><span class="p">)][</span><span class="nf">queryHits</span><span class="p">((</span><span class="n">overlaps</span><span class="p">))</span><span class="o">==</span><span class="m">1</span><span class="p">]</span>
+<span class="nf">length</span><span class="p">(</span><span class="n">corresponding_gene_name</span><span class="p">)</span>
+<span class="n">corresponding_gene_name</span>
+</pre></div>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled79.png" alt=""></p>
+<h1 id="References">
+<a class="anchor" href="#References" aria-hidden="true"><span class="octicon octicon-link"></span></a>References<a class="anchor-link" href="#References"> </a>
+</h1>
+<ul>
+<li>Amezquita et al., Nature methods, 2019.12</li>
+<li><a href="https://en.wikipedia.org/wiki/Bioconductor">https://en.wikipedia.org/wiki/Bioconductor</a></li>
+<li>Huber et al., 2015, Nat Methods</li>
+<li><a href="https://kkokkilkon.tistory.com/67">https://kkokkilkon.tistory.com/67</a></li>
+<li><a href="https://sosal.kr/848">https://sosal.kr/848</a></li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="tfedohk/dohk"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/dohk/r-bioconductor/" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/dohk/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/dohk/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/dohk/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>contact on gwondohyung@gmail.com</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/tfedohk" title="tfedohk"><svg class="svg-icon grey"><use xlink:href="/dohk/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/fastdotai" title="fastdotai"><svg class="svg-icon grey"><use xlink:href="/dohk/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
