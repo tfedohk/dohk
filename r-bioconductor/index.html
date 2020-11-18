@@ -782,6 +782,12 @@ window.onload = wrap_img;
 <div class="highlight"><pre><span></span><span class="nf">hist</span><span class="p">(</span><span class="nf">exprs</span><span class="p">(</span><span class="n">filtered.eset</span><span class="p">))</span>
 <span class="nf">boxplot</span><span class="p">(</span><span class="nf">exprs</span><span class="p">(</span><span class="n">filtered.eset</span><span class="p">))</span>
 </pre></div>
+<p>참고로, boxplot에서 stats를 이용하여 boxplot에 대한 통계값을 확인할 수 있다.</p>
+<div class="highlight"><pre><span></span><span class="nf">boxplot</span><span class="p">(</span><span class="nf">rnorm</span><span class="p">(</span><span class="m">10</span><span class="p">))(</span>달러표시<span class="p">)</span><span class="n">stats</span>
+</pre></div>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled80.png" alt=""></p>
+<p><img src="/dohk/images/copied_from_nb/../images/2020-11-17-bioconductor/Untitled81.png" alt=""></p>
+<p>5개의 값 각각은, 순서대로 1Q(최소값), 2Q, 3Q, mean 또는 median, 4Q(최대값)을 의미한다.</p>
 <h4 id="2-6-3-1.-histogram과-boxplot">
 <a class="anchor" href="#2-6-3-1.-histogram%EA%B3%BC-boxplot" aria-hidden="true"><span class="octicon octicon-link"></span></a>2-6-3-1. histogram과 boxplot<a class="anchor-link" href="#2-6-3-1.-histogram%EA%B3%BC-boxplot"> </a>
 </h4>
