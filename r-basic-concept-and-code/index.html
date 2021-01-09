@@ -81,7 +81,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      26 min read
+      31 min read
     
 </span></p>
 
@@ -108,6 +108,7 @@ window.onload = wrap_img;
 
   <div class="post-content e-content" itemprop="articleBody">
     <ul class="section-nav">
+<li class="toc-entry toc-h1"><a href="#R-소개">R 소개 </a></li>
 <li class="toc-entry toc-h1"><a href="#SW-다운로드">SW 다운로드 </a></li>
 <li class="toc-entry toc-h1"><a href="#R-studio-IDE">R studio IDE </a></li>
 <li class="toc-entry toc-h1"><a href="#R-project-생성">R project 생성 </a></li>
@@ -118,15 +119,32 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h2"><a href="#문제-1">문제 1 </a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h1"><a href="#변수">변수 </a>
+<li class="toc-entry toc-h1"><a href="#변수(value-지정)">변수(value 지정) </a>
 <ul>
 <li class="toc-entry toc-h2"><a href="#변수-명명-규칙">변수 명명 규칙 </a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h1"><a href="#내장-함수">내장 함수 </a>
 <ul>
-<li class="toc-entry toc-h2"><a href="#c()">c() </a></li>
-<li class="toc-entry toc-h2"><a href="#seq(from,-to,-by)">seq(from, to, by) </a></li>
+<li class="toc-entry toc-h2"><a href="#demo()">demo() </a></li>
+<li class="toc-entry toc-h2"><a href="#c()">c() </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#값의-호출">값의 호출 </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#length()">length() </a></li>
+<li class="toc-entry toc-h2"><a href="#str()">str() </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#boolean">boolean </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#seq(from,-to,-by)">seq(from, to, by) </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#문제">문제 </a></li>
+<li class="toc-entry toc-h3"><a href="#정답">정답 </a></li>
+<li class="toc-entry toc-h3"><a href="#문제">문제 </a></li>
+</ul>
+</li>
 <li class="toc-entry toc-h2"><a href="#seq(from,-to,-length.out)">seq(from, to, length.out) </a></li>
 <li class="toc-entry toc-h2"><a href="#rep(object,-times/each)">rep(object, times/each) </a></li>
 <li class="toc-entry toc-h2"><a href="#sample(x,-size,-replace=F)">sample(x, size, replace=F) </a></li>
@@ -136,7 +154,12 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h3"><a href="#sum()">sum() </a></li>
 <li class="toc-entry toc-h3"><a href="#min()">min() </a></li>
 <li class="toc-entry toc-h3"><a href="#max()">max() </a></li>
-<li class="toc-entry toc-h3"><a href="#mean()">mean() </a></li>
+<li class="toc-entry toc-h3"><a href="#mean()">mean() </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#문제">문제 </a></li>
+<li class="toc-entry toc-h4"><a href="#정답">정답 </a></li>
+</ul>
+</li>
 <li class="toc-entry toc-h3"><a href="#median()">median() </a></li>
 <li class="toc-entry toc-h3"><a href="#log()">log() </a></li>
 <li class="toc-entry toc-h3"><a href="#log2()">log2() </a></li>
@@ -376,6 +399,25 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="R-소개">
+<a class="anchor" href="#R-%EC%86%8C%EA%B0%9C" aria-hidden="true"><span class="octicon octicon-link"></span></a>R 소개<a class="anchor-link" href="#R-%EC%86%8C%EA%B0%9C"> </a>
+</h1>
+<ul>
+<li>R은 통계나 데이터 분석에 굉장히 좋은 프로그래밍 언어</li>
+<li>다른 유사한 언어로는 SPSS나 Python이 있다.<ul>
+<li>SPSS는 주로 대기업에서 사용</li>
+<li>Python은 머신러닝, 딥러닝 등의 데이터 분석, 인공지능에 특화된 언어</li>
+</ul>
+</li>
+<li>R 코드는 '스크립트'라고 부른다. 이는 R, Python 등의 언어가 스크립트 언어이기 때문이다.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="SW-다운로드">
 <a class="anchor" href="#SW-%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C" aria-hidden="true"><span class="octicon octicon-link"></span></a>SW 다운로드<a class="anchor-link" href="#SW-%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C"> </a>
 </h1>
@@ -391,7 +433,9 @@ window.onload = wrap_img;
 <p><img src="/dohk/images/copied_from_nb/../images/2020-11-06-r-1/Untitled.png" alt="">
 <img src="/dohk/images/copied_from_nb/../images/2020-11-06-r-1/Untitled1.png" alt=""></p>
 <ul>
+<li>한 개의 라인 실행 시, 해당 라인을 블록 지정하여 Ctrl+Enter</li>
 <li>여러 라인 실행 시, 블록 지정 후 Ctrl+Enter</li>
+<li>R studio를 사용하면 R 스크립트를 별도로 저장하여, 나중에 재사용이 가능하다.</li>
 </ul>
 <h1 id="R-project-생성">
 <a class="anchor" href="#R-project-%EC%83%9D%EC%84%B1" aria-hidden="true"><span class="octicon octicon-link"></span></a>R project 생성<a class="anchor-link" href="#R-project-%EC%83%9D%EC%84%B1"> </a>
@@ -462,9 +506,12 @@ window.onload = wrap_img;
 <p>a. 11 != 10</p>
 <p>b. 30 &gt; 50 | 100 &gt; 1000</p>
 <p>TRUE, FALSE</p>
-<h1 id="변수">
-<a class="anchor" href="#%EB%B3%80%EC%88%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>변수<a class="anchor-link" href="#%EB%B3%80%EC%88%98"> </a>
+<h1 id="변수(value-지정)">
+<a class="anchor" href="#%EB%B3%80%EC%88%98(value-%EC%A7%80%EC%A0%95)" aria-hidden="true"><span class="octicon octicon-link"></span></a>변수(value 지정)<a class="anchor-link" href="#%EB%B3%80%EC%88%98(value-%EC%A7%80%EC%A0%95)"> </a>
 </h1>
+<ul>
+<li>변수는 수를 담는 그릇이다. 따라서, 원래 담긴 값을 변경할 수 있다.</li>
+</ul>
 <p><code>&lt;-</code> 를 이용한다.</p>
 <div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">&lt;-</span> <span class="m">1</span>
 <span class="n">a</span>
@@ -474,6 +521,11 @@ window.onload = wrap_img;
 <span class="n">a</span>
 </pre></div>
 <p>1</p>
+<div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">&lt;-</span> <span class="m">10</span>
+<span class="n">a</span><span class="o">+</span><span class="n">b</span> <span class="o">-&gt;</span> <span class="n">c</span>
+<span class="n">c</span>
+</pre></div>
+<p>11</p>
 <div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">&lt;-</span> <span class="m">10</span>
 <span class="n">A</span> <span class="o">+</span> <span class="m">20</span>
 </pre></div>
@@ -482,6 +534,12 @@ window.onload = wrap_img;
 <span class="n">B</span>
 </pre></div>
 <p>30</p>
+<div class="highlight"><pre><span></span><span class="nf">print</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+</pre></div>
+<p>30</p>
+<ul>
+<li>+, -, *, / 등의 사칙연산이 가능하다.</li>
+</ul>
 <h2 id="변수-명명-규칙">
 <a class="anchor" href="#%EB%B3%80%EC%88%98-%EB%AA%85%EB%AA%85-%EA%B7%9C%EC%B9%99" aria-hidden="true"><span class="octicon octicon-link"></span></a>변수 명명 규칙<a class="anchor-link" href="#%EB%B3%80%EC%88%98-%EB%AA%85%EB%AA%85-%EA%B7%9C%EC%B9%99"> </a>
 </h2>
@@ -511,23 +569,94 @@ window.onload = wrap_img;
 <h1 id="내장-함수">
 <a class="anchor" href="#%EB%82%B4%EC%9E%A5-%ED%95%A8%EC%88%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>내장 함수<a class="anchor-link" href="#%EB%82%B4%EC%9E%A5-%ED%95%A8%EC%88%98"> </a>
 </h1>
+<h2 id="demo()">
+<a class="anchor" href="#demo()" aria-hidden="true"><span class="octicon octicon-link"></span></a>demo()<a class="anchor-link" href="#demo()"> </a>
+</h2>
+<p>R 프로그램에 기본적으로 내장되어 있는 스크립트를 실행시킬 수 있다. R로 어떤 일을 할 수 있는지 보여준다.</p>
+<div class="highlight"><pre><span></span><span class="nf">demo</span><span class="p">(</span><span class="n">gersp</span><span class="p">)</span>
+</pre></div>
+<div class="highlight"><pre><span></span><span class="nf">demo</span><span class="p">(</span><span class="n">graphcis</span><span class="p">)</span>
+</pre></div>
+<p>다양한 그래프들을 그릴 수 있음을 볼 수 있다. 논문용 그림들은 주로 R로 작성되는 이유다.</p>
 <h2 id="c()">
 <a class="anchor" href="#c()" aria-hidden="true"><span class="octicon octicon-link"></span></a>c()<a class="anchor-link" href="#c()"> </a>
 </h2>
 <p>vector 생성. combine의 약자</p>
+<div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">&lt;-</span> <span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span>
+</pre></div>
+<p>에러</p>
 <div class="highlight"><pre><span></span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">)</span>
 </pre></div>
 <p>1 2 3</p>
+<div class="highlight"><pre><span></span><span class="n">cx</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">)</span>
+<span class="n">cy</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">4</span><span class="p">)</span>
+<span class="n">cz</span> <span class="o">&lt;-</span> <span class="n">cx</span><span class="o">*</span><span class="n">cy</span>
+</pre></div>
+<p>2 6 12</p>
+<div class="highlight"><pre><span></span><span class="n">cx</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">&lt;-</span> <span class="m">9</span>
+<span class="n">cz</span> <span class="o">&lt;-</span> <span class="n">cx</span><span class="o">*</span><span class="n">y</span>
+</pre></div>
+<p>9 18 27</p>
+<div class="highlight"><pre><span></span><span class="n">cx</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">)</span>
+<span class="n">cy</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">'1'</span><span class="p">,</span> <span class="s">'2'</span><span class="p">,</span> <span class="s">'3'</span><span class="p">)</span>
+<span class="n">cz</span> <span class="o">&lt;-</span> <span class="n">cx</span><span class="o">*</span><span class="n">cy</span>
+</pre></div>
+<p>에러. 같은 type끼리만 연산 가능하다.</p>
 <div class="highlight"><pre><span></span><span class="nf">c</span><span class="p">(</span><span class="s">"one"</span><span class="p">,</span> <span class="s">"two"</span><span class="p">,</span> <span class="s">"three"</span><span class="p">)</span>
 </pre></div>
-<p>"one"   "two"   "three"</p>
+<p>"one"   "two"   "three" (str 또는 char)</p>
 <div class="highlight"><pre><span></span><span class="nf">c</span><span class="p">(</span><span class="kc">TRUE</span><span class="p">,</span> <span class="kc">FALSE</span><span class="p">,</span> <span class="kc">TRUE</span><span class="p">)</span>
 </pre></div>
 <p>TRUE FALSE  TRUE</p>
+<h3 id="값의-호출">
+<a class="anchor" href="#%EA%B0%92%EC%9D%98-%ED%98%B8%EC%B6%9C" aria-hidden="true"><span class="octicon octicon-link"></span></a>값의 호출<a class="anchor-link" href="#%EA%B0%92%EC%9D%98-%ED%98%B8%EC%B6%9C"> </a>
+</h3>
+<div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">'1'</span><span class="p">,</span> <span class="s">'2'</span><span class="p">,</span> <span class="s">'3'</span><span class="p">)</span>
+<span class="n">x</span><span class="p">[</span><span class="m">1</span><span class="p">]</span>
+</pre></div>
+<p>'1'</p>
+<h2 id="length()">
+<a class="anchor" href="#length()" aria-hidden="true"><span class="octicon octicon-link"></span></a>length()<a class="anchor-link" href="#length()"> </a>
+</h2>
+<p>length는 평균을 구할 때 유용하게 사용할 수 있다.</p>
+<div class="highlight"><pre><span></span><span class="n">cx</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">)</span>
+<span class="n">cy</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">)</span>
+<span class="n">cz</span> <span class="o">&lt;-</span> <span class="n">cx</span><span class="o">*</span><span class="n">cy</span>
+</pre></div>
+<p>에러. 두 벡터의 길이가 다르다.</p>
+<div class="highlight"><pre><span></span><span class="nf">length</span><span class="p">(</span><span class="n">cx</span><span class="p">)</span>
+</pre></div>
+<p>3</p>
+<h2 id="str()">
+<a class="anchor" href="#str()" aria-hidden="true"><span class="octicon octicon-link"></span></a>str()<a class="anchor-link" href="#str()"> </a>
+</h2>
+<p>structure의 약자. 특정 데이터의 타입과 구조, 그 값을 보여준다. 큰 값이나 테이블을 갖는 경우, 유용하게 활용 가능하다.</p>
+<div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">6</span><span class="p">)</span>
+<span class="nf">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+<p>num [1:5] 1 2 3 5 6</p>
+<div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">'1'</span><span class="p">,</span> <span class="s">'2'</span><span class="p">,</span> <span class="s">'3'</span><span class="p">,</span> <span class="s">'5'</span><span class="p">,</span> <span class="s">'6'</span><span class="p">)</span>
+<span class="nf">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+<p>str [1:5] 1 2 3 5 6</p>
+<h3 id="boolean">
+<a class="anchor" href="#boolean" aria-hidden="true"><span class="octicon octicon-link"></span></a>boolean<a class="anchor-link" href="#boolean"> </a>
+</h3>
+<div class="highlight"><pre><span></span><span class="m">1+2</span><span class="o">=</span><span class="m">3</span>
+</pre></div>
+<p>에러. =표시는 변수에 담겠다는 의미. 숫자는 value의 이름으로 사용할 수 없다.</p>
+<div class="highlight"><pre><span></span><span class="m">1+2</span><span class="o">==</span><span class="m">3</span>
+</pre></div>
+<p>1+2가 3인가. TRUE. TRUE나 FALSE를 boolean 또는 logical operatior라고 부른다. 조건문에서 주로 사용된다.</p>
+<div class="highlight"><pre><span></span><span class="n">cx</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">)</span>
+<span class="n">cy</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">'1'</span><span class="p">,</span> <span class="s">'2'</span><span class="p">,</span> <span class="s">'4'</span><span class="p">)</span>
+</pre></div>
+<p>TRUE TRUE FALSE. 타입에 무관하게, 값이 같은지를 살핀다.</p>
 <h2 id="seq(from,-to,-by)">
 <a class="anchor" href="#seq(from,-to,-by)" aria-hidden="true"><span class="octicon octicon-link"></span></a>seq(from, to, by)<a class="anchor-link" href="#seq(from,-to,-by)"> </a>
 </h2>
-<p>연속적인 숫자형 vector 생성</p>
+<p>연속적인 숫자형 vector 생성한다. 예를 들어, 1부터 1,000,000까지의 숫자형 벡터를 생성하고자 한다면? 이 때 사용하는 함수가 seq()이다.</p>
 <p><code>by</code>의 default값은 1이다. 얼마만큼의 간격으로 증가시킬 것인지 결정한다.</p>
 <div class="highlight"><pre><span></span><span class="nf">seq</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">10</span><span class="p">,</span> <span class="m">2</span><span class="p">)</span>
 </pre></div>
@@ -538,6 +667,29 @@ window.onload = wrap_img;
 <div class="highlight"><pre><span></span><span class="m">1</span><span class="o">:</span><span class="m">10</span>
 </pre></div>
 <p>1  2  3  4  5  6  7  8  9 10</p>
+<div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">100</span><span class="p">)</span>
+</pre></div>
+<p>벡터로도 생성가능하다.</p>
+<h3 id="문제">
+<a class="anchor" href="#%EB%AC%B8%EC%A0%9C" aria-hidden="true"><span class="octicon octicon-link"></span></a>문제<a class="anchor-link" href="#%EB%AC%B8%EC%A0%9C"> </a>
+</h3>
+<p>위 y 변수의 5번째 값부터 10번째 값까지를 새로운 변수 n에 저장하는 스크립트를 짠다.</p>
+<h3 id="정답">
+<a class="anchor" href="#%EC%A0%95%EB%8B%B5" aria-hidden="true"><span class="octicon octicon-link"></span></a>정답<a class="anchor-link" href="#%EC%A0%95%EB%8B%B5"> </a>
+</h3>
+<div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">&lt;-</span> <span class="n">y</span><span class="p">[</span><span class="m">5</span><span class="o">:</span><span class="m">10</span><span class="p">]</span>
+</pre></div>
+<p>5 6 7 8 9 10</p>
+<ul>
+<li>인덱스가 1부터 시작한다는 것에 주의</li>
+</ul>
+<h3 id="문제">
+<a class="anchor" href="#%EB%AC%B8%EC%A0%9C" aria-hidden="true"><span class="octicon octicon-link"></span></a>문제<a class="anchor-link" href="#%EB%AC%B8%EC%A0%9C"> </a>
+</h3>
+<p>위 y 변수에서 90보다 큰 값들엔 TRUE, 90이하인 값들엔 FALSE를 새로운 변수 h에 담는 스크립트를 짠다.</p>
+<div class="highlight"><pre><span></span><span class="n">h</span> <span class="o">&lt;-</span> <span class="n">y</span><span class="o">&gt;</span><span class="m">90</span>
+<span class="n">h</span>
+</pre></div>
 <h2 id="seq(from,-to,-length.out)">
 <a class="anchor" href="#seq(from,-to,-length.out)" aria-hidden="true"><span class="octicon octicon-link"></span></a>seq(from, to, length.out)<a class="anchor-link" href="#seq(from,-to,-length.out)"> </a>
 </h2>
@@ -601,6 +753,10 @@ window.onload = wrap_img;
 <span class="nf">sum</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
 </pre></div>
 <p>30</p>
+<div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">22</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">565</span><span class="p">,</span> <span class="m">-7</span><span class="p">,</span> <span class="m">868</span><span class="p">,</span> <span class="m">-9</span><span class="p">,</span> <span class="m">979</span><span class="p">,</span> <span class="m">-97</span><span class="p">,</span> <span class="m">342</span><span class="p">,</span> <span class="m">23</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">35</span><span class="p">,</span> <span class="m">46</span><span class="p">,</span> <span class="m">6</span><span class="p">,</span> <span class="m">7</span><span class="p">,</span> <span class="m">8</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">75</span><span class="p">,</span> <span class="m">12</span><span class="p">,</span> <span class="m">54</span><span class="p">,</span> <span class="m">-6</span><span class="p">,</span> <span class="m">7</span><span class="p">,</span> <span class="m">23</span><span class="p">,</span> <span class="m">123</span><span class="p">,</span> <span class="m">53</span><span class="p">,</span> <span class="m">12</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">5446</span><span class="p">,</span> <span class="m">22</span><span class="p">,</span> <span class="m">1221</span><span class="p">,</span> <span class="m">235</span><span class="p">,</span> <span class="m">23</span><span class="p">,</span> <span class="m">-234</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">-54</span><span class="p">,</span> <span class="m">-7</span><span class="p">,</span> <span class="m">7</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">23</span><span class="p">,</span> <span class="m">46</span><span class="p">,</span> <span class="m">67</span><span class="p">,</span> <span class="m">64</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">25</span><span class="p">,</span> <span class="m">768</span><span class="p">,</span> <span class="m">963</span><span class="p">,</span> <span class="m">-26</span><span class="p">)</span>
+<span class="nf">sum</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+<p>11779</p>
 <div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">5</span><span class="p">)</span>
 <span class="n">y</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">6</span><span class="p">)</span>
 <span class="nf">sum</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">)</span>
@@ -613,6 +769,10 @@ window.onload = wrap_img;
 <span class="nf">min</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
 </pre></div>
 <p>2</p>
+<div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">22</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">565</span><span class="p">,</span> <span class="m">-7</span><span class="p">,</span> <span class="m">868</span><span class="p">,</span> <span class="m">-9</span><span class="p">,</span> <span class="m">979</span><span class="p">,</span> <span class="m">-97</span><span class="p">,</span> <span class="m">342</span><span class="p">,</span> <span class="m">23</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">35</span><span class="p">,</span> <span class="m">46</span><span class="p">,</span> <span class="m">6</span><span class="p">,</span> <span class="m">7</span><span class="p">,</span> <span class="m">8</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">75</span><span class="p">,</span> <span class="m">12</span><span class="p">,</span> <span class="m">54</span><span class="p">,</span> <span class="m">-6</span><span class="p">,</span> <span class="m">7</span><span class="p">,</span> <span class="m">23</span><span class="p">,</span> <span class="m">123</span><span class="p">,</span> <span class="m">53</span><span class="p">,</span> <span class="m">12</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">5446</span><span class="p">,</span> <span class="m">22</span><span class="p">,</span> <span class="m">1221</span><span class="p">,</span> <span class="m">235</span><span class="p">,</span> <span class="m">23</span><span class="p">,</span> <span class="m">-234</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">-54</span><span class="p">,</span> <span class="m">-7</span><span class="p">,</span> <span class="m">7</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">23</span><span class="p">,</span> <span class="m">46</span><span class="p">,</span> <span class="m">67</span><span class="p">,</span> <span class="m">64</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">25</span><span class="p">,</span> <span class="m">768</span><span class="p">,</span> <span class="m">963</span><span class="p">,</span> <span class="m">-26</span><span class="p">)</span>
+<span class="nf">min</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+<p>-234</p>
 <div class="highlight"><pre><span></span><span class="n">x</span><span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">5</span><span class="p">)</span>
 <span class="n">y</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">6</span><span class="p">)</span>
 <span class="nf">min</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">)</span>
@@ -625,6 +785,10 @@ window.onload = wrap_img;
 <span class="nf">max</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
 </pre></div>
 <p>10</p>
+<div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">22</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">565</span><span class="p">,</span> <span class="m">-7</span><span class="p">,</span> <span class="m">868</span><span class="p">,</span> <span class="m">-9</span><span class="p">,</span> <span class="m">979</span><span class="p">,</span> <span class="m">-97</span><span class="p">,</span> <span class="m">342</span><span class="p">,</span> <span class="m">23</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">35</span><span class="p">,</span> <span class="m">46</span><span class="p">,</span> <span class="m">6</span><span class="p">,</span> <span class="m">7</span><span class="p">,</span> <span class="m">8</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">75</span><span class="p">,</span> <span class="m">12</span><span class="p">,</span> <span class="m">54</span><span class="p">,</span> <span class="m">-6</span><span class="p">,</span> <span class="m">7</span><span class="p">,</span> <span class="m">23</span><span class="p">,</span> <span class="m">123</span><span class="p">,</span> <span class="m">53</span><span class="p">,</span> <span class="m">12</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">5446</span><span class="p">,</span> <span class="m">22</span><span class="p">,</span> <span class="m">1221</span><span class="p">,</span> <span class="m">235</span><span class="p">,</span> <span class="m">23</span><span class="p">,</span> <span class="m">-234</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">-54</span><span class="p">,</span> <span class="m">-7</span><span class="p">,</span> <span class="m">7</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">23</span><span class="p">,</span> <span class="m">46</span><span class="p">,</span> <span class="m">67</span><span class="p">,</span> <span class="m">64</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">25</span><span class="p">,</span> <span class="m">768</span><span class="p">,</span> <span class="m">963</span><span class="p">,</span> <span class="m">-26</span><span class="p">)</span>
+<span class="nf">max</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+<p>5446</p>
 <div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">5</span><span class="p">)</span>
 <span class="n">y</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">6</span><span class="p">)</span>
 <span class="nf">max</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">)</span>
@@ -633,10 +797,28 @@ window.onload = wrap_img;
 <h3 id="mean()">
 <a class="anchor" href="#mean()" aria-hidden="true"><span class="octicon octicon-link"></span></a>mean()<a class="anchor-link" href="#mean()"> </a>
 </h3>
+<p>평균값을 산출해준다.</p>
 <div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">6</span><span class="p">,</span> <span class="m">8</span><span class="p">,</span> <span class="m">10</span><span class="p">)</span>
 <span class="nf">mean</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
 </pre></div>
 <p>6</p>
+<div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">22</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">565</span><span class="p">,</span> <span class="m">-7</span><span class="p">,</span> <span class="m">868</span><span class="p">,</span> <span class="m">-9</span><span class="p">,</span> <span class="m">979</span><span class="p">,</span> <span class="m">-97</span><span class="p">,</span> <span class="m">342</span><span class="p">,</span> <span class="m">23</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">35</span><span class="p">,</span> <span class="m">46</span><span class="p">,</span> <span class="m">6</span><span class="p">,</span> <span class="m">7</span><span class="p">,</span> <span class="m">8</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">75</span><span class="p">,</span> <span class="m">12</span><span class="p">,</span> <span class="m">54</span><span class="p">,</span> <span class="m">-6</span><span class="p">,</span> <span class="m">7</span><span class="p">,</span> <span class="m">23</span><span class="p">,</span> <span class="m">123</span><span class="p">,</span> <span class="m">53</span><span class="p">,</span> <span class="m">12</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">5446</span><span class="p">,</span> <span class="m">22</span><span class="p">,</span> <span class="m">1221</span><span class="p">,</span> <span class="m">235</span><span class="p">,</span> <span class="m">23</span><span class="p">,</span> <span class="m">-234</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">-54</span><span class="p">,</span> <span class="m">-7</span><span class="p">,</span> <span class="m">7</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">23</span><span class="p">,</span> <span class="m">46</span><span class="p">,</span> <span class="m">67</span><span class="p">,</span> <span class="m">64</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">25</span><span class="p">,</span> <span class="m">768</span><span class="p">,</span> <span class="m">963</span><span class="p">,</span> <span class="m">-26</span><span class="p">)</span>
+<span class="nf">sum</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+<p>206.6491</p>
+<h4 id="문제">
+<a class="anchor" href="#%EB%AC%B8%EC%A0%9C" aria-hidden="true"><span class="octicon octicon-link"></span></a>문제<a class="anchor-link" href="#%EB%AC%B8%EC%A0%9C"> </a>
+</h4>
+<p>mean() 함수를 사용하지 말고, 아래 값에 대한 평균값을 구하라.</p>
+
+<pre><code>1, 22, 3, 5, 4, 565, -7, 868, -9, 979, -97, 342, 23, 1, 1, 35, 46, 6, 7, 8, 2, 4, 75, 12, 54, -6, 7, 23, 123, 53, 12, 3, 4, 5446, 22, 1221, 235, 23, -234, 5, -54, -7, 7, 2, 1, 23, 46, 67, 64, 2, 2, 4, 5, 25, 768, 963, -26</code></pre>
+<h4 id="정답">
+<a class="anchor" href="#%EC%A0%95%EB%8B%B5" aria-hidden="true"><span class="octicon octicon-link"></span></a>정답<a class="anchor-link" href="#%EC%A0%95%EB%8B%B5"> </a>
+</h4>
+<div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">22</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">565</span><span class="p">,</span> <span class="m">-7</span><span class="p">,</span> <span class="m">868</span><span class="p">,</span> <span class="m">-9</span><span class="p">,</span> <span class="m">979</span><span class="p">,</span> <span class="m">-97</span><span class="p">,</span> <span class="m">342</span><span class="p">,</span> <span class="m">23</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">35</span><span class="p">,</span> <span class="m">46</span><span class="p">,</span> <span class="m">6</span><span class="p">,</span> <span class="m">7</span><span class="p">,</span> <span class="m">8</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">75</span><span class="p">,</span> <span class="m">12</span><span class="p">,</span> <span class="m">54</span><span class="p">,</span> <span class="m">-6</span><span class="p">,</span> <span class="m">7</span><span class="p">,</span> <span class="m">23</span><span class="p">,</span> <span class="m">123</span><span class="p">,</span> <span class="m">53</span><span class="p">,</span> <span class="m">12</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">5446</span><span class="p">,</span> <span class="m">22</span><span class="p">,</span> <span class="m">1221</span><span class="p">,</span> <span class="m">235</span><span class="p">,</span> <span class="m">23</span><span class="p">,</span> <span class="m">-234</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">-54</span><span class="p">,</span> <span class="m">-7</span><span class="p">,</span> <span class="m">7</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">23</span><span class="p">,</span> <span class="m">46</span><span class="p">,</span> <span class="m">67</span><span class="p">,</span> <span class="m">64</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">25</span><span class="p">,</span> <span class="m">768</span><span class="p">,</span> <span class="m">963</span><span class="p">,</span> <span class="m">-26</span><span class="p">)</span>
+<span class="nf">sum</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">/</span> <span class="nf">length</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+<p>206.6491</p>
 <div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">5</span><span class="p">)</span>
 <span class="n">y</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">6</span><span class="p">)</span>
 <span class="nf">mean</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">)</span>
