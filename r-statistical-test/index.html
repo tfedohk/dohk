@@ -81,7 +81,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      8 min read
+      9 min read
     
 </span></p>
 
@@ -114,6 +114,15 @@ window.onload = wrap_img;
 
   <div class="post-content e-content" itemprop="articleBody">
     <ul class="section-nav">
+<li class="toc-entry toc-h1"><a href="#기초-통계">기초 통계 </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#uniform-distribution-simulation">uniform distribution simulation </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#runif()">runif() </a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toc-entry toc-h1"><a href="#single-sample-t-test">single sample t-test </a>
 <ul>
 <li class="toc-entry toc-h2"><a href="#Q-Q-plot:-Qunatile-Quantile-plot">Q-Q plot: Qunatile-Quantile plot </a>
@@ -184,11 +193,48 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>해당 노트는 R에서 빈번하게 사용되는 통계 기법 등에 대해 다루는 노트다. 통계는 크게 모수 검정(parametric test)과 비모수 검정(non-parametic test)으로 나눌 수 있다. R이 가정하는 것은 모집단이 정규분포를 따른다는 것이다. 정규분포를 따른다는 것은 평균이 0, 분산이 1인 경우를 말한다.</p>
+<p>해당 노트는 R에서 빈번하게 사용되는 통계 기법 등에 대해 다룬 노트다. 먼저 기초 통계에 대해 다룬 후, 크게 모수 검정(parametric test)과 비모수 검정(non-parametic test)으로 나눈, 모수 검정에 대해 다룬다. R이 가정하는 것은 모집단이 정규분포를 따른다는 것이다. 정규분포를 따른다는 것은 평균이 0, 분산이 1인 경우를 말한다.</p>
 <p>모집단이 정규 분포를 따르는 경우도 있지만 따르지 않는 경우도 있다. 모집단이 정규 분포를 따르는 경우를 모수 검정, 모집단이 정규 분포를 따르지 않는 경우를 비모수 검정이라고 한다.</p>
 <p>비모수 검정은 표본수가 적거나 모집단이 정규분포임을 가정하기 어려운 경우, 측정 자료의 수준이 이산형 등의 categorical인 경우에 사용된다.</p>
 <p>비교 그룹이 두 가지인 경우, 모수 검정으로는 paired t-test, independent (student) t-test를 통해 두 집단 간의 평균을 비교한다. 비모수 검정(즉, 정규 분포를 따르지 않는 경우)에서는 Mann-Whiteney U-test, Wilcoxon rank sum test, Crank Sum 비교, median 등을 사용된다. 특히, mean이 아닌 중간값(median)을 사용한다.</p>
 <p>그룹이 세 개 이상인 경우의 비교에서, 모수 검정에서는 One-way ANOVA를 대표적으로 사용한다. 비모수 검정에서는 Kruskal-Willis test를 사용한다.</p>
+<h1 id="기초-통계">
+<a class="anchor" href="#%EA%B8%B0%EC%B4%88-%ED%86%B5%EA%B3%84" aria-hidden="true"><span class="octicon octicon-link"></span></a>기초 통계<a class="anchor-link" href="#%EA%B8%B0%EC%B4%88-%ED%86%B5%EA%B3%84"> </a>
+</h1>
+<h2 id="uniform-distribution-simulation">
+<a class="anchor" href="#uniform-distribution-simulation" aria-hidden="true"><span class="octicon octicon-link"></span></a>uniform distribution simulation<a class="anchor-link" href="#uniform-distribution-simulation"> </a>
+</h2>
+<p>주사위 던지기를 가정한다. 즉, p = 1/n, n of die = 6 이다. 랜덤한 숫자를 뽑는데, 나올 확률이 모두 같은 경우이므로 uniform distribution에 해당한다.</p>
+<h3 id="runif()">
+<a class="anchor" href="#runif()" aria-hidden="true"><span class="octicon octicon-link"></span></a>runif()<a class="anchor-link" href="#runif()"> </a>
+</h3>
+<p>runif는 random uniform의 약자이다. 따라서, 매번 수행 시 마다 값이 달라진다.</p>
+<div class="highlight"><pre><span></span><span class="nf">runif</span><span class="p">(</span><span class="m">100</span><span class="p">)</span> <span class="c1"># 0부터 1까지 100개의 random한 값을 낸다.</span>
+</pre></div>
+<p>주사위 값을 내기 위해, 다음과 같이 한다.</p>
+<div class="highlight"><pre><span></span><span class="nf">runif</span><span class="p">(</span><span class="m">100</span><span class="p">)</span><span class="o">*</span><span class="m">6</span>
+</pre></div>
+<p>값으로 0이 나오는 상황을 방지하기 위해, <code>ceiling()</code>함수를 사용한다. <code>ceiling()</code>함수는 올린 정수를 내는 함수다.</p>
+<div class="highlight"><pre><span></span><span class="n">die</span> <span class="o">&lt;-</span> <span class="nf">ceiling</span><span class="p">(</span><span class="nf">runif</span><span class="p">(</span><span class="m">100</span><span class="p">)</span><span class="o">*</span><span class="m">6</span><span class="p">)</span>
+<span class="n">die</span>
+</pre></div>
+<p>각 숫자가 몇 번 나왔는지 알기 위해서는, <code>table()</code>함수를 사용한다.</p>
+<div class="highlight"><pre><span></span><span class="nf">table</span><span class="p">(</span><span class="n">die</span><span class="p">)</span>
+</pre></div>
+
+<pre><code>die
+ 1  2  3  4  5  6 
+20 20 21 13 14 12</code></pre>
+<p>쉽게 수정 가능하며, 재생 가능하도록 다음과 같이 수정한다.</p>
+<div class="highlight"><pre><span></span><span class="n">roll</span> <span class="o">&lt;-</span> <span class="m">100</span>
+<span class="n">n</span> <span class="o">&lt;-</span> <span class="m">6</span>
+<span class="n">die</span> <span class="o">&lt;-</span> <span class="nf">ceiling</span><span class="p">(</span><span class="nf">runif</span><span class="p">(</span><span class="n">roll</span><span class="p">)</span><span class="o">*</span><span class="n">n</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">&lt;-</span> <span class="nf">table</span><span class="p">(</span><span class="n">die</span><span class="p">)</span>
+</pre></div>
+<p>이를 그래프로 그려본다.</p>
+<div class="highlight"><pre><span></span><span class="nf">barplot</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+</pre></div>
+<p>실제로 확률이 똑같게 나오지는 않는다. 100번밖에 수행하지 않았기 때문이다. 1,000,000번 정도를 수행하면 거의 비슷하게 나온다.</p>
 <h1 id="single-sample-t-test">
 <a class="anchor" href="#single-sample-t-test" aria-hidden="true"><span class="octicon octicon-link"></span></a>single sample t-test<a class="anchor-link" href="#single-sample-t-test"> </a>
 </h1>

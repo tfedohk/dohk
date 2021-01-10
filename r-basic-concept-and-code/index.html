@@ -81,7 +81,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      31 min read
+      32 min read
     
 </span></p>
 
@@ -151,7 +151,12 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h2"><a href="#문제-2">문제 2 </a></li>
 <li class="toc-entry toc-h2"><a href="#자주-사용되는-함수들">자주 사용되는 함수들 </a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#sum()">sum() </a></li>
+<li class="toc-entry toc-h3"><a href="#sum()">sum() </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#문제">문제 </a></li>
+<li class="toc-entry toc-h4"><a href="#정답">정답 </a></li>
+</ul>
+</li>
 <li class="toc-entry toc-h3"><a href="#min()">min() </a></li>
 <li class="toc-entry toc-h3"><a href="#max()">max() </a></li>
 <li class="toc-entry toc-h3"><a href="#mean()">mean() </a>
@@ -161,6 +166,7 @@ window.onload = wrap_img;
 </ul>
 </li>
 <li class="toc-entry toc-h3"><a href="#median()">median() </a></li>
+<li class="toc-entry toc-h3"><a href="#which()">which() </a></li>
 <li class="toc-entry toc-h3"><a href="#log()">log() </a></li>
 <li class="toc-entry toc-h3"><a href="#log2()">log2() </a></li>
 <li class="toc-entry toc-h3"><a href="#sqrt()">sqrt() </a></li>
@@ -250,7 +256,14 @@ window.onload = wrap_img;
 <ul>
 <li class="toc-entry toc-h2"><a href="#데이터프레임의-생성">데이터프레임의 생성 </a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#data.frame()-함수-이용">data.frame() 함수 이용 </a></li>
+<li class="toc-entry toc-h3"><a href="#data.frame()-함수-이용">data.frame() 함수 이용 </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#문제">문제 </a></li>
+<li class="toc-entry toc-h4"><a href="#정답">정답 </a></li>
+<li class="toc-entry toc-h4"><a href="#문제">문제 </a></li>
+<li class="toc-entry toc-h4"><a href="#정답">정답 </a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-entry toc-h2"><a href="#문제">문제 </a></li>
@@ -757,6 +770,20 @@ window.onload = wrap_img;
 <span class="nf">sum</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
 </pre></div>
 <p>11779</p>
+<div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">22</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">565</span><span class="p">,</span> <span class="m">-7</span><span class="p">,</span> <span class="m">868</span><span class="p">,</span> <span class="m">-9</span><span class="p">,</span> <span class="m">979</span><span class="p">,</span> <span class="m">-97</span><span class="p">,</span> <span class="m">342</span><span class="p">,</span> <span class="m">23</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">35</span><span class="p">,</span> <span class="m">46</span><span class="p">,</span> <span class="m">6</span><span class="p">,</span> <span class="m">7</span><span class="p">,</span> <span class="m">8</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">75</span><span class="p">,</span> <span class="m">12</span><span class="p">,</span> <span class="m">54</span><span class="p">,</span> <span class="m">-6</span><span class="p">,</span> <span class="m">7</span><span class="p">,</span> <span class="m">23</span><span class="p">,</span> <span class="m">123</span><span class="p">,</span> <span class="m">53</span><span class="p">,</span> <span class="m">12</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">5446</span><span class="p">,</span> <span class="m">22</span><span class="p">,</span> <span class="m">1221</span><span class="p">,</span> <span class="m">235</span><span class="p">,</span> <span class="m">23</span><span class="p">,</span> <span class="m">-234</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">-54</span><span class="p">,</span> <span class="m">-7</span><span class="p">,</span> <span class="m">7</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">23</span><span class="p">,</span> <span class="m">46</span><span class="p">,</span> <span class="m">67</span><span class="p">,</span> <span class="m">64</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">25</span><span class="p">,</span> <span class="m">768</span><span class="p">,</span> <span class="m">963</span><span class="p">,</span> <span class="m">-26</span><span class="p">)</span>
+<span class="nf">sum</span><span class="p">(</span><span class="n">y</span><span class="o">&gt;</span><span class="m">100</span><span class="p">)</span>
+</pre></div>
+<p>10</p>
+<h4 id="문제">
+<a class="anchor" href="#%EB%AC%B8%EC%A0%9C" aria-hidden="true"><span class="octicon octicon-link"></span></a>문제<a class="anchor-link" href="#%EB%AC%B8%EC%A0%9C"> </a>
+</h4>
+<p>100보다 큰 값들의 합을 구하라.</p>
+<h4 id="정답">
+<a class="anchor" href="#%EC%A0%95%EB%8B%B5" aria-hidden="true"><span class="octicon octicon-link"></span></a>정답<a class="anchor-link" href="#%EC%A0%95%EB%8B%B5"> </a>
+</h4>
+<div class="highlight"><pre><span></span><span class="nf">sum</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">x</span><span class="o">&gt;</span><span class="m">100</span><span class="p">])</span>
+</pre></div>
+<p>11510</p>
 <div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">5</span><span class="p">)</span>
 <span class="n">y</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">6</span><span class="p">)</span>
 <span class="nf">sum</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">)</span>
@@ -836,6 +863,14 @@ window.onload = wrap_img;
 <span class="nf">median</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">)</span>
 </pre></div>
 <p>7</p>
+<h3 id="which()">
+<a class="anchor" href="#which()" aria-hidden="true"><span class="octicon octicon-link"></span></a>which()<a class="anchor-link" href="#which()"> </a>
+</h3>
+<p>인덱스의 위치를 알려주는 함수</p>
+<div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">22</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">565</span><span class="p">,</span> <span class="m">-7</span><span class="p">,</span> <span class="m">868</span><span class="p">,</span> <span class="m">-9</span><span class="p">,</span> <span class="m">979</span><span class="p">,</span> <span class="m">-97</span><span class="p">,</span> <span class="m">342</span><span class="p">,</span> <span class="m">23</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">35</span><span class="p">,</span> <span class="m">46</span><span class="p">,</span> <span class="m">6</span><span class="p">,</span> <span class="m">7</span><span class="p">,</span> <span class="m">8</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">75</span><span class="p">,</span> <span class="m">12</span><span class="p">,</span> <span class="m">54</span><span class="p">,</span> <span class="m">-6</span><span class="p">,</span> <span class="m">7</span><span class="p">,</span> <span class="m">23</span><span class="p">,</span> <span class="m">123</span><span class="p">,</span> <span class="m">53</span><span class="p">,</span> <span class="m">12</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">5446</span><span class="p">,</span> <span class="m">22</span><span class="p">,</span> <span class="m">1221</span><span class="p">,</span> <span class="m">235</span><span class="p">,</span> <span class="m">23</span><span class="p">,</span> <span class="m">-234</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">-54</span><span class="p">,</span> <span class="m">-7</span><span class="p">,</span> <span class="m">7</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">23</span><span class="p">,</span> <span class="m">46</span><span class="p">,</span> <span class="m">67</span><span class="p">,</span> <span class="m">64</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">25</span><span class="p">,</span> <span class="m">768</span><span class="p">,</span> <span class="m">963</span><span class="p">,</span> <span class="m">-26</span><span class="p">)</span>
+<span class="nf">which</span><span class="p">(</span><span class="n">y</span><span class="o">&gt;</span><span class="m">100</span><span class="p">)</span>
+</pre></div>
+<p>6 8 10 12 29 34 36 37 55 56</p>
 <h3 id="log()">
 <a class="anchor" href="#log()" aria-hidden="true"><span class="octicon octicon-link"></span></a>log()<a class="anchor-link" href="#log()"> </a>
 </h3>
@@ -1614,23 +1649,89 @@ log(y)</code></pre>
 <h1 id="자료형:-데이터프레임(DataFrame)">
 <a class="anchor" href="#%EC%9E%90%EB%A3%8C%ED%98%95:-%EB%8D%B0%EC%9D%B4%ED%84%B0%ED%94%84%EB%A0%88%EC%9E%84(DataFrame)" aria-hidden="true"><span class="octicon octicon-link"></span></a>자료형: 데이터프레임(DataFrame)<a class="anchor-link" href="#%EC%9E%90%EB%A3%8C%ED%98%95:-%EB%8D%B0%EC%9D%B4%ED%84%B0%ED%94%84%EB%A0%88%EC%9E%84(DataFrame)"> </a>
 </h1>
-<p>외관상으로는 행렬과 유사하다. 다만, 서로 다른 자료형 벡터로 구성할 수 있다는 점이 차이점이다.</p>
+<p>엑셀의 스프레드시트와 같은 모습을 띈다. 즉, 열의 이름 밑에 값들이 나열되고, 각 행마다 값들이 배치된 형태를 말한다.외관상으로는 행렬과 유사하다. 다만, 서로 다른 자료형 벡터로 구성할 수 있다는 점이 차이점이다.</p>
 <h2 id="데이터프레임의-생성">
 <a class="anchor" href="#%EB%8D%B0%EC%9D%B4%ED%84%B0%ED%94%84%EB%A0%88%EC%9E%84%EC%9D%98-%EC%83%9D%EC%84%B1" aria-hidden="true"><span class="octicon octicon-link"></span></a>데이터프레임의 생성<a class="anchor-link" href="#%EB%8D%B0%EC%9D%B4%ED%84%B0%ED%94%84%EB%A0%88%EC%9E%84%EC%9D%98-%EC%83%9D%EC%84%B1"> </a>
 </h2>
 <h3 id="data.frame()-함수-이용">
 <a class="anchor" href="#data.frame()-%ED%95%A8%EC%88%98-%EC%9D%B4%EC%9A%A9" aria-hidden="true"><span class="octicon octicon-link"></span></a>data.frame() 함수 이용<a class="anchor-link" href="#data.frame()-%ED%95%A8%EC%88%98-%EC%9D%B4%EC%9A%A9"> </a>
 </h3>
-<p>먼저, 서로 다른 자료형의 벡터들을 만든다.</p>
+<p>먼저, 서로 다른 자료형의 벡터들을 만든다. value의 개수가 동일해야 한다는 점에 유의한다.</p>
 <div class="highlight"><pre><span></span><span class="n">vec1</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">7</span><span class="p">)</span>
 <span class="n">vec2</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">"one"</span><span class="p">,</span><span class="s">"four"</span><span class="p">,</span><span class="s">"seven"</span><span class="p">)</span>
 <span class="n">vec3</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="kc">TRUE</span><span class="p">,</span><span class="kc">TRUE</span><span class="p">,</span><span class="kc">FALSE</span><span class="p">)</span>
+</pre></div>
+<div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">'john'</span><span class="p">,</span> <span class="s">'jaehee'</span><span class="p">,</span> <span class="s">'juliet'</span><span class="p">,</span> <span class="s">'james'</span><span class="p">)</span>
+<span class="n">sex</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">'f'</span><span class="p">,</span> <span class="s">'f'</span><span class="p">,</span> <span class="s">'f'</span><span class="p">,</span> <span class="s">'m'</span><span class="p">)</span>
+<span class="n">occup</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">'student'</span><span class="p">,</span> <span class="s">'doctor'</span><span class="p">,</span> <span class="s">'cto'</span><span class="p">,</span> <span class="s">'data scientist'</span><span class="p">)</span>
+<span class="n">age</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">40</span><span class="p">,</span> <span class="m">35</span><span class="p">,</span> <span class="m">43</span><span class="p">,</span> <span class="m">29</span><span class="p">)</span>
 </pre></div>
 <p>이 벡터들을 <code>data.frame()</code> 함수를 이용하여 데이터프레임 자료형으로 만들 수 있다.</p>
 <div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">&lt;-</span> <span class="nf">data.frame</span><span class="p">(</span><span class="n">vec1</span><span class="p">,</span> <span class="n">vec2</span><span class="p">,</span> <span class="n">vec3</span><span class="p">)</span> <span class="c1"># 벡터들을 파라미터로 넘기면 끝이다.</span>
 </pre></div>
 <p>결과물을 보면, 마치 <code>cbind()</code> 한 것과 같이 나온다.</p>
 <div class="highlight"><pre><span></span><span class="n">df</span>
+</pre></div>
+<div class="highlight"><pre><span></span><span class="nf">data.frame</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">sex</span><span class="p">,</span> <span class="n">occup</span><span class="p">)</span>
+</pre></div>
+
+<pre><code>    name age sex          occup
+1   john  40   f        student
+2 jaehee  35   f         doctor
+3 juliet  43   f            cto
+4  james  29   m data scientist</code></pre>
+<div class="highlight"><pre><span></span><span class="n">member</span> <span class="o">&lt;-</span> <span class="nf">data.frame</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">sex</span><span class="p">,</span> <span class="n">occup</span><span class="p">)</span>
+<span class="n">member</span>
+</pre></div>
+
+<pre><code>    name age sex          occup
+1   john  40   f        student
+2 jaehee  35   f         doctor
+3 juliet  43   f            cto
+4  james  29   m data scientist</code></pre>
+<div class="highlight"><pre><span></span><span class="n">age</span><span class="p">[</span><span class="m">1</span><span class="p">]</span>
+<span class="n">name</span><span class="p">[</span><span class="m">3</span><span class="p">]</span>
+</pre></div>
+
+<pre><code>40
+"juliet"</code></pre>
+<div class="highlight"><pre><span></span><span class="n">member</span><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="c1"># member[1,]</span>
+</pre></div>
+
+<pre><code>    name
+1   john
+2 jaehee
+3 juliet
+4  james</code></pre>
+<div class="highlight"><pre><span></span><span class="n">member</span><span class="p">[</span><span class="m">1</span><span class="p">,]</span> <span class="c1"># 행, 열</span>
+</pre></div>
+
+<pre><code>    name
+1   john
+2 jaehee
+3 juliet
+4  james</code></pre>
+<div class="highlight"><pre><span></span><span class="nf">member</span><span class="p">(</span>달러표시<span class="p">)</span><span class="n">name</span>
+</pre></div>
+
+<pre><code>[1] "john"   "jaehee" "juliet" "james"</code></pre>
+<h4 id="문제">
+<a class="anchor" href="#%EB%AC%B8%EC%A0%9C" aria-hidden="true"><span class="octicon octicon-link"></span></a>문제<a class="anchor-link" href="#%EB%AC%B8%EC%A0%9C"> </a>
+</h4>
+<p>jaehee의 occup을 출력하라.</p>
+<h4 id="정답">
+<a class="anchor" href="#%EC%A0%95%EB%8B%B5" aria-hidden="true"><span class="octicon octicon-link"></span></a>정답<a class="anchor-link" href="#%EC%A0%95%EB%8B%B5"> </a>
+</h4>
+<div class="highlight"><pre><span></span><span class="n">member</span><span class="p">[</span><span class="m">2</span><span class="p">,</span><span class="m">4</span><span class="p">]</span>
+</pre></div>
+<h4 id="문제">
+<a class="anchor" href="#%EB%AC%B8%EC%A0%9C" aria-hidden="true"><span class="octicon octicon-link"></span></a>문제<a class="anchor-link" href="#%EB%AC%B8%EC%A0%9C"> </a>
+</h4>
+<p>john의 성별을 m을 바꾸라.</p>
+<h4 id="정답">
+<a class="anchor" href="#%EC%A0%95%EB%8B%B5" aria-hidden="true"><span class="octicon octicon-link"></span></a>정답<a class="anchor-link" href="#%EC%A0%95%EB%8B%B5"> </a>
+</h4>
+<div class="highlight"><pre><span></span><span class="n">member</span><span class="p">[</span><span class="m">1</span><span class="p">,</span><span class="m">3</span><span class="p">]</span> <span class="o">&lt;-</span> <span class="s">'m'</span>
 </pre></div>
 <p><img src="/dohk/images/copied_from_nb/../images/2020-11-06-r-1/Untitled52.png" alt=""></p>
 <h2 id="문제">
@@ -2048,8 +2149,9 @@ log(y)</code></pre>
 <h3 id="실습-코드-1">
 <a class="anchor" href="#%EC%8B%A4%EC%8A%B5-%EC%BD%94%EB%93%9C-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>실습 코드 1<a class="anchor-link" href="#%EC%8B%A4%EC%8A%B5-%EC%BD%94%EB%93%9C-1"> </a>
 </h3>
+<p>xls의 파일인 경우, txt 또는 csv파일로 변환해주어야 한다.</p>
 <div class="highlight"><pre><span></span><span class="c1"># read.delim(), read.table()</span>
-<span class="n">ex_tab</span><span class="o">=</span><span class="nf">read.delim</span><span class="p">(</span><span class="n">file</span> <span class="o">=</span> <span class="s">"extdata/example_tab.txt"</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="bp">T</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s">"\t"</span><span class="p">)</span>
+<span class="n">ex_tab</span><span class="o">=</span><span class="nf">read.delim</span><span class="p">(</span><span class="n">file</span> <span class="o">=</span> <span class="s">"extdata/example_tab.txt"</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="bp">T</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s">"\t"</span><span class="p">)</span> <span class="c1"># 첫 줄은 보통 column의 name. 실제 data가 아님. </span>
 <span class="nf">head</span><span class="p">(</span><span class="n">ex_tab</span><span class="p">)</span>
 
 <span class="n">ex_tab2</span><span class="o">=</span><span class="nf">read.table</span><span class="p">(</span><span class="n">file</span> <span class="o">=</span> <span class="s">"extdata/example_tab.txt"</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="bp">T</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s">"\t"</span><span class="p">)</span>
@@ -2062,6 +2164,13 @@ log(y)</code></pre>
 <span class="nf">head</span><span class="p">(</span><span class="n">ex_csv</span><span class="p">)</span>
 </pre></div>
 <p><img src="/dohk/images/copied_from_nb/../images/2020-11-06-r-2/Untitled101.png" alt=""></p>
+<p>파일을 직접 선택하는 방식은 다음과 같다.</p>
+<div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">&lt;-</span> <span class="nf">read.csv</span><span class="p">(</span><span class="nf">file.choose</span><span class="p">(),</span> <span class="n">header</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span> <span class="c1"># T나 TRUE나 같다.</span>
+</pre></div>
+
+<pre><code>tail(data)
+str(data)
+max(data(달러표시)컬럼네임) # Factor type에는 적용 불가</code></pre>
 <h3 id="실습-코드-2">
 <a class="anchor" href="#%EC%8B%A4%EC%8A%B5-%EC%BD%94%EB%93%9C-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>실습 코드 2<a class="anchor-link" href="#%EC%8B%A4%EC%8A%B5-%EC%BD%94%EB%93%9C-2"> </a>
 </h3>
