@@ -81,7 +81,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      32 min read
+      34 min read
     
 </span></p>
 
@@ -110,7 +110,13 @@ window.onload = wrap_img;
     <ul class="section-nav">
 <li class="toc-entry toc-h1"><a href="#R-소개">R 소개 </a></li>
 <li class="toc-entry toc-h1"><a href="#SW-다운로드">SW 다운로드 </a></li>
-<li class="toc-entry toc-h1"><a href="#R-studio-IDE">R studio IDE </a></li>
+<li class="toc-entry toc-h1"><a href="#프로그램-설치-시-주의-사항">프로그램 설치 시 주의 사항 </a></li>
+<li class="toc-entry toc-h1"><a href="#R-studio-IDE">R studio IDE </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#R-Studio-설정">R Studio 설정 </a></li>
+<li class="toc-entry toc-h2"><a href="#----R-소스가-가로로-길게-늘어져-스크롤바가-생기는-현상을-막는다.">  - R 소스가 가로로 길게 늘어져 스크롤바가 생기는 현상을 막는다. </a></li>
+</ul>
+</li>
 <li class="toc-entry toc-h1"><a href="#R-project-생성">R project 생성 </a></li>
 <li class="toc-entry toc-h1"><a href="#package-설치">package 설치 </a></li>
 <li class="toc-entry toc-h1"><a href="#사칙-연산:-나머지(-%%-)">사칙 연산: 나머지( %% ) </a></li>
@@ -318,6 +324,7 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h2"><a href="#subset(data.frame,-conditions)">subset(data.frame, conditions) </a></li>
 </ul>
 </li>
+<li class="toc-entry toc-h1"><a href="#지저분한-데이터-처리">지저분한 데이터 처리 </a></li>
 <li class="toc-entry toc-h1"><a href="#함수">함수 </a></li>
 <li class="toc-entry toc-h1"><a href="#반복문">반복문 </a>
 <ul>
@@ -439,7 +446,19 @@ window.onload = wrap_img;
 </li>
 <li>R studio: <a href="https://rstudio.com/products/rstudio/download/">https://rstudio.com/products/rstudio/download/</a>
 </li>
+<li>Rtools: <a href="https://cran.r-project.org/bin/windows/Rtools/">https://cran.r-project.org/bin/windows/Rtools/</a><ul>
+<li>윈도우 사용자만 Rtools 설치 필요. R은 리눅스에서 처음 개발된 프로그램이므로 윈도우는 추가 설치가 필요하다.</li>
+<li>recommended를 다운로드 한다.</li>
 </ul>
+</li>
+</ul>
+<h1 id="프로그램-설치-시-주의-사항">
+<a class="anchor" href="#%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8-%EC%84%A4%EC%B9%98-%EC%8B%9C-%EC%A3%BC%EC%9D%98-%EC%82%AC%ED%95%AD" aria-hidden="true"><span class="octicon octicon-link"></span></a>프로그램 설치 시 주의 사항<a class="anchor-link" href="#%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8-%EC%84%A4%EC%B9%98-%EC%8B%9C-%EC%A3%BC%EC%9D%98-%EC%82%AC%ED%95%AD"> </a>
+</h1>
+<p><img src="/dohk/images/copied_from_nb/../images/2021-01-25-r-3/Untitled.png" alt="">
+사용자명이 되도록 한글이 아니어야 한다.</p>
+<p><img src="/dohk/images/copied_from_nb/../images/2021-01-25-r-3/Untitled2.png" alt="">
+환경변수 설정 시, PATH 설정에 체크 표시를 해야 한다.</p>
 <h1 id="R-studio-IDE">
 <a class="anchor" href="#R-studio-IDE" aria-hidden="true"><span class="octicon octicon-link"></span></a>R studio IDE<a class="anchor-link" href="#R-studio-IDE"> </a>
 </h1>
@@ -449,6 +468,28 @@ window.onload = wrap_img;
 <li>한 개의 라인 실행 시, 해당 라인을 블록 지정하여 Ctrl+Enter</li>
 <li>여러 라인 실행 시, 블록 지정 후 Ctrl+Enter</li>
 <li>R studio를 사용하면 R 스크립트를 별도로 저장하여, 나중에 재사용이 가능하다.</li>
+<li>콘솔: R 언어가 직접 입력을 받고 출력을 주는 영역</li>
+<li>History: 콘솔에 입력했던 명령어들이 저장됨</li>
+<li>Packages: 인스톨 및 업데이트 및 삭제</li>
+<li>Help: 함수의 설명서 제공</li>
+</ul>
+<h2 id="R-Studio-설정">
+<a class="anchor" href="#R-Studio-%EC%84%A4%EC%A0%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>R Studio 설정<a class="anchor-link" href="#R-Studio-%EC%84%A4%EC%A0%95"> </a>
+</h2>
+<ul>
+<li>Tools → Global options → Basic → Restore .RData into workspace at startup 체크 해제<ul>
+<li>데이터를 미리 저장해두었다가, R Studio를 열 때 불러오게 하는 기능. 느려질 수 있다.</li>
+</ul>
+</li>
+<li>Tools → Global options → Basic → Always svae history 체크 표시<ul>
+<li>어떤 명령어들을 사용했는지에 대한 정보를 알려준다.</li>
+</ul>
+</li>
+<li>Tools → Global options → Advanced → Double-click to select words in Console pane 체크</li>
+<li>Code → Editing → Soft-wrap R source files 체크<h2 id="----R-소스가-가로로-길게-늘어져-스크롤바가-생기는-현상을-막는다.">
+<a class="anchor" href="#----R-%EC%86%8C%EC%8A%A4%EA%B0%80-%EA%B0%80%EB%A1%9C%EB%A1%9C-%EA%B8%B8%EA%B2%8C-%EB%8A%98%EC%96%B4%EC%A0%B8-%EC%8A%A4%ED%81%AC%EB%A1%A4%EB%B0%94%EA%B0%80-%EC%83%9D%EA%B8%B0%EB%8A%94-%ED%98%84%EC%83%81%EC%9D%84-%EB%A7%89%EB%8A%94%EB%8B%A4." aria-hidden="true"><span class="octicon octicon-link"></span></a>  - R 소스가 가로로 길게 늘어져 스크롤바가 생기는 현상을 막는다.<a class="anchor-link" href="#----R-%EC%86%8C%EC%8A%A4%EA%B0%80-%EA%B0%80%EB%A1%9C%EB%A1%9C-%EA%B8%B8%EA%B2%8C-%EB%8A%98%EC%96%B4%EC%A0%B8-%EC%8A%A4%ED%81%AC%EB%A1%A4%EB%B0%94%EA%B0%80-%EC%83%9D%EA%B8%B0%EB%8A%94-%ED%98%84%EC%83%81%EC%9D%84-%EB%A7%89%EB%8A%94%EB%8B%A4."> </a>
+</h2>
+</li>
 </ul>
 <h1 id="R-project-생성">
 <a class="anchor" href="#R-project-%EC%83%9D%EC%84%B1" aria-hidden="true"><span class="octicon octicon-link"></span></a>R project 생성<a class="anchor-link" href="#R-project-%EC%83%9D%EC%84%B1"> </a>
@@ -460,6 +501,8 @@ window.onload = wrap_img;
 <div class="highlight"><pre><span></span><span class="nf">getwd</span><span class="p">()</span>
 </pre></div>
 <p><img src="/dohk/images/copied_from_nb/../images/2020-11-06-r-1/Untitled6.png" alt=""></p>
+<div class="highlight"><pre><span></span><span class="nf">setwd</span><span class="p">()</span>
+</pre></div>
 <h1 id="package-설치">
 <a class="anchor" href="#package-%EC%84%A4%EC%B9%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>package 설치<a class="anchor-link" href="#package-%EC%84%A4%EC%B9%98"> </a>
 </h1>
@@ -2043,6 +2086,43 @@ log(y)</code></pre>
 <span class="n">df</span>
 </pre></div>
 <p><img src="/dohk/images/copied_from_nb/../images/2020-11-06-r-1/Untitled84.png" alt=""></p>
+<h1 id="지저분한-데이터-처리">
+<a class="anchor" href="#%EC%A7%80%EC%A0%80%EB%B6%84%ED%95%9C-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%B2%98%EB%A6%AC" aria-hidden="true"><span class="octicon octicon-link"></span></a>지저분한 데이터 처리<a class="anchor-link" href="#%EC%A7%80%EC%A0%80%EB%B6%84%ED%95%9C-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%B2%98%EB%A6%AC"> </a>
+</h1>
+<p>데이터 분석 시간보다는 데이터를 처리하는 시간이 더 길다. 즉, 데이터를 분석하는 시간보다 데이터를 정리하는 시간이 더 길다. 데이터 처리에 쓰이는 대표적인 패키지는 <code>tidyr</code>이다. 데이터를 빠르게 정리할 수 있게 한다. 어떤 자료를 찾거나 바꿀 때 사용되는 패키지는 <code>dplyr</code>이다.</p>
+<div class="highlight"><pre><span></span><span class="nf">install.packages</span><span class="p">(</span><span class="s">"tidyr"</span><span class="p">)</span>
+<span class="nf">install.packages</span><span class="p">(</span><span class="s">"dplyr"</span><span class="p">)</span>
+</pre></div>
+<div class="highlight"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">tidyr</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">dplyr</span><span class="p">)</span>
+</pre></div>
+<p>사용할 데이터는 다음과 같다.</p>
+<div class="highlight"><pre><span></span><span class="n">member</span> <span class="o">&lt;-</span> <span class="nf">data.frame</span><span class="p">(</span><span class="n">family</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">),</span> <span class="n">namef</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">"a"</span><span class="p">,</span> <span class="s">"b"</span><span class="p">,</span> <span class="s">"c"</span><span class="p">),</span> <span class="n">agef</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">30</span><span class="p">,</span> <span class="m">40</span><span class="p">,</span> <span class="m">23</span><span class="p">),</span> <span class="n">namem</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">"d"</span><span class="p">,</span> <span class="s">"e"</span><span class="p">,</span> <span class="s">"f"</span><span class="p">),</span> <span class="n">agem</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">44</span><span class="p">,</span> <span class="m">53</span><span class="p">,</span> <span class="m">25</span><span class="p">))</span>
+<span class="n">member</span>
+</pre></div>
+
+<pre><code>  family namef agef namem agem
+1      1     a   30     d   44
+2      2     b   40     e   53
+3      3     c   23     f   25</code></pre>
+<p>f는 여자, m은 남자를 의미한다. 1번 가족엔 누가 있는가 등을 알기는 쉽지만, 데이터 분석이나 그래프를 그릴 땐 처리가 필요하다.</p>
+<div class="highlight"><pre><span></span><span class="nf">gather</span><span class="p">(</span><span class="n">member</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">namef</span><span class="o">:</span><span class="n">agem</span><span class="p">)</span>
+</pre></div>
+<p>gahter() 함수는 값을 길게 뽑아낸다.</p>
+
+<pre><code>   family   key value
+1       1 namef     a
+2       2 namef     b
+3       3 namef     c
+4       1  agef    30
+5       2  agef    40
+6       3  agef    23
+7       1 namem     d
+8       2 namem     e
+9       3 namem     f
+10      1  agem    44
+11      2  agem    53
+12      3  agem    25</code></pre>
 <h1 id="함수">
 <a class="anchor" href="#%ED%95%A8%EC%88%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>함수<a class="anchor-link" href="#%ED%95%A8%EC%88%98"> </a>
 </h1>
