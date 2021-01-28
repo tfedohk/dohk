@@ -81,7 +81,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      35 min read
+      40 min read
     
 </span></p>
 
@@ -117,7 +117,12 @@ window.onload = wrap_img;
 </ul>
 </li>
 <li class="toc-entry toc-h1"><a href="#R-project-생성">R project 생성 </a></li>
-<li class="toc-entry toc-h1"><a href="#package-설치">package 설치 </a></li>
+<li class="toc-entry toc-h1"><a href="#java-설치">java 설치 </a></li>
+<li class="toc-entry toc-h1"><a href="#package-설치-및-활용">package 설치 및 활용 </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#명령어를-사용하여-패키지의-설치,-import-및-un-import,-제거">명령어를 사용하여 패키지의 설치, import 및 un-import, 제거 </a></li>
+</ul>
+</li>
 <li class="toc-entry toc-h1"><a href="#사칙-연산:-나머지(-%%-)">사칙 연산: 나머지( %% ) </a></li>
 <li class="toc-entry toc-h1"><a href="#논리-연산:-OR(-|-),-AND(-&-)">논리 연산: OR( | ), AND( &amp; ) </a>
 <ul>
@@ -182,6 +187,7 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h3"><a href="#rnorm()">rnorm() </a></li>
 <li class="toc-entry toc-h3"><a href="#기술통계">기술통계 </a></li>
 <li class="toc-entry toc-h3"><a href="#class()">class() </a></li>
+<li class="toc-entry toc-h3"><a href="#typeof()">typeof() </a></li>
 <li class="toc-entry toc-h3"><a href="#tolower()">tolower() </a></li>
 <li class="toc-entry toc-h3"><a href="#toupper()">toupper() </a></li>
 <li class="toc-entry toc-h3"><a href="#substr(str,-start,-stop)">substr(str, start, stop) </a></li>
@@ -204,22 +210,46 @@ window.onload = wrap_img;
 </li>
 <li class="toc-entry toc-h1"><a href="#자료형">자료형 </a>
 <ul>
+<li class="toc-entry toc-h2"><a href="#자료형-개요">자료형 개요 </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#R의-기본-데이터-유형">R의 기본 데이터 유형 </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#벡터">벡터 </a></li>
+<li class="toc-entry toc-h4"><a href="#NULL">NULL </a></li>
+<li class="toc-entry toc-h4"><a href="#원자-벡터">원자 벡터 </a></li>
+<li class="toc-entry toc-h4"><a href="#리스트">리스트 </a></li>
+<li class="toc-entry toc-h4"><a href="#기본-데이터-타입">기본 데이터 타입 </a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toc-entry toc-h2"><a href="#기본-자료형">기본 자료형 </a></li>
 <li class="toc-entry toc-h2"><a href="#그-외-자료형">그 외 자료형 </a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h1"><a href="#자료형:-벡터(vector)">자료형: 벡터(vector) </a>
 <ul>
-<li class="toc-entry toc-h2"><a href="#vector-생성">vector 생성 </a></li>
+<li class="toc-entry toc-h2"><a href="#vector-생성">vector 생성 </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#key-value">key-value </a></li>
+</ul>
+</li>
 <li class="toc-entry toc-h2"><a href="#vector를-변수에-저장">vector를 변수에 저장 </a></li>
-<li class="toc-entry toc-h2"><a href="#여러-자료형이-섞이면-무조건-character로-인식한다.">여러 자료형이 섞이면 무조건 character로 인식한다. </a></li>
+<li class="toc-entry toc-h2"><a href="#강제-형변환">강제 형변환 </a></li>
 <li class="toc-entry toc-h2"><a href="#벡터-간-연결">벡터 간 연결 </a></li>
 <li class="toc-entry toc-h2"><a href="#벡터-값-호출">벡터 값 호출 </a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#조건부-값-호출">조건부 값 호출 </a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#인덱싱-연산">인덱싱 연산 </a></li>
+<li class="toc-entry toc-h2"><a href="#데이터의-일부만-사용하기">데이터의 일부만 사용하기 </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#데이터의-일부만-사용하기:-서브셋(subset)">데이터의 일부만 사용하기: 서브셋(subset) </a></li>
+<li class="toc-entry toc-h3"><a href="#숫자형-데이터의-일부만-사용하기:-인덱싱(indexing)">숫자형 데이터의 일부만 사용하기: 인덱싱(indexing) </a></li>
+<li class="toc-entry toc-h3"><a href="#글자형-데이터의-일부만-사용하기">글자형 데이터의 일부만 사용하기 </a></li>
+<li class="toc-entry toc-h3"><a href="#강제로-데이터의-길이가-맞춰짐">강제로 데이터의 길이가 맞춰짐 </a></li>
+</ul>
+</li>
 <li class="toc-entry toc-h2"><a href="#벡터-연산">벡터 연산 </a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#벡터-내-연산">벡터 내 연산 </a></li>
@@ -333,6 +363,7 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h1"><a href="#조건문">조건문 </a></li>
 <li class="toc-entry toc-h1"><a href="#File-Read-&-Write">File Read &amp; Write </a>
 <ul>
+<li class="toc-entry toc-h2"><a href="#saveRDS,-readRDS">saveRDS, readRDS </a></li>
 <li class="toc-entry toc-h2"><a href="#File-Read">File Read </a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#실습-코드-1">실습 코드 1 </a></li>
@@ -510,8 +541,8 @@ window.onload = wrap_img;
 <p><img src="/dohk/images/copied_from_nb/../images/2020-11-06-r-1/Untitled6.png" alt=""></p>
 <div class="highlight"><pre><span></span><span class="nf">setwd</span><span class="p">()</span>
 </pre></div>
-<h1 id="package-설치">
-<a class="anchor" href="#package-%EC%84%A4%EC%B9%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>package 설치<a class="anchor-link" href="#package-%EC%84%A4%EC%B9%98"> </a>
+<h1 id="java-설치">
+<a class="anchor" href="#java-%EC%84%A4%EC%B9%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>java 설치<a class="anchor-link" href="#java-%EC%84%A4%EC%B9%98"> </a>
 </h1>
 <p>맥에서는 자바 설치가 필요하다.</p>
 <div class="highlight"><pre><span></span>java -version
@@ -523,6 +554,22 @@ window.onload = wrap_img;
 <p>JDK Download를 눌러준 다음,</p>
 <p><img src="/dohk/images/copied_from_nb/../images/2020-11-06-r-1/Untitled9.png" alt=""></p>
 <p>macOS Installer에 해당하는 dmg파일을 다운로드 후 설치를 진행한다.</p>
+<h1 id="package-설치-및-활용">
+<a class="anchor" href="#package-%EC%84%A4%EC%B9%98-%EB%B0%8F-%ED%99%9C%EC%9A%A9" aria-hidden="true"><span class="octicon octicon-link"></span></a>package 설치 및 활용<a class="anchor-link" href="#package-%EC%84%A4%EC%B9%98-%EB%B0%8F-%ED%99%9C%EC%9A%A9"> </a>
+</h1>
+<p>R에서는 두 가지 방식의 패키지 설치 방법이 있다. 오른쪽 아래의 package 영역을 클릭하면 현재 설치되어 있는 패키지들의 목록을 확인할 수 있다. install, update 그리고 오른쪽에 검색 영역과 새로 고침 영역이 보이며, 그 아래로 패키지들의 목록이 있다. 패키지 이름 옆에는 체크가 되어 있는 상태의 패키지들이 있고 없는 것들도 있는데, 체크할 시 해당 패키지의 함수를 사용가능하게 된다. 패키지를 제거하거자 한다면 맨 오른쪽 X 버튼을 누른다.</p>
+<p><img src="/dohk/images/copied_from_nb/../images/2021-01-25-r-3/Untitled3.png" alt=""></p>
+<p>패키지를 설치하고자 할 땐, install 버튼을 누른다. install 버튼을 누르면 아래와 같은 창이 뜬다.</p>
+<p><img src="/dohk/images/copied_from_nb/../images/2021-01-25-r-3/Untitled4.png" alt=""></p>
+<p>install from에서 두 가지 방식을 선택할 수 있다. 인터넷을 통해 설치가 가능하다면, R 개발팀에서 관리하는Repository(CRAN)을 선택하며 대부분의 경우에 해당한다. 만약, 사내망을 이용하거나 보안을 이유로 인터넷 사용이 불가능한 환경이라면 패키지 설치 파일을 별도로 준비하여 Packages Archive 옵션을 선택하여 설치를 진행한다.</p>
+<h2 id="명령어를-사용하여-패키지의-설치,-import-및-un-import,-제거">
+<a class="anchor" href="#%EB%AA%85%EB%A0%B9%EC%96%B4%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%98%EC%97%AC-%ED%8C%A8%ED%82%A4%EC%A7%80%EC%9D%98-%EC%84%A4%EC%B9%98,-import-%EB%B0%8F-un-import,-%EC%A0%9C%EA%B1%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>명령어를 사용하여 패키지의 설치, import 및 un-import, 제거<a class="anchor-link" href="#%EB%AA%85%EB%A0%B9%EC%96%B4%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%98%EC%97%AC-%ED%8C%A8%ED%82%A4%EC%A7%80%EC%9D%98-%EC%84%A4%EC%B9%98,-import-%EB%B0%8F-un-import,-%EC%A0%9C%EA%B1%B0"> </a>
+</h2>
+<div class="highlight"><pre><span></span><span class="nf">install.packages</span><span class="p">(</span><span class="s">"zoo"</span><span class="p">)</span> <span class="c1"># package의 설치</span>
+<span class="nf">library</span><span class="p">(</span><span class="s">"zoo"</span><span class="p">)</span> <span class="c1"># 프로젝트에서 해당 패키지의 함수 이용 가능한 상태로 만들기</span>
+<span class="nf">detach</span><span class="p">(</span><span class="s">"package:zoo"</span><span class="p">),</span> <span class="n">unload</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span> <span class="c1"># 프로젝트에서 더이상 해당 패키지를 사용하지 않음</span>
+<span class="nf">remove.packages</span><span class="p">(</span><span class="s">"zoo"</span><span class="p">)</span> <span class="c1"># 패키지 제거</span>
+</pre></div>
 <h1 id="사칙-연산:-나머지(-%%-)">
 <a class="anchor" href="#%EC%82%AC%EC%B9%99-%EC%97%B0%EC%82%B0:-%EB%82%98%EB%A8%B8%EC%A7%80(-%%-)" aria-hidden="true"><span class="octicon octicon-link"></span></a>사칙 연산: 나머지( %% )<a class="anchor-link" href="#%EC%82%AC%EC%B9%99-%EC%97%B0%EC%82%B0:-%EB%82%98%EB%A8%B8%EC%A7%80(-%%-)"> </a>
 </h1>
@@ -1071,6 +1118,61 @@ log(y)</code></pre>
 <div class="highlight"><pre><span></span><span class="nf">class</span><span class="p">(</span><span class="n">var3</span><span class="p">)</span>
 </pre></div>
 <p>"logical"</p>
+<h3 id="typeof()">
+<a class="anchor" href="#typeof()" aria-hidden="true"><span class="octicon octicon-link"></span></a>typeof()<a class="anchor-link" href="#typeof()"> </a>
+</h3>
+<p>typeof() 함수는 원시 자료형을 표현해준다. 원시 자료형이란, R에서 취급하는 일반적인 자료형의 모든 형태를 지칭한다. 예를 들어 다음과 같은 것들이 있다.
+NULL: 데이터가 없는 경우
+Logical: 불리언, 참 또는 거짓
+Integer: 정수
+Double: 부동소수점 실수
+Complex: 복소수
+Character: 문자열
+List: 리스트
+Closure: 함수</p>
+<p>반면, class()는 객체지향 관점에서의 자료형을 말한다. 모든 객체는 추상자료형인 '클래스'를 갖는다. 거리, 시간의 한 지점 또는 무게 등 어떤 하나의 숫자로 나타낼 수 있는 것의 종류가 많다. 이 객체들은 모두 숫자로 저장되기 때문에 '수치형'이라는 모드를 가지지만, 각각 해석방법이 다르므로, 클래스는 상이할 수 있다. R 에서 클래스는 변수가 가지는 하나의 속성이다. 따라서 자료형과 클래스는 같은 값을 가지지 않을 수도 있다.
+특히 다음과 같은 점에서 차이가 난다.</p>
+<ul>
+<li>부동소수점 실수의 자료형은 double 이지만 클래스는 numeric 이다.</li>
+<li>함수의 자료형은 closure 이지만 클래스는 function 이다.</li>
+<li>matrix, data.frame 등의 클래스 객체나 사용자 정의 클래스의 자료형은 list 이다.</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">&lt;-</span> <span class="s">'a'</span>
+<span class="nf">typeof</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="c1"># "double"</span>
+<span class="nf">class</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="c1"># "numeric"</span>
+<span class="nf">typeof</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="c1"># "character"</span>
+<span class="nf">class</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="c1"># "character"</span>
+<span class="nf">typeof</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">==</span> <span class="nf">class</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="c1"># FALSE</span>
+<span class="nf">typeof</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">==</span> <span class="nf">typeof</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="c1"># FALSE</span>
+<span class="nf">class</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">==</span> <span class="nf">class</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="c1"># FALSE</span>
+</pre></div>
+<div class="highlight"><pre><span></span><span class="n">lgl_v</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="bp">T</span><span class="p">,</span> <span class="bp">F</span><span class="p">,</span> <span class="kc">TRUE</span><span class="p">,</span> <span class="kc">FALSE</span><span class="p">)</span>
+<span class="n">lgl_v</span> <span class="c1"># TRUE FALSE TRUE FALSE</span>
+<span class="nf">typeof</span><span class="p">(</span><span class="n">lgl_v</span><span class="p">)</span> <span class="c1"># "logical"</span>
+</pre></div>
+<div class="highlight"><pre><span></span><span class="nf">typeof</span><span class="p">(</span><span class="m">1</span><span class="p">)</span> <span class="c1"># "double"; 실수형을 숫자형 중 기본 자료형으로 갖는다. </span>
+<span class="nf">typeof</span><span class="p">(</span><span class="m">1L</span><span class="p">)</span> <span class="c1"># "integer"; 정수형으로 강제로 만들기 위해서는 끝에 L을 붙인다.</span>
+</pre></div>
+<div class="highlight"><pre><span></span><span class="nf">c</span><span class="p">(</span><span class="m">10</span><span class="o">/</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="o">/</span><span class="m">0</span><span class="p">,</span> <span class="kc">NA</span><span class="p">)</span> <span class="c1"># Inf NaN NA</span>
+</pre></div>
+<ul>
+<li>Inf: 무한대</li>
+<li>NaN: Not a Number. NaN도 자료형의 일종이다.</li>
+<li>NA: Not Available. 필요한 값이 있으나 값을 넣을 수 없는 상태 또는 사용할 수 없는 상태를 말한다. 즉, 결측치를 의미한다.<ul>
+<li>NaN과 NA를 의미상 구분하는 것은 의미가 없다. NA를 주로 쓰는 편이다.</li>
+</ul>
+</li>
+<li>NULL: 값이 없음을 의미한다.</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="m">0</span><span class="o">/</span><span class="m">0</span> <span class="o">==</span> <span class="kc">NaN</span> <span class="c1"># FALSE</span>
+<span class="nf">is.nan</span><span class="p">(</span><span class="m">0</span><span class="o">/</span><span class="m">0</span><span class="p">)</span> <span class="c1"># TRUE</span>
+<span class="p">[</span><span class="n">is.na</span><span class="p">](</span><span class="n">http</span><span class="o">://</span><span class="n">is.na</span><span class="o">/</span><span class="p">)(</span><span class="m">0</span><span class="o">/</span><span class="m">0</span><span class="p">)</span> <span class="c1"># TRUE</span>
+</pre></div>
+<div class="highlight"><pre><span></span><span class="nf">length</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="kc">NA</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="s">"3"</span><span class="p">))</span> <span class="c1">#4</span>
+<span class="nf">length</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="kc">NA</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="kc">NaN</span><span class="p">))</span> <span class="c1">#3</span>
+<span class="nf">length</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="kc">NA</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="kc">NULL</span><span class="p">))</span> <span class="c1">#3</span>
+</pre></div>
 <h3 id="tolower()">
 <a class="anchor" href="#tolower()" aria-hidden="true"><span class="octicon octicon-link"></span></a>tolower()<a class="anchor-link" href="#tolower()"> </a>
 </h3>
@@ -1266,6 +1368,41 @@ log(y)</code></pre>
 <h1 id="자료형">
 <a class="anchor" href="#%EC%9E%90%EB%A3%8C%ED%98%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>자료형<a class="anchor-link" href="#%EC%9E%90%EB%A3%8C%ED%98%95"> </a>
 </h1>
+<h2 id="자료형-개요">
+<a class="anchor" href="#%EC%9E%90%EB%A3%8C%ED%98%95-%EA%B0%9C%EC%9A%94" aria-hidden="true"><span class="octicon octicon-link"></span></a>자료형 개요<a class="anchor-link" href="#%EC%9E%90%EB%A3%8C%ED%98%95-%EA%B0%9C%EC%9A%94"> </a>
+</h2>
+<h3 id="R의-기본-데이터-유형">
+<a class="anchor" href="#R%EC%9D%98-%EA%B8%B0%EB%B3%B8-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%9C%A0%ED%98%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>R의 기본 데이터 유형<a class="anchor-link" href="#R%EC%9D%98-%EA%B8%B0%EB%B3%B8-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%9C%A0%ED%98%95"> </a>
+</h3>
+<p><img src="/dohk/images/copied_from_nb/../images/2021-01-25-r-3/Untitled5.png" alt=""></p>
+<p>전체적으로는 벡터라는 용어를 사용하며, 벡터는 리스트와 원자 벡터로 이루어져 있다.</p>
+<h4 id="벡터">
+<a class="anchor" href="#%EB%B2%A1%ED%84%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>벡터<a class="anchor-link" href="#%EB%B2%A1%ED%84%B0"> </a>
+</h4>
+<p>벡터란, 한 개 이상의 데이터의 묶음을 말한다. 데이터가 한 개여도 되고 여러 개여도 된다. 묶여 있으면 벡터이며, 대부분의 데이터를 벡터라고 부른다.</p>
+<p><img src="/dohk/images/copied_from_nb/../images/2021-01-25-r-3/Untitled6.png" alt=""></p>
+<h4 id="NULL">
+<a class="anchor" href="#NULL" aria-hidden="true"><span class="octicon octicon-link"></span></a>NULL<a class="anchor-link" href="#NULL"> </a>
+</h4>
+<p>NULL은 데이터가 없음을 뜻한다. 이미 존재하는 데이터를 '없다'고 표현하기 위해 주로 사용된다.</p>
+<p><img src="/dohk/images/copied_from_nb/../images/2021-01-25-r-3/Untitled7.png" alt=""></p>
+<h4 id="원자-벡터">
+<a class="anchor" href="#%EC%9B%90%EC%9E%90-%EB%B2%A1%ED%84%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>원자 벡터<a class="anchor-link" href="#%EC%9B%90%EC%9E%90-%EB%B2%A1%ED%84%B0"> </a>
+</h4>
+<p>원자 벡터란 모두 같은 종류의 데이터를 가지고 있는 데이터의 묶음을 말한다. 기본 단위에 해당되는 데이터라는 의미에서 atomic이라는 단어가 붙었다.</p>
+<p><img src="/dohk/images/copied_from_nb/../images/2021-01-25-r-3/Untitled8.png" alt=""></p>
+<h4 id="리스트">
+<a class="anchor" href="#%EB%A6%AC%EC%8A%A4%ED%8A%B8" aria-hidden="true"><span class="octicon octicon-link"></span></a>리스트<a class="anchor-link" href="#%EB%A6%AC%EC%8A%A4%ED%8A%B8"> </a>
+</h4>
+<p>리스트는 다양한 종류의 데이터 타입을 한 꺼번에 가질 수 있는 데이터의 묶음이다.</p>
+<p><img src="/dohk/images/copied_from_nb/../images/2021-01-25-r-3/Untitled9.png" alt=""></p>
+<h4 id="기본-데이터-타입">
+<a class="anchor" href="#%EA%B8%B0%EB%B3%B8-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%80%EC%9E%85" aria-hidden="true"><span class="octicon octicon-link"></span></a>기본 데이터 타입<a class="anchor-link" href="#%EA%B8%B0%EB%B3%B8-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%80%EC%9E%85"> </a>
+</h4>
+<p>원자 벡터 내에는 논리형, 숫자형, 글자형 크게 세 가지로, 숫자형을 더 세분화하여 네 가지로 나눌 수 있다; 논리형, 정수형, 실수형, 글자형</p>
+<p><img src="/dohk/images/copied_from_nb/../images/2021-01-25-r-3/Untitled10.png" alt=""></p>
+<p>정수형과 실수형을 함께 숫자형이라고 한다. 실수를 기본으로 한다.</p>
+<p><img src="/dohk/images/copied_from_nb/../images/2021-01-25-r-3/Untitled11.png" alt=""></p>
 <h2 id="기본-자료형">
 <a class="anchor" href="#%EA%B8%B0%EB%B3%B8-%EC%9E%90%EB%A3%8C%ED%98%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>기본 자료형<a class="anchor-link" href="#%EA%B8%B0%EB%B3%B8-%EC%9E%90%EB%A3%8C%ED%98%95"> </a>
 </h2>
@@ -1293,6 +1430,7 @@ log(y)</code></pre>
 <h1 id="자료형:-벡터(vector)">
 <a class="anchor" href="#%EC%9E%90%EB%A3%8C%ED%98%95:-%EB%B2%A1%ED%84%B0(vector)" aria-hidden="true"><span class="octicon octicon-link"></span></a>자료형: 벡터(vector)<a class="anchor-link" href="#%EC%9E%90%EB%A3%8C%ED%98%95:-%EB%B2%A1%ED%84%B0(vector)"> </a>
 </h1>
+<p>단일 자료형을 갖는 것을 벡터라고 한다.</p>
 <p>vector 자료형을 생성하는 방법:  <code>c()</code>함수 이용. c: combine의 약어</p>
 <p>vector의 생성은 <code>()</code>, 호출은 <code>[]</code></p>
 <h2 id="vector-생성">
@@ -1307,6 +1445,25 @@ log(y)</code></pre>
 <div class="highlight"><pre><span></span><span class="nf">c</span><span class="p">(</span><span class="kc">TRUE</span><span class="p">,</span> <span class="kc">FALSE</span><span class="p">,</span> <span class="kc">TRUE</span><span class="p">)</span>
 </pre></div>
 <p>TRUE FALSE  TRUE</p>
+<h3 id="key-value">
+<a class="anchor" href="#key-value" aria-hidden="true"><span class="octicon octicon-link"></span></a>key-value<a class="anchor-link" href="#key-value"> </a>
+</h3>
+<p>모든 벡터 내의 요소는 이름을 가질 수 있다. 즉, key-value의 쌍을 지을 수 있는데, key가 벡터 내의 요소의 이름, value가 요소의 값이다. 형식은 다음과 같다.</p>
+
+<pre><code>key = value</code></pre>
+<p>key는 이름이므로, 따옴표를 넣을 수도, 생략할 수 있다. 단, 이는 선택 사항이며 key를 명시하지 않아도 벡터를 생성하는 데에는 지장이 없다.</p>
+<div class="highlight"><pre><span></span><span class="n">var.1</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">"a"</span> <span class="o">=</span> <span class="s">"k"</span><span class="p">)</span>
+<span class="n">var.1</span>
+</pre></div>
+
+<pre><code>a
+"k"</code></pre>
+<div class="highlight"><pre><span></span><span class="n">var.2</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="n">col1</span> <span class="o">=</span> <span class="s">"k"</span><span class="p">,</span> <span class="n">col2</span> <span class="o">=</span> <span class="s">"kk"</span><span class="p">,</span> <span class="n">col3</span> <span class="o">=</span> <span class="s">"kkk"</span><span class="p">)</span>
+<span class="n">var.2</span>
+</pre></div>
+
+<pre><code>col1   col2   col3
+"k"    "kk"   "kkk"</code></pre>
 <h2 id="vector를-변수에-저장">
 <a class="anchor" href="#vector%EB%A5%BC-%EB%B3%80%EC%88%98%EC%97%90-%EC%A0%80%EC%9E%A5" aria-hidden="true"><span class="octicon octicon-link"></span></a>vector를 변수에 저장<a class="anchor-link" href="#vector%EB%A5%BC-%EB%B3%80%EC%88%98%EC%97%90-%EC%A0%80%EC%9E%A5"> </a>
 </h2>
@@ -1323,9 +1480,25 @@ log(y)</code></pre>
 <div class="highlight"><pre><span></span><span class="n">var3</span>
 </pre></div>
 <p>TRUE FALSE  TRUE</p>
-<h2 id="여러-자료형이-섞이면-무조건-character로-인식한다.">
-<a class="anchor" href="#%EC%97%AC%EB%9F%AC-%EC%9E%90%EB%A3%8C%ED%98%95%EC%9D%B4-%EC%84%9E%EC%9D%B4%EB%A9%B4-%EB%AC%B4%EC%A1%B0%EA%B1%B4-character%EB%A1%9C-%EC%9D%B8%EC%8B%9D%ED%95%9C%EB%8B%A4." aria-hidden="true"><span class="octicon octicon-link"></span></a>여러 자료형이 섞이면 무조건 character로 인식한다.<a class="anchor-link" href="#%EC%97%AC%EB%9F%AC-%EC%9E%90%EB%A3%8C%ED%98%95%EC%9D%B4-%EC%84%9E%EC%9D%B4%EB%A9%B4-%EB%AC%B4%EC%A1%B0%EA%B1%B4-character%EB%A1%9C-%EC%9D%B8%EC%8B%9D%ED%95%9C%EB%8B%A4."> </a>
+<h2 id="강제-형변환">
+<a class="anchor" href="#%EA%B0%95%EC%A0%9C-%ED%98%95%EB%B3%80%ED%99%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>강제 형변환<a class="anchor-link" href="#%EA%B0%95%EC%A0%9C-%ED%98%95%EB%B3%80%ED%99%98"> </a>
 </h2>
+<p>벡터는 단일 자료형을 가져야 한다. 따라서 관례적으로 R에서 강제로 형변환을 시키는데, 정보가 없어지지 않는 방향으로 변환된다; 논리형 → 숫자형 → 글자형 방향으로 바뀐다.</p>
+<div class="highlight"><pre><span></span><span class="n">tem</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="bp">T</span><span class="p">,</span> <span class="bp">F</span><span class="p">,</span> <span class="kc">TRUE</span><span class="p">)</span>
+<span class="n">tem</span> <span class="c1"># 1 1 0 1</span>
+<span class="nf">typeof</span><span class="p">(</span><span class="n">tem</span><span class="p">)</span> <span class="c1"># "double"</span>
+</pre></div>
+<p>logical 값들이 강제로 double 값(숫자형 중 기본값인 실수형 값)들로 바뀐 것을 확인할 수 있다(논리형 → 숫자형).</p>
+<div class="highlight"><pre><span></span><span class="n">tem</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">"글자"</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">-1</span><span class="p">)</span>
+<span class="n">tem</span> <span class="c1"># "글자" "1" "-1"</span>
+<span class="nf">typeof</span><span class="p">(</span><span class="n">tem</span><span class="p">)</span> <span class="c1"># "character"</span>
+</pre></div>
+<p>double 값들이 강제로 character 값(숫자형 중 기본값인 실수형 값)들로 바뀐 것을 확인할 수 있다(숫자형 → 글자형).</p>
+<div class="highlight"><pre><span></span><span class="n">tem</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">"글자"</span><span class="p">,</span> <span class="bp">T</span><span class="p">,</span> <span class="kc">FALSE</span><span class="p">)</span>
+<span class="n">tem</span> <span class="c1"># "글자" "TRUE" "FALSE"</span>
+<span class="nf">typeof</span><span class="p">(</span><span class="n">tem</span><span class="p">)</span> <span class="c1"># "character"</span>
+</pre></div>
+<p>logical 값들이 강제로 character 값(숫자형 중 기본값인 실수형 값)들로 바뀐 것을 확인할 수 있다(논리형 → 글자형). 이 경우에는 도중에 숫자형으로 변환되지 않은 채, 바뀐다. 따라서, 여러 자료형이 섞인 경우에는 무조건 character로 변환된다.</p>
 <div class="highlight"><pre><span></span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="s">"one"</span><span class="p">,</span> <span class="kc">TRUE</span><span class="p">)</span>
 </pre></div>
 <p>"1"    "one"  "TRUE"</p>
@@ -1381,26 +1554,61 @@ log(y)</code></pre>
 </pre></div>
 <p>4 5 6</p>
 <p><code>&gt;</code> 연산자 자체는 Logical 자료형의 형태로 결과를 출력한다. <code>[]</code>와 함께 <code>&gt;</code> 연산자를 함께 사용하면, 값 자체에 대한 조건에 맞는 결과를 출력한다.</p>
-<h2 id="인덱싱-연산">
-<a class="anchor" href="#%EC%9D%B8%EB%8D%B1%EC%8B%B1-%EC%97%B0%EC%82%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>인덱싱 연산<a class="anchor-link" href="#%EC%9D%B8%EB%8D%B1%EC%8B%B1-%EC%97%B0%EC%82%B0"> </a>
+<h2 id="데이터의-일부만-사용하기">
+<a class="anchor" href="#%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%9D%98-%EC%9D%BC%EB%B6%80%EB%A7%8C-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>데이터의 일부만 사용하기<a class="anchor-link" href="#%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%9D%98-%EC%9D%BC%EB%B6%80%EB%A7%8C-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0"> </a>
 </h2>
-<p>파이썬과는 다르게 인덱싱 연산에서 차이가 있다. 파이썬은 from(included), to(excluded)인 반면, R은 from과 to 모두 included다. 또한 <code>-</code>기호에도 차이가 있는데, 파이썬에서는 뒤에서부터 호출하게 하는 연산자라면, R에서는 제외시키는 연산자다.</p>
-<div class="highlight"><pre><span></span><span class="n">var</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">"a"</span><span class="p">,</span> <span class="s">"b"</span><span class="p">,</span> <span class="s">"c"</span><span class="p">)</span>
-<span class="n">var</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">]</span>
+<h3 id="데이터의-일부만-사용하기:-서브셋(subset)">
+<a class="anchor" href="#%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%9D%98-%EC%9D%BC%EB%B6%80%EB%A7%8C-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0:-%EC%84%9C%EB%B8%8C%EC%85%8B(subset)" aria-hidden="true"><span class="octicon octicon-link"></span></a>데이터의 일부만 사용하기: 서브셋(subset)<a class="anchor-link" href="#%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%9D%98-%EC%9D%BC%EB%B6%80%EB%A7%8C-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0:-%EC%84%9C%EB%B8%8C%EC%85%8B(subset)"> </a>
+</h3>
+<div class="highlight"><pre><span></span><span class="n">subs</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">"하나"</span><span class="p">,</span> <span class="s">"둘"</span><span class="p">,</span> <span class="s">"셋"</span><span class="p">,</span> <span class="s">"넷"</span><span class="p">,</span> <span class="s">"다섯"</span><span class="p">)</span>
+<span class="n">subs</span><span class="p">[</span><span class="nf">c</span><span class="p">(</span><span class="bp">T</span><span class="p">,</span><span class="bp">F</span><span class="p">,</span><span class="bp">T</span><span class="p">,</span><span class="bp">F</span><span class="p">,</span><span class="bp">T</span><span class="p">)]</span> <span class="c1"># "하나" "셋" "다섯"</span>
+<span class="n">subs</span><span class="p">[</span><span class="nf">c</span><span class="p">(</span><span class="bp">T</span><span class="p">,</span><span class="bp">F</span><span class="p">)]</span> <span class="c1"># "하나" "셋" "다섯"; 부족하게 입력할 시, 재사용 규칙에 의해 T,F,T,F,T가 적용된다.</span>
+<span class="n">subs</span><span class="p">[</span><span class="nf">c</span><span class="p">(</span><span class="bp">T</span><span class="p">,</span><span class="bp">F</span><span class="p">,</span><span class="bp">T</span><span class="p">,</span><span class="bp">F</span><span class="p">,</span><span class="bp">T</span><span class="p">,</span><span class="bp">T</span><span class="p">,</span><span class="bp">T</span><span class="p">)]</span> <span class="c1"># "하나" "셋" "다섯" NA NA; 더 많이 입력할 시, Not Available이 뜬다.</span>
 </pre></div>
-<p>"a" "b"</p>
-<div class="highlight"><pre><span></span><span class="n">var</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">]</span>
+<h3 id="숫자형-데이터의-일부만-사용하기:-인덱싱(indexing)">
+<a class="anchor" href="#%EC%88%AB%EC%9E%90%ED%98%95-%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%9D%98-%EC%9D%BC%EB%B6%80%EB%A7%8C-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0:-%EC%9D%B8%EB%8D%B1%EC%8B%B1(indexing)" aria-hidden="true"><span class="octicon octicon-link"></span></a>숫자형 데이터의 일부만 사용하기: 인덱싱(indexing)<a class="anchor-link" href="#%EC%88%AB%EC%9E%90%ED%98%95-%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%9D%98-%EC%9D%BC%EB%B6%80%EB%A7%8C-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0:-%EC%9D%B8%EB%8D%B1%EC%8B%B1(indexing)"> </a>
+</h3>
+<div class="highlight"><pre><span></span><span class="n">subs</span><span class="p">[</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">)]</span> <span class="c1"># "하나" "둘" "셋"</span>
+<span class="n">subs</span><span class="p">[</span><span class="nf">c</span><span class="p">(</span><span class="m">3</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">1</span><span class="p">)]</span> <span class="c1"># "셋" "둘" "하나"</span>
+<span class="n">subs</span><span class="p">[</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">)]</span> <span class="c1"># "하나" "하나" "하나" "하나" "하나"</span>
+<span class="n">subs</span><span class="p">[</span><span class="nf">c</span><span class="p">(</span><span class="m">-1</span><span class="p">,</span><span class="m">-2</span><span class="p">)]</span> <span class="c1"># "셋" "넷" "다섯"; 음수는 해당 인덱스의 요소를 제외하라는 의미이다. 음수의 동작에서는 각 파라미터의 순서는 무의미하다.</span>
+<span class="n">subs</span><span class="p">[</span><span class="nf">c</span><span class="p">(</span><span class="m">-1</span><span class="p">,</span><span class="m">1</span><span class="p">)]</span> <span class="c1"># Error. 음수의 동작과 양수의 동작은 동시에 동작할 수 없다.</span>
+<span class="n">subs</span><span class="p">[</span><span class="nf">c</span><span class="p">(</span><span class="m">6</span><span class="p">)]</span> <span class="c1"># NA. 범위를 벗어난 데이터에 대해서는 Not Available이 뜬다.</span>
 </pre></div>
-<p>"a" "b" "c"</p>
-<div class="highlight"><pre><span></span><span class="n">var</span><span class="p">[</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">3</span><span class="p">)]</span>
+<h3 id="글자형-데이터의-일부만-사용하기">
+<a class="anchor" href="#%EA%B8%80%EC%9E%90%ED%98%95-%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%9D%98-%EC%9D%BC%EB%B6%80%EB%A7%8C-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>글자형 데이터의 일부만 사용하기<a class="anchor-link" href="#%EA%B8%80%EC%9E%90%ED%98%95-%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%9D%98-%EC%9D%BC%EB%B6%80%EB%A7%8C-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0"> </a>
+</h3>
+<p>글자형 벡터로 일부의 데이터를 사용하기 위해서는 key-value로 데이터에 이름을 지정해 주어야 한다.</p>
+<div class="highlight"><pre><span></span><span class="n">subs_name</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="n">a</span> <span class="o">=</span> <span class="s">"하나"</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="s">"둘"</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="s">"셋"</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="s">"넷"</span><span class="p">,</span> <span class="n">e</span> <span class="o">=</span> <span class="s">"다섯"</span><span class="p">)</span>
+<span class="n">subs_name</span><span class="p">[</span><span class="nf">c</span><span class="p">(</span><span class="s">"a"</span><span class="p">,</span><span class="s">"c"</span><span class="p">,</span><span class="s">"f"</span><span class="p">,</span> <span class="s">"a"</span><span class="p">)]</span>
 </pre></div>
-<p>"a" "c"</p>
-<div class="highlight"><pre><span></span><span class="n">var</span><span class="p">[</span><span class="m">-1</span><span class="p">]</span>
+
+<pre><code>a c &lt;NA&gt; a
+"하나" "셋" NA "하나"</code></pre>
+<div class="highlight"><pre><span></span><span class="n">subs_name</span><span class="p">[</span><span class="nf">c</span><span class="p">(</span><span class="o">-</span><span class="s">"a"</span><span class="p">)]</span> <span class="c1"># Error. 음수는 지정할 수 없다.</span>
 </pre></div>
-<p>"b" "c"</p>
-<div class="highlight"><pre><span></span><span class="n">var</span><span class="p">[</span><span class="o">-</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">3</span><span class="p">)]</span>
+<p>이중괄호를 쓰면, 데이터에 붙은 이름(key)을 제거한 채, value값만 나오게 된다.</p>
+<div class="highlight"><pre><span></span><span class="n">subs_name</span><span class="p">[[</span><span class="s">"a"</span><span class="p">]]</span> <span class="c1"># "하나"</span>
+<span class="n">subs_name</span><span class="p">[[</span><span class="nf">c</span><span class="p">(</span><span class="s">"a"</span><span class="p">,</span><span class="s">"b"</span><span class="p">)]]</span> <span class="c1"># Error.</span>
+<span class="n">subs_name</span><span class="p">[[</span><span class="m">1</span><span class="p">]]</span> <span class="c1"># "하나"</span>
+<span class="n">subs_name</span><span class="p">[[</span><span class="m">1</span><span class="p">]]</span> <span class="c1"># "하나"</span>
 </pre></div>
-<p>"b"</p>
+<h3 id="강제로-데이터의-길이가-맞춰짐">
+<a class="anchor" href="#%EA%B0%95%EC%A0%9C%EB%A1%9C-%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%9D%98-%EA%B8%B8%EC%9D%B4%EA%B0%80-%EB%A7%9E%EC%B6%B0%EC%A7%90" aria-hidden="true"><span class="octicon octicon-link"></span></a>강제로 데이터의 길이가 맞춰짐<a class="anchor-link" href="#%EA%B0%95%EC%A0%9C%EB%A1%9C-%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%9D%98-%EA%B8%B8%EC%9D%B4%EA%B0%80-%EB%A7%9E%EC%B6%B0%EC%A7%90"> </a>
+</h3>
+<p>벡터는 여러 개의 데이터이다. 반면, 스칼라는 1개의 데이터를 말한다. 벡터와 스칼라를 연산하면 어떻게 될까?</p>
+<div class="highlight"><pre><span></span><span class="m">1</span><span class="o">:</span><span class="m">10</span> <span class="c1"># 1 2 3 4 5 6 7 8 9 10</span>
+<span class="m">1</span><span class="o">:</span><span class="m">10</span> <span class="o">+</span> <span class="m">10</span> <span class="c1"># 11 12 13 14 15 16 17 18 19 20</span>
+</pre></div>
+<p>벡터의 각 요소의 길이에 맞춰 스칼라의 개수가 늘어난 것을 확인할 수 있다. 따라서 이와 같은 원리로 element-wise한 연산이 일어난다고 볼 수 있다. 그럼 만약, 길이가 서로 다른 벡터끼리 연산하면 어떻게 될까?</p>
+<div class="highlight"><pre><span></span><span class="m">1</span><span class="o">:</span><span class="m">10</span> <span class="o">+</span> <span class="m">1</span><span class="o">:</span><span class="m">5</span> <span class="c1"># 2 4 6 8 10 7 9 11 13 15</span>
+</pre></div>
+<p>위와 같이 연산되는 것을 <strong>재활용 규칙</strong>이라고 한다. 재활용 규칙이 성립하기 위해서는 두 벡터가 배수 관계이어야 한다는 조건이 있다. 따라서 다음의 코드는 결과는 나오나, 경고를 받는다.</p>
+<div class="highlight"><pre><span></span><span class="m">1</span><span class="o">:</span><span class="m">10</span> <span class="o">+</span> <span class="m">1</span><span class="o">:</span><span class="m">3</span>
+</pre></div>
+
+<pre><code>2 4 6 5 7 9 8 10 12 11
+경고메시지(들): In 1:10 + 1:3 : 두 객체의 길이가 서로 배수관계에 있지 않습니다</code></pre>
 <h2 id="벡터-연산">
 <a class="anchor" href="#%EB%B2%A1%ED%84%B0-%EC%97%B0%EC%82%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>벡터 연산<a class="anchor-link" href="#%EB%B2%A1%ED%84%B0-%EC%97%B0%EC%82%B0"> </a>
 </h2>
@@ -2229,6 +2437,15 @@ log(y)</code></pre>
 <a class="anchor" href="#File-Read-&amp;-Write" aria-hidden="true"><span class="octicon octicon-link"></span></a>File Read &amp; Write<a class="anchor-link" href="#File-Read-&amp;-Write"> </a>
 </h1>
 <p>데이터 분석 작업을 수행할 땐 외부에서 데이터를 불러와 작업하는 경우가 많다. 주로 csv파일이나 xlsx파일을 불러오게 된다.</p>
+<h2 id="saveRDS,-readRDS">
+<a class="anchor" href="#saveRDS,-readRDS" aria-hidden="true"><span class="octicon octicon-link"></span></a>saveRDS, readRDS<a class="anchor-link" href="#saveRDS,-readRDS"> </a>
+</h2>
+<p>R에서는 작업하던 데이터를 파일 객체 형태로 저장할 수 있고, 저장된 파일 객체를 불러올 수도 있다. R에 기본적으로 내장되어 있는 iris 데이터를 이용하여  R 객체 형태로 저장하고 불러와보자.</p>
+<div class="highlight"><pre><span></span><span class="n">iris</span>
+<span class="nf">saveRDS</span><span class="p">(</span><span class="n">iris</span><span class="p">,</span> <span class="s">"iris.rds"</span><span class="p">)</span>
+<span class="n">iris.data</span> <span class="o">&lt;-</span> <span class="nf">readRDS</span><span class="p">(</span><span class="s">"iris.rds"</span><span class="p">)</span>
+</pre></div>
+<p>R studio 오른쪽 아래에 RDS 파일이 생긴 것을 확인할 수 있다.</p>
 <h2 id="File-Read">
 <a class="anchor" href="#File-Read" aria-hidden="true"><span class="octicon octicon-link"></span></a>File Read<a class="anchor-link" href="#File-Read"> </a>
 </h2>
