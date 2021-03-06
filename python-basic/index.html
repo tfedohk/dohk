@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Python 기초 | dohk’s AI &amp; bioinformatics</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Python 기초" />
+<meta name="author" content="Kwon DoHyung" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="contact on gwondohyung@gmail.com" />
+<meta property="og:description" content="contact on gwondohyung@gmail.com" />
+<link rel="canonical" href="https://tfedohk.github.io/dohk/python-basic/" />
+<meta property="og:url" content="https://tfedohk.github.io/dohk/python-basic/" />
+<meta property="og:site_name" content="dohk’s AI &amp; bioinformatics" />
+<meta property="og:image" content="https://tfedohk.github.io/dohk/images/2021-03-06-python/python-logo.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-03-06T00:00:00-06:00" />
+<script type="application/ld+json">
+{"url":"https://tfedohk.github.io/dohk/python-basic/","@type":"BlogPosting","headline":"Python 기초","dateModified":"2021-03-06T00:00:00-06:00","datePublished":"2021-03-06T00:00:00-06:00","image":"https://tfedohk.github.io/dohk/images/2021-03-06-python/python-logo.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://tfedohk.github.io/dohk/python-basic/"},"author":{"@type":"Person","name":"Kwon DoHyung"},"description":"contact on gwondohyung@gmail.com","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/dohk/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://tfedohk.github.io/dohk/feed.xml" title="dohk's AI &amp; bioinformatics" /><link rel="shortcut icon" type="image/x-icon" href="/dohk/images/favicon.ico"><link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/dohk/">dohk&#39;s AI &amp; bioinformatics</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/dohk/about/">About Me</a><a class="page-link" href="/dohk/search/">Search</a><a class="page-link" href="/dohk/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Python 기초</h1><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-03-06T00:00:00-06:00" itemprop="datePublished">
+        Mar 6, 2021
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">Kwon DoHyung</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      17 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/dohk/categories/#Python">Python</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/dohk/categories/#CSE">CSE</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/dohk/categories/#programming">programming</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          
+          
+          
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h1"><a href="#함수">함수 </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#함수의-선언과-호출">함수의 선언과 호출 </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#함수의-선언">함수의 선언 </a></li>
+<li class="toc-entry toc-h3"><a href="#함수의-호출">함수의 호출 </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#whos">whos </a></li>
+<li class="toc-entry toc-h2"><a href="#parameter와-argument">parameter와 argument </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#default-parameter">default parameter </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#Return">Return </a></li>
+<li class="toc-entry toc-h2"><a href="#*args와-**kwargs">*args와 **kwargs </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#*args">*args </a></li>
+<li class="toc-entry toc-h3"><a href="#**kwargs">**kwargs </a></li>
+<li class="toc-entry toc-h3"><a href="#*args의-응용">*args의 응용 </a></li>
+<li class="toc-entry toc-h3"><a href="#**kwargs의-응용">**kwargs의 응용 </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#Docstring">Docstring </a></li>
+<li class="toc-entry toc-h2"><a href="#Scope">Scope </a></li>
+<li class="toc-entry toc-h2"><a href="#Inner-function">Inner function </a></li>
+<li class="toc-entry toc-h2"><a href="#Callback-function">Callback function </a></li>
+<li class="toc-entry toc-h2"><a href="#lambda-function">lambda function </a></li>
+<li class="toc-entry toc-h2"><a href="#map,-filter,-reduce">map, filter, reduce </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#map">map </a></li>
+<li class="toc-entry toc-h3"><a href="#filter">filter </a></li>
+<li class="toc-entry toc-h3"><a href="#reduce">reduce </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#Decorator">Decorator </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#Decorator-예제">Decorator 예제 </a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#클래스">클래스 </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#클래스-선언">클래스 선언 </a></li>
+<li class="toc-entry toc-h2"><a href="#클래스를-객체로-만들어-클래스를-사용하기">클래스를 객체로 만들어 클래스를 사용하기 </a></li>
+<li class="toc-entry toc-h2"><a href="#self의-의미">self의 의미 </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#객체지향">객체지향 </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#객체지향의-의미">객체지향의 의미 </a></li>
+<li class="toc-entry toc-h2"><a href="#생성자">생성자 </a></li>
+<li class="toc-entry toc-h2"><a href="#상속">상속 </a></li>
+<li class="toc-entry toc-h2"><a href="#메서드-오버라이딩">메서드 오버라이딩 </a></li>
+</ul>
+</li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2021-03-06-Python.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="함수">
+<a class="anchor" href="#%ED%95%A8%EC%88%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>함수<a class="anchor-link" href="#%ED%95%A8%EC%88%98"> </a>
+</h1>
+<p>함수를 사용하는 이유는 반복되는 코드를 묶어서 줄임으로써 효율적인 코드를 작성하기 위함이다.</p>
+<div class="highlight"><pre><span></span><span class="n">grade</span> <span class="o">=</span> <span class="mi">88</span>
+
+<span class="k">if</span> <span class="n">grade</span> <span class="o">&gt;=</span> <span class="mi">90</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"A"</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">grade</span> <span class="o">&gt;=</span> <span class="mi">80</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"B"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"C"</span><span class="p">)</span>
+</pre></div>
+<div class="highlight"><pre><span></span><span class="n">grade</span> <span class="o">=</span> <span class="mi">78</span>
+
+<span class="k">if</span> <span class="n">grade</span> <span class="o">&gt;=</span> <span class="mi">90</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"A"</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">grade</span> <span class="o">&gt;=</span> <span class="mi">80</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"B"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"C"</span><span class="p">)</span>
+</pre></div>
+<ul>
+<li>위와 같이, 코드에서 반복되는 부분을 줄이기 위해서는 함수를 사용한다. 만약 함수를 사용하지 않는다고 할 때, 반복되는 코드 중 특정 부위의 수정이 필요하다면, 반복되는 모든 곳에서 수정하고자 하는 부분을 수정해야 하는 불편함과 비효율성이 있게 된다. 그러나, 함수를 사용한다면 함수 선언 부분만 변경하면 된다는 편리함이 있다.</li>
+</ul>
+<h2 id="함수의-선언과-호출">
+<a class="anchor" href="#%ED%95%A8%EC%88%98%EC%9D%98-%EC%84%A0%EC%96%B8%EA%B3%BC-%ED%98%B8%EC%B6%9C" aria-hidden="true"><span class="octicon octicon-link"></span></a>함수의 선언과 호출<a class="anchor-link" href="#%ED%95%A8%EC%88%98%EC%9D%98-%EC%84%A0%EC%96%B8%EA%B3%BC-%ED%98%B8%EC%B6%9C"> </a>
+</h2>
+<p>함수는 기본적으로 선언을 하고, 선언된 함수를 호출하게 된다.</p>
+<h3 id="함수의-선언">
+<a class="anchor" href="#%ED%95%A8%EC%88%98%EC%9D%98-%EC%84%A0%EC%96%B8" aria-hidden="true"><span class="octicon octicon-link"></span></a>함수의 선언<a class="anchor-link" href="#%ED%95%A8%EC%88%98%EC%9D%98-%EC%84%A0%EC%96%B8"> </a>
+</h3>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">point</span><span class="p">(</span><span class="n">grade</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">grade</span> <span class="o">&gt;=</span> <span class="mi">90</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"A"</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">grade</span> <span class="o">&gt;=</span> <span class="mi">80</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"B"</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"C"</span><span class="p">)</span>
+</pre></div>
+<h3 id="함수의-호출">
+<a class="anchor" href="#%ED%95%A8%EC%88%98%EC%9D%98-%ED%98%B8%EC%B6%9C" aria-hidden="true"><span class="octicon octicon-link"></span></a>함수의 호출<a class="anchor-link" href="#%ED%95%A8%EC%88%98%EC%9D%98-%ED%98%B8%EC%B6%9C"> </a>
+</h3>
+<div class="highlight"><pre><span></span><span class="n">point</span><span class="p">(</span><span class="mi">88</span><span class="p">)</span>
+<span class="o">...</span>
+<span class="n">point</span><span class="p">(</span><span class="mi">78</span><span class="p">)</span>
+</pre></div>
+<h2 id="whos">
+<a class="anchor" href="#whos" aria-hidden="true"><span class="octicon octicon-link"></span></a>whos<a class="anchor-link" href="#whos"> </a>
+</h2>
+<p>jupyter notebook 셀에서 <code>whos</code> 명령어를 입력하면 변수의 이름과 타입, 데이터를 몇 개 담고 있는지에 대한 정보가 나온다.</p>
+<div class="highlight"><pre><span></span><span class="o">%</span><span class="n">whos</span>
+</pre></div>
+<p><img src="/dohk/images/copied_from_nb/../images/2021-03-06-python/Untitled.png" alt=""></p>
+<div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">c</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'Mon'</span><span class="p">,</span> <span class="s1">'Tue'</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+</pre></div>
+<p><img src="/dohk/images/copied_from_nb/../images/2021-03-06-python/Untitled1.png" alt=""></p>
+<p>변수든, 함수든 타입이 나온다. 변수의 경우, int 타입은 그 값이, 그 이외의 타입은 몇 개의 element가 있는지를 출력한다. 함수의 경우, 코드를 담고 있는 주소가 출력된다. 따라서, 함수를 실행할 때 해당 주소로 가게 되어 해당 코드를 실행시킨다. whos 명령어를 통해 함수도 변수의 데이터 타입의 일종임을 알 수 있다.</p>
+<h2 id="parameter와-argument">
+<a class="anchor" href="#parameter%EC%99%80-argument" aria-hidden="true"><span class="octicon octicon-link"></span></a>parameter와 argument<a class="anchor-link" href="#parameter%EC%99%80-argument"> </a>
+</h2>
+<p>parameter는 함수를 선언할 때 호출하는 부분에서 받는 변수다. argument는 함수를 호출할 때 보내주는 변수다.</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plus</span><span class="p">(</span><span class="n">num1</span><span class="p">,</span> <span class="n">num2</span><span class="p">):</span> <span class="c1"># parameter</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">num1</span><span class="o">+</span><span class="n">num2</span><span class="p">)</span>
+</pre></div>
+<div class="highlight"><pre><span></span><span class="n">plus</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="c1"># argument</span>
+</pre></div>
+<p><code>plus()</code> 함수 실행 시, argument들이 <code>plus()</code> 함수의 선언 부분의 parameter들에 매핑된다.</p>
+<div class="highlight"><pre><span></span><span class="n">plus</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">**</span><span class="mi">5</span><span class="o">**</span><span class="p">)</span> <span class="c1"># argument</span>
+</pre></div>
+<p>함수의 parameter 개수와 argument 개수가 다르면 에러가 출력된다.</p>
+<p><img src="/dohk/images/copied_from_nb/../images/2021-03-06-python/Untitled2.png" alt=""></p>
+<h3 id="default-parameter">
+<a class="anchor" href="#default-parameter" aria-hidden="true"><span class="octicon octicon-link"></span></a>default parameter<a class="anchor-link" href="#default-parameter"> </a>
+</h3>
+<p>parameter의 개수에 유동성을 주어, argument를 통해 넘어오는 데이터의 개수가 달라도 함수가 동작하도록 할 수 있다.</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plus</span><span class="p">(</span><span class="n">num1</span><span class="p">,</span> <span class="o">**</span><span class="n">num2</span><span class="o">=</span><span class="mi">10</span><span class="o">**</span><span class="p">):</span> <span class="c1"># parameter</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">num1</span><span class="o">+</span><span class="n">num2</span><span class="p">)</span>
+</pre></div>
+<div class="highlight"><pre><span></span><span class="o">**</span><span class="n">plus</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span> <span class="c1"># argument</span>
+</pre></div>
+<p>디폴트 값이 여러 개일 때, 특정 parameter만 지정해서 값을 넘기고 싶다면 어떻게 할까?</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plus</span><span class="p">(</span><span class="n">num1</span><span class="p">,</span> <span class="n">num2</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="o">**</span><span class="n">num3</span><span class="o">=</span><span class="mi">20</span><span class="o">**</span><span class="p">):</span> <span class="c1"># parameter</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">num1</span><span class="o">+</span><span class="n">num2</span><span class="o">-</span><span class="n">num3</span><span class="p">)</span>
+</pre></div>
+<div class="highlight"><pre><span></span><span class="n">plus</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span> <span class="c1"># argument</span>
+</pre></div>
+<p>위와 같이 할 수도 있지만,</p>
+<div class="highlight"><pre><span></span><span class="n">plus</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">**</span><span class="n">num3</span><span class="o">=</span><span class="mi">100</span><span class="o">**</span><span class="p">)</span> <span class="c1"># argument</span>
+</pre></div>
+<p>위와 같이 특정 parameter의 이름을 지정하여 값을 넘겨줄 수 있다. 이름이 언급되지 않은 <code>num2</code>는 디폴트 값으로 남아있게 된다.</p>
+<h2 id="Return">
+<a class="anchor" href="#Return" aria-hidden="true"><span class="octicon octicon-link"></span></a>Return<a class="anchor-link" href="#Return"> </a>
+</h2>
+<p>리턴은 함수를 실행한 결과를 저장하고 싶을 때 사용한다. 명령어는 <code>return</code>이다.</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plus</span><span class="p">(</span><span class="n">num1</span><span class="p">,</span> <span class="n">num2</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">num1</span><span class="o">+</span><span class="n">num2</span><span class="p">)</span> <span class="c1"># 3</span>
+
+<span class="n">plus</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="c1"># 3</span>
+</pre></div>
+<p>1과 2를 더한 결과를 저장하고 싶다면 어떻게 해야 할까?</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plus</span><span class="p">(</span><span class="n">num1</span><span class="p">,</span> <span class="n">num2</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">num1</span><span class="o">+</span><span class="n">num2</span><span class="p">)</span> <span class="c1"># 3</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">plus</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span> <span class="c1"># None</span>
+</pre></div>
+<p><code>result</code>라는 변수에는 함수로부터 넘어온 결과가 없는 상태다.</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plus</span><span class="p">(</span><span class="n">num1</span><span class="p">,</span> <span class="n">num2</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">num1</span><span class="o">+</span><span class="n">num2</span><span class="p">)</span> <span class="c1"># 3</span>
+    <span class="k">return</span> <span class="n">num1</span><span class="o">+</span><span class="n">num2</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">plus</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span> <span class="c1"># 3</span>
+</pre></div>
+<p><code>return</code>은 <code>return</code> 뒤에 있는 데이터를 함수 외부로 넘겨주는 역할을 한다. 따라서 <code>result</code> 값이 출력된다.</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">point</span><span class="p">(</span><span class="n">grade</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">grade</span> <span class="o">&gt;=</span> <span class="mi">90</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"A"</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">grade</span> <span class="o">&gt;=</span> <span class="mi">80</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"B"</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"C"</span><span class="p">)</span>
+
+<span class="n">grade</span> <span class="o">=</span> <span class="mi">88</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">point</span><span class="p">(</span><span class="n">grade</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span> <span class="c1"># None</span>
+
+<span class="k">if</span> <span class="n">result</span> <span class="o">==</span> <span class="s2">"A"</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"PASS"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"FAIL"</span><span class="p">)</span>
+</pre></div>
+<p><code>return</code>이 없으면 위와 같은 코드는 잘못된 결과를 낸다. 따라서 아래와 같이 <code>return</code>을 이용한다.</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">point</span><span class="p">(</span><span class="n">grade</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="n">grade</span> <span class="o">&gt;=</span> <span class="mi">90</span><span class="p">:</span>
+        <span class="o">**</span><span class="k">return</span> <span class="n">result</span> <span class="o">=</span> <span class="s2">"A"</span><span class="o">**</span>
+    <span class="k">elif</span> <span class="n">grade</span> <span class="o">&gt;=</span> <span class="mi">80</span><span class="p">:</span>
+        <span class="o">**</span><span class="k">return</span> <span class="n">result</span> <span class="o">=</span> <span class="s2">"B"</span><span class="o">**</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="o">**</span><span class="k">return</span> <span class="n">result</span> <span class="o">=</span> <span class="s2">"C"</span><span class="o">**</span>
+
+<span class="n">grade</span> <span class="o">=</span> <span class="mi">88</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">point</span><span class="p">(</span><span class="n">grade</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span> <span class="c1"># None</span>
+
+<span class="k">if</span> <span class="n">result</span> <span class="o">==</span> <span class="s2">"A"</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"PASS"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"FAIL"</span><span class="p">)</span>
+</pre></div>
+<p>함수는 아래와 같이 <code>return</code>이 있는 함수와 없는 함수로 구분된다. 따라서 docstring을 통해 <code>return</code>이 있는 함수인지 없는 함수인지를 파악하고 사용해야 한다.</p>
+<div class="highlight"><pre><span></span><span class="n">data_1</span> <span class="o">=</span> <span class="s2">"python"</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">data_1</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span> <span class="c1"># PYTHON</span>
+</pre></div>
+<div class="highlight"><pre><span></span><span class="n">data_2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">data_2</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span> <span class="c1"># None</span>
+</pre></div>
+<p>함수는 return을 만나면 무조건 종료된다. 따라서 return 후에 무엇이 있다면, 그 값을 외부로 넘긴 후에 종료되고, 아무 것도 없다면 그대로 종료된다.</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">echo</span><span class="p">(</span><span class="n">msg</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">msg</span> <span class="o">==</span> <span class="s2">"quit"</span><span class="p">:</span>
+        <span class="k">return</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+<span class="n">echo</span><span class="p">(</span><span class="s2">"Python"</span><span class="p">)</span> <span class="c1"># Python</span>
+<span class="n">echo</span><span class="p">(</span><span class="s2">"quit"</span><span class="p">)</span> <span class="c1">#</span>
+</pre></div>
+<h2 id="*args와-**kwargs">
+<a class="anchor" href="#*args%EC%99%80-**kwargs" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>*args</code>와 <code>**kwargs</code><a class="anchor-link" href="#*args%EC%99%80-**kwargs"> </a>
+</h2>
+<p><code>*args</code>와 <code>**kwargs</code>는 함수를 호출할 때 arguemt와 keyword argument의 개수를 특정 지을 수 없을 때 사용된다.</p>
+<h3 id="*args">
+<a class="anchor" href="#*args" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>*args</code><a class="anchor-link" href="#*args"> </a>
+</h3>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plus</span><span class="p">(</span><span class="n">num1</span><span class="p">,</span> <span class="n">num2</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">num1</span><span class="o">+</span><span class="n">num2</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">plus</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span> <span class="c1"># 3</span>
+</pre></div>
+<p>위의 코드에서, <code>plus()</code> 함수에 argement가 100개가 들어가도 모두 더해주는 함수를 만들고 싶다고 해보자. 그럴 때 사용하는 것이 <code>*args</code>이다.</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plus</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">args</span><span class="p">),</span> <span class="n">args</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">plus</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span> 
+
+<span class="sd">"""</span>
+<span class="sd"># 결과</span>
+<span class="sd">&lt;class 'tuple'&gt; (1, 2, 3, 4, 5)</span>
+<span class="sd">15</span>
+<span class="sd">"""</span>
+</pre></div>
+<p><code>*</code>를 쓰면, <code>*</code> 다음에 나오는 <code>args</code>가 모든 argument들을 받게 된다. 받아들인 데이터는 tuple 타입이다. 해당 데이터를 <code>sum()</code> 내장 함수를 통해 모두 더한 결과를 낸다. <code>plus()</code> 함수에 몇 개의 argument를 넘기던 모두 받을 수 있게 된다.</p>
+<h3 id="**kwargs">
+<a class="anchor" href="#**kwargs" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>**kwargs</code><a class="anchor-link" href="#**kwargs"> </a>
+</h3>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plus</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">args</span><span class="p">),</span> <span class="n">args</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">plus</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">num1</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">num2</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span> <span class="c1"># 에러</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+<p><img src="/dohk/images/copied_from_nb/../images/2021-03-06-python/Untitled3.png" alt=""></p>
+<p>위의 코드는 keyworkd가 없는 <code>plus()</code> 함수에 keyword를 이용하여 호출하는 상황이다. 따라서 에러가 발생한다.  즉, <code>*args</code>는 키워드가 없는 argument들만 받을 수 있다. 키워드가 있는 argument를 받기 위해서는 <code>**kwargs</code>를 이용해야 한다.</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plus</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">args</span><span class="p">),</span> <span class="n">args</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">kwargs</span><span class="p">),</span> <span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">+</span> <span class="nb">sum</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">kwargs</span><span class="o">.</span><span class="n">values</span><span class="p">()))</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">plus</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">num1</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">num2</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span> <span class="c1"># 에러</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>  
+
+<span class="sd">"""</span>
+<span class="sd"># 결과</span>
+<span class="sd">&lt;class 'tuple'&gt; (1, 2, 3, 4, 5)</span>
+<span class="sd">&lt;class 'dict'&gt; {'num1': 6, 'num2': 7}</span>
+<span class="sd">28</span>
+<span class="sd">"""</span>
+</pre></div>
+<p>keyword가 없는 argument들은 <code>*args</code>가, keyword가 있는 argument들은 <code>**kwargs</code>가 받은 것을 확인할 수 있다. <code>kwargs</code>는 argument를 통해 입력받은 keyword를 dict의 key값으로, 데이터가 value값으로 지정된 dict 타입인 것을 확인할 수 있다. 따라서 dict의 value값만 가져온 후 이를 리스트화 하여 더해줄 수 있다.</p>
+<h3 id="*args의-응용">
+<a class="anchor" href="#*args%EC%9D%98-%EC%9D%91%EC%9A%A9" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>*args</code>의 응용<a class="anchor-link" href="#*args%EC%9D%98-%EC%9D%91%EC%9A%A9"> </a>
+</h3>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">num1</span><span class="p">,</span> <span class="n">num2</span><span class="p">,</span> <span class="n">num3</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">num1</span> <span class="o">+</span> <span class="n">num2</span> <span class="o">+</span> <span class="n">num3</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">data</span><span class="p">)</span> <span class="c1"># func(1, 2, 3)</span>
+</pre></div>
+<p>위 코드는 list 타입의 데이터를 하나씩 빼내어 argument가 되도록 하는 코드다. 즉, <code>1</code>이 첫 번째 argument, <code>2</code>가 두 번째 argument, <code>3</code>이 세 번째 argument가 되어 <code>func()</code> 함수로 넘어간다.</p>
+<h3 id="**kwargs의-응용">
+<a class="anchor" href="#**kwargs%EC%9D%98-%EC%9D%91%EC%9A%A9" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>**kwargs</code>의 응용<a class="anchor-link" href="#**kwargs%EC%9D%98-%EC%9D%91%EC%9A%A9"> </a>
+</h3>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">num1</span><span class="p">,</span> <span class="n">num2</span><span class="p">,</span> <span class="n">num3</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">num1</span> <span class="o">+</span> <span class="n">num2</span> <span class="o">+</span> <span class="n">num3</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"num2"</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span>
+    <span class="s2">"num3"</span><span class="p">:</span><span class="mi">200</span>
+<span class="p">}</span>
+
+<span class="n">func</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">**</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+<p><code>kwargs</code>는 keyword argument와 keyword parameter들 끼리 짝지어진다. 위 코드는 아래 코드와 같다.</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">num1</span><span class="p">,</span> <span class="n">num2</span><span class="p">,</span> <span class="n">num3</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">num1</span> <span class="o">+</span> <span class="n">num2</span> <span class="o">+</span> <span class="n">num3</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"num2"</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span>
+    <span class="s2">"num3"</span><span class="p">:</span><span class="mi">200</span>
+<span class="p">}</span>
+
+<span class="n">func</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s2">"num2"</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s2">"num3"</span><span class="p">])</span>
+</pre></div>
+<h2 id="Docstring">
+<a class="anchor" href="#Docstring" aria-hidden="true"><span class="octicon octicon-link"></span></a>Docstring<a class="anchor-link" href="#Docstring"> </a>
+</h2>
+<p>docstring은 함수의 설명을 작성하는 문법으로서, 패키지를 개발하는 사람에 따라 간단할 수도 자세할 수도 있다. docstring의 작성은 다음과 같이 함수 밑에 문자열로 넣어주면 된다.</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">echo</span><span class="p">(</span><span class="n">msg</span><span class="p">):</span>
+    <span class="s2">"docstring 부분"</span> <span class="c1"># one line</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+<span class="n">echo</span> <span class="c1"># shift+tab</span>
+<span class="n">echo</span><span class="err">?</span> <span class="c1"># 실행</span>
+<span class="n">echo</span><span class="err">??</span> <span class="c1"># source code 확인 가능</span>
+<span class="n">help</span><span class="p">(</span><span class="n">echo</span><span class="p">)</span> <span class="c1"># Docstring만 출력</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">echo</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
+</pre></div>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">echo</span><span class="p">(</span><span class="n">msg</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    multi line docstring</span>
+<span class="sd">    echo func return its input argument</span>
+
+<span class="sd">    The operation is:</span>
+<span class="sd">        1. print msg</span>
+<span class="sd">        2. return msg parameter</span>
+
+<span class="sd">    parameter: msg(str)</span>
+<span class="sd">    return: None</span>
+<span class="sd">    """</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+<span class="n">echo</span> <span class="c1"># shift+tab</span>
+<span class="n">echo</span><span class="err">?</span> <span class="c1"># 실행</span>
+<span class="n">echo</span><span class="err">??</span> <span class="c1"># source code 확인 가능</span>
+<span class="n">help</span><span class="p">(</span><span class="n">echo</span><span class="p">)</span> <span class="c1"># Docstring만 출력</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">echo</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
+</pre></div>
+<h2 id="Scope">
+<a class="anchor" href="#Scope" aria-hidden="true"><span class="octicon octicon-link"></span></a>Scope<a class="anchor-link" href="#Scope"> </a>
+</h2>
+<p>함수 내에서 선언 된 변수와 함수 밖에서 선언 된 변수의 scope가 구분되어 있기 때문에, 서로 다른 변수다. 변수는 global(전역) 변수와 local(지역) 변수로 구분된다. global 변수는 함수 밖 또는 클래스 밖에서 선언되는 변수를 말한다. 함수의 영역 내에서는 변수가 함수에 있는지부터 살핀 후, 함수 내의 변수가 아니라면 전역 변수를 참조하게 된다.</p>
+<div class="highlight"><pre><span></span><span class="n">gv</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="k">def</span> <span class="nf">echo</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">gv</span><span class="p">)</span>
+
+<span class="n">echo</span><span class="p">()</span> <span class="c1"># 10</span>
+</pre></div>
+<div class="highlight"><pre><span></span><span class="n">gv</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="k">def</span> <span class="nf">echo</span><span class="p">():</span>
+    <span class="n">gv</span> <span class="o">=</span> <span class="mi">100</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">gv</span><span class="p">)</span>
+
+<span class="n">echo</span><span class="p">()</span> <span class="c1"># 100; echo() 함수 내의 지역변수 gv</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">gv</span><span class="p">)</span> <span class="c1"># 10; -&gt; 전역변수 gv</span>
+</pre></div>
+<p>로컬 영역에서 global 영역에 있는 <code>gv</code> 변수를 사용하려 한다면, 다음과 같이 global 키워드를 사용한다. global 키워드를 사용하면, 전역변수의 주소값을 참조하게 된다.</p>
+<div class="highlight"><pre><span></span><span class="n">gv</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="k">def</span> <span class="nf">echo</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">gv</span>
+    <span class="n">gv</span> <span class="o">=</span> <span class="mi">100</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">gv</span><span class="p">)</span>
+
+<span class="n">echo</span><span class="p">()</span> <span class="c1"># 100</span>
+<span class="n">gv</span> <span class="c1"># 100</span>
+</pre></div>
+<p>전역 변수는 프로그램 실행 시 무조건 선언되므로, 메모리를 점유한다. 따라서 전역 변수는 되도록 사용하지 않는 게 좋다.</p>
+<h2 id="Inner-function">
+<a class="anchor" href="#Inner-function" aria-hidden="true"><span class="octicon octicon-link"></span></a>Inner function<a class="anchor-link" href="#Inner-function"> </a>
+</h2>
+<p>함수가 지역 영역에 선언된 것을 말한다. 다시 말해, 함수 안에 함수가 선언된 것을 말한다. 참고로, inner function 개념을 이해해야 Decorator 개념을 이해할 수 있다. inner function은 전역 영역에서 사용할 수 없기 때문에 '익명 함수'라고도 한다.</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">outer</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">inner</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">c</span><span class="o">+</span><span class="n">d</span>
+
+    <span class="k">return</span> <span class="n">inner</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+
+<span class="n">outer</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># 3</span>
+<span class="n">inner</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># error. inner() 함수는 outer() 함수의 scope에 해당하므로 전역 영역에서는 호출할 수 없다.</span>
+</pre></div>
+<p>local 영역에서 선언된 함수를 global 영역에서 활용하고 싶다면, 다음과 같이 한다. 아래 코드에서 사실 상 <code>a</code>, <code>b</code>는 소용 없는 argument가 된다.</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">outer</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">inner</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">c</span><span class="o">+</span><span class="n">d</span>
+
+    <span class="k">return</span> <span class="n">inner</span> <span class="c1"># 함수를 return</span>
+
+<span class="n">outer</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span> <span class="c1"># 7; == inner(3,4)와 같은 결과.</span>
+</pre></div>
+<p>비교를 위해 다음의 유사한 코드를 본다.</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">outer</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">inner</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">c</span><span class="o">+</span><span class="n">d</span>
+
+    <span class="k">return</span> <span class="n">inner</span> <span class="c1"># 함수를 return</span>
+
+<span class="n">outer</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span> 
+
+<span class="sd">'''output</span>
+<span class="sd">1, 2</span>
+<span class="sd">7 </span>
+<span class="sd">'''</span>
+</pre></div>
+<p>아래 코드는 동일한 동작을 수행한다. <code>outer()</code> 함수에서는 <code>inner()</code> 함수가 지역 변수로 존재하지 않기 때문에 global 영역을 살핀다.</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">inner</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">c</span><span class="o">+</span><span class="n">d</span>
+
+<span class="k">def</span> <span class="nf">outer</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">inner</span>
+
+<span class="n">outer</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span> 
+
+<span class="sd">'''output</span>
+<span class="sd">7 </span>
+<span class="sd">'''</span>
+</pre></div>
+<h2 id="Callback-function">
+<a class="anchor" href="#Callback-function" aria-hidden="true"><span class="octicon octicon-link"></span></a>Callback function<a class="anchor-link" href="#Callback-function"> </a>
+</h2>
+<p>callback 함수는 다른 함수를 argument(parameter)로 받는 함수를 말한다. callback 함수를 이용한 계산기 예시를 보자.</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calc</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span> <span class="c1"># 첫 번째 parameter로 함수를 받는다.</span>
+    <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="c1"># func 함수를 리턴한다.</span>
+
+<span class="k">def</span> <span class="nf">plus</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+
+<span class="k">def</span> <span class="nf">minus</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span>
+
+<span class="n">calc</span><span class="p">(</span><span class="n">plus</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="c1"># 덧셈 연산</span>
+<span class="n">cacl</span><span class="p">(</span><span class="n">minus</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="c1"># 뺄셈 연산</span>
+</pre></div>
+<h2 id="lambda-function">
+<a class="anchor" href="#lambda-function" aria-hidden="true"><span class="octicon octicon-link"></span></a>lambda function<a class="anchor-link" href="#lambda-function"> </a>
+</h2>
+<p>람다 함수는 파라미터를 간단한 계산으로 리턴시키는 함수다. 함수를 쓰긴 쓰지만, 간단하게 한 줄 정도로 작성되는 함수다.</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plus</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span>
+
+<span class="n">plus</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+<p>위 함수를 람다 함수로 작성하면 다음과 같다.</p>
+<div class="highlight"><pre><span></span><span class="n">plus_</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+<span class="c1"># [람다 함수의 이름] = lambda [parameter 부분]: [return 부분]</span>
+
+<span class="n">plus_</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+<p>다음과 같이 응용할 수 있다.</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calc</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span> <span class="c1"># 첫 번째 parameter로 함수를 받는다.</span>
+    <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="c1"># func 함수를 리턴한다.</span>
+
+<span class="n">calc</span><span class="p">(</span><span class="n">plus</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="c1"># A</span>
+<span class="n">calc</span><span class="p">(</span><span class="k">lambda</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="c1"># B</span>
+</pre></div>
+<p>람다 함수를 쓰지 않은 <code>A</code> 부분은, <code>plus()</code> 함수가 선언되어 있어야만 실행된다. 함수가 선언되어 있어야 한다는 것은 저장공간을 추가적으로 사용한다는 것이다. 그러나 <code>B</code> 부분과 같은 람다 함수는 함수가 호출될 때 만들어지기 때문에 함수를 따로 선언해둘 필요가 없다. 즉, 저장공간을 적게 쓴다는 소리다. 따라서 람다 함수는 조금 더 빠르게 코드가 동작하게 한다.</p>
+<h2 id="map,-filter,-reduce">
+<a class="anchor" href="#map,-filter,-reduce" aria-hidden="true"><span class="octicon octicon-link"></span></a>map, filter, reduce<a class="anchor-link" href="#map,-filter,-reduce"> </a>
+</h2>
+<p><code>map</code>, <code>filter</code>, <code>reduce</code> 함수는 <code>print()</code> 함수처럼 파이썬에서 이미 만들어져 있는 함수들이다.</p>
+<h3 id="map">
+<a class="anchor" href="#map" aria-hidden="true"><span class="octicon octicon-link"></span></a>map<a class="anchor-link" href="#map"> </a>
+</h3>
+<p><code>map()</code> 함수는 순서가 있는 데이터 집합에서 모든 값에 함수를 적용시킨 결과를 출력해준다.  <code>map()</code> 함수의 Docstring을 보면 다음과 같다.</p>
+<div class="highlight"><pre><span></span><span class="nb">map</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="o">*</span><span class="n">iterables</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="nb">map</span> <span class="nb">object</span>
+</pre></div>
+<p><code>*iterables</code>는 <code>*</code>가 하나 들어 있다. 즉, keyword가 없는 iterable한 데이터를 넣으라는 뜻이다. 다시 말해, list나 tuple같은 데이터를 넣으라는 뜻이며, dict는 넣으면 안 된다. ruturn은 map object로 나오기 때문에 이를 다른 타입의 데이터로 바꿔주는 작업이 필요하다. <code>map()</code> 함수의 사용법은 다음과 같다.</p>
+<div class="highlight"><pre><span></span><span class="n">ls</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s2">"odd"</span> <span class="k">if</span> <span class="n">num</span> <span class="o">%</span> <span class="mi">2</span> <span class="k">else</span> <span class="s2">"even"</span> <span class="c1"># 삼항연산</span>
+
+<span class="n">func</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="n">func</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="nb">map</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">ls</span><span class="p">)</span>
+</pre></div>
+<p><code>map()</code> 함수에 의해 <code>func</code>에 <code>ls</code>의 요소가 하나씩 들어가 처리된다.</p>
+<p><strong>[문제] input 함수를 통해  여러 개의 숫자를 한 번에 입력 받습니다. 구분자는 " "으로서, str.split(" ")을 사용하여 리스트로 만들고, 만들어진 리스트의 값들을 int로 형변환시킨 리스트로 만드세요.</strong></p>
+<div class="highlight"><pre><span></span><span class="n">datas</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"insert numbers: "</span><span class="p">)</span> <span class="c1"># 10 20 30 40 10 20 15</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">datas</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">" "</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">result</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+<h3 id="filter">
+<a class="anchor" href="#filter" aria-hidden="true"><span class="octicon octicon-link"></span></a>filter<a class="anchor-link" href="#filter"> </a>
+</h3>
+<p><code>filter()</code> 함수는 리스트 타입의 데이터에서 특정 조건에 맞는 value만 남기는 함수다. <code>filter()</code> 함수의 Docstring은 다음과 같다.</p>
+<div class="highlight"><pre><span></span><span class="nb">filter</span><span class="p">(</span><span class="n">function</span> <span class="ow">or</span> <span class="kc">None</span><span class="p">,</span> <span class="n">iterable</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="nb">filter</span> <span class="nb">object</span>
+</pre></div>
+<p>첫 번째 parameter로 함수를 받거나 받지 않는다. 두 번째 parameter로는 iterable 타입의 데이터를 받는다. 이 때, filter의 첫 번째 parameter인 function은 <code>True</code> 또는 <code>False</code>만 낼 수 있는 것이어야 하며, 그 결과로 <code>True</code>인 것만 return을 한다. 즉, <code>map()</code> 함수와 유사하게 function에 ls의 모든 요소를 적용하지만, 그 결과로 <code>True</code>인 것들만 return해준다. <code>map()</code> 함수와의 큰 차이점은, <code>map()</code> 함수는 두 번째 parameter가 <code>*iterable</code>로서 한 개 이상의 iterable 데이터를 받을 수 있지만, <code>filter()</code> 함수는 두 번째 parameter가 그냥 <code>iterable</code>로서 한 개의 iterable 데이터만을 받을 수 있다는 점이다.</p>
+<div class="highlight"><pre><span></span><span class="n">ls</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="c1"># 홀수만 출력</span>
+<span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">data</span><span class="p">:</span> <span class="kc">True</span> <span class="k">if</span> <span class="n">data</span> <span class="o">%</span> <span class="mi">2</span> <span class="k">else</span> <span class="kc">False</span><span class="p">,</span> <span class="n">ls</span><span class="p">))</span>
+</pre></div>
+<h3 id="reduce">
+<a class="anchor" href="#reduce" aria-hidden="true"><span class="octicon octicon-link"></span></a>reduce<a class="anchor-link" href="#reduce"> </a>
+</h3>
+<p><code>reduce()</code> 함수는 리스트 타입의 데이터를 처음부터 순서대로 특정 함수에 적용하여 결과를 누적시켜 주는 함수다. <code>reduce()</code> 함수를 쓰려면 다음과 같이 import해줄 필요가 있다.</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">reduce</span>
+</pre></div>
+<p><code>reduce()</code> 함수의 Docstring은 다음과 같다.</p>
+<div class="highlight"><pre><span></span><span class="n">reduce</span><span class="p">(</span><span class="n">function</span><span class="p">,</span> <span class="n">sequence</span><span class="p">[,</span> <span class="n">initial</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">value</span>
+</pre></div>
+<p>리스트의 모든 값을 더하는 코드를 <code>reduce()</code>로 작성해보자.</p>
+<div class="highlight"><pre><span></span><span class="n">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+</pre></div>
+<p>동작은 다음과 같다. <code>1</code>과 <code>2</code>가 <code>x</code>와 <code>y</code>에 들어간다. 결과인 <code>3</code>이 다시 <code>x</code>에 들어가고, sequence 데이터의 세 번째 요소인 <code>3</code>이 <code>y</code>에 들어간다. 결과인 <code>6</code>이 <code>x</code>에 들어가고, <code>4</code>가 <code>y</code>에 들어간다. 결과인 <code>10</code>이 <code>x</code>에 들어가고, <code>5</code>가 <code>y</code>에 들어간다.</p>
+<h2 id="Decorator">
+<a class="anchor" href="#Decorator" aria-hidden="true"><span class="octicon octicon-link"></span></a>Decorator<a class="anchor-link" href="#Decorator"> </a>
+</h2>
+<p>데코레이터는 코드를 바꾸지 않고 기능을 추가하거나 수정하고 싶을 때 사용한다. 예를 들어 다음의 함수가 있다고 해보자.</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">a</span><span class="p">():</span>
+    <span class="n">code_1</span>
+    <span class="n">code_2</span>
+    <span class="n">code_3</span>
+
+<span class="k">def</span> <span class="nf">b</span><span class="p">():</span>
+    <span class="n">code_1</span>
+    <span class="n">code_4</span>
+    <span class="n">code_3</span>
+</pre></div>
+<p>두 함수를 보면 <code>code_1</code>과 <code>code_3</code>이 중복된다. <code>code_1</code>과 <code>code_3</code>을 묶어서 새로운 함수로 만들어주면 코드 관리나 효율성 측면에서 좋다. 이럴 때 데코레이터를 사용한다.</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">c</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">code_1</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="n">code_3</span>
+        <span class="k">return</span> <span class="n">result</span>
+
+    <span class="k">return</span> <span class="n">wrapper</span>
+
+<span class="nd">@c</span>
+<span class="k">def</span> <span class="nf">a</span><span class="p">():</span>
+    <span class="n">code_2</span>
+
+<span class="nd">@c</span>
+<span class="k">def</span> <span class="nf">b</span><span class="p">():</span>
+    <span class="n">code_4</span>
+</pre></div>
+<p><code>c()</code> 함수는 inner function이며, 모든 arguments(<code>*args</code>)와 keyword arguments(<code>**kwargs</code>)를 받을 수 있게 만들어 준다. <code>a()</code> 함수는 <code>wrapper</code>라는 함수로 바뀌고, <code>b()</code> 함수도 <code>wrapper</code>로 바뀐다. <code>@</code>를 이용해 데코레이터 함수를 호출해주면, <code>a</code> 함수가 <code>c</code>의 argument인 <code>func</code>로 들어가게 된다. <code>a</code> 함수에서는 <code>code_2</code>가 실행되게 되어 있다. <code>wrapper</code> 함수에서는 <code>result</code> 라는 변수에서 <code>a</code> 함수가 치환되어 실행된 결과를 실행된다. 따라서 <code>a</code> 함수에서는 <code>code_1</code>, <code>code_2</code>, <code>code_3</code>이 실행된다. <code>b</code> 함수에서는 <code>code_1</code>, <code>code_4</code>, <code>code_3</code>이 실행된다. 구체적인 코드를 작성하여 살펴보자.</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plus</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"start"</span><span class="p">)</span> <span class="c1"># code_1</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="c1"># code_2</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"result: </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">result</span><span class="p">))</span> <span class="c1"># code_3</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+<span class="n">plus</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">minus</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"start"</span><span class="p">)</span> <span class="c1"># code_1</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span> <span class="c1"># code_4</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"result: </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">result</span><span class="p">))</span> <span class="c1"># code_3</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+<span class="n">minus</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+<p>이제 중복되는 부분인 <code>code_1</code>과 <code>code_3</code>을 묶어주는 데코레이터 함수를 만들어준다.</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">disp</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"start"</span><span class="p">)</span> <span class="c1"># code_1</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwrags</span><span class="p">)</span> <span class="c1"># code_2 or code_4</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"result: </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">result</span><span class="p">))</span> <span class="c1"># code_3</span>
+        <span class="k">return</span> <span class="n">result</span>
+    <span class="k">return</span> <span class="n">wrapper</span>
+</pre></div>
+<p>이제 각 함수에 데코레이터 함수를 적용해보자.</p>
+<div class="highlight"><pre><span></span><span class="nd">@disp</span>
+<span class="k">def</span> <span class="nf">plus</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="c1"># code_2</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+<span class="n">plus</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+<div class="highlight"><pre><span></span><span class="nd">@disp</span>
+<span class="k">def</span> <span class="nf">minus</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span> <span class="c1"># code_4</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+<span class="n">minus</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+<p>앞선 결과와 차이를 비교해보자.</p>
+<h3 id="Decorator-예제">
+<a class="anchor" href="#Decorator-%EC%98%88%EC%A0%9C" aria-hidden="true"><span class="octicon octicon-link"></span></a>Decorator 예제<a class="anchor-link" href="#Decorator-%EC%98%88%EC%A0%9C"> </a>
+</h3>
+<p><strong>함수의 실행 시간을 출력하는 데코레이터 함수를 작성해보자.</strong></p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+<span class="k">def</span> <span class="nf">timer</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>   
+        <span class="n">result</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="n">end_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"running time: </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">end_time</span> <span class="o">-</span> <span class="n">start_time</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">result</span>
+    <span class="k">return</span> <span class="n">wrapper</span>
+
+<span class="o">**</span><span class="nd">@timer</span><span class="o">**</span>
+<span class="k">def</span> <span class="nf">test_1</span><span class="p">(</span><span class="n">num1</span><span class="p">,</span> <span class="n">num2</span><span class="p">):</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="n">num1</span><span class="p">,</span> <span class="n">num2</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="o">**</span><span class="nd">@timer</span><span class="o">**</span>
+<span class="k">def</span> <span class="nf">test_2</span><span class="p">(</span><span class="n">num1</span><span class="p">,</span> <span class="n">num2</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num1</span><span class="p">,</span> <span class="n">num2</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">result</span> <span class="o">+=</span> <span class="n">num</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+<span class="n">test_1</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100000</span><span class="p">)</span>  
+<span class="n">test_2</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100000</span><span class="p">)</span>  
+
+<span class="sd">"""</span>
+<span class="sd"># 결과</span>
+<span class="sd">running time: 0.0027856826782226562</span>
+<span class="sd">running time: 0.009239912033081055</span>
+<span class="sd">5000050000</span>
+<span class="sd">"""</span>
+</pre></div>
+<p><strong>패스워드를 입력 받아야 함수가 실행되도록 하는 데코레이터 함수를 작성하세요.</strong></p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+
+<span class="o">**</span><span class="k">def</span> <span class="nf">plus</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="o">**</span>
+
+<span class="k">def</span> <span class="nf">lotto_func</span><span class="p">():</span>
+    <span class="n">lotto</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">number</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">45</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">number</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">lotto</span><span class="p">:</span>
+            <span class="n">lotto</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">lotto</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">6</span><span class="p">:</span>
+            <span class="n">lotto</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+            <span class="k">break</span>
+
+    <span class="o">**</span><span class="k">return</span> <span class="n">lotto</span><span class="o">**</span>
+</pre></div>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+
+<span class="o">**</span><span class="k">def</span> <span class="nf">check_password</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="c1"># code</span>
+        <span class="k">return</span> <span class="n">result</span>
+    <span class="k">return</span> <span class="n">wrapper</span><span class="o">**</span>
+
+<span class="k">def</span> <span class="nf">plus</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span>
+
+<span class="k">def</span> <span class="nf">lotto_func</span><span class="p">():</span>
+    <span class="n">lotto</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">number</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">45</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">number</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">lotto</span><span class="p">:</span>
+            <span class="n">lotto</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">lotto</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">6</span><span class="p">:</span>
+            <span class="n">lotto</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+            <span class="k">break</span>
+
+    <span class="k">return</span> <span class="n">lotto</span>
+</pre></div>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+
+<span class="k">def</span> <span class="nf">check_password</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="o">**</span><span class="n">pw</span> <span class="o">=</span> <span class="s2">"dss11"</span>
+        <span class="n">datas</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="p">{</span><span class="s2">"id"</span><span class="p">:</span> <span class="s2">"test"</span><span class="p">,</span> <span class="s2">"pw"</span><span class="p">:</span> <span class="s2">"1234"</span><span class="p">},</span>
+            <span class="p">{</span><span class="s2">"id"</span><span class="p">:</span> <span class="s2">"test2"</span><span class="p">,</span> <span class="s2">"pw"</span><span class="p">:</span> <span class="s2">"3245"</span><span class="p">}</span>
+        <span class="p">]</span>
+        <span class="c1"># check password</span>
+        <span class="n">input_pw</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"insert pw: "</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">input_pw</span> <span class="o">==</span> <span class="n">pw</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="c1"># password가 맞을 때에만 해당 함수를 실행시킨다.</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="s2">"Not Allowed"</span><span class="o">**</span>
+
+        <span class="k">return</span> <span class="n">result</span>
+    <span class="k">return</span> <span class="n">wrapper</span>
+
+<span class="k">def</span> <span class="nf">plus</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span>
+
+<span class="k">def</span> <span class="nf">lotto_func</span><span class="p">():</span>
+    <span class="n">lotto</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">number</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">45</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">number</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">lotto</span><span class="p">:</span>
+            <span class="n">lotto</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">lotto</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">6</span><span class="p">:</span>
+            <span class="n">lotto</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+            <span class="k">break</span>
+
+    <span class="k">return</span> <span class="n">lotto</span>
+</pre></div>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+
+<span class="k">def</span> <span class="nf">check_password</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="o">****</span><span class="n">pw</span> <span class="o">=</span> <span class="s2">"dss11"</span>
+        <span class="n">datas</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="p">{</span><span class="s2">"id"</span><span class="p">:</span> <span class="s2">"test"</span><span class="p">,</span> <span class="s2">"pw"</span><span class="p">:</span> <span class="s2">"1234"</span><span class="p">},</span>
+            <span class="p">{</span><span class="s2">"id"</span><span class="p">:</span> <span class="s2">"test2"</span><span class="p">,</span> <span class="s2">"pw"</span><span class="p">:</span> <span class="s2">"3245"</span><span class="p">}</span>
+        <span class="p">]</span>
+        <span class="c1"># check password</span>
+        <span class="n">input_pw</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"insert pw: "</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">input_pw</span> <span class="o">==</span> <span class="n">pw</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="c1"># password가 맞을 때에만 해당 함수를 실행시킨다.</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="s2">"Not Allowed"</span>
+
+<span class="o">****</span>        <span class="k">return</span> <span class="n">result</span>
+    <span class="k">return</span> <span class="n">wrapper</span>
+
+<span class="o">**</span><span class="nd">@check_password</span><span class="o">**</span>
+<span class="k">def</span> <span class="nf">plus</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span>
+
+<span class="o">**</span><span class="nd">@check_password</span><span class="o">**</span>
+<span class="k">def</span> <span class="nf">lotto_func</span><span class="p">():</span>
+    <span class="n">lotto</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">number</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">45</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">number</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">lotto</span><span class="p">:</span>
+            <span class="n">lotto</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">lotto</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">6</span><span class="p">:</span>
+            <span class="n">lotto</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+            <span class="k">break</span>
+
+    <span class="k">return</span> <span class="n">lotto</span>
+
+<span class="n">plus</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">lotto_func</span><span class="p">()</span>
+</pre></div>
+<hr>
+<h1 id="클래스">
+<a class="anchor" href="#%ED%81%B4%EB%9E%98%EC%8A%A4" aria-hidden="true"><span class="octicon octicon-link"></span></a>클래스<a class="anchor-link" href="#%ED%81%B4%EB%9E%98%EC%8A%A4"> </a>
+</h1>
+<p>함수는 반복되는 코드를 하나로 묶는 역할을 한다. 클래스는 함수보다 한 단계 더 큰 개념이다. 변수와 함수를 묶어 놓은 개념이라고 보면 된다. 즉, 클래스에는 변수와 함수가 모두 있다. 함수는 호출해야 실행이 되었다. 클래스는 클래스 내부의 변수와 함수를 사용하기 위해 클래스를 객체로 만들어서 사용해야 한다.</p>
+<h2 id="클래스-선언">
+<a class="anchor" href="#%ED%81%B4%EB%9E%98%EC%8A%A4-%EC%84%A0%EC%96%B8" aria-hidden="true"><span class="octicon octicon-link"></span></a>클래스 선언<a class="anchor-link" href="#%ED%81%B4%EB%9E%98%EC%8A%A4-%EC%84%A0%EC%96%B8"> </a>
+</h2>
+<ol>
+<li>
+<code>Calculator</code>라는 클래스를 만든 후, 원하는 변수와 함수를 넣어보고자 한다. 클래스 명은 첫 글자를 대분자로 써주는 것이 관례다.</li>
+</ol>
+<div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Calculator</span><span class="p">:</span>
+    <span class="n">num1</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">num2</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+
+    <span class="k">def</span> <span class="nf">plus</span><span class="p">():</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">minus</span><span class="p">():</span>
+        <span class="k">pass</span>
+</pre></div>
+<ol>
+<li>함수를 작성한다.</li>
+</ol>
+<p>클래스에 선언되는 모든 함수는 self를 사용한다.</p>
+<div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Calculator</span><span class="p">:</span>
+    <span class="n">num1</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">num2</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+
+    <span class="k">def</span> <span class="nf">plus</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">num1</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">num2</span>
+
+    <span class="k">def</span> <span class="nf">minus</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">num1</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">num2</span>
+</pre></div>
+<h2 id="클래스를-객체로-만들어-클래스를-사용하기">
+<a class="anchor" href="#%ED%81%B4%EB%9E%98%EC%8A%A4%EB%A5%BC-%EA%B0%9D%EC%B2%B4%EB%A1%9C-%EB%A7%8C%EB%93%A4%EC%96%B4-%ED%81%B4%EB%9E%98%EC%8A%A4%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>클래스를 객체로 만들어 클래스를 사용하기<a class="anchor-link" href="#%ED%81%B4%EB%9E%98%EC%8A%A4%EB%A5%BC-%EA%B0%9D%EC%B2%B4%EB%A1%9C-%EB%A7%8C%EB%93%A4%EC%96%B4-%ED%81%B4%EB%9E%98%EC%8A%A4%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0"> </a>
+</h2>
+<ol>
+<li>함수를 선언하는 것과 동일하게, 클래스를 이용하여 객체를 만든다.</li>
+</ol>
+<div class="highlight"><pre><span></span><span class="n">calc</span> <span class="o">=</span> <span class="n">Calculator</span><span class="p">()</span>
+</pre></div>
+<ol>
+<li>객체 내부의 변수와 함수 확인해보기</li>
+</ol>
+<div class="highlight"><pre><span></span><span class="n">calc</span><span class="o">.</span><span class="n">num1</span><span class="p">,</span> <span class="n">calc</span><span class="o">.</span><span class="n">num2</span><span class="p">,</span> <span class="n">calc</span><span class="o">.</span><span class="n">plus</span>
+</pre></div>
+<p>method는 클래스 내부의 function을 말한다. 따라서 해당 함수를 실행하기 위해서는 괄호를 이용해야 한다.</p>
+<div class="highlight"><pre><span></span><span class="n">calc</span><span class="o">.</span><span class="n">plus</span><span class="p">(),</span> <span class="n">calc</span><span class="o">.</span><span class="n">minus</span><span class="p">()</span>
+</pre></div>
+<ol>
+<li>
+<code>dir()</code> 내장함수를 이용하여 클래스 내부의 변수와 함수 살펴보기</li>
+</ol>
+<div class="highlight"><pre><span></span><span class="nb">dir</span><span class="p">(</span><span class="n">calc</span><span class="p">)</span>
+</pre></div>
+<p><code>calc</code> 객체 내부의 변수와 함수를 알아낼 수 있다. 언더바(<code>_</code>)가 두 개 붙은 것은, 파이썬 엔진이 객체를 만들 때 자동적으로 생성 시켜주는 변수나 함수라고 보면 된다. 이를 제외한 객체 내부의 변수와 함수를 알아보고자 할 땐, 다음과 같이 코딩한다.</p>
+<div class="highlight"><pre><span></span><span class="p">[</span><span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">calc</span><span class="p">)</span> <span class="k">if</span> <span class="n">data</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">'__'</span><span class="p">]</span>
+</pre></div>
+<h2 id="self의-의미">
+<a class="anchor" href="#self%EC%9D%98-%EC%9D%98%EB%AF%B8" aria-hidden="true"><span class="octicon octicon-link"></span></a>self의 의미<a class="anchor-link" href="#self%EC%9D%98-%EC%9D%98%EB%AF%B8"> </a>
+</h2>
+<p><code>self</code>는 '객체 자신'을 말한다.</p>
+<div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Calculator</span><span class="p">:</span>
+    <span class="n">num1</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">num2</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+
+    <span class="k">def</span> <span class="nf">plus</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">num1</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">num2</span>
+
+    <span class="k">def</span> <span class="nf">minus</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">num1</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">num2</span>
+
+<span class="n">calc</span> <span class="o">=</span> <span class="n">Calculator</span><span class="p">()</span>
+<span class="n">calc</span><span class="o">.</span><span class="n">plus</span><span class="p">()</span>
+<span class="n">calc</span><span class="o">.</span><span class="n">minus</span><span class="p">()</span>
+</pre></div>
+<p>위 코드에서, <code>Calculator</code> 클래스를 이용하여 <code>calc</code> 객체를 만들었다. <code>calc.plus()</code>함수를 보자. <code>calc.plus()</code> 함수의 <code>self</code>는 곧 <code>calc</code> 자기 자신을 의미한다. 따라서, <code>self.num1 + self.num2</code>는 <code>calc.num1 + calc.num2</code>와 같은 의미라고 할 수 있다.</p>
+<hr>
+<h1 id="객체지향">
+<a class="anchor" href="#%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5" aria-hidden="true"><span class="octicon octicon-link"></span></a>객체지향<a class="anchor-link" href="#%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5"> </a>
+</h1>
+<h2 id="객체지향의-의미">
+<a class="anchor" href="#%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5%EC%9D%98-%EC%9D%98%EB%AF%B8" aria-hidden="true"><span class="octicon octicon-link"></span></a>객체지향의 의미<a class="anchor-link" href="#%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5%EC%9D%98-%EC%9D%98%EB%AF%B8"> </a>
+</h2>
+<p>실제 세계를 코드에 반영해서 개발하는 방법을 말한다. 실제 세계를 코드에 반영한다는 말은, 현실 세계를 반영한 일종의 설계도를 말한다. 설계도를 작성하는 것이 클래스(class)이며, 이 때 설계도에 따라 만들어진 상품 같은 것이 객체(object)다. 따라서 현실 세계를 충분히 반영하기 위하여 추상화 과정이 필요하며, 모델링이라고도 한다. 객체지향을 사용함으로써 얻을 수 있는 이점은 여러 개발자가 함께 코드를 효율적으로 작성할 수 있게 한다는 점이다.</p>
+<div class="highlight"><pre><span></span><span class="n">obj</span> <span class="o">=</span> <span class="s2">"python"</span>
+<span class="n">obj</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="c1"># 'PYTHON'</span>
+</pre></div>
+<p>위의 코드에서 <code>obj</code> 변수는 문자열이다. 이 문자열 변수에 <code>upper()</code> 함수를 호출한다. 즉, <code>obj</code>라는 변수는 문자열을 담고 있는 '객체'라고 할 수 있다.</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span>
+    <span class="p">{</span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"hugh"</span><span class="p">,</span> <span class="s2">"age"</span><span class="p">:</span><span class="mi">29</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"dustin"</span><span class="p">,</span> <span class="s2">"age"</span><span class="p">:</span><span class="mi">29</span><span class="p">},</span>
+<span class="p">])</span>
+</pre></div>
+<p>위 코드에서도 마찬가지로, <code>DataFrame</code>이 대문자로 시작하고 있고 카멜형식으로 되어있다. 따라서 <code>DataFrame()</code>이 클래스임을 알 수 있다. 클래스를 만들 때, 처음부터 데이터를 dict형식으로 주고 있는 것을 알 수 있다. 참고로 pandas의 기본 DataFrame의 형태는 다음과 같다.</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span>
+    <span class="p">{},</span>
+    <span class="p">{},</span>
+<span class="p">])</span>
+</pre></div>
+<hr>
+<h2 id="생성자">
+<a class="anchor" href="#%EC%83%9D%EC%84%B1%EC%9E%90" aria-hidden="true"><span class="octicon octicon-link"></span></a>생성자<a class="anchor-link" href="#%EC%83%9D%EC%84%B1%EC%9E%90"> </a>
+</h2>
+<p>생성자란, 클래스가 객체로 생성될 때 실행되는 함수를 말한다. 주로 변수를 추가할 때 사용된다.</p>
+<div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Calculator</span><span class="p">:</span>
+    <span class="n">num1</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">num2</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+
+    <span class="k">def</span> <span class="nf">plus</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">num1</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">num2</span>
+
+    <span class="k">def</span> <span class="nf">minus</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">num1</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">num2</span>
+</pre></div>
+<p>위 코드에서 <code>num1</code>과 <code>num2</code>는 객체로 만들어지면 무조건 값이 각각 <code>1</code>과 <code>2</code>가 되고, 객체로 만들어진 후에 수정이 가능하다. 이런 방식 대신, 객체를 생성하는 순간에 <code>num1</code>값과 <code>num2</code>값을 넣어주고 싶을 땐 어떻게 할까? 이럴 때 생성자를 사용하는 것이다.</p>
+<p>생성자 함수 만들기</p>
+<p>생성자 함수를 만들어보자. 생성자 함수를 만들 땐 반드시 <code>__init__</code>이라는 이름으로 써주어야 한다.</p>
+<div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Calculator</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num1</span><span class="p">,</span> <span class="n">num2</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num1</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num2</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+
+    <span class="k">def</span> <span class="nf">plus</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">num1</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">num2</span>
+
+    <span class="k">def</span> <span class="nf">minus</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">num1</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">num2</span>
+</pre></div>
+<p>이제 <code>Calculator</code> 객체를 만들 때 <code>__init__</code>함수를 만들 때 <code>num1</code>과 <code>num2</code>값을 넣어주어야만 객체가 생성된다. 메소드도 함수이기 때문에 당연히 default값을 넣어줄 수 있다.</p>
+<div class="highlight"><pre><span></span><span class="n">calc1</span> <span class="o">=</span> <span class="n">Calculator</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">calc1</span><span class="o">.</span><span class="n">plus</span><span class="p">()</span>
+
+<span class="n">calc1</span> <span class="o">=</span> <span class="n">Calculator</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">calc1</span><span class="o">.</span><span class="n">minus</span><span class="p">()</span>
+</pre></div>
+<p>함수의 호출과 구분이 되지 않을 수 있다. 클래스는 대문자로 시작한다는 점만 기억하면 된다.</p>
+<h2 id="상속">
+<a class="anchor" href="#%EC%83%81%EC%86%8D" aria-hidden="true"><span class="octicon octicon-link"></span></a>상속<a class="anchor-link" href="#%EC%83%81%EC%86%8D"> </a>
+</h2>
+<p>클래스와 클래스 사이엔 상속이 가능하다. 상속을 사용하는 이유는 원래 있던 클래스의 기능을 그대로 가져와 그 기능을 수정하거나 추가할 때 사용하기 위함이다. 아래와 같은 클래스가 있다고 해보자.</p>
+<div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Calculator</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num1</span><span class="p">,</span> <span class="n">num2</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num1</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num2</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+
+    <span class="k">def</span> <span class="nf">plus</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">num1</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">num2</span>
+</pre></div>
+<p>위 <code>Calculator</code> 클래스에서 minus 기능이 필요한 함수가 필요하다면, 다음과 같이 할 수 있다.</p>
+<div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Calculator2</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num1</span><span class="p">,</span> <span class="n">num2</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num1</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num2</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+
+    <span class="k">def</span> <span class="nf">plus</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">num1</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">num2</span>
+
+    <span class="k">def</span> <span class="nf">minus</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">num1</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">num2</span>
+</pre></div>
+<p>위 코드에는 <code>Calculator</code> 클래스가 가지는 변수와 함수를 중복해서 쓴다는 문제가 있다. 코드의 효율성이 떨어진다고 할 수 있다. <code>Calculator</code> 클래스를 상속받아, <code>minus()</code> 함수만 추가하면 된다. 따라서 다음과 같이 수정한다.</p>
+<div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Calculator2</span><span class="p">(</span><span class="n">Calculator</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">minus</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">num1</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">num2</span>
+</pre></div>
+<p>위와 같이 하면, <code>Calculator</code>의 변수와 기능들이 모두 <code>Calculator2</code>로 들어온다.</p>
+<div class="highlight"><pre><span></span><span class="n">calc3</span> <span class="o">=</span> <span class="n">Calculator2</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">calc3</span><span class="o">.</span><span class="n">minus</span><span class="p">()</span>
+<span class="n">calc3</span><span class="o">.</span><span class="n">plus</span><span class="p">()</span>
+</pre></div>
+<p><code>Calculator2</code>에는 추가하지 않았는데도 변수와 함수들이 <code>Calculator</code>와 동일하게 동작하는 것을 확인할 수 있다.</p>
+<h2 id="메서드-오버라이딩">
+<a class="anchor" href="#%EB%A9%94%EC%84%9C%EB%93%9C-%EC%98%A4%EB%B2%84%EB%9D%BC%EC%9D%B4%EB%94%A9" aria-hidden="true"><span class="octicon octicon-link"></span></a>메서드 오버라이딩<a class="anchor-link" href="#%EB%A9%94%EC%84%9C%EB%93%9C-%EC%98%A4%EB%B2%84%EB%9D%BC%EC%9D%B4%EB%94%A9"> </a>
+</h2>
+<p><code>Calculator</code>를 상속해서 사용할 때, <code>plus()</code> 함수의 기능을 수정하고 싶다면 어떻게 할까? 그 때 사용하는 기능이 '메서드 오버라이딩'이다. 메서드 오버라이딩은 다른 사람이 만든 함수들 중 특정 함수를 수정하여 쓰고 싶을 때 쓸 수 있다.</p>
+<div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Calculator3</span><span class="p">(</span><span class="n">Calculator2</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">plus</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">num1</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">num2</span><span class="o">**</span><span class="mi">2</span>
+</pre></div>
+<p>상속받은 함수인 <code>plus()</code> 함수를 재정의 하는 것이라고 보면 된다. 위와 같이 하면 <code>plus()</code> 함수의 내용이 덮어쓰여지게 된다.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="tfedohk/dohk"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/dohk/python-basic/" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/dohk/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/dohk/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/dohk/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>contact on gwondohyung@gmail.com</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/tfedohk" title="tfedohk"><svg class="svg-icon grey"><use xlink:href="/dohk/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/fastdotai" title="fastdotai"><svg class="svg-icon grey"><use xlink:href="/dohk/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
